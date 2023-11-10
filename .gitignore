@@ -1,0 +1,27 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore node modules
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore the build directory
+/dist
+
+# Ignore IDE specific files
+.idea/
+*.swp
+*.swo
+*.swn
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore package-lock.json as it's typically not committed
+package-lock.json
+
+# Environment variables
+*.env
