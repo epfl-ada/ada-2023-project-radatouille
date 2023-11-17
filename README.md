@@ -29,7 +29,7 @@ Predictive Modeling: Use historical Metacritic data to predict future trends or 
 **Data Integration and Cleaning:** Merging datasets from various sources, ensuring consistency and quality.<br>
 **Statistical Analysis:** Employing correlation analysis and regression models to explore relationships between different metrics.<br>
 **Machine Learning:** Using predictive models to forecast a movie's success based on early available data???<br>
-NLP/Topic modeling/ Sentiment Analysis???<br>
+**NLP/Topic modeling/ Sentiment Analysis???** <br>
 
 # Proposed Timeline
 # Organization within the Team
