@@ -1,5 +1,5 @@
 # Title
-Cinematic Scoreboard: Evaluating Movie Quality Metrics  
+Cinematic Scoreboard: Evaluating Movie Quality Metrics  <br>
 Critics vs People: why your 8-year-old cousin didn't like Citizen Kane
 
 # Abstract
