@@ -13,7 +13,7 @@ Is there a significant discrepancy between critics' reviews and audience ratings
 Can we predict a movie's success based on early reviews and initial box office performance?<br>
 +<br>
 Comparative Analysis: Compare Metascores across different media to understand trends, such as the differences in critical reception between genres or over time.<br>
-Correlation Studies: Investigate correlations between Metacritic scores and other data, such as box office earnings for movies or sales figures for video games.<br>
+Correlation Studies: Investigate correlations between Metacritic scores and other data, such as box office earnings or sales figures for movies.<br>
 Predictive Modeling: Use historical Metacritic data to predict future trends or successes in media.<br>
 
 
