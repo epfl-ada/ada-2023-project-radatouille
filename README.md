@@ -99,6 +99,14 @@ The deadline is **December 22nd.**
 ## Organization within the team
 We use the steps described above to divide the work between us.
 We will work together on the datastory and the website.
+
+We use the following acronyms for first names to make them easier to read:
+- Antonin: A
+- Baptiste: B
+- Enzo: E
+- Jamil: J
+- Mariella: M
+
 | What?                 | Who?               |Statuts |
 | --------------------- | ------------------ |--------|
 | Step 1. | Everyone | **Done** |
