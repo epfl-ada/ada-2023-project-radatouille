@@ -18,17 +18,17 @@ Predictive Modeling: Use historical Metacritic data to predict future trends or 
 
 
 # Proposed Additional Datasets
-IMDb Database: A comprehensive collection of user and critic ratings, reviews, and movie metadata for the top 1000 movies. We plan to use IMDb's dataset to enrich our analysis with extensive user-generated content.<br>
-Metacritic: An aggregation of reviews from respected critics; calculates a weighted average score, giving users a quick glimpse into the overall critical reception.<br>
-Award Data: Datasets listing major film awards (Oscars, Golden Globes, etc.), to study the correlation between critical acclaim and other metrics.<br>
-?Financial Reports: Box office revenue data from sources like Box Office Mojo to assess commercial success.<br>
+**IMDb Database:** A comprehensive collection of user and critic ratings, reviews, and movie metadata for the top 1000 movies. We plan to use IMDb's dataset to enrich our analysis with extensive user-generated content.<br>
+**Metacritic:** An aggregation of reviews from respected critics; calculates a weighted average score, giving users a quick glimpse into the overall critical reception.<br>
+**Award Data:** Datasets listing major film awards (Oscars, Golden Globes, etc.), to study the correlation between critical acclaim and other metrics.<br>
+**Financial Reports:** Box office revenue data to assess commercial success.<br>
 
 # Methods
-Data Management: Python's Pandas library will aid in data processing and analysis.<br>
-Data Size and Format: We anticipate dealing with large datasets, predominantly in CSV format.<br>
-Data Integration and Cleaning: Merging datasets from various sources, ensuring consistency and quality.<br>
-Statistical Analysis: Employing correlation analysis and regression models to explore relationships between different metrics.<br>
-Machine Learning: Using predictive models to forecast a movie's success based on early available data???<br>
+**Data Management:** Python's Pandas library will aid in data processing and analysis.<br>
+**Data Size and Format:** We anticipate dealing with large datasets, predominantly in CSV format.<br>
+**Data Integration and Cleaning:** Merging datasets from various sources, ensuring consistency and quality.<br>
+**Statistical Analysis:** Employing correlation analysis and regression models to explore relationships between different metrics.<br>
+**Machine Learning:** Using predictive models to forecast a movie's success based on early available data???<br>
 NLP/Topic modeling/ Sentiment Analysis???<br>
 
 # Proposed Timeline
