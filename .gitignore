@@ -20,8 +20,5 @@ node_modules/
 *.sublime-project
 *.sublime-workspace
 
-# Ignore package-lock.json as it's typically not committed
-package-lock.json
-
 # Environment variables
 *.env
