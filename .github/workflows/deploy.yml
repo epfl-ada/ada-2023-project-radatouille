@@ -39,6 +39,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_URL: ada-2023-project-radatouille
+          
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
