@@ -22,3 +22,5 @@ node_modules/
 
 # Environment variables
 *.env
+
+data/raw/nlp_summaries
