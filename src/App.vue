@@ -8,14 +8,14 @@ import Navbar from './Navbar.vue'
   <!-- Hero -->
   <div
     class="flex flex-col w-full items-center bg-[url(/banner.webp)] bg-center bg-cover bg-no-repeat justify-center text-light p-6 shadow-lg min-h-[400px]">
-    <h1 class="text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New York Times
+    <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New York Times
       doesn't like
       Marvel movies</h1>
     <h3 class="text-xl font-thin mt-2 text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">An attempt to explain movie
       taste differences between users and critics</h3>
     <div class="flex flex-col items-center mt-auto px-5 py-3">
-      <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">A project by</span>
-      <div class="flex flex-wrap gap-1 items-center justify-center">
+      <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3">A project by</span>
+      <div class="flex flex-wrap gap-1 items-center justify-center mt-2">
         <span class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Antonin Faure</span>
         <span class="hidden lg:block drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">&bull;</span>
         <span class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Baptiste Lecoeur</span>
