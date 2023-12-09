@@ -11,14 +11,14 @@
         <Dialog as="div" @close="setIsMobileMenuOpen">
             <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
                 leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
-                <div class="fixed inset-0 bg-black/50" />
+                <div class="fixed inset-0 bg-black/50 z-10" />
             </TransitionChild>
 
             <div class="fixed inset-0 overflow-y-auto overflow-x-hidden z-20">
                 <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 translate-x-full"
                     enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 translate-x-full">
-                    <DialogPanel class="h-full ml-16">
+                    <DialogPanel class="h-full ml-16 lg:w-1/3 lg:ml-auto">
                         <div class="bg-dark text-light h-full w-full overflow-y-auto p-8">
                             <button class="bg-slate-500 rounded-full p-3 text-white fixed top-8 right-8 hover:bg-slate-600"
                                 title="Close menu" @click="() => setIsMobileMenuOpen(false)">
