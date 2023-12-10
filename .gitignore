@@ -9,7 +9,8 @@ node_modules/
 *.log
 
 # Ignore the build directory
-/dist
+*/dist
+
 
 # Ignore IDE specific files
 .idea/
@@ -24,3 +25,5 @@ node_modules/
 *.env
 
 data/raw/nlp_summaries
+
+__pycache__/
