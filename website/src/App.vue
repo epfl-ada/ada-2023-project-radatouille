@@ -1,5 +1,13 @@
 <script setup>
 import Navbar from './Navbar.vue'
+import { ref } from 'vue'
+
+const activeLamp = ref(true)
+
+function toggleLamp() {
+  activeLamp.value = !activeLamp.value
+}
+
 </script>
 
 <template>
@@ -8,7 +16,8 @@ import Navbar from './Navbar.vue'
   <!-- Hero -->
   <div
     class="flex flex-col w-full items-center bg-[url(/banner.webp)] bg-center bg-cover bg-no-repeat justify-center text-light p-6 shadow-lg min-h-[400px]">
-    <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New York Times
+    <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New
+      York Times
       doesn't like
       Marvel movies</h1>
     <h3 class="text-xl font-thin mt-2 text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">An attempt to explain movie
@@ -30,8 +39,18 @@ import Navbar from './Navbar.vue'
   </div>
 
   <!-- Main -->
-  <main class="flex flex-col w-full items-center">
-    <div class="flex flex-col p-8 w-full max-w-screen-lg">
+  <main class="grid grid-cols-5 w-full items-center overflow-hidden">
+    <div class="cols-1 pl-8">
+      <div class="lamp-container">
+        <img :src="activeLamp ? '/lamp_right.png' : '/lamp_face.png'" alt="lamp face" class="lamp cursor-pointer"
+          @click="toggleLamp" />
+        <svg v-show="activeLamp" class="light-aura" width="1000" height="600" viewBox="0 0 500 300" preserveAspectRatio="xMidYMin slice">
+          <polygon points="350,100 800,100 204,6 197,16" fill="yellow" />
+          <!-- Adjust the points to shape the cone as needed -->
+        </svg>
+      </div>
+    </div>
+    <div class="flex col-span-3 flex-col p-8 w-full max-w-screen-lg">
       <section id="introduction" class="section">
         <h2 class="text-3xl font-bold mt-5">Introduction</h2>
         <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
@@ -177,4 +196,30 @@ import Navbar from './Navbar.vue'
   padding-top: 50px;
   margin-top: -50px;
 }
-</style>
+
+.lamp-container {
+  position: relative;
+}
+
+
+.lamp {
+  width: 200px;
+  /* Adjust as per your image size */
+  display: block;
+  z-index: 2;
+  left: 0;
+  position: relative;
+  height: auto;
+}
+
+.light-aura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Start the aura right at the end of the lamp */
+  /* Extend to the rest of the viewport */
+  height: 300vh;
+  z-index: 1;
+  opacity: 0.5;
+  /* Ensures the light aura is behind the lamp */
+}</style>
