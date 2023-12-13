@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import itertools
 import networkx as nx
 import matplotlib.lines as mlines
+import seaborn as sns
 
 def process_actors(df, movies_threshold=6):
     """
@@ -269,10 +270,17 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     plt.figure(figsize=figsize)
 
     # Create horizontal bar plot
-    if 'ci_error' not in results.columns:
-        plt.barh(results[y_column], results[x_column], color='skyblue')
-    else:
-        plt.barh(results[y_column], results[x_column], xerr=[results['ci_error'], results['ci_error']], color='skyblue')
+    bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column])
+
+    if 'ci_error' in results.columns:
+        y_positions = bar.get_yticks()
+        # Adjust positions based on the number of categories
+        adjusted_positions = y_positions + bar.patches[0].get_height() / len(results[y_column]) / 2
+
+        # Add error bars
+        plt.errorbar(x=results[x_column], y=adjusted_positions, 
+                     xerr=[results['ci_error'], results['ci_error']], 
+                     fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
 
     plt.ylabel(y_column)
     plt.xlabel(x_column)
@@ -455,3 +463,56 @@ def compare_baseline(model, df, X_columns, y_column, print_results=True):
     else:
         return results_df
     
+
+def compare_plot_results(df1, df2, y_column, x_column1, x_column2, title1, title2, figsize=(10, 5)):
+    results1 = df1.copy()
+    results2 = df2.copy()
+
+    # Calculate the lower and upper confidence interval for the coefficient
+    if 'upper_ci' in results1.columns:
+        results1['ci_error'] = results1['upper_ci'] - results1[x_column1]
+
+    if 'upper_ci' in results2.columns:
+        results2['ci_error'] = results2['upper_ci'] - results2[x_column2]
+
+    results1[y_column] = results1[y_column].astype(str)
+    results2[y_column] = results2[y_column].astype(str)
+
+    # Create the plot
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=figsize)
+
+    # Create horizontal bar plot
+    bar1 = sns.barplot(x=x_column1, y=y_column, data=results1, order=results1[y_column], ax=ax1)
+    bar2 = sns.barplot(x=x_column2, y=y_column, data=results2, order=results2[y_column], ax=ax2)
+
+    if 'ci_error' in results1.columns:
+        y_positions1 = bar1.get_yticks()
+        # Adjust positions based on the number of categories
+        adjusted_positions1 = y_positions1 + bar1.patches[0].get_height() / len(results1[y_column]) / 2
+
+        # Add error bars
+        ax1.errorbar(x=results1[x_column1], y=adjusted_positions1, 
+                     xerr=[results1['ci_error'], results1['ci_error']], 
+                     fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
+        
+    if 'ci_error' in results2.columns:
+        y_positions2 = bar2.get_yticks()
+        # Adjust positions based on the number of categories
+        adjusted_positions2 = y_positions2 + bar2.patches[0].get_height() / len(results2[y_column]) / 2
+
+        # Add error bars
+        ax2.errorbar(x=results2[x_column2], y=adjusted_positions2, 
+                     xerr=[results2['ci_error'], results2['ci_error']], 
+                     fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
+    ax1.set_ylabel(y_column)
+    ax1.set_xlabel(x_column1)
+    ax1.set_title(title1)
+    ax1.grid(True)
+
+    ax2.set_ylabel(y_column)
+    ax2.set_xlabel(x_column2)
+    ax2.set_title(title2)
+    ax2.grid(True)
+
+    plt.tight_layout()
+    plt.show()
