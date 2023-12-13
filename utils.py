@@ -314,7 +314,6 @@ def plot_graph(pairs_results, values_counts, title):
 
     # Extract edge weights and scale for visualization
     edge_weights = [G[u][v]['weight'] for u, v in G.edges()]
-
     # Extract node sizes and scale for visualization
     node_sizes = [G.nodes[node]['size'] * 10 for node in G.nodes()]  # Scale as needed
 
@@ -441,8 +440,6 @@ def compare_baseline(model, df, X_columns, y_column, print_results=True):
     baseline_r2 = r2_score(y, baseline_predictions)
     baseline_adjusted_r2 = baseline_r2
 
-    
-
     # Compute percentage of improvement
     improvement_mse =  (str(np.round((mse - baseline_mse) / baseline_mse * 100, 2)) + '%' if baseline_mse != 0 else 'inf')
     improvement_mae = (str(np.round((mae - baseline_mae) / baseline_mae * 100, 2)) + '%' if baseline_mae != 0 else 'inf')
@@ -457,3 +454,4 @@ def compare_baseline(model, df, X_columns, y_column, print_results=True):
         display(results_df)
     else:
         return results_df
+    
