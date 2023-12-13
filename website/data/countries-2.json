@@ -1,1 +1,122 @@
-[{"correlation": 0.14111802354823677, "p_value": 2.2782544322765457e-35, "lower_ci": 0.11909966812260799, "upper_ci": 0.16299764808472247, "country": "France", "number_of_movies": 890}, {"correlation": 0.0672185206555449, "p_value": 3.891007808433484e-09, "lower_ci": 0.04489135109289391, "upper_ci": 0.08947857121545279, "country": "Italy", "number_of_movies": 270}, {"correlation": 0.06522967456829858, "p_value": 1.1025477788923861e-08, "lower_ci": 0.04289759307242872, "upper_ci": 0.08749660573643117, "country": "Iran", "number_of_movies": 37}, {"correlation": 0.05318847526702744, "p_value": 3.1981078887205076e-06, "lower_ci": 0.03083045234002842, "upper_ci": 0.07549329838376104, "country": "Switzerland", "number_of_movies": 61}, {"correlation": 0.05024773001107145, "p_value": 1.0834342389343225e-05, "lower_ci": 0.027884361483093, "upper_ci": 0.0725608247774526, "country": "United Kingdom", "number_of_movies": 1136}, {"correlation": 0.04268326414837263, "p_value": 0.00018638194947527374, "lower_ci": 0.020307929723584525, "upper_ci": 0.06501586311464695, "country": "Belgium", "number_of_movies": 93}, {"correlation": 0.041391055792755344, "p_value": 0.0002905692300010182, "lower_ci": 0.019013934224288737, "upper_ci": 0.06372673118296857, "country": "Japan", "number_of_movies": 248}, {"correlation": 0.04096144664126212, "p_value": 0.0003358867007661576, "lower_ci": 0.018583747520575424, "upper_ci": 0.06329812831209464, "country": "England", "number_of_movies": 36}, {"correlation": 0.03942620540442979, "p_value": 0.0005576523896796723, "lower_ci": 0.01704651006139174, "upper_ci": 0.06176641575969893, "country": "Poland", "number_of_movies": 28}, {"correlation": 0.036763886196289675, "p_value": 0.0012900211383674984, "lower_ci": 0.01438097992815973, "upper_ci": 0.059109966288962416, "country": "Sweden", "number_of_movies": 66}, {"correlation": 0.034647959567578004, "p_value": 0.0024225238052488977, "lower_ci": 0.012262728227662409, "upper_ci": 0.05699847899497031, "country": "Taiwan", "number_of_movies": 24}, {"correlation": 0.034379148971315915, "p_value": 0.002618412746315867, "lower_ci": 0.011993636633515119, "upper_ci": 0.05673021806382068, "country": "Norway", "number_of_movies": 29}, {"correlation": 0.03252639117873336, "p_value": 0.004412715012488344, "lower_ci": 0.010139030267580266, "upper_ci": 0.054881161014421274, "country": "Russia", "number_of_movies": 43}, {"correlation": -0.04160561708658064, "p_value": 0.0002701438802709292, "lower_ci": -0.06394078682118368, "upper_ci": -0.019228787069484183, "country": "Canada", "number_of_movies": 395}, {"correlation": -0.2204879522301327, "p_value": 5.517760696146137e-85, "lower_ci": -0.24168929205280362, "upper_ci": -0.19907619867790072, "country": "United States of America", "number_of_movies": 5670}]
+[
+    {
+        "correlation": 0.14111802354823677,
+        "p_value": 2.2782544322765457e-35,
+        "lower_ci": 0.11909966812260799,
+        "upper_ci": 0.16299764808472247,
+        "country": "France",
+        "number_of_movies": 890
+    },
+    {
+        "correlation": 0.0672185206555449,
+        "p_value": 3.891007808433484e-09,
+        "lower_ci": 0.04489135109289391,
+        "upper_ci": 0.08947857121545279,
+        "country": "Italy",
+        "number_of_movies": 270
+    },
+    {
+        "correlation": 0.06522967456829858,
+        "p_value": 1.1025477788923861e-08,
+        "lower_ci": 0.04289759307242872,
+        "upper_ci": 0.08749660573643117,
+        "country": "Iran",
+        "number_of_movies": 37
+    },
+    {
+        "correlation": 0.05318847526702744,
+        "p_value": 3.1981078887205076e-06,
+        "lower_ci": 0.03083045234002842,
+        "upper_ci": 0.07549329838376104,
+        "country": "Switzerland",
+        "number_of_movies": 61
+    },
+    {
+        "correlation": 0.05024773001107145,
+        "p_value": 1.0834342389343225e-05,
+        "lower_ci": 0.027884361483093,
+        "upper_ci": 0.0725608247774526,
+        "country": "United Kingdom",
+        "number_of_movies": 1136
+    },
+    {
+        "correlation": 0.04268326414837263,
+        "p_value": 0.00018638194947527374,
+        "lower_ci": 0.020307929723584525,
+        "upper_ci": 0.06501586311464695,
+        "country": "Belgium",
+        "number_of_movies": 93
+    },
+    {
+        "correlation": 0.041391055792755344,
+        "p_value": 0.0002905692300010182,
+        "lower_ci": 0.019013934224288737,
+        "upper_ci": 0.06372673118296857,
+        "country": "Japan",
+        "number_of_movies": 248
+    },
+    {
+        "correlation": 0.04096144664126212,
+        "p_value": 0.0003358867007661576,
+        "lower_ci": 0.018583747520575424,
+        "upper_ci": 0.06329812831209464,
+        "country": "England",
+        "number_of_movies": 36
+    },
+    {
+        "correlation": 0.03942620540442979,
+        "p_value": 0.0005576523896796723,
+        "lower_ci": 0.01704651006139174,
+        "upper_ci": 0.06176641575969893,
+        "country": "Poland",
+        "number_of_movies": 28
+    },
+    {
+        "correlation": 0.036763886196289675,
+        "p_value": 0.0012900211383674984,
+        "lower_ci": 0.01438097992815973,
+        "upper_ci": 0.059109966288962416,
+        "country": "Sweden",
+        "number_of_movies": 66
+    },
+    {
+        "correlation": 0.034647959567578004,
+        "p_value": 0.0024225238052488977,
+        "lower_ci": 0.012262728227662409,
+        "upper_ci": 0.05699847899497031,
+        "country": "Taiwan",
+        "number_of_movies": 24
+    },
+    {
+        "correlation": 0.034379148971315915,
+        "p_value": 0.002618412746315867,
+        "lower_ci": 0.011993636633515119,
+        "upper_ci": 0.05673021806382068,
+        "country": "Norway",
+        "number_of_movies": 29
+    },
+    {
+        "correlation": 0.03252639117873336,
+        "p_value": 0.004412715012488344,
+        "lower_ci": 0.010139030267580266,
+        "upper_ci": 0.054881161014421274,
+        "country": "Russia",
+        "number_of_movies": 43
+    },
+    {
+        "correlation": -0.04160561708658064,
+        "p_value": 0.0002701438802709292,
+        "lower_ci": -0.06394078682118368,
+        "upper_ci": -0.019228787069484183,
+        "country": "Canada",
+        "number_of_movies": 395
+    },
+    {
+        "correlation": -0.2204879522301327,
+        "p_value": 5.517760696146137e-85,
+        "lower_ci": -0.24168929205280362,
+        "upper_ci": -0.19907619867790072,
+        "country": "United States of America",
+        "number_of_movies": 5670
+    }
+]
