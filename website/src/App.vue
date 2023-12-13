@@ -408,7 +408,7 @@ const renderChart = (chartData, ctx, datasets, tooltip, chart_title = "") => {
                 outliers, just like how a single overpowering spice can skew the taste of a dish.
               </p>
             </div>
-            <div class="flex flex-col order-1 lg:order-1 w-full items-center justify-center">
+            <div class="flex flex-col col-span-3 order-1 lg:col-span-1 lg:order-1 w-full items-center justify-center">
               <div class="flex flex-col h-full w-full items-center justify-center">
                 <img src="/ego.png" alt="ego"
                   class="w-full mt-4 drop-shadow-xl hover:scale-105 hover:drop-shadow-none transition duration-300" />
@@ -427,8 +427,8 @@ const renderChart = (chartData, ctx, datasets, tooltip, chart_title = "") => {
                 guaranteed recipe for critical acclaim.
               </p>
             </div>
-            <div class="flex flex-col order-1 lg:order-2 w-full items-center justify-center">
-              <div class="flex flex-col h-full w-full items-center justify-center">
+            <div class="flex flex-col  col-span-3 order-1 lg:col-span-1 lg:order-2 w-full items-center justify-center">
+              <div class="flex flex-col  h-full w-full items-center justify-center">
                 <img src="/remy.png" alt="remy"
                   class="w-full drop-shadow-xl hover:scale-105 hover:drop-shadow-none transition duration-300" />
               </div>
