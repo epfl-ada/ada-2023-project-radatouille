@@ -46,7 +46,7 @@ onMounted(() => {
       }
     };
 
-    renderChart(chartData1, ctx1, datasets1, "Average rating difference by country");
+    renderChart(chartData1, ctx1, datasets1, tooltip1, "Average rating difference by country");
   }
   if (chartCountries2.value) {
     const sortedData2 = countries2.sort((a, b) => a.correlation - b.correlation);
@@ -81,7 +81,7 @@ onMounted(() => {
     };
 
 
-    renderChart(chartData2, ctx2, datasets2, tooltip2, "Pearson coefficient by country for rating difference");
+    renderChart(chartData2, ctx2, datasets2, tooltip2, "Significant pearson coefficients by country for rating difference");
   }
   if (chartCountries3.value) {
     const sortedData3 = countries3.sort((a, b) => a.coef - b.coef);
@@ -116,7 +116,7 @@ onMounted(() => {
     };
 
 
-    renderChart(chartData3, ctx3, datasets3, tooltip3, "OLS coefficient by country for rating difference");
+    renderChart(chartData3, ctx3, datasets3, tooltip3, "Significant OLS coefficients by country for rating difference");
   }
 });
 
