@@ -418,3 +418,42 @@ def study_interactions(one_hot, significant_columns, threshold=0.005, title="OLS
 
     return interactions_ols_significant_results
 
+
+def compare_baseline(model, df, X_columns, y_column, print_results=True):
+    X = df[X_columns]
+    y = df[y_column]
+
+    X = sm.add_constant(X)
+
+    y_pred = model.predict(X)
+
+    # Evaluate metrics
+    r2 = model.rsquared
+    adjusted_r_squared = model.rsquared_adj
+    mae = mean_absolute_error(y, y_pred)
+    mse = mean_squared_error(y, y_pred)
+
+    # Baseline model (predicting mean)
+    mean_y = np.mean(y)
+    baseline_predictions = np.full(shape=y.shape, fill_value=mean_y)
+    baseline_mse = mean_squared_error(y, baseline_predictions)
+    baseline_mae = mean_absolute_error(y, baseline_predictions)
+    baseline_r2 = r2_score(y, baseline_predictions)
+    baseline_adjusted_r2 = baseline_r2
+
+    
+
+    # Compute percentage of improvement
+    improvement_mse =  (str(np.round((mse - baseline_mse) / baseline_mse * 100, 2)) + '%' if baseline_mse != 0 else 'inf')
+    improvement_mae = (str(np.round((mae - baseline_mae) / baseline_mae * 100, 2)) + '%' if baseline_mae != 0 else 'inf')
+    improvement_r2 = (str(np.round((r2 - baseline_r2) / baseline_r2 * 100, 2)) + '%' if baseline_r2 != 0 else 'inf')
+    improvement_adjusted_r2 = improvement_r2
+
+    results_df = pd.DataFrame({'r2': [r2, baseline_r2, improvement_r2], 'r2-adj': [adjusted_r_squared, baseline_adjusted_r2, improvement_adjusted_r2], 'mae': [mae, baseline_mae, improvement_mae], 'mse': [mse, baseline_mse, improvement_mse]}, index=['model', 'baseline', 'improvement'])
+
+    if print_results:
+        
+        print('\n\n-- Baseline Comparaison --')
+        display(results_df)
+    else:
+        return results_df
