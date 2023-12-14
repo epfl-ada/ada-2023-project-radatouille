@@ -66,7 +66,8 @@ onMounted(() => {
       error: item.upper_ci - item.correlation,
       upper_ci: item.upper_ci,
       lower_ci: item.lower_ci,
-      p_value: item.p_value
+      p_value: item.p_value,
+      count: item.number_of_movies
     }));
 
     const tooltip2 = {
@@ -75,7 +76,7 @@ onMounted(() => {
           const label = context.dataset.label;
           const value = context.raw;
           const item = chartData2[context.dataIndex];
-          return [`${label}: ${value}`, `P-value: ${item.p_value}`, `Upper CI: ${item.upper_ci}`, `Lower CI: ${item.lower_ci}`];
+          return [`${label}: ${value}`, `P-value: ${item.p_value}`, `Upper CI: ${item.upper_ci}`, `Lower CI: ${item.lower_ci}`, `Count: ${item.count}`];
         }
       }
     };
@@ -101,7 +102,8 @@ onMounted(() => {
       error: item.upper_ci - item.coef,
       upper_ci: item.upper_ci,
       lower_ci: item.lower_ci,
-      p_value: item.p_value
+      p_value: it.number_of_movies,
+      count: item.number_of_movies
     }));
 
     const tooltip3 = {
@@ -110,7 +112,7 @@ onMounted(() => {
           const label = context.dataset.label;
           const value = context.raw;
           const item = chartData3[context.dataIndex];
-          return [`${label}: ${value}`, `P-value: ${item.p_value}`, `Upper CI: ${item.upper_ci}`, `Lower CI: ${item.lower_ci}`];
+          return [`${label}: ${value}`, `P-value: ${item.p_value}`, `Upper CI: ${item.upper_ci}`, `Lower CI: ${item.lower_ci}`, `Count: ${item.count}`];
         }
       }
     };
