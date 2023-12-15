@@ -2,6 +2,8 @@ from ast import literal_eval
 import pandas as pd
 from scipy.stats import pearsonr
 import statsmodels.api as sm
+from statsmodels.tools.tools import pinv_extended
+from statsmodels.stats.outliers_influence import variance_inflation_factor
 import numpy as np
 import json
 from sklearn.model_selection import KFold
@@ -139,19 +141,140 @@ def hotencode(df, column, id_column, prefix='onehot'):
     
     return one_hot_df, one_hot_columns
 
-def perform_OLS(df, X_columns, y_column, print_results=True):
-    X = df[X_columns]
+def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_results=True):
+    x = df[X_columns]
     y = df[y_column]
 
-    X = sm.add_constant(X)
+    x -= np.average(x, axis=0)
 
-    # Fit the OLS model
-    model = sm.OLS(y, X).fit()
+    X = sm.add_constant(x)
+    model = sm.OLS(y, X)
+
+    if regularization == 'l1':
+        # Lasso
+        results_fr = model.fit_regularized(method='elastic_net', L1_wt=1, alpha=alpha)
+        pinv_wexog,_ = pinv_extended(model.wexog)
+        normalized_cov_params = np.dot(pinv_wexog, np.transpose(pinv_wexog))
+        fitted_model = sm.regression.linear_model.OLSResults(model, results_fr.params, normalized_cov_params)
+
+    elif regularization == 'l2':
+        # Ridge
+        results_fr = model.fit_regularized(method='elastic_net', L1_wt=0, alpha=alpha)
+        pinv_wexog,_ = pinv_extended(model.wexog)
+        normalized_cov_params = np.dot(pinv_wexog, np.transpose(pinv_wexog))
+        fitted_model = sm.regression.linear_model.OLSResults(model, results_fr.params, normalized_cov_params)
+
+    else:
+        # No regularization
+        fitted_model = model.fit()
 
     if print_results:
-        display(model.summary().tables[0])
+        # For regularized models, we do not have a summary method
+        display(fitted_model.summary().tables[0])
+        display(fitted_model.summary().tables[2])
 
-    return model
+    return fitted_model
+
+def study_OLS(
+    df,
+    X_columns,
+    y_column,
+    regularization=None,
+    alpha=1.0,
+    threshold=0.05,
+    print_results=True,
+    print_qq=True,
+    print_baseline=True,
+    map_columns_name=None,
+    title=None
+    ):
+    model = perform_OLS(df, X_columns, y_column, regularization=regularization, alpha=alpha)
+    summary = model.summary()
+
+    if print_baseline:
+        compare_baseline(model, df, X_columns, y_column, print_results=True)
+
+    # Find results with p-values less than threshold
+    significant_results = list_significant_values(model.summary(), threshold=threshold, print_results=False)
+
+    print(f"Significant results: {len(significant_results)}/{len(X_columns)}")
+
+    if print_qq:
+        plot_qq(model, df[X_columns], df[y_column])
+
+    significant_columns = significant_results['feature'].tolist()
+    significant_results['col_id'] = significant_results['feature'].apply(lambda x: '_'.join(x.split('_')[1:]))
+
+    if map_columns_name != None:
+        significant_results = map_columns_name(significant_results)
+
+    if 'col_name' not in significant_results.columns:
+        significant_results['col_name'] = significant_results['col_id']
+
+    if print_results:
+        if len(significant_results) > 20:
+            display(significant_results.head(10))
+            display(significant_results.tail(10))
+        else:
+            display(significant_results)
+
+        plot_results(significant_results, 'col_name', 'coef', title)
+
+    return significant_results, significant_columns    
+
+def study_pearson(df, X_columns, y_column, threshold=0.05, print_results=True, title=None, map_columns_name=None):
+    results = perform_pearsonr(df, X_columns, y_column, print_results=False)
+
+    # Find results with p-values less than threshold
+    results = results[results['p_value'] < threshold]
+
+    print(f"Significant results: {len(results)}/{len(X_columns)}")
+
+    significant_results = results.copy()
+    significant_columns = significant_results.index.tolist()
+    significant_results['col_id'] = significant_results.index.map(lambda x: '_'.join(x.split('_')[1:]))
+
+    if map_columns_name != None:
+        significant_results = map_columns_name(significant_results)
+
+    if 'col_name' not in significant_results.columns:
+        significant_results['col_name'] = significant_results['col_id']
+
+    if print_results:
+        if len(significant_results) > 20:
+            display(significant_results.head(10))
+            display(significant_results.tail(10))
+        else:
+            display(significant_results)
+
+        plot_results(significant_results, 'col_name', 'correlation', title)
+
+    return significant_results, significant_columns
+
+
+def plot_qq(model, X, y):
+    """
+    Generate a QQ plot for the residuals of a regression model.
+
+    Parameters:
+    model (regression model): The fitted regression model.
+    X (DataFrame): The input features.
+    y (Series): The target variable.
+    """
+
+    X = sm.add_constant(X)
+    # Predictions
+    predictions = model.predict(X)
+
+    # Residuals
+    residuals = y - predictions
+
+    # QQ plot
+    fig, ax = plt.subplots(figsize=(6, 4))
+    sm.qqplot(residuals, line='s', ax=ax)
+    plt.title('QQ Plot of Residuals')
+    plt.show()
+
 
 
 def list_significant_values(model_summary, threshold=0.05, print_results=True):
@@ -163,7 +286,7 @@ def list_significant_values(model_summary, threshold=0.05, print_results=True):
             significant_values.append([colname, float(row[1]), float(row[4]), float(row[5]), float(row[6])])
 
     # Convert the list of significant genres to a DataFrame
-    significant_values_df = pd.DataFrame(significant_values, columns=['colname', 'coef', 'p_value', 'lower_ci', 'upper_ci'])
+    significant_values_df = pd.DataFrame(significant_values, columns=['feature', 'coef', 'p_value', 'lower_ci', 'upper_ci'])
     significant_values_df = significant_values_df.sort_values(by='coef', ascending=False)
 
     if (print_results):
@@ -209,56 +332,12 @@ def list_movies_of_actor(df_actors, df_movies, actor_id, limit=None):
         
     return df_movies[df_movies['wikipedia_id'].isin(movies_ids)]
 
-
-def perform_SVR(df, X_columns, y_column, kfolds=5, metrics=['r2', 'mae', 'mse'], print_results=True):
-
-
-    X = df[X_columns]
-    y = df[y_column]
-
-    kf = KFold(n_splits=kfolds, shuffle=True, random_state=42)
-
-    results = []
-    for train_index, test_index in tqdm(kf.split(X)):
-        X_train, X_test = X.iloc[train_index], X.iloc[test_index]
-        y_train, y_test = y.iloc[train_index], y.iloc[test_index]
-
-        svr = SVR(kernel='rbf', C=1e3, gamma=0.1)
-        svr.fit(X_train, y_train)
-
-        y_pred = svr.predict(X_test)
-
-        result = {}
-
-        # Evaluate metrics
-        if 'r2' in metrics:
-            r2 = svr.score(X_test, y_test)
-            result['r2'] = r2
-
-        if 'mae' in metrics:
-            mae = mean_absolute_error(y_test, y_pred)
-            result['mae'] = mae
-
-        if 'mse' in metrics:
-            mse = mean_squared_error(y_test, y_pred)
-            result['mse'] = mse
-
-        results.append(result)
-
-    results_df = pd.DataFrame(results)
-
-    # Add the mean and std of the metrics as first and second row
-    results_df.loc['mean'] = results_df.mean()
-    results_df.loc['std'] = results_df.std()
-
-    if print_results:
-        display(results_df)
-
-    return results_df
-
-
 def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     results = df.copy()
+
+    if (len(results) == 0):
+        print('No results to plot')
+        return
 
     # Calculate the lower and upper confidence interval for the coefficient
     if 'upper_ci' in results.columns:
@@ -288,6 +367,29 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+
+def filter_VIF(df, X_columns, threshold=5):
+    """
+    Function to filter the features based on the VIF score
+    Parameters:
+        df (DataFrame): The dataset to process
+        X_columns (list): The list of features to process
+        threshold (float): The threshold to use for filtering
+    Returns:
+        X_columns (list): The filtered list of features
+    """
+
+    X = df[X_columns]
+
+    # Calculate VIF
+    vif = pd.DataFrame()
+    vif["VIF Factor"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
+    vif["features"] = X.columns
+
+    # Filter features with a VIF score above the threshold
+    vif_filtered = vif[vif['VIF Factor'] < threshold]
+
+    return vif_filtered['features'].tolist()
 
 def compute_interactions(df, columns):
     interaction_df = df.copy()
