@@ -1,21 +1,30 @@
 from ast import literal_eval
 import pandas as pd
+import numpy as np
+import json
+from tqdm import tqdm
+import itertools
+
+import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+from matplotlib_venn import venn3
+import seaborn as sns
+import networkx as nx
+
 from scipy.stats import pearsonr
+
 import statsmodels.api as sm
 from statsmodels.tools.tools import pinv_extended
 from statsmodels.stats.outliers_influence import variance_inflation_factor
-import numpy as np
-import json
+
 from sklearn.model_selection import KFold
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from tqdm import tqdm
-import matplotlib.pyplot as plt
-import itertools
-import networkx as nx
-import matplotlib.lines as mlines
-import seaborn as sns
-from matplotlib_venn import venn3
+
+
+
+
+
 
 def process_actors(df, movies_threshold=6):
     """
@@ -146,8 +155,6 @@ def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_r
     x = df[X_columns]
     y = df[y_column]
 
-    x -= np.average(x, axis=0)
-
     X = sm.add_constant(x)
     model = sm.OLS(y, X)
 
@@ -186,10 +193,11 @@ def study_OLS(
     threshold=0.05,
     print_results=True,
     plot_barplot=True,
-    print_qq=True,
+    print_qq=False,
     print_baseline=True,
     map_columns_name=None,
-    title=None
+    title=None,
+    limit_tops=20
     ):
     model = perform_OLS(df, X_columns, y_column, regularization=regularization, alpha=alpha)
     summary = model.summary()
@@ -216,20 +224,34 @@ def study_OLS(
         significant_results[colname] = significant_results['col_id']
 
     if print_results:
-        if len(significant_results) > 20:
-            print('\nTop 10:')
-            display(significant_results.head(10))
-            print('\nBottom 10:')
-            display(significant_results.tail(10))
+        if len(significant_results) > limit_tops:
+            print(f'\nTop {limit_tops//2}:')
+            display(significant_results.head(limit_tops//2))
+            print(f'\nBottom {limit_tops//2}:')
+            display(significant_results.tail(limit_tops//2))
         else:
             display(significant_results)
     
     if plot_barplot:
-        plot_results(significant_results, colname, 'coef', title)
+        if len(significant_results) > limit_tops:
+            plot_results(pd.concat([significant_results.head(limit_tops//2), significant_results.tail(limit_tops//2)]), colname, 'coef', title)
+        else:
+            plot_results(significant_results, colname, 'coef', title)
 
     return significant_results, significant_columns    
 
-def study_pearson(df, X_columns, y_column, colname='col_name', threshold=0.05, print_results=True, plot_barplot=True, title=None, map_columns_name=None):
+def study_pearson(
+    df,
+    X_columns,
+    y_column,
+    colname='col_name',
+    threshold=0.05,
+    print_results=True,
+    plot_barplot=True,
+    title=None,
+    map_columns_name=None,
+    limit_tops=20
+    ):
     results = perform_pearsonr(df, X_columns, y_column, print_results=False)
 
     # Find results with p-values less than threshold
@@ -249,15 +271,17 @@ def study_pearson(df, X_columns, y_column, colname='col_name', threshold=0.05, p
         significant_results[colname] = significant_results['col_id']
 
     if print_results:
-        if len(significant_results) > 20:
-            display(significant_results.head(10))
-            display(significant_results.tail(10))
+        if len(significant_results) > limit_tops:
+            print(f'\nTop {limit_tops//2}:')
+            display(significant_results.head(limit_tops//2))
+            print(f'\nBottom {limit_tops//2}:')
+            display(significant_results.tail(limit_tops//2))
         else:
             display(significant_results)
-
+    
     if plot_barplot:
-        if len(significant_results) > 20:
-            plot_results(pd.concat([significant_results.head(10), significant_results.tail(10)]), colname, 'correlation', title)
+        if len(significant_results) > limit_tops:
+            plot_results(pd.concat([significant_results.head(limit_tops//2), significant_results.tail(limit_tops//2)]), colname, 'correlation', title)
         else:
             plot_results(significant_results, colname, 'correlation', title)
 
@@ -361,9 +385,12 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     plt.figure(figsize=figsize)
 
     # Create horizontal bar plot
-    bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column])
+    if 'ci_error' not in results.columns:
+        sorted_results  = results.groupby(y_column)[x_column].mean().sort_values(ascending=False)
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, legend=False, palette='flare')
+    else:
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], legend=False, palette='flare')
 
-    if 'ci_error' in results.columns:
         y_positions = bar.get_yticks()
         # Adjust positions based on the number of categories
         adjusted_positions = y_positions + bar.patches[0].get_height() / len(results[y_column]) / 2
@@ -373,6 +400,7 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
                      xerr=[results['ci_error'], results['ci_error']], 
                      fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
 
+    
     plt.ylabel(y_column)
     plt.xlabel(x_column)
     plt.title(title)
@@ -674,3 +702,6 @@ def compare_ols_pearson(ols_results, pearsonr_results, ols_significant, pearsonr
     print("Features that are in OLS and Pearson:")
     display(ols_pearson_coef)
     plot_results(ols_pearson_coef, colname, 'coef', title='OLS Coefficient for OLS and Pearson significant')
+
+def export_json(df, filename):
+    df.to_json(filename, orient='records')
