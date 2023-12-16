@@ -6,10 +6,24 @@ import Plotly from 'plotly.js-dist-min';
 import countries1 from '../data/countries-1.json';
 import countries2 from '../data/countries-2.json';
 import countries3 from '../data/countries-3.json';
+import genres1 from '../data/genres-1.json';
+import genres2 from '../data/genres-2.json';
+import genres3 from '../data/genres-3.json';
+import actors1 from '../data/actors-1.json';
+import actors2 from '../data/actors-2.json';
+import tropes1 from '../data/tropes-1.json';
+import tropes2 from '../data/tropes-2.json';
 
 const chartCountries1 = ref(null);
 const chartCountries2 = ref(null);
 const chartCountries3 = ref(null);
+const chartGenres1 = ref(null);
+const chartGenres2 = ref(null);
+const chartGenres3 = ref(null);
+const chartActors1 = ref(null);
+const chartActors2 = ref(null);
+const chartTropes1 = ref(null);
+const chartTropes2 = ref(null);
 
 const activeLamp = ref(true)
 
@@ -23,7 +37,6 @@ const flareColorScale = [
 ];
 
 function plotChart(chartRef, data, layout) {
-  console.log(chartRef, data, layout)
   Plotly.newPlot(chartRef.value, data, layout);
 }
 
@@ -122,6 +135,205 @@ onMounted(() => {
       responsive: true,
     });
   }
+
+  // Genres 1
+  if (chartGenres1) {
+    genres1.sort((a, b) => {
+      return a.rating_difference - b.rating_difference;
+    });
+
+    // keep the top 10 and bottom 10
+    let bottom = genres1.slice(0, 10);
+    let top = genres1.slice(-10);
+    let genres1_filtered = bottom.concat(top);
+
+    console.log(genres1)
+    const trace = transformDataForPlotly(genres1_filtered, 'rating_difference', 'genres', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}`;
+    })
+
+    plotChart(chartGenres1, trace, {
+      title: 'Mean rating difference for Genres',
+      xaxis: {
+        title: 'Rating difference',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Genre',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Genres 2
+  if (chartGenres2) {
+    genres2.sort((a, b) => {
+      return a.correlation - b.correlation;
+    });
+
+    let top = genres2.slice(-10);
+    let bottom = genres2.slice(0, 10);
+    let genres2_filtered = bottom.concat(top);
+
+    const trace = transformDataForPlotly(genres2_filtered, 'correlation', 'Genre', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartGenres2, trace, {
+      title: 'Pearson correlation coefficient for Genres',
+      xaxis: {
+        title: 'Pearson correlation coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Genre',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Genres 3
+  if (chartGenres3) {
+    genres3.sort((a, b) => {
+      return a.coef - b.coef;
+    });
+
+    const trace = transformDataForPlotly(genres3, 'coef', 'Genre', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartGenres3, trace, {
+      title: 'OLS coefficient for Genres',
+      xaxis: {
+        title: 'OLS coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Genre',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Actors 1
+  if (chartActors1) {
+    actors1.sort((a, b) => {
+      return a.correlation - b.correlation;
+    });
+
+    // keep the top 10 and bottom 10
+    let bottom = actors1.slice(0, 10);
+    let top = actors1.slice(-10);
+    let actors1_filtered = bottom.concat(top);
+
+    const trace = transformDataForPlotly(actors1_filtered, 'correlation', 'actor_name', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartActors1, trace, {
+      title: 'Pearson correlation coefficient for Actors',
+      xaxis: {
+        title: 'Pearson correlation coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Actor',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Actors 2
+  if (chartActors2) {
+    actors2.sort((a, b) => {
+      return a.coef - b.coef;
+    });
+
+    const trace = transformDataForPlotly(actors2, 'coef', 'actor_name', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartActors2, trace, {
+      title: 'OLS coefficient for Actors',
+      xaxis: {
+        title: 'OLS coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Actor',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Tropes 1
+  if (chartTropes1) {
+    tropes1.sort((a, b) => {
+      return a.correlation - b.correlation;
+    });
+
+    // keep the top 10 and bottom 10
+    let bottom = tropes1.slice(0, 10);
+    let top = tropes1.slice(-10);
+    let tropes1_filtered = bottom.concat(top);
+
+    const trace = transformDataForPlotly(tropes1_filtered, 'correlation', 'Trope', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartTropes1, trace, {
+      title: 'Pearson correlation coefficient for Tropes',
+      xaxis: {
+        title: 'Pearson correlation coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Trope',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Tropes 2
+  if (chartTropes2) {
+    tropes2.sort((a, b) => {
+      return a.coef - b.coef;
+    });
+
+    let top = tropes2.slice(-10);
+    let bottom = tropes2.slice(0, 10);
+    let tropes2_filtered = bottom.concat(top);
+
+    const trace = transformDataForPlotly(tropes2_filtered, 'coef', 'Trope', 'sem', function (item) {
+      return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartTropes2, trace, {
+      title: 'OLS coefficient for Tropes',
+      xaxis: {
+        title: 'OLS coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: 'Trope',
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
 });
 
 function toggleLamp() {
@@ -134,7 +346,7 @@ function toggleLamp() {
 <template>
   <Navbar />
 
-  <!-- Hero -->
+  <!-- == HERO == -->
   <div
     class="flex flex-col w-full items-center bg-[url(/banner.webp)] bg-center bg-cover bg-no-repeat justify-center text-light p-6 shadow-lg min-h-[400px]">
     <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New
@@ -219,9 +431,12 @@ function toggleLamp() {
         </section>
       </section>
 
+
+      
       <section id="exploration" class="section">
         <h2 class="text-5xl font-bold mt-8">Exploration</h2>
 
+        <!-- == COUNTRIES == -->
         <section id="countries" class="section">
           <h3 class="text-4xl font-bold mt-8">Countries</h3>
           <p class="mt-2 text-justify">
@@ -434,6 +649,71 @@ function toggleLamp() {
 
         </section>
 
+        
+        <!-- == GENRES == -->
+        <section id="genres" class="section">
+          <h3 class="text-4xl font-bold mt-8">Genres</h3>
+          <h5 class="text-xl italic text-slate-600">Crafting the Narrative of Preference</h5>
+
+          <!-- Basic Viz -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartGenres1" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pearson -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-1 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartGenres2" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OLS -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartGenres3" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div> 
+        </section>
+
+        <!-- == AWARDS == -->
         <section id="awards" class="section">
           <h3 class="text-4xl font-bold mt-8">Awards</h3>
           <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
@@ -445,16 +725,6 @@ function toggleLamp() {
             aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
         </section>
 
-        <section id="genres" class="section">
-          <h3 class="text-4xl font-bold mt-8">Genres</h3>
-          <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-            consequat
-            aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
-        </section>
 
         <section id="release-year" class="section">
           <h3 class="text-4xl font-bold mt-8">Release Year</h3>
@@ -467,37 +737,90 @@ function toggleLamp() {
             aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
         </section>
 
-        <section id="runtime" class="section">
-          <h3 class="text-4xl font-bold mt-8">Runtime</h3>
-          <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-            consequat
-            aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
-        </section>
-
+        <!-- == GENRES == -->
         <section id="actors" class="section">
           <h3 class="text-4xl font-bold mt-8">Actors</h3>
-          <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-            consequat
-            aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+
+          <!-- Pearson -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-1 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartActors1" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OLS -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartActors2" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div> 
         </section>
 
-        <section id="plot" class="section">
-          <h3 class="text-4xl font-bold mt-8">Plot</h3>
-          <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-            consequat
-            aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+        <!-- == TROPES == -->
+        <section id="tropes" class="section">
+          <h3 class="text-4xl font-bold mt-8">Tropes</h3>
+
+          <!-- Pearson -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-1 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartTropes1" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OLS -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <p class="mt-2 text-justify">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartTropes2" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div> 
         </section>
       </section>
 

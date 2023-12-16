@@ -91,33 +91,29 @@ const sections = [{
     },
     secondaryMenuLinks: [{
         id: 1,
-        title: 'Genres',
-        link: '#genres'
+        title: 'Countries',
+        link: '#countries'
     }, {
         id: 2,
-        title: 'Awards',
-        link: '#awards'
+        title: 'Genres',
+        link: '#genres'
     },
     {
         id: 3,
-        title: 'Countries',
-        link: '#countries'
+        title: 'Awards',
+        link: '#awards'
     }, {
         id: 4,
         title: 'Release Year',
         link: '#release-year'
     }, {
         id: 5,
-        title: 'Runtime',
-        link: '#runtime'
-    }, {
-        id: 6,
         title: 'Actors',
         link: '#actors'
     }, {
-        id: 7,
-        title: 'Plot',
-        link: '#plot'
+        id: 6,
+        title: 'Tropes',
+        link: '#tropes'
     }
     ]
 },

@@ -387,9 +387,9 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     # Create horizontal bar plot
     if 'ci_error' not in results.columns:
         sorted_results  = results.groupby(y_column)[x_column].mean().sort_values(ascending=False)
-        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, legend=False, palette='flare')
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, palette='flare', legend=False)
     else:
-        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], legend=False, palette='flare')
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], palette='flare', legend=False)
 
         y_positions = bar.get_yticks()
         # Adjust positions based on the number of categories
@@ -704,4 +704,8 @@ def compare_ols_pearson(ols_results, pearsonr_results, ols_significant, pearsonr
     plot_results(ols_pearson_coef, colname, 'coef', title='OLS Coefficient for OLS and Pearson significant')
 
 def export_json(df, filename):
+    if 'coef' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
+        df['sem'] = df['upper_ci'] - df['coef'] 
+    elif 'correlation' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
+        df['sem'] = df['upper_ci'] - df['correlation']
     df.to_json(filename, orient='records')
