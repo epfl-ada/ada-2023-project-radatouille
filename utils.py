@@ -23,9 +23,6 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
 
-
-
-
 def process_actors(df, movies_threshold=6):
     """
     Function to process the actors column of the dataset
@@ -709,3 +706,44 @@ def export_json(df, filename):
     elif 'correlation' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
         df['sem'] = df['upper_ci'] - df['correlation']
     df.to_json(filename, orient='records')
+
+
+def plot_specific_scatter(df, column, value):
+    df_value = df[df[column] == value]
+    fig, ax = plt.subplots(1, 2, figsize=(10,5))
+
+    sns.scatterplot(x="metascore", y="imdb_rating_scaled", data=df_value, ax=ax[0], color='#67001f')
+    ax[0].set_title(f"IMDb Users Rating vs Metascore for {value}")
+    ax[0].set_xticks(range(0, 101, 10))
+    ax[0].set_yticks(range(0, 101, 10))
+    ax[0].set_xlim(0, 100)
+    ax[0].set_ylim(0, 100)
+    ax[0].set_xlabel("Metascore")
+    ax[0].set_ylabel("IMDb Users Rating")
+    ax[0].grid()
+
+    ax[0].axhline(y=df_value['imdb_rating_scaled'].mean(), color='r', linestyle='-')
+    ax[0].axvline(x=df_value['metascore'].mean(), color='r', linestyle='-')
+
+    ax[0].axhline(y=df['imdb_rating_scaled'].mean(), color='black', linestyle='-')
+    ax[0].axvline(x=df['metascore'].mean(), color='black', linestyle='-')
+
+    # plot the diagonal x=y
+    ax[0].plot([0, 100], [0, 100], color='black', linestyle='-', linewidth=1, alpha=0.5)
+
+    # set the hue to the bin order"
+    sns.histplot(df_value['rating_difference'], stat='count', alpha=0.5, ax=ax[1], color='#67001f', bins=20)
+    ax[1].axvline(df_value['rating_difference'].mean(), color='r')
+    ax[1].axvline(df['rating_difference'].mean(), color='black')
+    ax[1].set_xlabel('Rating Difference')
+    ax[1].set_ylabel('Count')
+    
+
+
+    blue_line = mlines.Line2D([], [], color='red', label='Specific Mean')
+    red_line = mlines.Line2D([], [], color='black', label='Overall Mean')
+    ax[1].legend(handles=[blue_line, red_line])
+
+    fig.tight_layout()
+
+    plt.show()

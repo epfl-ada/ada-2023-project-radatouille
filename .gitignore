@@ -27,3 +27,5 @@ node_modules/
 data/raw/nlp_summaries
 
 __pycache__/
+
+.venv/

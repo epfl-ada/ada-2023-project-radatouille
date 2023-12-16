@@ -124,7 +124,13 @@ const sections = [{
         link: '#conclusion'
     },
     secondaryMenuLinks: []
-
+}, {
+    id: 4,
+    mainMenuLink: {
+        title: 'Playground',
+        link: '#playground'
+    },
+    secondaryMenuLinks: []
 }]
 
 function setIsMobileMenuOpen(value) {

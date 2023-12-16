@@ -357,7 +357,7 @@ function toggleLamp() {
     <h3 class="text-xl font-thin mt-2 text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">An attempt to explain movie
       taste differences between users and critics</h3>
     <div class="flex flex-col items-center mt-auto px-5 py-3">
-      <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3">A project by</span>
+      <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3">A project  served by the Team rADAtouille</span>
       <div class="flex flex-wrap gap-1 items-center justify-center mt-2">
         <span class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Antonin Faure</span>
         <span class="hidden lg:block drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">&bull;</span>
