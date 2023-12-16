@@ -11,7 +11,7 @@
 
     <div class="flex gap-3">
       <input type="range" v-if="selectedCriteriaType === 'year'" v-model="selectedYear" :min="yearRange[0]"
-        :max="yearRange[yearRange.length - 1]" @change="updateYearSlider" class="w-full" />
+        :max="yearRange[yearRange.length - 1]" @change="updateYearSlider" class="w-full" @input="inputYearSlider" />
       <span v-if="selectedCriteriaType === 'year'">{{ selectedYear }}</span>
     </div>
 
@@ -89,14 +89,16 @@ const updateCriteria = () => {
   updateGraph()
 };
 
-const updateYearSlider = () => {
-  // Find the closest year in the range to the current slider value
+const inputYearSlider = () => {
   let closest = yearRange.value.reduce((a, b) => {
     return Math.abs(b - selectedYear.value) < Math.abs(a - selectedYear.value) ? b : a;
   });
 
   selectedYear.value = closest;
-  selectedCriteria.value = closest.toString();
+}
+
+const updateYearSlider = () => {
+  selectedCriteria.value = selectedYear.value.toString();
   updateGraph();
 };
 
