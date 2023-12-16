@@ -11,7 +11,7 @@
 
     <div class="flex gap-3">
       <input type="range" v-if="selectedCriteriaType === 'year'" v-model="selectedYear" :min="yearRange[0]"
-        :max="yearRange[yearRange.length - 1]" @input="updateYearSlider" class="w-full" />
+        :max="yearRange[yearRange.length - 1]" @change="updateYearSlider" class="w-full" />
       <span v-if="selectedCriteriaType === 'year'">{{ selectedYear }}</span>
     </div>
 
