@@ -12,6 +12,7 @@
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18",
     "chart.js": "^4.4.1",
+    "plotly.js-dist-min": "^2.27.1",
     "vue": "^3.3.8"
   },
   "devDependencies": {
