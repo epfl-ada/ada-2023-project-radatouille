@@ -2,6 +2,7 @@
 import Navbar from './Navbar.vue'
 import { onMounted, ref } from 'vue';
 import Plotly from 'plotly.js-dist-min';
+import Playground from './Playground.vue';
 
 import countries1 from '../data/countries-1.json';
 import countries2 from '../data/countries-2.json';
@@ -833,6 +834,13 @@ function toggleLamp() {
           aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
           ipsum
           aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+      </section>
+
+      <section id="playground" class="section">
+        <h2 class="text-5xl font-bold mt-8">Playground</h2>
+        <div>
+          <Playground />
+        </div>
       </section>
     </div>
   </main>
