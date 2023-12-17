@@ -248,7 +248,7 @@
             </p>
           </div>
 
-          
+
 
         </section>
 
@@ -281,12 +281,19 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                The first technique in our cookbook is the beloved Pearson correlation. This lovely tool allows us to
+                extract significant genres. Out of more than 300 genres and subgenres, only 61 are still relevant for our
+                analysis. Looking a bit more in detail at this plot, the genres exhibited feel way more concrete than
+                before. It's not surprising to see critics liking more <i>World cinema</i> or <i>Art film</i> categories.
+                On the other
+                end of the spectrum, <i>Action</i> films and <i>Comedy</i> have the support of a wider audience.
+                Interestingly, we do
+                see <i>Gross-out</i> and <i>Gross-out films</i> both appear. Why do we see this kind of genre twice with
+                the same
+                result? And even worse: is there something odd behind our analysis? While filtering out subgenres would
+                sound natural, it's often in those small niche genres that the critics' tastes were hiding. We took the
+                gambit to keep them at first and filter them later through significance methods if needed. While
+                instructive, we have to work a bit more on our data.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-1 w-full">
@@ -300,12 +307,18 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                As expected, using the genres after our Pearson test, the first OLS's very high condition number showed
+                strong signs of multicollinearity. This threatened the interpretation of the results and required VIF
+                filtering. After filtering, those features were passed again through our OLS. Finally, applying our
+                significance threshold, the filtered OLS yields about 22 significant genres, down from more than 300
+                hundreds. Looking closer at our plot, we see that the previously spotted parasitic genres such as <i>Gross
+                out</i> have been correctly filtered out, providing a way cleaner overview of what genres impact the rating
+                difference. For the finest gourmet amongst you, the results give an adjusted R^2 of 0.136, meaning that
+                the genres alone can explain up to 13% of the variance of the rating difference between critics and users.
+                However, let's stay down-to-earth. The confidence interval around some of these genres triggers a small
+                warning, and for instance, the <i>Inspirational drama</i> or <i>Film noir</i> genres shouldn't be judged so fast. This
+                wide confidence interval can partially be explained by the relatively low number of films in those
+                categories.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -313,6 +326,10 @@
                 <div ref="chartGenres3" class="h-full min-h-[600px] w-full"></div>
               </div>
             </div>
+          </div>
+
+          <div class="flex flex-col mt-8 w-full gap-5">
+            <TabsSection :tabs="genresTabs" />
           </div>
         </section>
 
@@ -506,6 +523,7 @@ import tropes2 from '../data/tropes-2.json';
 
 import tropesTabs from '../data/tropesTabs.json'
 import countriesTabs from '../data/countriesTabs.json'
+import genresTabs from '../data/genresTabs.json'
 
 const chartCountries1 = ref(null);
 const chartCountries2 = ref(null);
@@ -640,7 +658,6 @@ onMounted(() => {
     let top = genres1.slice(-10);
     let genres1_filtered = bottom.concat(top);
 
-    console.log(genres1)
     const trace = transformDataForPlotly(genres1_filtered, 'rating_difference', 'genres', 'sem', function (item) {
       return `Number of movies: ${item.number_of_movies.toFixed(0)}`;
     })

@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "name": "Black-and-white",
+        "title": "Black and white",
+        "content": "",
+        "image": "https://media.newyorker.com/photos/5909514a6552fa0be682bc7f/master/pass/talking-580.jpg.jpeg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 2,
+        "name": "New Hollywood",
+        "title": "New Hollywood",
+        "content": "The \"New Hollywood\" genre, emerging in the late 1960s, defied traditional filmmaking norms with a focus on realism, complex narratives, and anti-establishment themes. Films like \"Easy Rider\" and \"Bonnie and Clyde\" marked a departure from studio conventions, influencing modern cinema and filmmakers like Martin Scorsese and Francis Ford Coppola. Naturally diverging from the norm, these films are often not to the taste of the users, since their plots are convoluted and their staging occult. Targeting the critics, it's no surprise to see this genre strongly influences the rating difference, with a positive 8.3 OLS score.",
+        "image": "https://s.studiobinder.com/wp-content/uploads/2020/05/What-is-New-Hollywood-The-Revolution-of-1960s-and-‘70s-Hollywood-Featured-1.jpg",
+        "movies": [
+            "Easy Rider (1969)",
+            "Bonnie and Clyde (1967)"
+        ],
+        "image_aspect": "square"
+    }, {
+        "id": 3,
+        "name": "Drama",
+        "title": "Drama",
+        "content": "",
+        "image": "https://wwwimage-us.pplusstatic.com/thumbnails/photos/w370-q80/movie_asset/62/86/86/titan_us_1997_sa_poster_1400x2100_nb.jpg",
+        "image_aspect": "square",
+        "movies": [
+            "Titanic (1997)"
+        ]
+    }, {
+        "id": 4,
+        "name": "Action",
+        "title": "Action",
+        "content": "",
+        "image": "https://cdn.athlonoutdoors.com/wp-content/uploads/sites/15/2020/10/80saction1.jpg",
+        "image_aspect": "square",
+        "movies": [
+            "The Dark Knight (2008)",
+            "The Matrix (1999)"
+        ]
+    },{
+        "id": 5,
+        "name": "Gross-out",
+        "title": "Gross-out",
+        "content": "The gross-out movie genre is known for its crude and explicit humor, aiming to provoke strong reactions through shock or disgust. These films, like \"American Pie\" and \"There's Something About Mary\", push comedic boundaries with irreverent humor centered around bodily functions and outrageous stunts, challenging social taboos for comedic effect. By essentially targeting a younger audience, this genre is logically less effective to please the critics. Interestingly, this genre disappeared through the OLS while being significant for the Pearson test.",
+        "image": "https://media.services.cinergy.ch/media/box1600/8261f327a17d90a5acc9841077e96c23e83ee0d4.jpg",
+        "image_aspect": "square",
+        "movies": [
+            "American Pie (1999)",
+            "There's Something About Mary (1998)"
+        ]
+    }, {
+        "id": 6,
+        "name": "Slapstick",
+        "title": "Slapstick",
+        "content": "Slapstick films are known for exaggerated physical comedy, visual gags, and absurd humor, often featuring pratfalls and slapstick violence. Classics like Charlie Chaplin's works or \"Home Alone\" exemplify the genre's enduring appeal in providing lighthearted entertainment through playful and exaggerated humor. These two examples may also illustrate why this genre is slightly preferred by users. While that kind of humor might always work on users, critics often get bored when using the same pattern over and over, leading to good scores to first movies of the genre, and lower scores for more recent ones.",
+        "image": "https://lumiere-a.akamaihd.net/v1/images/image_ed8d7a4e.jpeg?region=0%2C0%2C800%2C1200",
+        "image_aspect": "square",
+        "movies": [
+            "Home Alone (1990)"
+        ]
+    }, {
+        "id": 7,
+        "name": "Bollywood",
+        "title": "Bollywood",
+        "content": "Bollywood genre movies offer a diverse mix of colorful musicals, intense action, and heartfelt dramas. It's possible to assimilate this genre to American superproduction, but may fail to encompass the richness of the genre. Logically more turned to mass consumption, the logical result is a negative coefficient, toward users, but the high variance could be explained by the culture of the IMDb user base, since most of them might simply not grasp the qualities of Bollywood films, since they're not aimed to occidental public. This reminds us that this study is logically centered on western culture, from the origin of the data to the ratings themselves.",
+        "image": "https://variety.com/wp-content/uploads/2023/09/Jawan1.jpg?w=1000",
+        "image_aspect": "square",
+        "movies": [
+            "Jawaan (2017)"
+        ]
+    }, {
+        "id": 8,
+        "name": "Inspirational Drama",
+        "title": "Inspirational Drama",
+        "content": "With a big OLS coefficient of -8, this subgenre focuses on narratives that uplift and motivate audiences through stories of triumph over adversity. These films often draw from real-life events, biographies, or fictional tales with strong moral or motivational themes, anchored in dark stories. For instance, Will Smith often starred in that kind of publicly acclaimed movies, such as \"The Pursuit of Happyness\" or \"Seven Pounds\", showcasing bittersweet stories where the bright side only comes after its toll of heartbreaking plot twists. The confidence interval is quite large since only a few movies represent that genre.",
+        "image": "https://miro.medium.com/v2/resize:fit:548/1*Y8vXN1mJeEHyXWJtFICjiQ.jpeg",
+        "image_aspect": "square",
+        "movies": [
+            "The Pursuit of Happyness (2006)",
+            "Seven Pounds (2008)"
+        ]
+    }
+]
