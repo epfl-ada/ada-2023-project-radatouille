@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col gap-2 pt-6">
-    <select v-model="selectedCriteriaType" @change="updateCriteria" class="p-3 rounded-xl bg-slate-700 text-white font-semibold">
+    <select v-model="selectedCriteriaType" @change="updateCriteria"
+      class="p-3 rounded-xl bg-slate-700 text-white font-semibold">
       <option value="genre">Genre</option>
       <option value="actor">Actor</option>
       <option value="trope">Tropes</option>
@@ -15,9 +16,13 @@
       <span v-if="selectedCriteriaType === 'year'">{{ selectedYear }}</span>
     </div>
 
-    <select class="mb-3 p-3 rounded-xl bg-slate-400 text-white font-semibold" v-if="selectedCriteriaType !== 'year'" v-model="selectedCriteria" @change="updateGraph">
+    <select class="mb-3 p-3 rounded-xl bg-slate-400 text-white font-semibold" v-if="selectedCriteriaType !== 'year'"
+      v-model="selectedCriteria" @change="updateGraph">
       <option v-for="option in criteriaOptions" :key="option" :value="option">{{ option }}</option>
     </select>
+
+    <span><span class="text-black font-semibold ml-1">Number of movies:</span> {{ nMoviesSelected }}</span>
+    <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected }} ({{ meanRatingDiffSelected > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
 
     <div ref="playgroundScatterPlot"></div>
     <div ref="playgroundHistogramPlot"></div>
@@ -42,6 +47,9 @@ const yearRange = ref([]);
 
 const selectedYear = ref(null);
 
+const nMoviesSelected = ref(0);
+const meanRatingDiffSelected = ref(0);
+
 const playgroundScatterPlot = ref(null);
 const playgroundHistogramPlot = ref(null);
 
@@ -57,7 +65,6 @@ const updateCriteria = () => {
   switch (selectedCriteriaType.value) {
     case 'genre':
       criteriaOptions.value = Object.keys(genresData.value);
-      
       break;
     case 'actor':
       criteriaOptions.value = Object.keys(actorsData.value);
@@ -105,7 +112,7 @@ const fetchData = async (path) => {
 
 onMounted(async () => {
 
-  
+
   moviesData.value = await fetchData('/data/playground-movies.json');
   genresData.value = await fetchData('/data/playground-genres.json');
   actorsData.value = await fetchData('/data/playground-actors.json');
@@ -211,6 +218,9 @@ const updateGraph = () => {
   const filteredMovies = moviesData.value.filter(movie => selectedIds.includes(movie.imdb_id));
   const notFilteredMovies = moviesData.value.filter(movie => !selectedIds.includes(movie.imdb_id));
 
+  nMoviesSelected.value = selectedIds.length;
+  meanRatingDiffSelected.value = Math.round(filteredMovies.reduce((sum, movie) => sum + movie.rating_difference, 0) / filteredMovies.length *100, 4) / 100;
+
   // Update graph
   const data = [{
     x: notFilteredMovies.map(movie => movie.metascore),
@@ -274,10 +284,36 @@ const updateGraph = () => {
   // Line for histogram mean
   const selectedMeanRatingDiff = filteredMovies.reduce((sum, movie) => sum + movie.rating_difference, 0) / filteredMovies.length;
 
+  // Example function to calculate bins and counts
+  function calculateBins(data, binSize) {
+    let min = Math.min(...data);
+    let max = Math.max(...data);
+    let bins = [];
+    let counts = {};
+
+    // Create bins
+    for (let i = min; i <= max; i += binSize) {
+      bins.push(i);
+      counts[i] = 0;
+    }
+
+    // Count data points in each bin
+    data.forEach(value => {
+      let bin = Math.floor(value / binSize) * binSize;
+      counts[bin] = (counts[bin] || 0) + 1;
+    });
+
+    return { bins, counts };
+  }
+
+  // Use this function to transform your data
+  const { bins, counts } = calculateBins(filteredMovies.map(movie => movie.rating_difference), 1); // Adjust bin size as needed
+
   // Data for histogram
   const histogramData = [{
-    x: filteredMovies.map(movie => movie.rating_difference),
-    type: 'histogram',
+    x: Object.keys(counts),
+    y: Object.values(counts),
+    type: 'bar',
     name: selectedCriteria.value,
     marker: {
       color: '#d62728',
@@ -333,7 +369,7 @@ const updateGraph = () => {
         yref: 'paper',
         line: {
           color: 'grey',
-          width: 2,
+          width: 3,
           dash: 'dot'
         }
       },
@@ -348,7 +384,7 @@ const updateGraph = () => {
         yref: 'paper',
         line: {
           color: 'blue',
-          width: 2
+          width: 3
         }
       },
       // Line for histogram mean
@@ -362,7 +398,7 @@ const updateGraph = () => {
         yref: 'paper',
         line: {
           color: '#d62728',
-          width: 2
+          width: 3
         }
       }
     ]

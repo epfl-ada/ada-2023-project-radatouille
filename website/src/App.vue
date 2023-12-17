@@ -309,11 +309,13 @@
                 filtering. After filtering, those features were passed again through our OLS. Finally, applying our
                 significance threshold, the filtered OLS yields about 22 significant genres, down from more than 300
                 hundreds. Looking closer at our plot, we see that the previously spotted parasitic genres such as <i>Gross
-                out</i> have been correctly filtered out, providing a way cleaner overview of what genres impact the rating
+                  out</i> have been correctly filtered out, providing a way cleaner overview of what genres impact the
+                rating
                 difference. For the finest gourmet amongst you, the results give an adjusted R^2 of 0.136, meaning that
                 the genres alone can explain up to 13% of the variance of the rating difference between critics and users.
                 However, let's stay down-to-earth. The confidence interval around some of these genres triggers a small
-                warning, and for instance, the <i>Inspirational drama</i> or <i>Film noir</i> genres shouldn't be judged so fast. This
+                warning, and for instance, the <i>Inspirational drama</i> or <i>Film noir</i> genres shouldn't be judged
+                so fast. This
                 wide confidence interval can partially be explained by the relatively low number of films in those
                 categories.
               </p>
@@ -354,7 +356,7 @@
             aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
         </section>
 
-        <!-- == GENRES == -->
+        <!-- == ACTORS == -->
         <section id="actors" class="section">
           <h3 class="text-4xl font-bold mt-8">Actors</h3>
 
@@ -362,12 +364,23 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                Once again, a rotten tomato could spoil the real taste of the preparation, and we want to avoid such
+                mistakes. Cleaning our ingredient basket with the Pearson correlation gives this yummy plot.
+              </p>
+              <p class="text-justify mt-4">
+                Let's look a bit more in detail at what this shows us. Analyzing the significant actors already gives
+                quite interesting results. We can notice that the best-performing actors for impressing critics are mostly
+                old actors, such as Cary Grant or Ward Bond. A small warning here: since those actors are mostly from the
+                beginning of cinema history, their results might be biased. Indeed, it is possible that their less
+                renowned movies or less-performing roles were simply filtered out due to the lack of data. Indeed, a film
+                too old might not even be rated retrospectively by critics and users if it was a forgettable experience.
+                This phenomenon could bias them toward higher scores. This is also to be mitigated by the fact that, in a
+                way, if those actors are still known to experts, they marked cinema history and could deserve their place.
+              </p>
+              <p class="text-justify mt-4">
+                On the other hand, recent movies and actors are much less likely to be given the chance to not be scored
+                badly for a bad movie. No second chances for Ryan Reynolds or Ashton Kutcher. Indeed, alternating between
+                deep roles highlighting their talent and lighter characters might be detrimental to them in this plot.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-1 w-full">
@@ -381,12 +394,16 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                Running the OLS gives once more insightful results, with an adjusted R^2 of 0.13. Having specific actors
+                seems then to be impactful on the results, with the 20 most representative ones shown in this plot. Once
+                again, the variances are quite big, probably due to the relatively low number of films each actor's been
+                in compared to the total number of films and actors. A final remark must be noted too: we can't be sure
+                that the genres and the actors are not entangled in a way. Some actors are probably performing well in
+                specific genres while being considered awful in others. Sadly, we've been unable to completely rule out
+                that kind of confounding effect, since all of the features we have are of course strongly interconnected.
+                Comparing the result of the Pearson shows that the results seem comparable, with some slight difference in
+                the order. The type of the actors, however, seem quite consistent between the two.
+
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -539,11 +556,11 @@ const flareColorScale = [
 
 const fetchData = async (path) => {
   const originUrl = window.location.origin;
-  
+
   if (BASE_URL && BASE_URL !== '/') return await fetch(`${originUrl}/${BASE_URL}/${path}`).then(response => response.json());
 
   return await fetch(`${originUrl}/${path}`).then(response => response.json());
-  
+
 };
 
 
