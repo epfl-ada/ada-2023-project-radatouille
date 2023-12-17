@@ -505,6 +505,7 @@
 <script setup>
 import { onMounted, ref, defineAsyncComponent } from 'vue';
 import Plotly from 'plotly.js-basic-dist-min'
+import { BASE_URL } from './utils';
 
 const Navbar = defineAsyncComponent(() => import('./Navbar.vue'));
 const Playground = defineAsyncComponent(() => import('./Playground.vue'));
@@ -537,8 +538,7 @@ const flareColorScale = [
 ];
 
 const fetchData = async (path) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL || '';
-  const response = await fetch(`${baseUrl}${path}`);
+  const response = await fetch(`${BASE_URL}${path}`);
   return response.json();
 };
 

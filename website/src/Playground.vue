@@ -27,6 +27,7 @@
 <script setup>
 import Plotly from 'plotly.js-basic-dist-min'
 import { onMounted, ref } from 'vue';
+import { BASE_URL } from './utils';
 
 const moviesData = ref([]);
 
@@ -94,8 +95,7 @@ const updateYearSlider = () => {
 };
 
 const fetchData = async (path) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL || '';
-  const response = await fetch(`${baseUrl}${path}`);
+  const response = await fetch(`${BASE_URL}${path}`);
   return await response.json();
 };
 
