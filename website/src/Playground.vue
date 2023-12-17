@@ -96,8 +96,10 @@ const updateYearSlider = () => {
 
 const fetchData = async (path) => {
   const originUrl = window.location.origin;
-  const response = await fetch(`${originUrl}/${BASE_URL}/${path}`);
-  return await response.json();
+
+  if (BASE_URL && BASE_URL !== '/') return await fetch(`${originUrl}/${BASE_URL}/${path}`).then(response => response.json());
+
+  return await fetch(`${originUrl}/${path}`).then(response => response.json());
 };
 
 

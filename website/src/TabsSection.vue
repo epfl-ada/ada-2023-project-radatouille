@@ -38,33 +38,51 @@
             </Dialog>
         </TransitionRoot>
         <TabList as="div" v-if="!isMobileView"
-            class="hidden lg:flex flex-col p-3 space-x-1 rounded-xl bg-gradient-to-t to-[#67001f] from-[#f6e8c3]">
+            class="hidden lg:flex flex-col py-3 px-4 space-x-1 rounded-xl bg-gradient-to-t to-[#67001f] from-[#f6e8c3]">
             <Tab as="button" v-for="(tab, index) in tabs" :key="tab.id"
-                class="w-full py-2.5 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none focus:ring-2 ring-offset-2 ring-offset-red-700 ring-white ring-opacity-60"
-                :class="{ 'bg-slate-200 border-l-4 border-red-700 font-bold !text-black drop-shadow-lg': tab.id === activeTabId }"
+                class="w-full py-2.5 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': tab.id === activeTabId }"
                 @click="() => { activeTabId = tab.id; isTabListVisible = false }">
                 {{ tab.name }}
             </Tab>
         </TabList>
-        <TabPanels as="div" class="lg:ml-5 p-5 bg-slate-200 rounded-xl flex w-full">
-            <TabPanel v-for="tab in tabs" :key="tab.id" v-show="tab.id === activeTabId" as="div"
-                class="flex flex-col h-full  max-w-md">
-                <!-- Panel Content -->
-                <img v-if="tab.image" :src="tab.image" class="w-full rounded-lg object-cover object-center mb-4"
-                    :class="tab.image_aspect == 'square' ? 'aspect-square' : null">
-                <h5 class="text-xl font-semibold mb-1">{{ tab.title }}</h5>
-                <p>{{ tab.content }}</p>
-                <h6 v-if="tab.movies" class="text-lg font-semibold mb-1 mt-3">Some movies</h6>
-                <ul class="list-disc list-inside">
-                    <li v-for="item in tab.movies" :key="item">{{ item }}</li>
-                </ul>
-                <a v-if="tab.link" target="_blank" :href="tab.link"
-                    class="bg-slate-800 p-2 text-white rounded-lg font-semibold hover:underline mt-auto ml-auto">See
-                    more</a>
+        <TabPanels as="div" class="lg:ml-5 p-5 bg-slate-200 rounded-xl flex w-full max-w-md  overflow-hidden">
+            <TabPanel v-for="tab in tabs" :key="tab.id" :unmount="false" as="div" class="flex flex-col h-full w-full ">
+                <TransitionRoot :show="activeTabId == tab.id" enter="tab-enter" enter-to="tab-enter-to" :unmount="false"
+                    enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to" leave-from="tab-leave-from">
+                    <!-- Panel Content -->
+                    <img v-if="tab.image" :src="tab.image" class="w-full rounded-lg object-cover object-center mb-4"
+                        :class="tab.image_aspect == 'square' ? 'aspect-square' : null">
+                    <h5 class="text-xl font-semibold mb-1">{{ tab.title }}</h5>
+                    <p>{{ tab.content }}</p>
+                    <h6 v-if="tab.movies" class="text-lg font-semibold mb-1 mt-3">Some movies</h6>
+                    <ul class="list-disc list-inside">
+                        <li v-for="item in tab.movies" :key="item">{{ item }}</li>
+                    </ul>
+                    <a v-if="tab.link" target="_blank" :href="tab.link"
+                        class="bg-slate-800 p-2 text-white rounded-lg font-semibold hover:underline mt-auto ml-auto">See
+                        more</a>
+                </TransitionRoot>
             </TabPanel>
         </TabPanels>
     </TabGroup>
 </template>
+
+<style scoped>
+/* Define the entering and leaving animations */
+.tab-enter, .tab-leave {
+    transition: all 0.4s ease;
+}
+
+.tab-enter-from, .tab-leave-to {
+    transform: scale(0.7);
+    opacity: 0;
+}
+.tab-leave-from, .tab-enter-to {
+    transform: scale(1);
+  opacity: 1;
+}
+</style>
 
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue';
