@@ -538,7 +538,9 @@ const flareColorScale = [
 ];
 
 const fetchData = async (path) => {
-  const response = await fetch(`${path}`);
+  console.log(BASE_URL)
+  console.log(`${BASE_URL}${path}`)
+  const response = await fetch(`${BASE_URL}${path}`);
   return response.json();
 };
 
@@ -622,7 +624,7 @@ onMounted(async () => {
     })
 
     plotChart(chartCountries2, trace, {
-      title: 'Pearson correlation coefficient for Countries',
+      title: 'Pearson correlation for Countries',
       xaxis: {
         title: 'Pearson correlation coefficient',
         automargin: true
@@ -705,7 +707,7 @@ onMounted(async () => {
     })
 
     plotChart(chartGenres2, trace, {
-      title: 'Pearson correlation coefficient for Genres',
+      title: 'Pearson correlation for Genres',
       xaxis: {
         title: 'Pearson correlation coefficient',
         automargin: true
@@ -760,7 +762,7 @@ onMounted(async () => {
     })
 
     plotChart(chartActors1, trace, {
-      title: 'Pearson correlation coefficient for Actors',
+      title: 'Pearson correlation for Actors',
       xaxis: {
         title: 'Pearson correlation coefficient',
         automargin: true
@@ -815,7 +817,7 @@ onMounted(async () => {
     })
 
     plotChart(chartTropes1, trace, {
-      title: 'Pearson correlation coefficient for Tropes',
+      title: 'Pearson correlation for Tropes',
       xaxis: {
         title: 'Pearson correlation coefficient',
         automargin: true
