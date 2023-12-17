@@ -48,9 +48,9 @@
         </TabList>
         <TabPanels as="div" class="lg:ml-5 p-5 bg-slate-200 rounded-xl flex w-full">
             <TabPanel v-for="tab in tabs" :key="tab.id" v-show="tab.id === activeTabId" as="div"
-                class="flex flex-col h-full">
+                class="flex flex-col h-full  max-w-md">
                 <!-- Panel Content -->
-                <img v-if="tab.image" :src="tab.image" class="w-full max-w-xs rounded-lg object-cover object-center mb-4"
+                <img v-if="tab.image" :src="tab.image" class="w-full rounded-lg object-cover object-center mb-4"
                     :class="tab.image_aspect == 'square' ? 'aspect-square' : null">
                 <h5 class="text-xl font-semibold mb-1">{{ tab.title }}</h5>
                 <p>{{ tab.content }}</p>

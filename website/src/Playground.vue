@@ -27,7 +27,7 @@
 <script setup>
 import Plotly from 'plotly.js-basic-dist-min'
 import { onMounted, ref } from 'vue';
-import { BASE_URL } from './utils';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const moviesData = ref([]);
 
