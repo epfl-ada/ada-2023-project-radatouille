@@ -11,7 +11,7 @@ export default ({ mode }) => {
 
   return defineConfig({
     plugins: [vue()],
-    base: `${BASE_URL}`
+    base: `${BASE_URL}/`
   })
 
 } 

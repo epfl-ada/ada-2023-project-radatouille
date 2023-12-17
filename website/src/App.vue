@@ -539,7 +539,7 @@ const flareColorScale = [
 
 const fetchData = async (path) => {
   const originUrl = window.location.origin;
-  const response = await fetch(`${originUrl}${BASE_URL}${path}`);
+  const response = await fetch(`${originUrl}/${BASE_URL}/${path}`);
   return await response.json();
 };
 
