@@ -537,7 +537,8 @@ const flareColorScale = [
 ];
 
 const fetchData = async (path) => {
-  const response = await fetch(path);
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  const response = await fetch(`${baseUrl}${path}`);
   return response.json();
 };
 
