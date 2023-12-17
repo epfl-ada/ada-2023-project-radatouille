@@ -538,8 +538,7 @@ const flareColorScale = [
 ];
 
 const fetchData = async (path) => {
-  console.log(BASE_URL)
-  const response = await fetch(`${BASE_URL}${path}`);
+  const response = await fetch(`${path}`);
   return response.json();
 };
 

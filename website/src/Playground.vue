@@ -95,7 +95,7 @@ const updateYearSlider = () => {
 };
 
 const fetchData = async (path) => {
-  const response = await fetch(`${BASE_URL}${path}`);
+  const response = await fetch(`${path}`);
   return await response.json();
 };
 
