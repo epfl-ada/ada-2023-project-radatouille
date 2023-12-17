@@ -1,20 +1,27 @@
 from ast import literal_eval
 import pandas as pd
+import numpy as np
+import json
+from tqdm import tqdm
+import itertools
+
+import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+from matplotlib_venn import venn3
+import seaborn as sns
+import networkx as nx
+
 from scipy.stats import pearsonr
+
 import statsmodels.api as sm
 from statsmodels.tools.tools import pinv_extended
 from statsmodels.stats.outliers_influence import variance_inflation_factor
-import numpy as np
-import json
+
 from sklearn.model_selection import KFold
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from tqdm import tqdm
-import matplotlib.pyplot as plt
-import itertools
-import networkx as nx
-import matplotlib.lines as mlines
-import seaborn as sns
+
+
 
 def process_actors(df, movies_threshold=6):
     """
@@ -145,8 +152,6 @@ def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_r
     x = df[X_columns]
     y = df[y_column]
 
-    x -= np.average(x, axis=0)
-
     X = sm.add_constant(x)
     model = sm.OLS(y, X)
 
@@ -179,20 +184,24 @@ def study_OLS(
     df,
     X_columns,
     y_column,
+    colname='col_name',
     regularization=None,
     alpha=1.0,
     threshold=0.05,
     print_results=True,
-    print_qq=True,
+    plot_barplot=True,
+    print_qq=False,
     print_baseline=True,
     map_columns_name=None,
-    title=None
+    title=None,
+    limit_tops=20
     ):
     model = perform_OLS(df, X_columns, y_column, regularization=regularization, alpha=alpha)
     summary = model.summary()
 
     if print_baseline:
         compare_baseline(model, df, X_columns, y_column, print_results=True)
+
 
     # Find results with p-values less than threshold
     significant_results = list_significant_values(model.summary(), threshold=threshold, print_results=False)
@@ -208,21 +217,38 @@ def study_OLS(
     if map_columns_name != None:
         significant_results = map_columns_name(significant_results)
 
-    if 'col_name' not in significant_results.columns:
-        significant_results['col_name'] = significant_results['col_id']
+    if colname and colname not in significant_results.columns:
+        significant_results[colname] = significant_results['col_id']
 
     if print_results:
-        if len(significant_results) > 20:
-            display(significant_results.head(10))
-            display(significant_results.tail(10))
+        if len(significant_results) > limit_tops:
+            print(f'\nTop {limit_tops//2}:')
+            display(significant_results.head(limit_tops//2))
+            print(f'\nBottom {limit_tops//2}:')
+            display(significant_results.tail(limit_tops//2))
         else:
             display(significant_results)
-
-        plot_results(significant_results, 'col_name', 'coef', title)
+    
+    if plot_barplot:
+        if len(significant_results) > limit_tops:
+            plot_results(pd.concat([significant_results.head(limit_tops//2), significant_results.tail(limit_tops//2)]), colname, 'coef', title)
+        else:
+            plot_results(significant_results, colname, 'coef', title)
 
     return significant_results, significant_columns    
 
-def study_pearson(df, X_columns, y_column, threshold=0.05, print_results=True, title=None, map_columns_name=None):
+def study_pearson(
+    df,
+    X_columns,
+    y_column,
+    colname='col_name',
+    threshold=0.05,
+    print_results=True,
+    plot_barplot=True,
+    title=None,
+    map_columns_name=None,
+    limit_tops=20
+    ):
     results = perform_pearsonr(df, X_columns, y_column, print_results=False)
 
     # Find results with p-values less than threshold
@@ -232,22 +258,29 @@ def study_pearson(df, X_columns, y_column, threshold=0.05, print_results=True, t
 
     significant_results = results.copy()
     significant_columns = significant_results.index.tolist()
+    significant_results['feature'] = significant_columns
     significant_results['col_id'] = significant_results.index.map(lambda x: '_'.join(x.split('_')[1:]))
 
     if map_columns_name != None:
         significant_results = map_columns_name(significant_results)
 
-    if 'col_name' not in significant_results.columns:
-        significant_results['col_name'] = significant_results['col_id']
+    if colname and colname not in significant_results.columns:
+        significant_results[colname] = significant_results['col_id']
 
     if print_results:
-        if len(significant_results) > 20:
-            display(significant_results.head(10))
-            display(significant_results.tail(10))
+        if len(significant_results) > limit_tops:
+            print(f'\nTop {limit_tops//2}:')
+            display(significant_results.head(limit_tops//2))
+            print(f'\nBottom {limit_tops//2}:')
+            display(significant_results.tail(limit_tops//2))
         else:
             display(significant_results)
-
-        plot_results(significant_results, 'col_name', 'correlation', title)
+    
+    if plot_barplot:
+        if len(significant_results) > limit_tops:
+            plot_results(pd.concat([significant_results.head(limit_tops//2), significant_results.tail(limit_tops//2)]), colname, 'correlation', title)
+        else:
+            plot_results(significant_results, colname, 'correlation', title)
 
     return significant_results, significant_columns
 
@@ -349,9 +382,12 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     plt.figure(figsize=figsize)
 
     # Create horizontal bar plot
-    bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column])
+    if 'ci_error' not in results.columns:
+        sorted_results  = results.groupby(y_column)[x_column].mean().sort_values(ascending=False)
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, palette='flare', legend=False)
+    else:
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], palette='flare', legend=False)
 
-    if 'ci_error' in results.columns:
         y_positions = bar.get_yticks()
         # Adjust positions based on the number of categories
         adjusted_positions = y_positions + bar.patches[0].get_height() / len(results[y_column]) / 2
@@ -361,6 +397,7 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
                      xerr=[results['ci_error'], results['ci_error']], 
                      fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
 
+    
     plt.ylabel(y_column)
     plt.xlabel(x_column)
     plt.title(title)
@@ -383,7 +420,11 @@ def filter_VIF(df, X_columns, threshold=5):
 
     # Calculate VIF
     vif = pd.DataFrame()
-    vif["VIF Factor"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
+    vif_factors = []
+    for i in tqdm(range(X.shape[1])):
+        vif_factors.append(variance_inflation_factor(X.values, i))
+
+    vif["VIF Factor"] = vif_factors
     vif["features"] = X.columns
 
     # Filter features with a VIF score above the threshold
@@ -502,22 +543,32 @@ def study_interactions(one_hot, significant_columns, threshold=0.005, title="OLS
     # Get the significant results
     interactions_ols_significant_results = list_significant_values(interactions_ols_model.summary(), threshold=threshold, print_results=False)
 
+    interactions_ols_significant_results.sort_values(by='coef', ascending=False, inplace=True)
+
     print('\n\n--------------------------------------\n')
     print(f"Significant results: {len(interactions_ols_significant_results)}/{len(interactions_columns)}")
 
 
     # Add the column names
-    interactions_ols_significant_results['col1'] = interactions_ols_significant_results['colname'].apply(lambda x: x.split('_x_')[0])
-    interactions_ols_significant_results['col2'] = interactions_ols_significant_results['colname'].apply(lambda x: x.split('_x_')[1])
+    interactions_ols_significant_results['col1'] = interactions_ols_significant_results['feature'].apply(lambda x: x.split('_x_')[0])
+    interactions_ols_significant_results['col2'] = interactions_ols_significant_results['feature'].apply(lambda x: x.split('_x_')[1])
 
-    print('\nTop 15:')
-    display(interactions_ols_significant_results.head(15))
-    
-    print('\nBottom 15:')
-    display(interactions_ols_significant_results.tail(15))
+    if len(interactions_ols_significant_results) > 30:
+        print('\nTop 15:')
+        display(interactions_ols_significant_results.head(15))
 
-    # Plot the first 15 and last 15 tropes in the same plot
-    plot_results(pd.concat([interactions_ols_significant_results.head(15), interactions_ols_significant_results.tail(15)]), 'colname', 'coef', "OLS Coefficients for Significant Features", figsize=(20, 10))
+        print('\nBottom 15:')
+        display(interactions_ols_significant_results.tail(15))
+
+         # Plot the first 15 and last 15 tropes in the same plot
+        plot_results(pd.concat([interactions_ols_significant_results.head(15), interactions_ols_significant_results.tail(15)]), 'feature', 'coef', "OLS Coefficients for Significant Features", figsize=(20, 10))
+
+    else:
+        display(interactions_ols_significant_results)
+
+        plot_results(interactions_ols_significant_results, 'feature', 'coef', "OLS Coefficients for Significant Features", figsize=(20, 10))
+
+   
 
     # Count the number of movies per value
     values_count = one_hot[one_hot_columns].sum().to_dict()
@@ -617,4 +668,82 @@ def compare_plot_results(df1, df2, y_column, x_column1, x_column2, title1, title
     ax2.grid(True)
 
     plt.tight_layout()
+    plt.show()
+
+
+def venn_plot(vif_list, pearson_list, ols_list):
+    plt.figure(figsize=(5,5))
+    venn3([
+        set(pearson_list),
+        set(vif_list),
+        set(ols_list)
+        ], set_labels = ('Pearson', 'VIF', 'OLS'))
+        
+    plt.show()
+def compare_ols_pearson(ols_results, pearsonr_results, ols_significant, pearsonr_significant, vif_significant, global_columns, colname, venn=True):
+    print(f"Genres after Pearson filtering: {len(pearsonr_significant)}/{len(global_columns)}")
+    print(f"Genres after VIF filtering: {len(vif_significant)}/{len(pearsonr_significant)}")
+    print(f"Genres after OLS filtering: {len(ols_significant)}/{len(vif_significant)}")
+
+    if venn:
+        venn_plot(vif_significant, pearsonr_significant, ols_significant)
+
+    # Display results that are in ols but NOT in pearson
+    ols_not_pearson_significant = list(set(ols_significant).difference(set(pearsonr_significant)))
+    print("Features that are in OLS but not in Pearson:")
+    display(ols_results.loc[ols_results['feature'].isin(ols_not_pearson_significant)])
+
+    # Display results that are in pearson AND ols
+    ols_pearson_significant = list(set(pearsonr_significant).intersection(set(ols_significant)))
+    ols_pearson_coef = ols_results.merge(pearsonr_results[['col_id', 'correlation']], on='col_id')
+    print("Features that are in OLS and Pearson:")
+    display(ols_pearson_coef)
+    plot_results(ols_pearson_coef, colname, 'coef', title='OLS Coefficient for OLS and Pearson significant')
+
+def export_json(df, filename):
+    if 'coef' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
+        df['sem'] = df['upper_ci'] - df['coef'] 
+    elif 'correlation' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
+        df['sem'] = df['upper_ci'] - df['correlation']
+    df.to_json(filename, orient='records')
+
+
+def plot_specific_scatter(df, column, value):
+    df_value = df[df[column] == value]
+    fig, ax = plt.subplots(1, 2, figsize=(10,5))
+
+    sns.scatterplot(x="metascore", y="imdb_rating_scaled", data=df_value, ax=ax[0], color='#67001f')
+    ax[0].set_title(f"IMDb Users Rating vs Metascore for {value}")
+    ax[0].set_xticks(range(0, 101, 10))
+    ax[0].set_yticks(range(0, 101, 10))
+    ax[0].set_xlim(0, 100)
+    ax[0].set_ylim(0, 100)
+    ax[0].set_xlabel("Metascore")
+    ax[0].set_ylabel("IMDb Users Rating")
+    ax[0].grid()
+
+    ax[0].axhline(y=df_value['imdb_rating_scaled'].mean(), color='r', linestyle='-')
+    ax[0].axvline(x=df_value['metascore'].mean(), color='r', linestyle='-')
+
+    ax[0].axhline(y=df['imdb_rating_scaled'].mean(), color='black', linestyle='-')
+    ax[0].axvline(x=df['metascore'].mean(), color='black', linestyle='-')
+
+    # plot the diagonal x=y
+    ax[0].plot([0, 100], [0, 100], color='black', linestyle='-', linewidth=1, alpha=0.5)
+
+    # set the hue to the bin order"
+    sns.histplot(df_value['rating_difference'], stat='count', alpha=0.5, ax=ax[1], color='#67001f', bins=20)
+    ax[1].axvline(df_value['rating_difference'].mean(), color='r')
+    ax[1].axvline(df['rating_difference'].mean(), color='black')
+    ax[1].set_xlabel('Rating Difference')
+    ax[1].set_ylabel('Count')
+    
+
+
+    blue_line = mlines.Line2D([], [], color='red', label='Specific Mean')
+    red_line = mlines.Line2D([], [], color='black', label='Overall Mean')
+    ax[1].legend(handles=[blue_line, red_line])
+
+    fig.tight_layout()
+
     plt.show()
