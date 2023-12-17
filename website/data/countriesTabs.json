@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "name": "Iran",
+        "title": "Iran's Exotic Flavors",
+        "content": "Iran's cinema, with a Pearson correlation of 0.065 and an OLS coefficient of 5.476, is like a rare spice that has a profound impact when discovered by critics. These numbers suggest that Iranian films, while fewer in number (37 films), leave a strong impression, perhaps due to their unique storytelling and cultural authenticity.",
+        "image": "/ir-flag.gif"
+    },
+    {
+        "id": 2,
+        "name": "France",
+        "title": "France's Culinary Cinema",
+        "content": " With a Pearson correlation of 0.141 and an OLS coefficient of 2.524, both highly significant, France stands out as the gourmet capital in the cinematic world. Its films are consistently well-received by critics, suggesting a recipe that perfectly balances mainstream appeal with artistic depth.",
+        "image": "/fr-flag.gif"
+    },
+    {
+        "id": 3,
+        "name": "Germany",
+        "title": "Germany"
+    },
+    {
+        "id": 4,
+        "name": "Canada",
+        "title": "Canada"
+    },
+    {
+        "id": 5,
+        "name": "India",
+        "title": "India's Bollywood Effect",
+        "content": "The Indian film industry, with its heart in Bollywood, shows a notably negative OLS coefficient (-4.027). Given that this metric studies the difference between IMDb ratings and Metascore, a negative value here indicates that Indian films, especially those from the Bollywood sector, are generally rated higher by audiences than by critics. This could point to a cultural divide where the elements that make Bollywood films endearing to their large audience—such as song and dance, melodrama, and escapist narratives—may not translate into the critical acclaim on an international scale, leading to a lower Metascore.",
+        "image": "/in-flag.gif"
+    },
+    {
+        "id": 6,
+        "name": "United States of America",
+        "title": "The United States' Fast Food Film Industry",
+        "content": "The U.S. presents a Pearson correlation of -0.220 and an OLS coefficient of -5.8119, indicating that while its films may be consumed en masse, they often do not satisfy the critic's hunger for what they consider a five-star cinematic experience. The negative coefficient suggests a consistent critical underestimation, possibly due to the formulaic and commercial nature of Hollywood's productions.",
+        "image": "/us-flag.gif"
+    }
+]

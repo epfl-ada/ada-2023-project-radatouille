@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-3 pt-6">
-    <select v-model="selectedCriteriaType" @change="updateCriteria">
+  <div class="flex flex-col gap-2 pt-6">
+    <select v-model="selectedCriteriaType" @change="updateCriteria" class="p-3 rounded-xl bg-slate-700 text-white font-semibold">
       <option value="genre">Genre</option>
       <option value="actor">Actor</option>
       <option value="trope">Tropes</option>
@@ -15,7 +15,7 @@
       <span v-if="selectedCriteriaType === 'year'">{{ selectedYear }}</span>
     </div>
 
-    <select class="mb-3" v-if="selectedCriteriaType !== 'year'" v-model="selectedCriteria" @change="updateGraph">
+    <select class="mb-3 p-3 rounded-xl bg-slate-400 text-white font-semibold" v-if="selectedCriteriaType !== 'year'" v-model="selectedCriteria" @change="updateGraph">
       <option v-for="option in criteriaOptions" :key="option" :value="option">{{ option }}</option>
     </select>
 

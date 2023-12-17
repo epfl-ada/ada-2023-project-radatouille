@@ -1,0 +1,280 @@
+[
+    {
+        "id": 0,
+        "name": "OscarBait",
+        "title": "Oscar Bait",
+        "content": "Movies specifically engineered to attract Oscar nominations resulting in more serious, depressing, or \"artistic\" movies. They're called Oscar Bait, and the practice is also derisively known as \"Oscarbation\".",
+        "movies": [
+            "The Mask"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/OscarBait",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/oscarbait_9451.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 1,
+        "name": "NewOldWest",
+        "title": "New Old West",
+        "content": "A trope where contemporary settings blend with elements of the Western genre, often exploring the tension between old frontier values and modern society.",
+        "movies": [
+            "No Country for Old Men (2007)",
+            "Mad Max (1979)",
+            "Rio Bravo (1959)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/NewOldWest",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/New_Old_West_3287.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 2,
+        "name": "RoofHopping",
+        "title": "Roof Hopping",
+        "content": "Action sequences that involve characters running and jumping from one rooftop to another, often seen in chase scenes.",
+        "movies": [
+            "Casino Royale (2006)",
+            "Crouching Tiger, Hidden Dragon (2000)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/RoofHopping",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/roofhopping_8449.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 3,
+        "name": "WidgetSeries",
+        "title": "Widget Series",
+        "content": "A show that is so full of cultural quirks and idiosyncrasies that it's often fascinatingly bizarre to those outside its home culture.",
+        "movies": [
+            "Waking Ned Devine (1998)",
+            "Monty Python's The Meaning of Life (1983)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/WidgetSeries",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/dbc61dc5_6366_4d72_89d6_73e5d10d1a53.jpeg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 4,
+        "name": "LeFilmArtistique",
+        "title": "Le Film Artistique",
+        "content": "A trope for films that are highly stylized and artistic, sometimes to the point of being incomprehensible or pretentious.",
+        "movies": [
+            "Ghost World (2001)",
+            "Irma Vep (1996)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/LeFilmArtistique",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/the_blood_of_a_poet_1929.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 5,
+        "name": "MinionWithAnFInEvil",
+        "title": "Minion With An F In Evil",
+        "content": "A villain's henchperson who is comically inept at being bad or has too gentle a nature, failing at being evil.",
+        "movies": [
+            "Superman II (1981)",
+            "Coraline (2009)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/MinionWithAnFInEvil",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/rsz_2011-09-27_8887.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 6,
+        "name": "SharpDressedMan",
+        "title": "Sharp Dressed Man",
+        "content": "A character who dresses in a sophisticated, fashionable manner, signifying their confidence or competence.",
+        "movies": [
+            "Inception (2010)",
+            "Kingsman: The Secret Service (2014)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/SharpDressedMan",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/barney_stinson_0.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 7,
+        "name": "SexlessMarriage",
+        "title": "Sexless Marriage",
+        "content": "A marriage depicted in media where the couple is shown to have little to no sexual relationship, often for comedic or dramatic effect.",
+        "movies": [
+            "American Beauty (1999)",
+            "Die Hard (1988)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/SexlessMarriage",
+        "image_aspect": "square"
+    },
+    {
+        "id": 8,
+        "name": "BrieferThanTheyThink",
+        "title": "Briefer Than They Think",
+        "content": "When a period of history (real or fictional) is given such weight and importance as to make it seem to have lasted a lot longer than it really did.",
+        "movies": [
+            "Citizen Kane (1941)",
+            "Jaws (1975)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/BrieferThanTheyThink",
+        "image_aspect": "square"
+    },
+    {
+        "id": 9,
+        "name": "TheRemake",
+        "title": "The Remake",
+        "content": "A new version of a previously made film or series, which may update or change the story or setting for a contemporary audience.",
+        "movies": [
+            "Ocean's Eleven (2001)",
+            "The Departed (2006)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/TheRemake",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/the_remake.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 10,
+        "name": "Improv",
+        "title": "Improv",
+        "content": "Scenes or entire works that are created spontaneously, without a script, often in comedy.",
+        "movies": [
+            "Mars Attacks! (1996)",
+            "The Breakfast Club (1985)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/Improv"
+    },
+    {
+        "id": 11,
+        "name": "SchmuckBait",
+        "title": "Schmuck Bait",
+        "content": "A trope involving an obvious trap or a too-good-to-be-true scenario that only a 'schmuck' would fall for.",
+        "movies": [
+            "The Mummy Returns (2001)",
+            "Fight Club (1999)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/SchmuckBait",
+        "image": "https://mediaproxy.tvtropes.org/width/1000/https://static.tvtropes.org/pmwiki/pub/images/shinygem_6.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 12,
+        "name": "UnsympatheticComedyProtagonist",
+        "title": "Unsympathetic Comedy Protagonist",
+        "content": "A protagonist in a comedy who is intentionally flawed, unlikable, or morally ambiguous, but still the central character.",
+        "movies": [
+            "Anchorman: The Legend of Ron Burgundy (2004)",
+            "The Green Hornet (2011)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/UnsympatheticComedyProtagonist",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/brickleberry_cast.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 13,
+        "name": "DeanBitterman",
+        "title": "Dean Bitterman",
+        "content": "A stock character in academic settings, typically a dean or headmaster, who is often antagonistic or overly strict.",
+        "movies": [
+            "Animal House (1978)",
+            "Back to School (1986)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/DeanBitterman",
+        "image": "https://mediaproxy.tvtropes.org/width/1000/https://static.tvtropes.org/pmwiki/pub/images/captain_underpants_disneyscreencapscom_310.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 14,
+        "name": "OutWithABang",
+        "title": "Out With A Bang",
+        "content": "A trope where a character meets their end during or immediately after a sexual encounter.",
+        "movies": [
+            "Game of Thrones (TV Series)",
+            "Watchmen (2009)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/OutWithABang",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/out-with-a-bang_futurama_869.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 15,
+        "name": "MagicalNegro",
+        "title": "Magical Negro",
+        "content": "A trope in which a supporting black character exists primarily to aid white protagonists, often with mystical or spiritual powers.",
+        "movies": [
+            "The Green Mile (1999)",
+            "The Legend of Bagger Vance (2000)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/MagicalNegro",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/magical_negro_0.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 16,
+        "name": "ThanatosGambit",
+        "title": "Thanatos Gambit",
+        "content": "A plan that takes into account the planner's own death, typically to ensure victory even if they don't survive.",
+        "movies": [
+            "The Dark Knight (2008)",
+            "Skyfall (2012)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/ThanatosGambit",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/4jgxsut49h_300px.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 17,
+        "name": "FlashedBadgeHijack",
+        "title": "Flashed Badge Hijack",
+        "content": "When a law enforcement character commandeers a vehicle or takes over a situation by showing their badge.",
+        "movies": [
+            "Die Hard (1988)",
+            "Rush Hour (1998)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/FlashedBadgeHijack",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/flashed_badge_hijack.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "id": 18,
+        "name": "NumberofTheBeast",
+        "title": "Number of The Beast",
+        "content": "The use of the number 666 to signify evil or herald the coming of dark events.",
+        "movies": [
+            "The Omen (1976)",
+            "End of Days (1999)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/NumberofTheBeast",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/666_pentagram_wallpaper_3413.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 19,
+        "name": "CrooksAreBetterArmed",
+        "title": "Crooks Are Better Armed",
+        "content": "Criminals in a story are often depicted with better, more advanced weaponry than the police or heroes.",
+        "movies": [
+            "Heat (1995)",
+            "RoboCop (1987)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/CrooksAreBetterArmed",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/crooksbetterarmed.png",
+        "image_aspect": "square"
+    },
+    {
+        "id": 20,
+        "name": "HaHaHaNo",
+        "title": "Ha Ha Ha No",
+        "content": "A character seems to go along with a joke or ridiculous suggestion before suddenly turning serious and rejecting it.",
+        "movies": [
+            "The Office (TV Series)",
+            "Guardians of the Galaxy (2014)"
+        ],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/HaHaHaNo",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/2010-01-07-hbnc_085_4067.jpg",
+        "image_aspect": "square"
+    }, {
+        "id": 21,
+        "name": "MsFanService",
+        "title": "Ms. Fanservice",
+        "content": "A character, often female, included in a work to appeal to the audience's sexual interests. The design and presentation of the character focus on highlighting their attractiveness, using revealing outfits, suggestive poses, or the 'male gaze' camera work. This character often serves as a point of visual interest and can sometimes detract from the plot or other character development.",
+        "movies": ["Who Framed Roger Rabbit (1988)"],
+        "link": "https://tvtropes.org/pmwiki/pmwiki.php/Main/MsFanService",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/jessica_rabbit_smoking_9465.jpg",
+        "image_aspect": "square"
+    }
+]
