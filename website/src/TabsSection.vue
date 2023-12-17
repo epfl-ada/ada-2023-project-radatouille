@@ -67,9 +67,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionChild, TransitionRoot, Dialog, DialogPanel } from '@headlessui/vue';
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid'
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid';
+
 const props = defineProps({
     tabs: {
         type: Array,
@@ -77,10 +78,15 @@ const props = defineProps({
     }
 });
 
+const activeTabId = ref(null);
+const isTabListVisible = ref(false);
+const isMobileView = ref(window.innerWidth < 1024);
 
-const activeTabId = ref(props.tabs.length > 0 ? props.tabs[0].id : null);
-const isTabListVisible = ref(false); // Controls the visibility of the TabList on small screens
-const isMobileView = ref(window.innerWidth < 1024); // Assuming 'lg' breakpoint is 1024px
+const setActiveTabId = () => {
+    if (props.tabs && props.tabs.length > 0) {
+        activeTabId.value = props.tabs[0].id;
+    }
+};
 
 const updateWindowSize = () => {
     isMobileView.value = window.innerWidth < 1024;
@@ -88,11 +94,16 @@ const updateWindowSize = () => {
 
 onMounted(() => {
     window.addEventListener('resize', updateWindowSize);
+    setActiveTabId();
 });
 
 onUnmounted(() => {
     window.removeEventListener('resize', updateWindowSize);
 });
+
+watch(() => props.tabs, (newValue, oldValue) => {
+    setActiveTabId();
+}, { immediate: true });
 
 
 </script>

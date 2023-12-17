@@ -56,7 +56,6 @@ import {
 } from '@headlessui/vue'
 
 import { Bars3Icon, ChevronRightIcon, XMarkIcon } from '@heroicons/vue/24/solid'
-
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const isMobileMenuOpen = ref(false)

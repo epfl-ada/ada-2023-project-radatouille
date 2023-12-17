@@ -25,17 +25,8 @@
 </template>
   
 <script setup>
-import Plotly from 'plotly.js-dist-min';
-
+import Plotly from 'plotly.js-basic-dist-min'
 import { onMounted, ref } from 'vue';
-
-import movies_data from '../data/playground-movies.json';
-import genres_data from '../data/playground-genres.json';
-import actors_data from '../data/playground-actors.json';
-import years_data from '../data/playground-releaseyear.json';
-import tropes_data from '../data/playground-tropes.json';
-//import awards_data from '../data/playground-awards.json';
-import countries_data from '../data/playground-countries.json';
 
 const moviesData = ref([]);
 
@@ -102,16 +93,25 @@ const updateYearSlider = () => {
   updateGraph();
 };
 
+const fetchData = async (path) => {
+  const response = await fetch(path);
+  return await response.json();
+};
+
 
 onMounted(async () => {
-  yearRange.value = [...Object.keys(years_data).map(year => parseInt(year))].sort((a, b) => a - b);
-  moviesData.value = movies_data;
-  genresData.value = genres_data;
-  actorsData.value = actors_data;
-  yearsData.value = years_data;
-  tropesData.value = tropes_data;
-  //awardsData.value = awards_data;
-  countriesData.value = countries_data;
+
+  
+  moviesData.value = await fetchData('/data/playground-movies.json');
+  genresData.value = await fetchData('/data/playground-genres.json');
+  actorsData.value = await fetchData('/data/playground-actors.json');
+  yearsData.value = await fetchData('/data/playground-releaseyear.json');
+  tropesData.value = await fetchData('/data/playground-tropes.json');
+  //awardsData.value = await fetchData('/data/playground-awards.json');
+  countriesData.value = await fetchData('/data/playground-countries.json');
+
+  yearRange.value = [...Object.keys(yearsData.value).map(year => parseInt(year))].sort((a, b) => a - b);
+
   initGraph();
   updateCriteria();
 });

@@ -247,9 +247,6 @@
               mass appeal rather than the gourmet tastes of critics.
             </p>
           </div>
-
-
-
         </section>
 
 
@@ -503,27 +500,15 @@
 }
 </style>
 
+
+
 <script setup>
-import Navbar from './Navbar.vue';
-import { onMounted, ref } from 'vue';
-import Plotly from 'plotly.js-dist-min';
-import Playground from './Playground.vue';
-import TabsSection from './TabsSection.vue';
+import { onMounted, ref, defineAsyncComponent } from 'vue';
+import Plotly from 'plotly.js-basic-dist-min'
 
-import countries1 from '../data/countries-1.json';
-import countries2 from '../data/countries-2.json';
-import countries3 from '../data/countries-3.json';
-import genres1 from '../data/genres-1.json';
-import genres2 from '../data/genres-2.json';
-import genres3 from '../data/genres-3.json';
-import actors1 from '../data/actors-1.json';
-import actors2 from '../data/actors-2.json';
-import tropes1 from '../data/tropes-1.json';
-import tropes2 from '../data/tropes-2.json';
-
-import tropesTabs from '../data/tropesTabs.json'
-import countriesTabs from '../data/countriesTabs.json'
-import genresTabs from '../data/genresTabs.json'
+const Navbar = defineAsyncComponent(() => import('./Navbar.vue'));
+const Playground = defineAsyncComponent(() => import('./Playground.vue'));
+const TabsSection = defineAsyncComponent(() => import('./TabsSection.vue'));
 
 const chartCountries1 = ref(null);
 const chartCountries2 = ref(null);
@@ -536,6 +521,10 @@ const chartActors2 = ref(null);
 const chartTropes1 = ref(null);
 const chartTropes2 = ref(null);
 
+const countriesTabs = ref(null)
+const genresTabs = ref(null)
+const tropesTabs = ref(null)
+
 const activeLamp = ref(true)
 
 const flareColorScale = [
@@ -546,6 +535,12 @@ const flareColorScale = [
   [0.70, '#b2182b'],
   [1.0, '#67001f']
 ];
+
+const fetchData = async (path) => {
+  const response = await fetch(path);
+  return response.json();
+};
+
 
 function plotChart(chartRef, data, layout) {
   Plotly.newPlot(chartRef.value, data, layout);
@@ -572,7 +567,24 @@ function transformDataForPlotly(data, x_column, y_column, error_x_column, text_f
   return [trace];
 }
 
-onMounted(() => {
+onMounted(async () => {
+
+  const countries1 = await fetchData('/data/countries-1.json');
+  const countries2 = await fetchData('/data/countries-2.json');
+  const countries3 = await fetchData('/data/countries-3.json');
+  const genres1 = await fetchData('/data/genres-1.json');
+  const genres2 = await fetchData('/data/genres-2.json');
+  const genres3 = await fetchData('/data/genres-3.json');
+  const actors1 = await fetchData('/data/actors-1.json');
+  const actors2 = await fetchData('/data/actors-2.json');
+  const tropes1 = await fetchData('/data/tropes-1.json');
+  const tropes2 = await fetchData('/data/tropes-2.json');
+
+  tropesTabs.value = await fetchData('/data/tropesTabs.json')
+  countriesTabs.value = await fetchData('/data/countriesTabs.json')
+  genresTabs.value = await fetchData('/data/genresTabs.json')
+
+
   // Countries 1
   if (chartCountries1) {
     countries1.sort((a, b) => {
