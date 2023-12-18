@@ -24,7 +24,7 @@
     <span><span class="text-black font-semibold ml-1">Number of movies:</span> {{ nMoviesSelected }}</span>
     <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected }} ({{ meanRatingDiffSelected > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
 
-    <div ref="playgroundScatterPlot"></div>
+    <div ref="playgroundScatterPlot" class="aspect-square"></div>
     <div ref="playgroundHistogramPlot"></div>
   </div>
 </template>
@@ -149,13 +149,14 @@ const initGraph = () => {
 
   const scatterLayout = {
     xaxis: {
-      range: [0, 100],
+      range: [0, 105],
       title: 'Metascore'
     },
     yaxis: {
-      range: [0, 100],
+      range: [0, 105],
       title: 'IMDB Rating Scaled',
-      scaleratio: 1
+      scaleratio: 1,
+      automargin: true
     },
     margin: {
       l: 70,
@@ -257,14 +258,13 @@ const updateGraph = () => {
 
   const layout = {
     xaxis: {
-      range: [0, 100],
+      range: [0, 105],
       title: 'Metascore',
       automargin: true
     },
     yaxis: {
-      range: [0, 100],
+      range: [0, 105],
       title: 'IMDB Rating Scaled',
-      // Make plot square
       scaleratio: 1,
       automargin: true
     },

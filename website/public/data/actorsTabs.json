@@ -1,0 +1,149 @@
+[
+    {
+        "id": 1,
+        "name": "Cary Grant",
+        "title": "Cary Grant",
+        "content": "Cary Grant (1904-1986) was a British-American icon who was celebrated for his timeless charm and versatile roles in classics like <a href=\"https://en.wikipedia.org/wiki/North_by_Northwest\">North by Northwest (1959)</a> and <a href=\"https://en.wikipedia.org/wiki/Bringing_Up_Baby\">Bringing Up Baby (1938)</a>. His debonair demeanor and comedic talents made him a Hollywood legend, leaving an enduring legacy in film history.",
+        "image": "https://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/35/42/04/18823935.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 1,
+                "title": "North by Western (1959)",
+                "link": "https://en.wikipedia.org/wiki/North_by_Northwest"
+            },
+            {
+                "id": 2,
+                "title": "Bringing Up Baby (1938)",
+                "link": "https://en.wikipedia.org/wiki/Bringing_Up_Baby"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Cary_Grant"
+    },
+    {
+        "id": 2,
+        "name": "Ward Bond",
+        "title": "Ward Bond",
+        "content": "Ward Bond (1903-1960) was a notable American character actor, renowned for over 200 film appearances. Recognized for supporting roles in classics like <a href=\"https://en.wikipedia.org/wiki/It%27s_a_Wonderful_Life\">It's a Wonderful Life (1946)</a> and collaborations with director John Ford, including <a href=\"https://en.wikipedia.org/wiki/The_Searchers\">The Searchers (1956)</a>, Bond's versatility and memorable performances mark him as a respected figure in Hollywood history. His impressive track record is however not completely represented in our dataset. Indeed, in the end, only a few films survived our analysis, and those might not be random films. While interesting, these considerations must be taken into account when considering the almost 10 score difference.",
+        "image": "https://www.themoviedb.org/t/p/w500/6F8pPEwBHWDpX04R8LkARFejwtC.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 3,
+                "title": "It's a Wonderful Life (1946)",
+                "link": "https://en.wikipedia.org/wiki/It%27s_a_Wonderful_Life"
+            },
+            {
+                "id": 4,
+                "title": "The Searchers (1956)",
+                "link": "https://en.wikipedia.org/wiki/The_Searchers"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Ward_Bond"
+    },
+    {
+        "id": 3,
+        "name": "Martin Scorsese",
+        "title": "Martin Scorsese",
+        "content": "Martin Scorsese, born in 1942, is a world renowned filmmaker. However, he often makes quick appearances in his own film as caméo, and it's interesting to see that he's appearing out of our analysis. While funny and interesting, these results should be taken with a bit of care since his roles are not really a factor that's relevant, but more a confounding effect of him being a director.",
+        "image": "https://fr.web.img6.acsta.net/r_1920_1080/pictures/15/10/19/09/54/276049.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 5,
+                "title": "Taxi Driver (1976)",
+                "link": "https://en.wikipedia.org/wiki/Taxi_Driver"
+            },
+            {
+                "id": 6,
+                "title": "The Wolf of Wall Street (2013)",
+                "link": "https://en.wikipedia.org/wiki/The_Wolf_of_Wall_Street_(2013_film)"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Martin_Scorsese"
+    },
+    {
+        "id": 4,
+        "name": "Marlon Brando",
+        "title": "Marlon Brando",
+        "content": "Marlon Brando (1924-2004), an iconic American actor, revolutionized film with his method acting. Renowned for transformative performances in classics like <a href=\"https://en.wikipedia.org/wiki/A_Streetcar_Named_Desire_(1951_film)\">A Streetcar Named Desire (1951)</a> and <a href=\"https://en.wikipedia.org/wiki/The_Godfather\">The Godfather (1972)</a>, Brando's profound impact on acting cements his status as one of cinema's greatest. Our analysis probably rightfully propulses him at a solid positive 9 score difference.",
+        "image": "https://images.rtl.fr/~c/770v513/rtl/www/1182795-10-marlon-brando-en-vito-corleone-dans-le-parrain-1972.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 7,
+                "title": "A Streetcar Named Desire (1951)",
+                "link": "https://en.wikipedia.org/wiki/A_Streetcar_Named_Desire_(1951_film)"
+            },
+            {
+                "id": 8,
+                "title": "The Godfather (1972)",
+                "link": "https://en.wikipedia.org/wiki/The_Godfather"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Marlon_Brando"
+    },
+    {
+        "id": 5,
+        "name": "Catherine Deneuve",
+        "title": "Catherine Deneuve",
+        "content": "Catherine Deneuve, born in 1943, is a renowned French actress celebrated for her versatile and captivating performances in critically acclaimed movies. From complex dramas like <a href=\"https://en.wikipedia.org/wiki/Belle_de_Jour_(film)\">Belle de Jour</a> to enchanting musicals like <a href=\"https://en.wikipedia.org/wiki/The_Umbrellas_of_Cherbourg\">The Umbrellas of Cherbourg</a>, Deneuve's enduring collaboration with esteemed directors and her elegant screen presence consistently places her at the forefront of international cinema. She's one of the few female actresses on this side of the chart.",
+        "image": "https://france3-regions.francetvinfo.fr/image/TWxOF_ZAq3qnF0oFJhFWKtrZnrc/600x400/regions/2023/10/11/xnaphotostwo636416-65269549d569e751941079.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 9,
+                "title": "Belle de Jour (1967)",
+                "link": "https://en.wikipedia.org/wiki/Belle_de_Jour_(film)"
+            },
+            {
+                "id": 10,
+                "title": "The Umbrellas of Cherbourg (1964)",
+                "link": "https://en.wikipedia.org/wiki/The_Umbrellas_of_Cherbourg"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Catherine_Deneuve"
+    },
+    {
+        "id": 6,
+        "name": "Georges Clooney",
+        "title": "Georges Clooney",
+        "content": "You already know Georges… what else? ☕",
+        "image": "https://fr.web.img6.acsta.net/r_1920_1080/pictures/16/05/12/17/04/136865.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 11,
+                "title": "Ocean's Eleven (2001)",
+                "link": "https://en.wikipedia.org/wiki/Ocean%27s_Eleven_(2001_film)"
+            },
+            {
+                "id": 12,
+                "title": "Gravity (2013)",
+                "link": "https://en.wikipedia.org/wiki/Gravity_(2013_film)"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/George_Clooney"
+    },
+    {
+        "id": 7,
+        "name": "Kelly Preston",
+        "title": "Kelly Preston",
+        "content": "Kelly Preston (1962-2020) is an American actress, showcased for her versatility in a range of films, from comedies like <a href=\"https://en.wikipedia.org/wiki/Twins_(1988_film)\">Twins (1988)</a> to dramas like <a href=\"https://en.wikipedia.org/wiki/Jerry_Maguire\">Jerry Maguire (1996)</a>. Known for her engaging performances and on-screen charm, Preston's contributions have left a lasting impact on Hollywood. Most of her appearances are in comedies or dramas. It's interesting to see that despite starring in drama films, a genre slightly favored by critics, the actress is most of the time more linked to movies preferred by users.",
+        "image": "https://fr.web.img4.acsta.net/r_1920_1080/pictures/18/05/15/15/19/4588797.jpg",
+        "image_aspect": "square",
+        "movies": [
+            {
+                "id": 13,
+                "title": "Twins (1988)",
+                "link": "https://en.wikipedia.org/wiki/Twins_(1988_film)"
+            },
+            {
+                "id": 14,
+                "title": "Jerry Maguire (1996)",
+                "link": "https://en.wikipedia.org/wiki/Jerry_Maguire"
+            }
+        ],
+        "link": "https://en.wikipedia.org/wiki/Kelly_Preston"
+    }
+]

@@ -4,39 +4,113 @@
         "name": "Iran",
         "title": "Iran's Exotic Flavors",
         "content": "Iran's cinema, with a Pearson correlation of 0.065 and an OLS coefficient of 5.476, is like a rare spice that has a profound impact when discovered by critics. These numbers suggest that Iranian films, while fewer in number (37 films), leave a strong impression, perhaps due to their unique storytelling and cultural authenticity.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/255px-Flag_of_Iran.svg.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/255px-Flag_of_Iran.svg.png",
+        "movies": [
+            {
+                "id": 1,
+                "title": "A Separation (2011)",
+                "link": "https://en.wikipedia.org/wiki/A_Separation"
+            },
+            {
+                "id": 2,
+                "title": "Children of Heaven (1997)",
+                "link": "https://en.wikipedia.org/wiki/Children_of_Heaven"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "France",
         "title": "France's Culinary Cinema",
-        "content": " With a Pearson correlation of 0.141 and an OLS coefficient of 2.524, both highly significant, France stands out as the gourmet capital in the cinematic world. Its films are consistently well-received by critics, suggesting a recipe that perfectly balances mainstream appeal with artistic depth.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Flag_of_France.png/1024px-Flag_of_France.png"
+        "content": "With a Pearson correlation of 0.141 and an OLS coefficient of 2.524, both highly significant, France stands out as the gourmet capital in the cinematic world. Its films are consistently well-received by critics, suggesting a recipe that perfectly balances mainstream appeal with artistic depth.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Flag_of_France.png/1024px-Flag_of_France.png",
+        "movies": [
+            {
+                "id": 1,
+                "title": "Amélie (2001)",
+                "link": "https://en.wikipedia.org/wiki/Am%C3%A9lie"
+            },
+            {
+                "id": 2,
+                "title": "The Intouchables (2011)",
+                "link": "https://en.wikipedia.org/wiki/The_Intouchables"
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Germany",
-        "title": "Germany",
-        "image": "https://cdn.britannica.com/97/897-004-232BDF01/Flag-Germany.jpg"
+        "title": "Germany's Innovative and Reflective Cinema",
+        "content": "German cinema, known for its thought-provoking narratives and innovative techniques, has made a substantial impact on the film industry. With a blend of history, drama, and art, German films often reflect on societal issues and human experiences, resonating with both critics and audiences alike.",
+        "image": "https://cdn.britannica.com/97/897-004-232BDF01/Flag-Germany.jpg",
+        "movies": [
+            {
+                "id": 1,
+                "title": "Run Lola Run (1998)",
+                "link": "https://en.wikipedia.org/wiki/Run_Lola_Run"
+            },
+            {
+                "id": 2,
+                "title": "The Lives of Others (2006)",
+                "link": "https://en.wikipedia.org/wiki/The_Lives_of_Others"
+            }
+        ]
     },
     {
         "id": 4,
         "name": "Canada",
-        "title": "Canada",
-        "image": "https://media.istockphoto.com/id/1414559861/vector/vector-illustration-of-canadian-flag-official-national-flag-of-canada-of-north-america.jpg?s=612x612&w=0&k=20&c=FCntD7W2eninbfrHb0bC5btoaJ9LTHw32cCf9ON-CEs="
+        "title": "Canada's Diverse and Inclusive Cinema",
+        "content": "Canadian cinema, often characterized by its diversity and inclusivity, offers a range of films that explore various cultural, social, and historical themes. The industry is known for its support of independent filmmaking, contributing unique and varied perspectives to the global film landscape.",
+        "image": "https://media.istockphoto.com/id/1414559861/vector/vector-illustration-of-canadian-flag-official-national-flag-of-canada-of-north-america.jpg?s=612x612&w=0&k=20&c=FCntD7W2eninbfrHb0bC5btoaJ9LTHw32cCf9ON-CEs=",
+        "movies": [
+            {
+                "id": 1,
+                "title": "Incendies (2010)",
+                "link": "https://en.wikipedia.org/wiki/Incendies"
+            },
+            {
+                "id": 2,
+                "title": "Atanarjuat: The Fast Runner (2001)",
+                "link": "https://en.wikipedia.org/wiki/Atanarjuat:_The_Fast_Runner"
+            }
+        ]
     },
     {
         "id": 5,
         "name": "India",
         "title": "India's Bollywood Effect",
         "content": "The Indian film industry, with its heart in Bollywood, shows a notably negative OLS coefficient (-4.027). Given that this metric studies the difference between IMDb ratings and Metascore, a negative value here indicates that Indian films, especially those from the Bollywood sector, are generally rated higher by audiences than by critics. This could point to a cultural divide where the elements that make Bollywood films endearing to their large audience—such as song and dance, melodrama, and escapist narratives—may not translate into the critical acclaim on an international scale, leading to a lower Metascore.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/2560px-Flag_of_India.svg.png"
+        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/2560px-Flag_of_India.svg.png",
+        "movies": [
+            {
+                "id": 1,
+                "title": "Dilwale Dulhania Le Jayenge (1995)",
+                "link": "https://en.wikipedia.org/wiki/Dilwale_Dulhania_Le_Jayenge"
+            },
+            {
+                "id": 2,
+                "title": "Lagaan (2001)",
+                "link": "https://en.wikipedia.org/wiki/Lagaan"
+            }
+        ]
     },
     {
         "id": 6,
         "name": "United States of America",
         "title": "The United States' Fast Food Film Industry",
-        "content": "The U.S. presents a Pearson correlation of -0.220 and an OLS coefficient of -5.8119, indicating that while its films may be consumed en masse, they often do not satisfy the critic's hunger for what they consider a five-star cinematic experience. The negative coefficient suggests a consistent critical underestimation, possibly due to the formulaic and commercial nature of Hollywood's productions.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+        "content": "The U.S. presents a Pearson correlation of -0.220 and an OLS coefficient of -5.825, indicating that while its films may be consumed en masse, they often do not satisfy the critic's hunger for what they consider a five-star cinematic experience. The negative coefficient suggests a consistent critical underestimation, possibly due to the formulaic and commercial nature of Hollywood's productions.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png",
+        "movies": [
+            {
+                "id": 1,
+                "title": "The Shawshank Redemption (1994)",
+                "link": "https://en.wikipedia.org/wiki/The_Shawshank_Redemption"
+            },
+            {
+                "id": 2,
+                "title": "Forrest Gump (1994)",
+                "link": "https://en.wikipedia.org/wiki/Forrest_Gump"
+            }
+        ]
     }
 ]

@@ -1,5 +1,5 @@
 <template>
-    <TabGroup as="div" class="flex flex-col lg:flex-row z-[2] w-full">
+    <TabGroup v-if="tabs && tabs.length > 0" as="div" class="flex flex-col lg:flex-row z-[2] w-full" :default-index="defaultIndex">
         <button class="lg:hidden py-3 px-4 rounded-xl bg-gradient-to-r to-[#67001f] from-[#f6e8c3] mb-3 flex"
             :show="!isTabListVisible" @click="isTabListVisible = !isTabListVisible">
             <span class="text-white drop-shadow-[0_1.5px_3px_rgba(0,0,0,1)] font-semibold">Menu</span>
@@ -22,10 +22,10 @@
                             class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                             <TabList as="div"
                                 class="flex lg:hidden flex-col p-3 mt-5 space-x-1 rounded-xl bg-gradient-to-t to-[#67001f] from-[#f6e8c3]">
-                                <Tab as="button" v-for="tab in tabs" :key="tab.id"
+                                <Tab as="button" v-for="(tab, index) in tabs" :key="index"
                                     class="w-full py-2.5 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none focus:ring-2 ring-offset-2 ring-offset-red-700 ring-white ring-opacity-60"
-                                    :class="{ 'bg-slate-200 border-l-4 border-red-700 font-bold !text-black drop-shadow-lg': tab.id === activeTabId }"
-                                    @click="activeTabId = tab.id; isTabListVisible = false">
+                                    :class="{ 'bg-slate-200 border-l-4 border-red-700 font-bold !text-black drop-shadow-lg': index === activeTabId }"
+                                    @click="activeTabId = index; isTabListVisible = false">
                                     {{ tab.name }}
                                 </Tab>
                             </TabList>
@@ -39,26 +39,26 @@
         </TransitionRoot>
         <TabList as="div" v-if="!isMobileView"
             class="hidden lg:flex flex-col py-3 px-4 space-x-1 rounded-xl bg-gradient-to-t to-[#67001f] from-[#f6e8c3]">
-            <Tab as="button" v-for="(tab, index) in tabs" :key="tab.id"
+            <Tab as="button" v-for="(tab, index) in tabs" :key="index"
                 class="w-full py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
-                :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': tab.id === activeTabId }"
-                @click="() => { activeTabId = tab.id; isTabListVisible = false }">
+                :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': index === activeTabId }"
+                @click="() => { activeTabId = index; isTabListVisible = false; }">
                 {{ tab.name }}
             </Tab>
         </TabList>
-        <TabPanels as="div" class="lg:ml-5 p-5 bg-slate-200 rounded-xl flex w-full lg:max-w-md overflow-hidden ">
-            <TabPanel v-for="tab in tabs" :key="tab.id" as="div" class="flex h-full w-full">
-                <TransitionRoot :show="activeTabId == tab.id" enter="tab-enter" enter-to="tab-enter-to" :unmount="false"
+        <TabPanels as="div" class="lg:ml-5 p-5 bg-slate-200 rounded-xl flex w-full lg:max-w-md overflow-hidden " >
+            <TabPanel v-for="(tab, index) in tabs" :key="index" as="div" class="flex h-full w-full">
+                <TransitionRoot :show="activeTabId == index" enter="tab-enter" enter-to="tab-enter-to"
                     enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to" leave-from="tab-leave-from">
-                    <div class="flex flex-col h-full">
+                    <div class="flex flex-col h-full p-1 lg:p-3 tab-content">
                         <!-- Panel Content -->
                         <img v-if="tab.image" :src="tab.image" class="w-full rounded-lg object-cover object-center mb-4"
                             :class="tab.image_aspect == 'square' ? 'aspect-square' : null">
                         <h5 class="text-xl font-semibold mb-1">{{ tab.title }}</h5>
-                        <p>{{ tab.content }}</p>
+                        <p v-html="tab.content"></p>
                         <h6 v-if="tab.movies" class="text-lg font-semibold mb-1 mt-3">Some movies</h6>
                         <ul class="list-disc list-inside">
-                            <li v-for="item in tab.movies" :key="item">{{ item }}</li>
+                            <li v-for="item in tab.movies" :key="item.id"><a :href="item.link" target="_blank">{{ item.title }}</a></li>
                         </ul>
                         <a v-if="tab.link" target="_blank" :href="tab.link"
                             class="bg-slate-800 p-2 text-white rounded-lg font-semibold hover:underline mt-auto ml-auto">See
@@ -70,7 +70,7 @@
     </TabGroup>
 </template>
 
-<style scoped>
+<style>
 /* Define the entering and leaving animations */
 .tab-enter,
 .tab-leave {
@@ -88,17 +88,31 @@
     transform: scale(1);
     opacity: 1;
 }
+
+.tab-content p a, .tab-content ul li a {
+    text-decoration: underline;
+    color: #67001f;
+}
+
+.tab-content p a:hover, .tab-content ul li a:hover {
+    color: #a86f80;
+    cursor: pointer;
+}
 </style>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue';
 import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionChild, TransitionRoot, Dialog, DialogPanel } from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid';
 
 const props = defineProps({
     tabs: {
         type: Array,
-        default: () => []
+        default: () => null
+    },
+    defaultIndex: {
+        type: Number,
+        default: 0
     }
 });
 
@@ -106,27 +120,23 @@ const activeTabId = ref(null);
 const isTabListVisible = ref(false);
 const isMobileView = ref(window.innerWidth < 1024);
 
-const setActiveTabId = () => {
-    if (props.tabs && props.tabs.length > 0) {
-        activeTabId.value = props.tabs[0].id;
-    }
-};
-
 const updateWindowSize = () => {
     isMobileView.value = window.innerWidth < 1024;
 };
 
 onMounted(() => {
     window.addEventListener('resize', updateWindowSize);
-    setActiveTabId();
 });
 
 onUnmounted(() => {
     window.removeEventListener('resize', updateWindowSize);
 });
 
-watch(() => props.tabs, (newValue, oldValue) => {
-    setActiveTabId();
+watch(() => props.tabs, (newTabs) => {
+    if (newTabs && newTabs.length > 0) {
+        activeTabId.value = props.defaultIndex;
+        console.log(activeTabId.value)
+    }
 }, { immediate: true });
 
 

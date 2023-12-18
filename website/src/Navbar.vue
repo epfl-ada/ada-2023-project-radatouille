@@ -1,21 +1,23 @@
 <template>
     <nav class="h-14 flex bg-dark text-light items-center justify-end sticky top-0 left-0 w-full z-10">
-        <button class="cursor-pointer w-14 h-14 flex items-center justify-center" title="Open menu"
+        <button class="cursor-pointer w-14 h-14 flex items-center justify-center " title="Open menu"
             @click="() => setIsMobileMenuOpen(true)">
-            <Bars3Icon class="w-6 h-6" />
+            <span class="hover:bg-white/90 hover:text-dark rounded-full p-2">
+                <Bars3Icon class="w-6 h-6 " />
+            </span>
         </button>
     </nav>
 
     <!-- Mobile menu -->
     <TransitionRoot appear :show="isMobileMenuOpen" as="template">
         <Dialog as="div" @close="setIsMobileMenuOpen">
-            <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+            <TransitionChild as="template" enter="duration-200 ease-out" enter-from="opacity-0" enter-to="opacity-100"
                 leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
                 <div class="fixed inset-0 bg-black/50 z-10" />
             </TransitionChild>
 
             <div class="fixed inset-0 overflow-y-auto overflow-x-hidden z-20">
-                <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 translate-x-full"
+                <TransitionChild as="template" enter="duration-200 ease-out" enter-from="opacity-0 translate-x-full"
                     enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 translate-x-full">
                     <DialogPanel class="h-full ml-16 lg:w-1/3 lg:ml-auto">
