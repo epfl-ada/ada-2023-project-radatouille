@@ -135,7 +135,6 @@ onUnmounted(() => {
 watch(() => props.tabs, (newTabs) => {
     if (newTabs && newTabs.length > 0) {
         activeTabId.value = props.defaultIndex;
-        console.log(activeTabId.value)
     }
 }, { immediate: true });
 
