@@ -42,7 +42,7 @@
     -->
     <div class="flex col-span-5 px-10 lg:px-8 lg:col-span-3 lg:col-start-2 flex-col py-8 w-full mx-auto max-w-screen-lg">
       <section id="introduction" class="section">
-        <h2 class="text-5xl font-bold mt-5">Introduction</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold mt-5">Introduction</h2>
 
         <div class="flex flex-col lg:flex-row">
           <div>
@@ -67,9 +67,9 @@
             class="w-[180px] lg:w-[180px] mt-4 drop-shadow-xl lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300 mx-auto lg:ml-8" />
         </div>
 
-        <section id="fridge" class="section  text-justify">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2 ">
-            <BookmarkIcon class="w-9 h-9" />What's in our fridge
+        <section id="fridge" class="section text-justify">
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start gap-2 ">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2 mt-1" />What's in our fridge
           </h3>
           <p class="mt-4">
             Let's look at what is available to us.
@@ -152,8 +152,8 @@
         </section>
 
         <section id="cookbook" class="section text-justify">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Statistics Cookbook
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start gap-2 ">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Statistics Cookbook
           </h3>
           <p class="mt-2">
             We have a lot of tools and nice recipes to use with our ingredients, and we'll try
@@ -218,8 +218,8 @@
         </section>
 
         <section id="noodles" class="section  text-justify">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Instantaneous Noodles and T-Taste
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Instantaneous Noodles and T-Taste
           </h3>
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
@@ -285,14 +285,14 @@
         </section>
       </section>
 
-      <section id="exploration" class="section text-justify">
-        <h2 class="text-5xl font-bold mt-8">Time to cook</h2>
-        <h5 class="text-2xl italic text-slate-600 mt-1 ml-1">Exploring the ingredients</h5>
+      <section id="cooking-time" class="section text-justify">
+        <h2 class="text-4xl lg:text-5xl font-bold mt-8">Time to cook</h2>
+        <h5 class="text-xl lg:text-2xl italic text-slate-600 mt-1 ml-1">Exploring the ingredients</h5>
 
         <!-- == COUNTRIES == -->
         <section id="countries" class="section">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Countries
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Countries
           </h3>
           <p class="mt-6">
             In the grand kitchen of our data-driven analysis, let's craft a narrative as we
@@ -435,10 +435,10 @@
 
         <!-- == GENRES == -->
         <section id="genres" class="section">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Genres
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Genres
           </h3>
-          <h5 class="text-xl italic text-slate-600">Crafting the Narrative of Preference</h5>
+          <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Crafting the Narrative of Preference</h5>
 
           <!-- Basic Viz -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
@@ -550,8 +550,8 @@
 
         <!-- === AWARDS === -->
         <section id="awards" class="section text-justify">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Awards
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Awards
           </h3>
           <!-- Basic Viz -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
@@ -619,8 +619,8 @@
 
 
         <section id="release-year" class="section">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Release Year
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Release Year
           </h3>
           <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
             consequat
@@ -633,10 +633,9 @@
 
         <!-- == ACTORS == -->
         <section id="actors" class="section">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Actors
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Actors
           </h3>
-
           <!-- Pearson -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
@@ -718,8 +717,8 @@
 
         <!-- == TROPES == -->
         <section id="tropes" class="section">
-          <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
-            <BookmarkIcon class="w-9 h-9" />Tropes
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+            <BookmarkIcon class="w-9 h-9 float-left mr-2" />Tropes
           </h3>
 
           <!-- Pearson -->
@@ -769,7 +768,7 @@
       </section>
 
       <section id="conclusion" class="section">
-        <h2 class="text-5xl font-bold mt-8 mb-6">Conclusion</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold mt-8 mb-6">Conclusion</h2>
         <p class="mt-2 text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
           consequat
@@ -840,7 +839,7 @@
       </section>
 
       <section id="playground" class="section">
-        <h2 class="text-5xl font-bold mt-8">Playground</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold mt-8">Playground</h2>
         <div>
           <Playground />
         </div>

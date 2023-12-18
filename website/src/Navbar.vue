@@ -70,25 +70,25 @@ const sections = [{
     },
     secondaryMenuLinks: [{
         id: 1,
-        title: 'Users',
-        link: '#users'
+        title: "What's in our fridge",
+        link: '#fridge'
     },
     {
         id: 2,
-        title: 'Critics',
-        link: '#critics'
+        title: 'Statistics Cookbook',
+        link: '#cookbook'
     }, {
         id: 3,
-        title: 'Different tastes',
-        link: '#different-tastes'
+        title: "Instantaneous Noodles and T-Taste",
+        link: '#noodles'
     }
     ]
 },
 {
     id: 2,
     mainMenuLink: {
-        title: 'Exploration',
-        link: '#exploration'
+        title: 'Time to cook',
+        link: '#cooking-time'
     },
     secondaryMenuLinks: [{
         id: 1,
