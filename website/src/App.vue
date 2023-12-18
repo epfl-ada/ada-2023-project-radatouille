@@ -67,9 +67,6 @@
             class="w-[180px] lg:w-[180px] mt-4 drop-shadow-xl lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300 mx-auto lg:ml-8" />
         </div>
 
-
-
-
         <section id="fridge" class="section  text-justify">
           <h3 class="text-4xl font-bold mt-8 flex items-end gap-2 ">
             <BookmarkIcon class="w-9 h-9" />What's in our fridge
@@ -120,8 +117,8 @@
           </p>
 
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 mt-3">
-              <h4 class="text-xl font-bold mt-4">IMDb Users Ratings</h4>
+            <div class="flex flex-col order-2 lg:order-2">
+              <h4 class="text-xl font-bold">IMDb Users Ratings</h4>
               <p class="mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium magni quam neque voluptatibus!
                 Inventore, praesentium aliquid reiciendis necessitatibus quos iure maxime, unde deserunt hic doloribus
@@ -137,8 +134,8 @@
 
 
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 mt-3">
-              <h4 class="text-xl font-bold mt-4">Metascore</h4>
+            <div class="flex flex-col order-2 lg:order-1">
+              <h4 class="text-xl font-bold">Metascore</h4>
               <p class="mt-2">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti incidunt non, illo assumenda a illum,
                 quasi similique nisi, error architecto maxime dolorem. Tempora qui nesciunt tenetur! Quasi esse distinctio
@@ -226,7 +223,7 @@
           </h3>
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
-              <p class="mt-2">
+              <p class="">
                 The first impression when using raw ingredients is that indeed, the users and critics are not exactly
                 appreciating the same things. The following plot shows the distribution of the rating difference between
                 the critics and the users.
@@ -251,8 +248,8 @@
 
 
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 mt-3">
-              <h4 class="text-xl font-bold mt-4">Rating Difference</h4>
+            <div class="flex flex-col order-2 lg:order-2">
+              <h4 class="text-xl font-bold">Rating Difference</h4>
               <p class="mt-2">
                 Let's define what we're interested in: <b>the rating difference between the critics and the users</b>.
               </p>
@@ -304,9 +301,9 @@
             its unique storytelling flavors.
           </p>
 
-          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
-              <h4 class="text-xl font-bold mt-8">Visual Appetizer</h4>
+              <h4 class="text-xl font-bold">Visual Appetizer</h4>
               <p class="mt-2">
                 This barplot is the first course, served to display the average rating differences by country. The bars
                 stretch across the taste spectrum, from the savory highs to the unseasoned lows. The length and direction
@@ -327,9 +324,9 @@
             </div>
           </div>
 
-          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 mt-5">
-              <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2">
+              <h4 class="text-xl font-bold">Pearson Correlation</h4>
               <p class="mt-2">
                 The Pearson coefficient plot is the main course, providing a more nuanced flavor profile of each country's
                 cinematic output. Each bar, with its confidence interval whiskers, indicates the strength and direction of
@@ -348,9 +345,9 @@
           </div>
 
 
-          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 mt-5">
-              <h4 class="mt-2 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
               <p class="mt-2">
                 Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
                 country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
@@ -446,6 +443,7 @@
           <!-- Basic Viz -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
+              <h4 class="text-xl font-bold">Vizual Appetizer</h4>
               <p class="mt-2 text-justify">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -466,7 +464,7 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2 text-justify">
               <div>
-                <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+                <h4 class="text-xl font-bold">Pearson Correlation</h4>
                 <p class="mt-2">
                   The first technique in our cookbook is the beloved Pearson correlation. This lovely tool allows us to
                   extract significant genres. Out of 314 genres and subgenres, only <u>61 are significant</u>
@@ -508,7 +506,7 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1 text-justify">
               <div>
-                <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+                <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                 <p class="mt-2">
                   It occured that the first OLS's showed a very high condition number hinting the presence of
                   a strong multicollinearity. This threatened the interpretation of the results and required some VIF
@@ -557,7 +555,8 @@
           </h3>
           <!-- Basic Viz -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 mt-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <h4 class="text-xl font-bold">Visual Appetizer</h4>
               <p class="mt-2">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -576,9 +575,9 @@
 
           <!-- Pearson -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 mt-3">
+            <div class="flex flex-col order-2 lg:order-2">
               <div>
-                <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+                <h4 class="text-xl font-bold">Pearson Correlation</h4>
                 <p class="mt-2">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi culpa, dignissimos consequuntur deserunt
                   maiores voluptas reiciendis pariatur cum? Temporibus ipsum odit in corporis? Nostrum voluptatem magni
@@ -595,9 +594,9 @@
 
           <!-- OLS -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 mt-3">
+            <div class="flex flex-col order-2 lg:order-1">
               <div>
-                <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+                <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                 <p class="mt-2">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt saepe, recusandae culpa nisi earum optio
                   laborum temporibus voluptatibus vel aliquid placeat quas non ab ullam deserunt rem incidunt asperiores
@@ -641,8 +640,8 @@
           <!-- Pearson -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
-              <div class="mt-4">
-                <h4 class="mt-3 text-xl font-bold">Pearson Correlation</h4>
+              <div>
+                <h4 class="text-xl font-bold">Pearson Correlation</h4>
                 <p class="mt-2 text-justify">
                   Once again, a rotten tomato could spoil the real taste of the preparation, and we want to avoid such
                   mistakes. Cleaning our ingredient basket with the Pearson correlation gives this yummy plot of <u>426
@@ -682,8 +681,8 @@
           <!-- OLS -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1 text-justify">
-              <div class="mt-4">
-                <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+              <div>
+                <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                 <p class="mt-2 ">
                   Running the OLS gives once more insightful results, with an adjusted R^2 of 0.13 (<b>13%</b>). Having
                   specific actors
@@ -724,9 +723,9 @@
           </h3>
 
           <!-- Pearson -->
-          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 mt-3">
-              <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2">
+              <h4 class="text-xl font-bold">Pearson Correlation</h4>
               <p class="mt-2 text-justify">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -744,9 +743,9 @@
           </div>
 
           <!-- OLS -->
-          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 mt-5">
-              <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1">
+              <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
               <p class="mt-2 text-justify">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -784,7 +783,7 @@
         <!-- Pearson -->
         <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
           <div class="flex flex-col order-2 lg:order-2">
-            <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+            <h4 class="text-xl font-bold">Pearson Correlation</h4>
             <p class="mt-2 text-justify">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
               cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -804,7 +803,7 @@
         <!-- OLS -->
         <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
           <div class="flex flex-col order-2 lg:order-1">
-            <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+            <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
             <p class="mt-2 text-justify">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
               cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
