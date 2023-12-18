@@ -1,4 +1,4 @@
-# Why didn't your favorite movie get an Oscar? 
+# Screen Tastes: The Users vs. Critics Conundrum
 [![Github Pages](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml/badge.svg)](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml)
 
 
