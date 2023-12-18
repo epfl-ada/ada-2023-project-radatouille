@@ -1,0 +1,58 @@
+[
+    {
+        "name": "National Board Of Review",
+        "title": "National Board Of Review Awards",
+        "content": "The National Board of Review Awards are given by the National Board of Review of Motion Pictures in recognition of excellence in filmmaking.",
+        "link": "https://en.wikipedia.org/wiki/National_Board_of_Review_Award",
+        "image": "https://cdn01.justjared.com/wp-content/uploads/headlines/2023/12/nbr-winners-social.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "name": "Oscars",
+        "title": "Academy Awards (Oscars)",
+        "content": "The Academy Awards, also known as the Oscars, are awards for artistic and technical merit in the film industry.",
+        "link": "https://en.wikipedia.org/wiki/Academy_Awards",
+        "image": "https://www.cnc.fr/documents/36995/98172/Oscars_1920.jpg/1fc72e4d-fdac-b8ec-ac80-adce24b6430d?t=1537278864219",
+        "image_aspect": "square"
+    },
+    {
+        "name": "European Film Award",
+        "title": "European Film Awards",
+        "content": "The European Film Awards are presented annually by the European Film Academy to recognize excellence in European cinematic achievements.",
+        "link": "https://en.wikipedia.org/wiki/European_Film_Awards",
+        "image": "https://awardslandscape.com/wp-content/uploads/2023/11/European_Film_Awards.png",
+        "image_aspect": "square"
+    },
+    {
+        "name": "Golden Globe",
+        "title": "Golden Globe Awards",
+        "content": "The Golden Globe Awards, known for recognizing excellence in film and television, both domestic and foreign.",
+        "link": "https://en.wikipedia.org/wiki/Golden_Globe_Awards",
+        "image": "https://www.goldderby.com/wp-content/uploads/2018/01/golden-globe-atmosphere-4.png",
+        "image_aspect": "square"
+    },
+    {
+        "name": "César",
+        "title": "César Awards",
+        "content": "The César Awards are the national film awards of France, given out by the Académie des Arts et Techniques du Cinéma.",
+        "link": "https://en.wikipedia.org/wiki/C%C3%A9sar_Award",
+        "image": "https://thegoodlife.fr/wp-content/thumbnails/uploads/sites/2/2023/02/4-cesars-de-christian-gasc-tt-width-2000-height-1282-fill-0-crop-0-bgcolor-eeeeee.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "name": "Australian Academy Award",
+        "title": "Australian Academy Awards",
+        "content": "The Australian Academy of Cinema and Television Arts Awards are presented annually by the Australian Academy of Cinema and Television Arts (AACTA).",
+        "link": "https://en.wikipedia.org/wiki/Australian_Academy_of_Cinema_and_Television_Arts_Award",
+        "image": "https://upload.wikimedia.org/wikipedia/en/a/af/Australian_Academy_of_Cinema_and_Television_Arts_%28logo%29.jpg",
+        "image_aspect": "square"
+    },
+    {
+        "name": "Golden Raspberry",
+        "title": "Golden Raspberry Awards",
+        "content": "The Golden Raspberry Awards, also known as the Razzies, are a satirical award ceremony recognizing the worst in film.",
+        "link": "https://en.wikipedia.org/wiki/Golden_Raspberry_Awards",
+        "image": "https://static.tvtropes.org/pmwiki/pub/images/razzle_9394.jpg",
+        "image_aspect": "square"
+    }
+]

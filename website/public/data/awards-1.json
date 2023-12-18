@@ -1,0 +1,50 @@
+[
+    {
+        "awards_received": "Golden Globe count",
+        "rating_difference": 2.7619047619,
+        "number_of_movies": 21,
+        "sem": 1.9010082061
+    },
+    {
+        "awards_received": "National Board Of Review Award count",
+        "rating_difference": 2.041322314,
+        "number_of_movies": 121,
+        "sem": 0.9266037913
+    },
+    {
+        "awards_received": "Oscar count",
+        "rating_difference": 1.188976378,
+        "number_of_movies": 127,
+        "sem": 0.9559562249
+    },
+    {
+        "awards_received": "European Film Award count",
+        "rating_difference": -0.0526315789,
+        "number_of_movies": 38,
+        "sem": 1.4939171916
+    },
+    {
+        "awards_received": "Cesar count",
+        "rating_difference": -0.8846153846,
+        "number_of_movies": 26,
+        "sem": 2.3306169029
+    },
+    {
+        "awards_received": "Other Award count",
+        "rating_difference": -0.9198312236,
+        "number_of_movies": 237,
+        "sem": 0.7303833639
+    },
+    {
+        "awards_received": "Australian Academy Of Cinema And Television Arts Award count",
+        "rating_difference": -1.5789473684,
+        "number_of_movies": 19,
+        "sem": 2.3123312829
+    },
+    {
+        "awards_received": "Golden Raspberry Award count",
+        "rating_difference": -19.3333333333,
+        "number_of_movies": 18,
+        "sem": 3.109126351
+    }
+]

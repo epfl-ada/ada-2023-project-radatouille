@@ -1,1 +1,132 @@
-[{"feature":"runtime","coef":14.4216,"p_value":0.003,"lower_ci":5.009,"upper_ci":23.834,"col_id":"","Feature":"runtime","sem":9.4124},{"feature":"onehot-genre_Black-and-white","coef":9.4088,"p_value":0.0,"lower_ci":5.057,"upper_ci":13.76,"col_id":"Black-and-white","Feature":"Genre - Black-and-white","sem":4.3512},{"feature":"onehot-tropes_t11242","coef":7.6214,"p_value":0.001,"lower_ci":3.092,"upper_ci":12.151,"col_id":"t11242","Feature":"Trope - Improv","sem":4.5296},{"feature":"onehot-tropes_t14187","coef":7.3868,"p_value":0.001,"lower_ci":2.849,"upper_ci":11.924,"col_id":"t14187","Feature":"Trope - MinionWithAnFInEvil","sem":4.5372},{"feature":"onehot-genre_Comedy of manners","coef":6.0132,"p_value":0.0,"lower_ci":2.844,"upper_ci":9.182,"col_id":"Comedy of manners","Feature":"Genre - Comedy of manners","sem":3.1688},{"feature":"onehot-tropes_t05943","coef":5.3685,"p_value":0.0,"lower_ci":3.112,"upper_ci":7.625,"col_id":"t05943","Feature":"Trope - DoesThisRemindYouOfAnything","sem":2.2565},{"feature":"onehot-genre_Animation","coef":3.8319,"p_value":0.004,"lower_ci":1.234,"upper_ci":6.43,"col_id":"Animation","Feature":"Genre - Animation","sem":2.5981},{"feature":"onehot-genre_Drama","coef":3.5754,"p_value":0.0,"lower_ci":2.44,"upper_ci":4.711,"col_id":"Drama","Feature":"Genre - Drama","sem":1.1356},{"feature":"onehot-genre_Action","coef":-2.2811,"p_value":0.0,"lower_ci":-3.471,"upper_ci":-1.092,"col_id":"Action","Feature":"Genre - Action","sem":1.1891},{"feature":"onehot-tropes_t14656","coef":-3.4072,"p_value":0.001,"lower_ci":-5.383,"upper_ci":-1.431,"col_id":"t14656","Feature":"Trope - MsFanservice","sem":1.9762},{"feature":"onehot-country_United States of America","coef":-4.1454,"p_value":0.0,"lower_ci":-5.948,"upper_ci":-2.343,"col_id":"United States of America","Feature":"Country - United States of America","sem":1.8024},{"feature":"onehot-genre_Slapstick","coef":-4.4996,"p_value":0.0,"lower_ci":-6.992,"upper_ci":-2.007,"col_id":"Slapstick","Feature":"Genre - Slapstick","sem":2.4926},{"feature":"onehot-tropes_t13503","coef":-6.7823,"p_value":0.0,"lower_ci":-10.25,"upper_ci":-3.314,"col_id":"t13503","Feature":"Trope - MagicalNegro","sem":3.4683},{"feature":"year","coef":-7.3813,"p_value":0.001,"lower_ci":-11.534,"upper_ci":-3.229,"col_id":"","Feature":"year","sem":4.1523}]
+[
+    {
+        "feature": "onehot-genre_Black-and-white",
+        "coef": 9.4088,
+        "p_value": 0.0,
+        "lower_ci": 5.057,
+        "upper_ci": 13.76,
+        "col_id": "Black-and-white",
+        "Feature": "Genre - Black-and-white",
+        "sem": 4.3512
+    },
+    {
+        "feature": "onehot-tropes_t11242",
+        "coef": 7.6214,
+        "p_value": 0.001,
+        "lower_ci": 3.092,
+        "upper_ci": 12.151,
+        "col_id": "t11242",
+        "Feature": "Trope - Improv",
+        "sem": 4.5296
+    },
+    {
+        "feature": "onehot-tropes_t14187",
+        "coef": 7.3868,
+        "p_value": 0.001,
+        "lower_ci": 2.849,
+        "upper_ci": 11.924,
+        "col_id": "t14187",
+        "Feature": "Trope - MinionWithAnFInEvil",
+        "sem": 4.5372
+    },
+    {
+        "feature": "onehot-genre_Comedy of manners",
+        "coef": 6.0132,
+        "p_value": 0.0,
+        "lower_ci": 2.844,
+        "upper_ci": 9.182,
+        "col_id": "Comedy of manners",
+        "Feature": "Genre - Comedy of manners",
+        "sem": 3.1688
+    },
+    {
+        "feature": "onehot-tropes_t05943",
+        "coef": 5.3685,
+        "p_value": 0.0,
+        "lower_ci": 3.112,
+        "upper_ci": 7.625,
+        "col_id": "t05943",
+        "Feature": "Trope - DoesThisRemindYouOfAnything",
+        "sem": 2.2565
+    },
+    {
+        "feature": "onehot-genre_Animation",
+        "coef": 3.8319,
+        "p_value": 0.004,
+        "lower_ci": 1.234,
+        "upper_ci": 6.43,
+        "col_id": "Animation",
+        "Feature": "Genre - Animation",
+        "sem": 2.5981
+    },
+    {
+        "feature": "onehot-genre_Drama",
+        "coef": 3.5754,
+        "p_value": 0.0,
+        "lower_ci": 2.44,
+        "upper_ci": 4.711,
+        "col_id": "Drama",
+        "Feature": "Genre - Drama",
+        "sem": 1.1356
+    },
+    {
+        "feature": "onehot-genre_Action",
+        "coef": -2.2811,
+        "p_value": 0.0,
+        "lower_ci": -3.471,
+        "upper_ci": -1.092,
+        "col_id": "Action",
+        "Feature": "Genre - Action",
+        "sem": 1.1891
+    },
+    {
+        "feature": "onehot-tropes_t14656",
+        "coef": -3.4072,
+        "p_value": 0.001,
+        "lower_ci": -5.383,
+        "upper_ci": -1.431,
+        "col_id": "t14656",
+        "Feature": "Trope - MsFanservice",
+        "sem": 1.9762
+    },
+    {
+        "feature": "onehot-country_United States of America",
+        "coef": -4.1454,
+        "p_value": 0.0,
+        "lower_ci": -5.948,
+        "upper_ci": -2.343,
+        "col_id": "United States of America",
+        "Feature": "Country - United States of America",
+        "sem": 1.8024
+    },
+    {
+        "feature": "onehot-genre_Slapstick",
+        "coef": -4.4996,
+        "p_value": 0.0,
+        "lower_ci": -6.992,
+        "upper_ci": -2.007,
+        "col_id": "Slapstick",
+        "Feature": "Genre - Slapstick",
+        "sem": 2.4926
+    },
+    {
+        "feature": "onehot-tropes_t13503",
+        "coef": -6.7823,
+        "p_value": 0.0,
+        "lower_ci": -10.25,
+        "upper_ci": -3.314,
+        "col_id": "t13503",
+        "Feature": "Trope - MagicalNegro",
+        "sem": 3.4683
+    },
+    {
+        "feature": "year",
+        "coef": -7.3813,
+        "p_value": 0.001,
+        "lower_ci": -11.534,
+        "upper_ci": -3.229,
+        "col_id": "",
+        "Feature": "year",
+        "sem": 4.1523
+    }
+]

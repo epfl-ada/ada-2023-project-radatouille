@@ -118,7 +118,7 @@ onMounted(async () => {
   actorsData.value = await fetchData('/data/playground-actors.json');
   yearsData.value = await fetchData('/data/playground-releaseyear.json');
   tropesData.value = await fetchData('/data/playground-tropes.json');
-  //awardsData.value = await fetchData('/data/playground-awards.json');
+  awardsData.value = await fetchData('/data/playground-awards.json');
   countriesData.value = await fetchData('/data/playground-countries.json');
 
   yearRange.value = [...Object.keys(yearsData.value).map(year => parseInt(year))].sort((a, b) => a - b);

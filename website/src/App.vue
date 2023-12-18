@@ -4,10 +4,9 @@
   <!-- == HERO == -->
   <div
     class="flex flex-col w-full items-center bg-[url(/banner.webp)] bg-center bg-cover bg-no-repeat justify-center text-light p-6 shadow-lg min-h-[400px]">
-    <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">Why the New
-      York Times
-      doesn't like
-      Marvel movies</h1>
+    <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">
+      Screen Tastes: The Users vs. Critics Conundrum
+    </h1>
     <h3 class="text-xl font-thin mt-2 text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">An attempt to explain movie
       taste differences between users and critics</h3>
     <div class="flex flex-col items-center mt-auto px-5 py-3">
@@ -46,18 +45,26 @@
         <h2 class="text-5xl font-bold mt-5">Introduction</h2>
 
         <div class="flex flex-col lg:flex-row">
+          <div>
             <p class="text-justify mt-4 lg:max-w-screen-md">
-              As aspiring chefs, we are eager to learn how to prepare the most exquisite film
-              possible. We are aware that Anton Ego, a renowned critic, will soon be evaluating our skills. Can we find a
-              film
-              that pleases everyone, from the average viewer to the most sophisticated cinephile? This is the challenge we
+              As aspiring chefs, we are eager to learn how to prepare the most exquisite movie
+              possible. We are aware that Anton Ego, a renowned critic, will soon be evaluating our skills.
+            </p>
+            <p class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4 font-semibold">
+              Can we find a
+              movie
+              that pleases everyone, from the average viewer to the most sophisticated cinephile?
+            </p>
+            <p>
+              This is the challenge we
               aim
               to conquer. Our initial task is to ascertain whether their tastes differ significantly. Let's examine what
               needs
               to be done to achieve this.
             </p>
-            <img src="/remy.png" alt="remy"
-                class="w-[180px] lg:w-[180px] mt-4 drop-shadow-xl lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300 mx-auto lg:ml-8" />
+          </div>
+          <img src="/remy.png" alt="remy"
+            class="w-[180px] lg:w-[180px] mt-4 drop-shadow-xl lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300 mx-auto lg:ml-8" />
         </div>
 
 
@@ -190,7 +197,7 @@
               was proved necessary, a second OLS was conducted on the filtered features before being reviewed again to
               assess the improvement.
             </p>
-            <p class="mt-2">
+            <p class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
               <span class="font-bold">
                 Grandma Hack:</span> To detect multicollinear features, one can look at the condition number. Following <a
                 target="_blank"
@@ -281,7 +288,7 @@
         </section>
       </section>
 
-      <section id="exploration" class="section">
+      <section id="exploration" class="section text-justify">
         <h2 class="text-5xl font-bold mt-8">Time to cook</h2>
         <h5 class="text-2xl italic text-slate-600 mt-1 ml-1">Exploring the ingredients</h5>
 
@@ -290,17 +297,17 @@
           <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
             <BookmarkIcon class="w-9 h-9" />Countries
           </h3>
-          <p class="mt-6 text-justify">
+          <p class="mt-6">
             In the grand kitchen of our data-driven analysis, let's craft a narrative as we
             examine the intricate relationship between a film's country of origin and its critical reception. To whet our
             appetites for understanding, we must first visually savor the prepared plots—each a dish to be dissected for
             its unique storytelling flavors.
           </p>
 
-          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
-              <h4 class="text-xl font-bold">Act I: The Visual Appetizer - Rating Difference by Country</h4>
-              <p class="mt-2 text-justify">
+              <h4 class="text-xl font-bold mt-8">Visual Appetizer</h4>
+              <p class="mt-2">
                 This barplot is the first course, served to display the average rating differences by country. The bars
                 stretch across the taste spectrum, from the savory highs to the unseasoned lows. The length and direction
                 of
@@ -320,10 +327,10 @@
             </div>
           </div>
 
-          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2">
-              <h4 class="text-xl font-bold">Act II: The Main Course - Pearson and OLS Coefficients</h4>
-              <p class="mt-2 text-justify">
+          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2 mt-5">
+              <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+              <p class="mt-2">
                 The Pearson coefficient plot is the main course, providing a more nuanced flavor profile of each country's
                 cinematic output. Each bar, with its confidence interval whiskers, indicates the strength and direction of
                 the relationship between a film's country of origin and its rating difference. Notice the subtle hints of
@@ -341,9 +348,10 @@
           </div>
 
 
-          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1">
-              <p class="mt-2 text-justify">
+          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1 mt-5">
+              <h4 class="mt-2 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+              <p class="mt-2">
                 Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
                 country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
                 robust, further validating the country's standing with critics. The negative coefficients for powerhouses
@@ -358,14 +366,14 @@
             </div>
           </div>
 
-          <div class="grid mt-8 w-full gap-5">
-            <h4 class="text-xl font-bold">Act III: Decoding the Dish - Dissecting the Differences in Country
+          <div class="grid mt-8 w-full gap-3">
+            <h4 class="text-xl font-bold">Dissecting the Differences in Country
               Coefficients</h4>
-            <p class="mt-2 text-justify">
+            <p>
               Let's delve deeper into the gourmet guide of global cinema by closely examining and comparing the plots
               that serve as our visual menu.
             </p>
-            <p class="text-justify">
+            <p>
               Firstly, the Pearson plot offers us a raw measure of the relationship between the country of origin and
               the rating difference. Countries like France, with a correlation of 0.141 and a p-value strikingly close
               to zero, showcase a strong positive alignment with critic ratings. Iran follows suit but with a lesser
@@ -382,67 +390,48 @@
             </p>
           </div>
 
-          <div class="grid lg:grid-cols-3 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2 col-span-2">
-              <h4 class="text-xl font-bold">Comparative Analysis: Tasting Notes on Methodologies</h4>
-              <p class="mt-3">
-                Comparing the two plots, we note a shift in the order of countries and the magnitude of their influence.
-                For
-                example, while France tops the Pearson plot, Iran takes the lead in the OLS analysis, highlighting how
-                controlling for other variables can change the taste profile of our data dish.
-              </p>
-              <p class="mt-3">
-                The Pearson method offers simplicity and a direct taste test of correlation, but it can't account for the
-                complex mix of ingredients that go into film ratings. It's like tasting a sauce before it's been fully
-                seasoned - useful, but not the complete flavor. Its advantages lie in its straightforward interpretation,
-                but it falls short by not considering other potentially confounding spices.
-              </p>
-              <p class="mt-3">
-                The OLS method, however, simmers down the data to control for various elements, akin to a slow-cooked stew
-                that melds flavors together for a more comprehensive profile. This method allows us to taste the unique
-                contribution of each country, but it can be a complex dish to digest, requiring assumptions like linearity
-                and normality that may not always hold. One drawback is that significant results can be influenced by
-                outliers, just like how a single overpowering spice can skew the taste of a dish.
-              </p>
-            </div>
-            <div class="flex flex-col col-span-3 order-1 lg:col-span-1 lg:order-1 w-full items-center justify-center">
-              <div class="flex flex-col h-full w-full items-center justify-center">
-                <img src="/ego.png" alt="ego"
-                  class="lg:w-full mt-4 drop-shadow-xl max-h-[400px] lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300" />
-              </div>
-            </div>
-          </div>
 
-          <div class="grid lg:grid-cols-3 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1 col-span-2">
-              <h4 class="text-xl font-bold">Serving the Final Course: Conclusions with a Pinch of Precision</h4>
-              <p class="mt-2">
-                Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
-                country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
-                robust, further validating the country's standing with critics. The negative coefficients for powerhouses
-                like the United States and India are stark, reinforcing the narrative that commercial success is not a
-                guaranteed recipe for critical acclaim.
-              </p>
-            </div>
-            <div class="flex flex-col  col-span-3 order-1 lg:col-span-1 lg:order-2 w-full items-center justify-center">
-              <div class="flex flex-col  h-full w-full items-center justify-center">
-                <img src="/remy.png" alt="remy"
-                  class="lg:w-full max-h-[400px] lg:max-h-none drop-shadow-xl hover:scale-105 hover:drop-shadow-none transition duration-300" />
-              </div>
-            </div>
-          </div>
+          <h4 class="text-xl font-bold mt-6">Comparative Analysis: Tasting Notes on Methodologies</h4>
+          <p class="mt-3">
+            Comparing the two plots, we note a shift in the order of countries and the magnitude of their influence.
+            For
+            example, while France tops the Pearson plot, Iran takes the lead in the OLS analysis, highlighting how
+            controlling for other variables can change the taste profile of our data dish.
+          </p>
+          <p class="mt-3">
+            The Pearson method offers simplicity and a direct taste test of correlation, but it can't account for the
+            complex mix of ingredients that go into film ratings. It's like tasting a sauce before it's been fully
+            seasoned - useful, but not the complete flavor. Its advantages lie in its straightforward interpretation,
+            but it falls short by not considering other potentially confounding spices.
+          </p>
+          <p class="mt-3">
+            The OLS method, however, simmers down the data to control for various elements, akin to a slow-cooked stew
+            that melds flavors together for a more comprehensive profile. This method allows us to taste the unique
+            contribution of each country, but it can be a complex dish to digest, requiring assumptions like linearity
+            and normality that may not always hold. One drawback is that significant results can be influenced by
+            outliers, just like how a single overpowering spice can skew the taste of a dish.
+          </p>
+          <h4 class="text-xl font-bold mt-6">Serving the Final Course: Conclusions with a Pinch of Precision</h4>
+          <p class="mt-2">
+            Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
+            country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
+            robust, further validating the country's standing with critics. The negative coefficients for powerhouses
+            like the United States and India are stark, reinforcing the narrative that commercial success is not a
+            guaranteed recipe for critical acclaim.
+          </p>
+
+          <p class="mt-4">
+            In the grand dining hall of global cinema, it appears that critics tend to favor films that
+            offer a
+            distinct cultural voice, complex narratives, and a strong artistic vision—qualities that are often
+            highlighted in French and Iranian films. Conversely, industries known for their box office prowess, such as
+            Hollywood and Bollywood, might prioritize elements that ensure commercial success—an industry that caters to
+            mass appeal rather than the gourmet tastes of critics.
+          </p>
 
           <!-- Tabs -->
-          <div class="flex flex-col mt-4 w-full">
+          <div class="flex flex-col mt-6 w-full">
             <TabsSection :tabs="countriesTabs" :defaultIndex="5" />
-            <p class="mt-5">
-              In the grand dining hall of global cinema, it appears that critics tend to favor films that
-              offer a
-              distinct cultural voice, complex narratives, and a strong artistic vision—qualities that are often
-              highlighted in French and Iranian films. Conversely, industries known for their box office prowess, such as
-              Hollywood and Bollywood, might prioritize elements that ensure commercial success—an industry that caters to
-              mass appeal rather than the gourmet tastes of critics.
-            </p>
           </div>
         </section>
 
@@ -561,18 +550,72 @@
           </div>
         </section>
 
-        <!-- == AWARDS == -->
-        <section id="awards" class="section">
+        <!-- === AWARDS === -->
+        <section id="awards" class="section text-justify">
           <h3 class="text-4xl font-bold mt-8 flex items-end gap-2">
             <BookmarkIcon class="w-9 h-9" />Awards
           </h3>
-          <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-            consequat
-            aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-            ipsum
-            aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+          <!-- Basic Viz -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1 mt-5">
+              <p class="mt-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+                repellendus laboriosam laudantium. Esse, facilis?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+                suscipit magnam?
+              </p>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartAwards1" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pearson -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2 mt-3">
+              <div>
+                <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+                <p class="mt-2">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi culpa, dignissimos consequuntur deserunt
+                  maiores voluptas reiciendis pariatur cum? Temporibus ipsum odit in corporis? Nostrum voluptatem magni
+                  quo nulla reprehenderit nemo?
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col order-1 lg:order-1 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartAwards2" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OLS -->
+          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1 mt-3">
+              <div>
+                <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+                <p class="mt-2">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt saepe, recusandae culpa nisi earum optio
+                  laborum temporibus voluptatibus vel aliquid placeat quas non ab ullam deserunt rem incidunt asperiores
+                  veritatis!
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col order-1 lg:order-2 w-full">
+              <div class="flex flex-col h-full w-full">
+                <div ref="chartAwards3" class="h-full min-h-[600px] w-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="flex flex-col mt-8 w-full gap-5">
+            <TabsSection :tabs="awardsTabs" :defaultIndex="6" />
+          </div>
         </section>
 
 
@@ -599,6 +642,7 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
               <div class="mt-4">
+                <h4 class="mt-3 text-xl font-bold">Pearson Correlation</h4>
                 <p class="mt-2 text-justify">
                   Once again, a rotten tomato could spoil the real taste of the preparation, and we want to avoid such
                   mistakes. Cleaning our ingredient basket with the Pearson correlation gives this yummy plot of <u>426
@@ -639,6 +683,7 @@
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1 text-justify">
               <div class="mt-4">
+                <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                 <p class="mt-2 ">
                   Running the OLS gives once more insightful results, with an adjusted R^2 of 0.13 (<b>13%</b>). Having
                   specific actors
@@ -679,8 +724,9 @@
           </h3>
 
           <!-- Pearson -->
-          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-2">
+          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-2 mt-3">
+              <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
               <p class="mt-2 text-justify">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -698,8 +744,9 @@
           </div>
 
           <!-- OLS -->
-          <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-            <div class="flex flex-col order-2 lg:order-1">
+          <div class="grid lg:grid-cols-2 mt-2 w-full gap-5">
+            <div class="flex flex-col order-2 lg:order-1 mt-5">
+              <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
               <p class="mt-2 text-justify">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
                 cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
@@ -717,20 +764,80 @@
           </div>
 
           <div class="flex flex-col mt-8 w-full gap-5">
-            <TabsSection :tabs="tropesTabs" :defaultIndex="20" />
+            <TabsSection :tabs="tropesTabs" :defaultIndex="4" />
           </div>
         </section>
       </section>
 
       <section id="conclusion" class="section">
-        <h2 class="text-5xl font-bold mt-8">Conclusion</h2>
-        <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
+        <h2 class="text-5xl font-bold mt-8 mb-6">Conclusion</h2>
+        <p class="mt-2 text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
           consequat
           aliquam, nunc
           ipsum
           aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
           ipsum
-          aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+          aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+        </p>
+
+        <!-- Pearson -->
+        <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+          <div class="flex flex-col order-2 lg:order-2">
+            <h4 class="mt-4 text-xl font-bold">Pearson Correlation</h4>
+            <p class="mt-2 text-justify">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+              cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+              repellendus laboriosam laudantium. Esse, facilis?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+              eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+              suscipit magnam?
+            </p>
+          </div>
+          <div class="flex flex-col order-1 lg:order-1 w-full">
+            <div class="flex flex-col h-full w-full">
+              <div ref="chartGlobal1" class="h-full min-h-[600px] w-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OLS -->
+        <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+          <div class="flex flex-col order-2 lg:order-1">
+            <h4 class="mt-4 text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+            <p class="mt-2 text-justify">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
+              cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
+              repellendus laboriosam laudantium. Esse, facilis?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
+              eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
+              suscipit magnam?
+            </p>
+          </div>
+          <div class="flex flex-col order-1 lg:order-2 w-full">
+            <div class="flex flex-col h-full w-full">
+              <div ref="chartGlobal2" class="h-full min-h-[600px] w-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 mt-8 w-full gap-5">
+          <div class="flex flex-col order-2 lg:order-1 col-span-2">
+            <p class="mt-3">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus id, quod veritatis eos laboriosam omnis
+              quas. Impedit aut, odit possimus iusto error mollitia voluptatem, esse numquam eveniet reprehenderit, veniam
+              commodi.
+            </p>
+          </div>
+          <div class="flex flex-col col-span-3 order-1 lg:col-span-1 lg:order-2 w-full items-center justify-center">
+            <div class="flex flex-col h-full w-full items-center justify-center">
+              <img src="/ego.png" alt="ego"
+                class="lg:w-full mt-4 drop-shadow-xl max-h-[400px] lg:max-h-none hover:scale-y-105 hover:-scale-x-105 hover:drop-shadow-none transition duration-300 -scale-x-100" />
+            </div>
+          </div>
+        </div>
+
+
       </section>
 
       <section id="playground" class="section">
@@ -800,13 +907,19 @@ const chartCountries3 = ref(null);
 const chartGenres1 = ref(null);
 const chartGenres2 = ref(null);
 const chartGenres3 = ref(null);
+const chartAwards1 = ref(null);
+const chartAwards2 = ref(null);
+const chartAwards3 = ref(null);
 const chartActors1 = ref(null);
 const chartActors2 = ref(null);
 const chartTropes1 = ref(null);
 const chartTropes2 = ref(null);
+const chartGlobal1 = ref(null)
+const chartGlobal2 = ref(null)
 
 const countriesTabs = ref(null)
 const genresTabs = ref(null)
+const awardsTabs = ref(null)
 const tropesTabs = ref(null)
 const actorsTabs = ref(null)
 
@@ -830,6 +943,19 @@ const fetchData = async (path) => {
 
 };
 
+function stringDivider(str, width, spaceReplacer) {
+  if (str.length > width) {
+    var p = width
+    for (; p > 0 && str[p] != ' '; p--) {
+    }
+    if (p > 0) {
+      var left = str.substring(0, p);
+      var right = str.substring(p + 1);
+      return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
+    }
+  }
+  return str;
+}
 
 function plotChart(chartRef, data, layout) {
   Plotly.newPlot(chartRef.value, data, layout);
@@ -864,16 +990,22 @@ onMounted(async () => {
   const genres1 = await fetchData('/data/genres-1.json');
   const genres2 = await fetchData('/data/genres-2.json');
   const genres3 = await fetchData('/data/genres-3.json');
+  const awards1 = await fetchData('/data/awards-1.json');
+  const awards2 = await fetchData('/data/awards-2.json');
+  const awards3 = await fetchData('/data/awards-3.json');
   const actors1 = await fetchData('/data/actors-1.json');
   const actors2 = await fetchData('/data/actors-2.json');
   const tropes1 = await fetchData('/data/tropes-1.json');
   const tropes2 = await fetchData('/data/tropes-2.json');
+  const global1 = await fetchData('/data/global-1.json');
+  const global2 = await fetchData('/data/global-2.json');
   const movies = await fetchData('/data/playground-movies.json');
 
   tropesTabs.value = await fetchData('/data/tropesTabs.json')
   countriesTabs.value = await fetchData('/data/countriesTabs.json')
   genresTabs.value = await fetchData('/data/genresTabs.json')
   actorsTabs.value = await fetchData('/data/actorsTabs.json')
+  awardsTabs.value = await fetchData('/data/awardsTabs.json')
 
   // Example function to calculate bins and counts
   function calculateBins(data, binSize) {
@@ -900,23 +1032,53 @@ onMounted(async () => {
   // Users Bar Chart
   if (chartUsers) {
 
-
     const imdb_ratings_counts = calculateBins(movies.map(item => item.imdb_rating_scaled / 10), 0.5)
     const trace = [{
       x: Object.keys(imdb_ratings_counts),
       y: Object.values(imdb_ratings_counts),
+      name: 'Count',
       type: 'bar',
       marker: {
-        color: '#67001f'
+        color: '#d6604d',
+        line: {
+          color: '#d6604d',
+          width: 10
+        }
       },
       opacity: 0.75
+    }, {
+      x: [movies.map(item => item.imdb_rating_scaled / 10).reduce((a, b) => a + b, 0) / movies.length],
+      y: [Math.max(...Object.values(imdb_ratings_counts))],
+      type: 'bar',
+      name: 'Mean',
+      marker: {
+        color: 'red',
+        line: {
+          color: 'red',
+          width: 0.5
+        }
+      }
+    }, {
+      x: [movies.map(item => item.imdb_rating_scaled / 10).sort((a, b) => a - b)[Math.floor(movies.length / 2)]],
+      y: [Math.max(...Object.values(imdb_ratings_counts))],
+      type: 'bar',
+      name: 'Median',
+      marker: {
+        color: 'blue',
+        line: {
+          color: 'blue',
+          width: 0.5
+        }
+      },
+      opacity: 1
     }]
 
     plotChart(chartUsers, trace, {
       title: 'IDMb Average Users Rating',
       xaxis: {
         title: 'Users Rating',
-        automargin: true
+        automargin: true,
+        range: [0, 11]
       },
       yaxis: {
         title: 'Movies (count)',
@@ -934,18 +1096,49 @@ onMounted(async () => {
     const trace = [{
       x: Object.keys(metascore_counts),
       y: Object.values(metascore_counts),
+      name: 'Count',
       type: 'bar',
       marker: {
-        color: '#67001f'
+        color: '#d6604d',
+        line: {
+          color: '#d6604d',
+          width: 10
+        }
       },
       opacity: 0.75
+    }, {
+      x: [movies.map(item => item.metascore).reduce((a, b) => a + b, 0) / movies.length],
+      y: [Math.max(...Object.values(metascore_counts))],
+      type: 'bar',
+      name: 'Mean',
+      marker: {
+        color: 'red',
+        line: {
+          color: 'red',
+          width: 0.25
+        }
+      }
+    }, {
+      x: [movies.map(item => item.metascore).sort((a, b) => a - b)[Math.floor(movies.length / 2)]],
+      y: [Math.max(...Object.values(metascore_counts))],
+      type: 'bar',
+      name: 'Median',
+      marker: {
+        color: 'blue',
+        line: {
+          color: 'blue',
+          width: 0.25
+        }
+      },
+      opacity: 1
     }]
 
     plotChart(chartMetascore, trace, {
       title: 'Metascores',
       xaxis: {
         title: 'Metascore',
-        automargin: true
+        automargin: true,
+        range: [0, 105]
       },
       yaxis: {
         title: 'Movies (count)',
@@ -979,6 +1172,33 @@ onMounted(async () => {
         width: 2,
         color: 'grey'
       }
+    }, {
+      x: [movies.map(movie => movie.metascore).reduce((a, b) => a + b, 0) / movies.length],
+      y: [movies.map(movie => movie.imdb_rating_scaled).reduce((a, b) => a + b, 0) / movies.length],
+      mode: 'markers',
+      type: 'scatter',
+      name: 'Mean',
+      marker: {
+        color: 'red',
+        line: {
+          color: 'red',
+          width: 2
+        }
+      }
+    }, {
+      x: [movies.map(movie => movie.metascore).sort((a, b) => a - b)[Math.floor(movies.length / 2)]],
+      y: [movies.map(movie => movie.imdb_rating_scaled).sort((a, b) => a - b)[Math.floor(movies.length / 2)]],
+      mode: 'markers',
+      type: 'scatter',
+      name: 'Median',
+      marker: {
+        color: 'blue',
+        line: {
+          color: 'blue',
+          width: 2
+        }
+      },
+      opacity: 1
     }];
 
     const layout = {
@@ -1010,24 +1230,60 @@ onMounted(async () => {
   // User vs Critics 2
   if (chartUsersCritics2) {
     const rating_difference_counts = calculateBins(movies.map(item => item.rating_difference), 5)
+
     const trace = [{
       x: Object.keys(rating_difference_counts),
       y: Object.values(rating_difference_counts),
       type: 'bar',
+      name: 'Count',
       marker: {
-        color: '#67001f'
+        color: '#d6604d',
+        line: {
+          color: '#d6604d',
+          width: 5
+        }
       },
       opacity: 0.75
+    }, {
+      x: [movies.map(item => item.rating_difference).reduce((a, b) => a + b, 0) / movies.length],
+      y: [Math.max(...Object.values(rating_difference_counts))],
+      type: 'bar',
+      name: 'Mean',
+      marker: {
+        color: 'red',
+        line: {
+          color: 'red',
+          width: 2
+        }
+      }
+    }, {
+      x: [movies.map(item => item.rating_difference).sort((a, b) => a - b)[Math.floor(movies.length / 2)]],
+      y: [Math.max(...Object.values(rating_difference_counts))],
+      type: 'bar',
+      name: 'Median',
+      marker: {
+        color: 'blue',
+        line: {
+          color: 'blue',
+          width: 2
+        }
+      },
+      opacity: 1
+
     }]
 
     plotChart(chartUsersCritics2, trace, {
       title: 'Rating Differences',
       xaxis: {
         title: 'Rating Difference',
-        automargin: true
+        automargin: true,
+        range: [-105, 105]
       },
       yaxis: {
-        title: 'Movies (count)',
+        title: {
+          text: 'Movies (count)',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1053,7 +1309,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Country',
+        title: {
+          text: 'Country',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1078,7 +1337,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Country',
+        title: {
+          text: 'Country',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1102,7 +1364,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Country',
+        title: {
+          text: 'Country',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1132,7 +1397,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Genre',
+        title: {
+          text: 'Genre',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1161,7 +1429,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Genre',
+        title: {
+          text: 'Genre',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1186,8 +1457,137 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Genre',
+        title: {
+          text: 'Genre',
+          standoff: 0
+        },
+        automargin: true,
+        ticklen: 10,
+        tickcolor: 'white'
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Awards 1
+  if (chartAwards1) {
+    awards1.sort((a, b) => {
+      return a.number_of_movies - b.number_of_movies;
+    });
+
+    // keep the top 10 and bottom 10
+    let bottom = awards1.slice(0, 10);
+    let top = awards1.slice(-10);
+    let awards1_filtered = bottom.concat(top);
+
+    const trace = [{
+      x: awards1_filtered.map(item => item.number_of_movies),
+      y: awards1_filtered.map(item => stringDivider(item.awards_received, 20, "<br>")),
+      type: 'bar',
+      hovertext: awards1_filtered.map(item => `Number of movies: ${item.number_of_movies.toFixed(0)}`),
+      marker: {
+        color: '#67001f'
+      },
+      opacity: 0.75,
+      orientation: 'h',
+
+    }]
+
+    plotChart(chartAwards1, trace, {
+      title: 'Mean rating difference for Awards',
+      xaxis: {
+        title: 'Rating difference',
         automargin: true
+      },
+      yaxis: {
+        title: {
+          text: 'Award',
+          standoff: 0
+        },
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Awards 2
+  if (chartAwards2) {
+    awards2.sort((a, b) => {
+      return a.correlation - b.correlation;
+    });
+
+    const maxValue = awards2.length - 1;
+
+    const trace = [{
+      x: awards2.map(item => item.correlation),
+      y: awards2.map(item => stringDivider(item['Awards'], 20, "<br>")),
+      type: 'bar',
+      hovertext: awards2.map(item => `P-value: ${item.p_value}`),
+      marker: {
+        color: awards2.map((_, index) => index / maxValue), // Assign a normalized value based on index
+        colorscale: flareColorScale
+      },
+      opacity: 0.75,
+      orientation: 'h',
+    }]
+
+    plotChart(chartAwards2, trace, {
+      title: 'Pearson correlation for Awards',
+      xaxis: {
+        title: 'Pearson correlation coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: {
+          text: 'Award',
+          standoff: 10
+        },
+        automargin: true,
+        ticklen: 10,
+        tickcolor: 'white'
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Awards 3
+  if (chartAwards3) {
+    awards3.sort((a, b) => {
+      return a.coef - b.coef;
+    });
+
+    const maxValue = awards3.length - 1;
+
+    const trace = [{
+      x: awards3.map(item => item.coef),
+      y: awards3.map(item => stringDivider(item['Awards'], 20, "<br>")),
+      type: 'bar',
+      hovertext: awards3.map(item => `P-value: ${item.p_value}`),
+      marker: {
+        color: awards3.map((_, index) => index / maxValue), // Assign a normalized value based on index
+        colorscale: flareColorScale
+      },
+      opacity: 0.75,
+      orientation: 'h',
+    }]
+
+    plotChart(chartAwards3, trace, {
+      title: 'OLS coefficient for Awards',
+      xaxis: {
+        title: 'OLS coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: {
+          text: 'Award',
+          standoff: 10
+        },
+        automargin: true,
+        ticklen: 10,
+        tickcolor: 'white'
       },
       autosize: true,
       responsive: true,
@@ -1216,7 +1616,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Actor',
+        title: {
+          text: 'Actor',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1241,7 +1644,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Actor',
+        title: {
+          text: 'Actor',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1271,7 +1677,10 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Trope',
+        title: {
+          text: 'Trope',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1300,7 +1709,82 @@ onMounted(async () => {
         automargin: true
       },
       yaxis: {
-        title: 'Trope',
+        title: {
+          text: 'Trope',
+          standoff: 0
+        },
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+
+  // Global 1
+  if (chartGlobal1) {
+    global1.sort((a, b) => {
+      return a.correlation - b.correlation;
+    });
+
+    // keep the top 10 and bottom 10
+    let global1_filtered = global1;
+    if (global1.length > 20) {
+      let bottom = global1.slice(0, 10);
+      let top = global1.slice(-10);
+      global1_filtered = bottom.concat(top);
+    }
+
+    const trace = transformDataForPlotly(global1_filtered, 'correlation', 'Feature', 'sem', function (item) {
+      return `P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartGlobal1, trace, {
+      title: 'Pearson correlation for global features',
+      xaxis: {
+        title: 'Pearson correlation',
+        automargin: true
+      },
+      yaxis: {
+        title: {
+          text: 'Feature',
+          standoff: 0
+        },
+        automargin: true
+      },
+      autosize: true,
+      responsive: true,
+    });
+  }
+
+  // Global 2
+  if (chartGlobal2) {
+    global2.sort((a, b) => {
+      return a.coef - b.coef;
+    });
+
+    let global2_filtered = global2
+    if (global2.length > 20) {
+      let top = global2.slice(-10);
+      let bottom = global2.slice(0, 10);
+      global2_filtered = bottom.concat(top);
+    }
+
+    const trace = transformDataForPlotly(global2_filtered, 'coef', 'Feature', 'sem', function (item) {
+      return `P-value: ${item.p_value}`;
+    })
+
+    plotChart(chartGlobal2, trace, {
+      title: 'OLS coefficient for global features',
+      xaxis: {
+        title: 'OLS coefficient',
+        automargin: true
+      },
+      yaxis: {
+        title: {
+          text: 'Feature',
+          standoff: 0
+        },
         automargin: true
       },
       autosize: true,
@@ -1308,10 +1792,5 @@ onMounted(async () => {
     });
   }
 });
-
-function toggleLamp() {
-  activeLamp.value = !activeLamp.value
-}
-
 
 </script>
