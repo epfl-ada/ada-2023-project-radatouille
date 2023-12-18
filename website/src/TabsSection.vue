@@ -25,7 +25,7 @@
                                 <Tab as="button" v-for="(tab, index) in tabs" :key="index"
                                     class="w-full py-2.5 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none focus:ring-2 ring-offset-2 ring-offset-red-700 ring-white ring-opacity-60"
                                     :class="{ 'bg-slate-200 border-l-4 border-red-700 font-bold !text-black drop-shadow-lg': index === activeTabId }"
-                                    @click="activeTabId = index; isTabListVisible = false">
+                                    @click="() => { activeTabId = index; isTabListVisible = false }">
                                     {{ tab.name }}
                                 </Tab>
                             </TabList>
