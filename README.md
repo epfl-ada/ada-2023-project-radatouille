@@ -1,4 +1,4 @@
-# Screen Tastes: The Users vs. Critics Conundrum
+# Screen Tastes: The User-Critic Divide in Cinema
 [![Github Pages](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml/badge.svg)](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml)
 
 
