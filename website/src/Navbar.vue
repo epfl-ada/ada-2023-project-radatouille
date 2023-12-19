@@ -52,9 +52,7 @@
 <script setup>
 import {
     TransitionRoot,
-    TransitionChild,
-    Dialog,
-    DialogPanel
+    TransitionChild
 } from '@headlessui/vue'
 
 import { Bars3Icon, ChevronRightIcon, XMarkIcon } from '@heroicons/vue/24/solid'

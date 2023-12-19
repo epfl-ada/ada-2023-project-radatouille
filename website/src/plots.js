@@ -581,9 +581,14 @@ export function callbackAwards1(chartRef, fileUrl) {
             yaxis: {
                 title: {
                     text: 'Award',
-                    standoff: 0
+                    standoff: 0,
                 },
-                automargin: true
+                automargin: true,
+                ticklen: 10,
+                tickcolor: 'white',
+                tickfont: {
+                    size: 11
+                }
             },
             autosize: true,
             responsive: true,
@@ -633,7 +638,10 @@ export function callbackAwards2(chartRef, fileUrl) {
                 },
                 automargin: true,
                 ticklen: 10,
-                tickcolor: 'white'
+                tickcolor: 'white',
+                tickfont: {
+                    size: 11
+                }
             },
             autosize: true,
             responsive: true,

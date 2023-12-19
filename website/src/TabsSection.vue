@@ -101,8 +101,8 @@
 </style>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue';
-import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionChild, TransitionRoot, Dialog, DialogPanel } from '@headlessui/vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionChild, TransitionRoot } from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid';
 import FloatingDialog from './FloatingDialog.vue';
 
@@ -122,6 +122,20 @@ const isTabListVisible = ref(false);
 const isMobileView = ref(window.innerWidth < 1024);
 const buttonRef = ref(null);
 
+const preloadImages = (tabs) => {
+    if (!tabs) return;
+    tabs.forEach(tab => {
+        if (tab.image) {
+            const img = new Image();
+            img.src = tab.image;
+
+            // Optionally set a low priority to these requests
+            //img.setAttribute('loading', 'lazy');
+        }
+    });
+};
+
+
 const updateWindowSize = () => {
     isMobileView.value = window.innerWidth < 1024;
 };
@@ -131,10 +145,12 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+    preloadImages(props.tabs);
     window.removeEventListener('resize', updateWindowSize);
 });
 
 watch(() => props.tabs, (newTabs) => {
+    preloadImages(newTabs);
     if (newTabs && newTabs.length > 0) {
         activeTabId.value = props.defaultIndex;
     }
