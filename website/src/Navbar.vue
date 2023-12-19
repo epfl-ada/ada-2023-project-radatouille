@@ -136,7 +136,7 @@ const sections = [{
 }, {
     id: 4,
     mainMenuLink: {
-        title: 'Playground',
+        title: 'The Kitchen',
         link: '#playground'
     },
     secondaryMenuLinks: []

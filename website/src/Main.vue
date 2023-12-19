@@ -341,7 +341,7 @@
                 <!-- === COUNTRIES === -->
                 <section id="countries" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Countries
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Countries
                     </h3>
                     <div class="grid lg:grid-cols-2 mt-6 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-1">
@@ -460,7 +460,7 @@
                 <!-- === GENRES === -->
                 <section id="genres" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Genres
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Genres
                     </h3>
                     <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Crafting the Narrative of Preference
                     </h5>
@@ -600,7 +600,7 @@
                 <!-- === AWARDS === -->
                 <section id="awards" class="section text-justify">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Awards
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 mt-1" />Awards
                     </h3>
                     <!-- Basic Viz -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
@@ -712,7 +712,7 @@
                 <!-- === RELEASE DATE === -->
                 <section id="release-year" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Release Year
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Release Year
                     </h3>
                     <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod,
                         nisl eget
@@ -727,7 +727,7 @@
                 <!-- === ACTORS === -->
                 <section id="actors" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Actors
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Actors
                     </h3>
                     <!-- Pearson -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
@@ -833,7 +833,7 @@
                 <!-- === TROPES === -->
                 <section id="tropes" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start mb-4">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2" />Tropes
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Tropes
                     </h3>
 
                     <p>
@@ -1032,7 +1032,7 @@
             </section>
 
             <section id="playground" class="section">
-                <h2 class="text-4xl lg:text-5xl font-bold mt-8">Playground</h2>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-8">The Kitchen</h2>
                 <div>
                     <Playground />
                 </div>
