@@ -1,7 +1,12 @@
 <template>
-    <nav class="h-14 flex bg-dark text-light items-center justify-end sticky top-0 left-0 w-full z-10">
+    <nav class="max-h-[100px] lg:max-h-16 flex bg-dark text-light items-center justify-between sticky top-0 left-0 w-full z-10">
+        <img src="/remy_silhouette.png" alt="Remy's silhouette" class="w-12 h-12 ml-5" />
+        <div class="flex flex-col px-5 py-10 mx-auto text-center">
+            <h1 class="text-xl font-bold">Screen Tastes: The User-Critic Divide in Cinema</h1>
+            <h6 class="text-xs italic text-slate-300">Served by team rADAtouille</h6>
+        </div>
         <button class="cursor-pointer w-14 h-14 flex items-center justify-center " title="Open menu"
-            @click="() => setIsMobileMenuOpen(true)">
+        @click="toggleMenu" ref="buttonRef">
             <span class="hover:bg-white/90 hover:text-dark rounded-full p-2">
                 <Bars3Icon class="w-6 h-6 " />
             </span>
@@ -10,58 +15,61 @@
 
     <!-- Mobile menu -->
     <TransitionRoot appear :show="isMobileMenuOpen" as="template">
-        <Dialog as="div" @close="setIsMobileMenuOpen">
-            <TransitionChild as="template" enter="duration-200 ease-out" enter-from="opacity-0" enter-to="opacity-100"
-                leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
-                <div class="fixed inset-0 bg-black/50 z-10" />
-            </TransitionChild>
-
-            <div class="fixed inset-0 overflow-y-auto overflow-x-hidden z-20">
+        <FloatingDialog :isOpen="isMobileMenuOpen" :anchorEl="buttonRef" @close="handleDialogClose">
                 <TransitionChild as="template" enter="duration-200 ease-out" enter-from="opacity-0 translate-x-full"
                     enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 translate-x-full">
-                    <DialogPanel class="h-full ml-16 lg:w-1/3 lg:ml-auto">
+                    <div class="fixed inset-y-0 right-0 max-w-full flex">
                         <div class="bg-dark text-light h-full w-full overflow-y-auto p-8">
                             <button class="bg-slate-500 rounded-full p-3 text-white fixed top-8 right-8 hover:bg-slate-600"
-                                title="Close menu" @click="() => setIsMobileMenuOpen(false)">
+                                title="Close menu" @click="setIsMobileMenuOpen(false)">
                                 <XMarkIcon class="w-6 h-6" />
                             </button>
 
                             <div v-for="section in sections" :key="section.id" class="mt-4">
                                 <h3 class="text-3xl font-medium mt-4">
                                     <a class="flex gap-3 items-center py-2 hover:text-slate-400"
-                                        :href="section.mainMenuLink?.link" @click="() => setIsMobileMenuOpen(false)">
+                                        :href="section.mainMenuLink?.link" @click="setIsMobileMenuOpen(false)">
                                         <span>{{ section.mainMenuLink?.title }}</span>
                                         <ChevronRightIcon class="w-6 h-6" />
                                     </a>
                                 </h3>
                                 <a v-for="link in section.secondaryMenuLinks" :key="link.id"
                                     class="text-xl block py-2 hover:text-slate-400" :href="link.link"
-                                    @click="() => setIsMobileMenuOpen(false)">
+                                    @click="setIsMobileMenuOpen(false)">
                                     {{ link.title }}
                                 </a>
                             </div>
                         </div>
-                    </DialogPanel>
+                    </div>
+
                 </TransitionChild>
-            </div>
-        </Dialog>
+
+        </FloatingDialog>
     </TransitionRoot>
 </template>
   
 <script setup>
 import {
     TransitionRoot,
-    TransitionChild,
-    Dialog,
-    DialogPanel
+    TransitionChild
 } from '@headlessui/vue'
 
 import { Bars3Icon, ChevronRightIcon, XMarkIcon } from '@heroicons/vue/24/solid'
 import { ref, onMounted, onUnmounted } from 'vue'
+import FloatingDialog from './FloatingDialog.vue';
 
 const isMobileMenuOpen = ref(false)
+const buttonRef = ref(null);
 
+
+function toggleMenu() {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+}
+
+function handleDialogClose() {
+  isMobileMenuOpen.value = false; // Close the dialog
+}
 const sections = [{
     id: 1,
     mainMenuLink: {

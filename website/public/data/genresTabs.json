@@ -46,6 +46,7 @@
         "content": "Drama movies are known for their focus on character development and complex narratives, often featuring realistic characters and settings. These movies, like <a href=\"https://en.wikipedia.org/wiki/Titanic_(1997_film)\">Titanic</a> or <a href=\"https://en.wikipedia.org/wiki/The_Shawshank_Redemption\">The Shawshank Redemption</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy drama movies than users. The confidence interval is quite small since its the most represented genre in the dataset.",
         "image": "https://wwwimage-us.pplusstatic.com/thumbnails/photos/w370-q80/movie_asset/62/86/86/titan_us_1997_sa_poster_1400x2100_nb.jpg",
         "image_aspect": "square",
+        "image_position": "top",
         "movies": [
             {
                 "id": 1,
