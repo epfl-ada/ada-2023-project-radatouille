@@ -5,7 +5,7 @@
   <div
     class="flex flex-col w-full items-center bg-[url(/banner.webp)] bg-center bg-cover bg-no-repeat justify-center text-light p-6 shadow-lg min-h-[400px]">
     <h1 class="text-3xl lg:text-5xl font-bold mt-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-center">
-      Screen Tastes: The Users vs. Critics Conundrum
+      Screen Tastes: The User-Critic Divide in Cinema
     </h1>
     <h3 class="text-xl font-thin mt-2 text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">An attempt to explain movie
       taste differences between users and critics</h3>
@@ -183,7 +183,7 @@
             <p class="mt-2">
               The main tool used throughout the project is the Ordinary Least Square (OLS) regression. The goal of that
               regression is to extract the relative impact of each feature on our variable of interest, the rating
-              difference. When relevant, a naive OLS has been conducted and its metrics (F-Statistics, adjusted R^2,
+              difference. When relevant, a naive OLS has been conducted and its metrics (F-Statistics, adjusted R&#178;,
               condition number, …) inspected to judge the relevancy of the model itself, and the results have been
               selected based on their p-value significance, using once more the common <b>p-value threshold of 0.05</b>.
               Nevertheless, OLS regression is not perfect: one of the biggest challenges we faced
@@ -206,8 +206,10 @@
             <h4 class="text-xl font-bold mt-4">Variance Inflation Factor (VIF)</h4>
             <p class="mt-2">
               The VIF is a metric that measures the <b>multicollinearity</b> of a feature. It is calculated by regressing
-              each feature against all the other features and then extracting the R^2 of that regression. The VIF is then
-              calculated as 1/(1-R^2). The higher the VIF, the higher the multicollinearity. A VIF of 1 means that there
+              each feature against all the other features and then extracting the R&#178; of that regression. The VIF is
+              then
+              calculated as 1/(1-R&#178;). The higher the VIF, the higher the multicollinearity. A VIF of 1 means that
+              there
               is no multicollinearity, while a VIF of 5 or more means that there is a strong multicollinearity.
             </p>
             <p class="mt-2">
@@ -294,27 +296,14 @@
           <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
             <BookmarkIcon class="w-9 h-9 float-left mr-2" />Countries
           </h3>
-          <p class="mt-6">
-            In the grand kitchen of our data-driven analysis, let's craft a narrative as we
-            examine the intricate relationship between a film's country of origin and its critical reception. To whet our
-            appetites for understanding, we must first visually savor the prepared plots—each a dish to be dissected for
-            its unique storytelling flavors.
-          </p>
-
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-1">
               <h4 class="text-xl font-bold">Visual Appetizer</h4>
               <p class="mt-2">
-                This barplot is the first course, served to display the average rating differences by country. The bars
-                stretch across the taste spectrum, from the savory highs to the unseasoned lows. The length and direction
-                of
-                each bar speak to the divergence in cinematic taste—where a film from one country may be the toast of
-                critics,
-                yet the same film might not suit the public's palate. Countries like France and Italy, with longer bars
-                stretching towards the positive side, may suggest a gourmet blend of critical and public agreement. In
-                contrast, the United States stands out with a bar extending negatively, indicating a potential
-                fast-food-like
-                consumption where box office appeal does not translate into critical success.
+                In the grand kitchen of our data-driven analysis, let's craft a narrative as we examine the intricate
+                relationship between a film's country of origin and its critical reception. To whet our appetites for
+                understanding, we must first visually savor the prepared plots—each a dish to be dissected for its unique
+                storytelling flavors.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -328,13 +317,24 @@
             <div class="flex flex-col order-2 lg:order-2">
               <h4 class="text-xl font-bold">Pearson Correlation</h4>
               <p class="mt-2">
-                The Pearson coefficient plot is the main course, providing a more nuanced flavor profile of each country's
-                cinematic output. Each bar, with its confidence interval whiskers, indicates the strength and direction of
-                the relationship between a film's country of origin and its rating difference. Notice the subtle hints of
-                positive correlations for France and Iran, suggesting that films from these regions carry a certain je ne
-                sais quoi that resonates with critics. On the flip side, the United States and Canada show negative
-                correlations, implying a different critical reception, perhaps due to the commercial seasoning of their
-                film industries.
+                The Pearson coefficient provides a more nuanced but raw flavor profile of each country's cinematic output,
+                taking into account only one variable at a time. Each bar, with its confidence interval whiskers,
+                indicates the strength and direction of the relationship between a film's country of origin and its rating
+                difference. Notice the subtle hints of positive correlations for <i
+                  class="text-red-900 font-semibold">France</i> and <i class="text-red-900 font-semibold">Iran</i>,
+                suggesting that films
+                from these regions carry a certain <i>je ne sais quoi</i> that resonates with critics. On the flip side,
+                the
+                <i class="text-red-900 font-semibold">United States</i> and <i
+                  class="text-red-900 font-semibold">Canada</i> show negative correlations, implying a different critical
+                reception, perhaps due
+                to the commercial seasoning of their film industries. <i class="text-red-900 font-semibold">French
+                  movies</i>, with a <b>correlation of 0.141</b> and a
+                <b>p-value strikingly close to zero</b>, showcase a strong positive alignment with critic ratings. <i
+                  class="text-red-900 font-semibold">Iran</i> follows
+                suit but with a lesser <b>correlation of 0.065</b>, still significant enough to suggest that its films are
+                savored by critics. The plot also reveals the statistical significance (p-value) of these relationships,
+                emphasizing the reliability of our findings.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-1 w-full">
@@ -349,11 +349,27 @@
             <div class="flex flex-col order-2 lg:order-1">
               <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
               <p class="mt-2">
-                Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
-                country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
-                robust, further validating the country's standing with critics. The negative coefficients for powerhouses
-                like the United States and India are stark, reinforcing the narrative that commercial success is not a
-                guaranteed recipe for critical acclaim.
+                Let's delve deeper into the gourmet guide of global cinema by closely examining the OLS coefficients. This
+                plot refines this relationship by controlling for multiple variables. Here, we see <i
+                  class="text-red-900 font-semibold">Iran</i>'s <b>coefficient
+                  soaring to 7.383</b>, a testament to its films' critical acclaim when other factors are constant. This
+                is
+                contrasted by the <i class="text-red-900 font-semibold">United States</i>, which sees a <b>negative
+                  coefficient of -5.8119</b>, painting a picture of a
+                cinematic giant whose films are, perhaps, too rich in mainstream appeal for the critic's more selective
+                taste.Iran's positive coefficient is robust, further validating the country's standing with critics. The
+                negative coefficients for powerhouses like the <i class="text-red-900 font-semibold">United States</i> and
+                India are stark, reinforcing the
+                narrative that commercial success is not a guaranteed recipe for critical acclaim. Comparing the with the
+                Pearson correlation, we note a shift in the order of countries and the magnitude of their influence. For
+                example, while <i class="text-red-900 font-semibold">France</i> tops the Pearson plot, <i
+                  class="text-red-900 font-semibold">Iran</i> takes the lead in the OLS analysis, highlighting how
+                controlling for other variables can change the taste profile of our data dish. Despite slight differences,
+                it appears that critics tend to favor films that offer a distinct cultural voice, complex narratives, and
+                a strong artistic vision—qualities that are often highlighted in French and Iranian films. Conversely,
+                industries known for their box office prowess, such as Hollywood and Bollywood, might prioritize elements
+                that ensure commercial success. This industry caters to mass appeal rather than the gourmet tastes of
+                critics.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -362,69 +378,6 @@
               </div>
             </div>
           </div>
-
-          <div class="grid mt-8 w-full gap-3">
-            <h4 class="text-xl font-bold">Dissecting the Differences in Country
-              Coefficients</h4>
-            <p>
-              Let's delve deeper into the gourmet guide of global cinema by closely examining and comparing the plots
-              that serve as our visual menu.
-            </p>
-            <p>
-              Firstly, the Pearson plot offers us a raw measure of the relationship between the country of origin and
-              the rating difference. Countries like France, with a correlation of 0.141 and a p-value strikingly close
-              to zero, showcase a strong positive alignment with critic ratings. Iran follows suit but with a lesser
-              correlation of 0.065, still significant enough to suggest that its films are savored by critics. The plot
-              also reveals the statistical significance (p-value) of these relationships, emphasizing the reliability of
-              our findings.
-            </p>
-            <p>
-              In contrast, the OLS coefficients plot refines this relationship by controlling for multiple variables.
-              Here, we see Iran's coefficient soaring to 7.383, a testament to its films' critical acclaim when other
-              factors are constant. This is contrasted by the United States, which sees a negative coefficient of
-              -5.8119, painting a picture of a cinematic giant whose films are, perhaps, too rich in mainstream appeal
-              for the critic's more selective taste.
-            </p>
-          </div>
-
-
-          <h4 class="text-xl font-bold mt-6">Comparative Analysis: Tasting Notes on Methodologies</h4>
-          <p class="mt-3">
-            Comparing the two plots, we note a shift in the order of countries and the magnitude of their influence.
-            For
-            example, while France tops the Pearson plot, Iran takes the lead in the OLS analysis, highlighting how
-            controlling for other variables can change the taste profile of our data dish.
-          </p>
-          <p class="mt-3">
-            The Pearson method offers simplicity and a direct taste test of correlation, but it can't account for the
-            complex mix of ingredients that go into film ratings. It's like tasting a sauce before it's been fully
-            seasoned - useful, but not the complete flavor. Its advantages lie in its straightforward interpretation,
-            but it falls short by not considering other potentially confounding spices.
-          </p>
-          <p class="mt-3">
-            The OLS method, however, simmers down the data to control for various elements, akin to a slow-cooked stew
-            that melds flavors together for a more comprehensive profile. This method allows us to taste the unique
-            contribution of each country, but it can be a complex dish to digest, requiring assumptions like linearity
-            and normality that may not always hold. One drawback is that significant results can be influenced by
-            outliers, just like how a single overpowering spice can skew the taste of a dish.
-          </p>
-          <h4 class="text-xl font-bold mt-6">Serving the Final Course: Conclusions with a Pinch of Precision</h4>
-          <p class="mt-2">
-            Next to it, we present the OLS coefficients plot, a complementary dish that illustrates the impact of each
-            country when other ingredients in our analysis are held constant. Here, Iran's positive coefficient is
-            robust, further validating the country's standing with critics. The negative coefficients for powerhouses
-            like the United States and India are stark, reinforcing the narrative that commercial success is not a
-            guaranteed recipe for critical acclaim.
-          </p>
-
-          <p class="mt-4">
-            In the grand dining hall of global cinema, it appears that critics tend to favor films that
-            offer a
-            distinct cultural voice, complex narratives, and a strong artistic vision—qualities that are often
-            highlighted in French and Iranian films. Conversely, industries known for their box office prowess, such as
-            Hollywood and Bollywood, might prioritize elements that ensure commercial success—an industry that caters to
-            mass appeal rather than the gourmet tastes of critics.
-          </p>
 
           <!-- Tabs -->
           <div class="flex flex-col mt-6 w-full">
@@ -520,7 +473,8 @@
                     class="text-red-900 font-semibold">Gross
                     out</i> have been correctly filtered out, providing a way cleaner overview of what genres impact the
                   rating
-                  difference. For the finest gourmet amongst you, the results give an adjusted R^2 of 0.136, meaning that
+                  difference. For the finest gourmet amongst you, the results give an adjusted R&#178; of 0.136, meaning
+                  that
                   the genres alone can explain up to <b>13.6%</b> of the variance of the rating difference between critics
                   and
                   users.
@@ -683,7 +637,8 @@
               <div>
                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                 <p class="mt-2 ">
-                  Running the OLS gives once more insightful results, with an adjusted R^2 of 0.13 (<b>13%</b>). Having
+                  Running the OLS gives once more insightful results, with an adjusted R&#178; of 0.13 (<b>13%</b>).
+                  Having
                   specific actors
                   seems then to be impactful on the results, with the <u>20 significant</u> ones shown in this plot.
                 </p>
@@ -717,21 +672,46 @@
 
         <!-- == TROPES == -->
         <section id="tropes" class="section">
-          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
+          <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start mb-4">
             <BookmarkIcon class="w-9 h-9 float-left mr-2" />Tropes
           </h3>
+
+          <p>
+            The last ingredient for our glorious meal are the tropes. As a friendly reminder, tropes are “a significant
+            or recurrent theme; a motif”. Maybe this boring repetitive structure in this site was an artistic choice from
+            the beginning? Let's get back to the kitchen. Because tropes are categories that are human made and manually
+            assigned to each movie on the internet, the classification can be even messier than movie genres. But since
+            it's born from human need for categorization, we do think it can be a very valuable source of information.
+            Notice that, while the dataset merging in the previous steps didn't leave out a lot of movies, the tropes
+            merging drastically reduced the number of datapoints, down to approximately 2495, as mentioned during our
+            fridge inspection. Still plenty of room to work with! We know you're already drooling, but hold on through
+            this last step!
+          </p>
 
           <!-- Pearson -->
           <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
             <div class="flex flex-col order-2 lg:order-2">
               <h4 class="text-xl font-bold">Pearson Correlation</h4>
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                As expected, the Pearson correlation filtered out our movies down to around <u>300 significant tropes</u>,
+                which
+                is indeed enough to continue our analysis. Diving into the plot, we can see really funny and odd tropes
+                standing out. What is absolutely great is that the <i class="text-red-900 font-semibold">Oscar Bait</i>
+                type of film, with <b>correlation of 0.1</b>, is
+                actually taking the highest place of the plot, meaning that indeed, this trope is a significant indicator
+                for critical reception. On the other end, <i class="text-red-900 font-semibold">Ms Fanservice</i>, with
+                <b>correlation of 0.11</b> too, indicates that
+                …fans like it. So far so good. This is no real surprise, since these qualifiers could have been attributed
+                a posteriori. In general, we can suspect that these tropes are tightly related to all other features, like
+                <i class="text-red-900 font-semibold">Deliberately Monochrome</i> is way more likely to qualify art films,
+                and are likely to be considered part of
+                Auteur license too. On the other hand, expected tropes binded with genre, like <i
+                  class="text-red-900 font-semibold">Slasher</i> reappears,
+                reinforcing the insights provided by the Genre analysis. In general, the confidence intervals are wide,
+                but quite constant over the sample. However, the most precise tropes standing out might be a bit harder to
+                interpret. Furthermore, we do see that the <i class="text-red-900 font-semibold">Magical something</i>
+                trope appears twice, and referring to the
+                methods we used, we could expect high multicollinearity.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-1 w-full">
@@ -746,12 +726,20 @@
             <div class="flex flex-col order-2 lg:order-1">
               <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
               <p class="mt-2 text-justify">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo aliquid vitae
-                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt fugit
-                repellendus laboriosam laudantium. Esse, facilis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates iste
-                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam voluptate
-                suscipit magnam?
+                By running our first OLS, we get as expected a high condition number implying a high multicollinearity. By
+                applying VIF filtering we cut out almost 20 tropes, leaving us now with 315 features. The OLS regression
+                can now be performed with the hopes of better results. With an impressive <b>adjusted R&#178; of 0.2</b> and <u>36
+                significant tropes</u>, the OLS shows very encouraging numbers. However, visualizing what's the outcome in our
+                now classic plot can be a little bit disturbing. Instead of cleaning out obscure tropes, the outcome is
+                even harder to interpret. Based on the metrics evaluating the regression quality, the results are good,
+                but here we're probably limited by our own projections. These results could've been expected, since most
+                of them are heavily tailored and strongly related to the movie's target audience. However, we do observe
+                wider confidence intervals, getting us an insight that maybe, the variance of these rating differences are
+                high. Let's still highlight the fact that <i
+                  class="text-red-900 font-semibold">Roof hopping</i> performs well to impress critics, while strangely,
+                films like Mary Poppins and The Matrix are both part of this category. If you're curious to know what a
+                trope means, play around our <a href="#playground" class="py-[.28em] px-2 bg-slate-800 text-white rounded-lg hover:bg-slate-600">playground</a> at the end, and don't hesitate to learn using the source of our
+                tropes data, <a href="https://tvtropes.org" target="_blank" class="text-red-900 underline hover:text-red-400">tvtropes.org</a>.
               </p>
             </div>
             <div class="flex flex-col order-1 lg:order-2 w-full">
