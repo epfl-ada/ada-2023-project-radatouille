@@ -22,7 +22,8 @@
     </select>
 
     <span><span class="text-black font-semibold ml-1">Number of movies:</span> {{ nMoviesSelected }}</span>
-    <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected }} ({{ meanRatingDiffSelected > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
+    <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected }}</span>
+    <span v-if="olsCoefficient"><span class="text-black font-semibold ml-1 mb-3">OLS coefficient:</span> {{ olsCoefficient }} ({{ olsCoefficient > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
 
     <div ref="playgroundScatterPlot" class="aspect-square"></div>
     <div ref="playgroundHistogramPlot"></div>
@@ -49,6 +50,7 @@ const selectedYear = ref(null);
 
 const nMoviesSelected = ref(0);
 const meanRatingDiffSelected = ref(0);
+const olsCoefficient = ref(0);
 
 const playgroundScatterPlot = ref(null);
 const playgroundHistogramPlot = ref(null);
@@ -112,19 +114,32 @@ const fetchData = async (path) => {
 
 onMounted(async () => {
 
-
-  moviesData.value = await fetchData('/data/playground-movies.json');
-  genresData.value = await fetchData('/data/playground-genres.json');
-  actorsData.value = await fetchData('/data/playground-actors.json');
-  yearsData.value = await fetchData('/data/playground-releaseyear.json');
-  tropesData.value = await fetchData('/data/playground-tropes.json');
-  awardsData.value = await fetchData('/data/playground-awards.json');
-  countriesData.value = await fetchData('/data/playground-countries.json');
-
-  yearRange.value = [...Object.keys(yearsData.value).map(year => parseInt(year))].sort((a, b) => a - b);
-
-  initGraph();
-  updateCriteria();
+  fetchData('/data/playground-movies.json').then(data => {
+    moviesData.value = data;
+  });
+  fetchData('/data/playground-genres.json').then(data => {
+    genresData.value = data;
+    initGraph()
+    updateCriteria();
+  });
+  fetchData('/data/playground-actors.json').then(data => {
+    actorsData.value = data;
+  });
+  fetchData('/data/playground-releaseyear.json').then(data => {
+    yearsData.value = data;
+    yearRange.value = [...Object.keys(yearsData.value).map(year => parseInt(year))].sort((a, b) => a - b);
+  });
+  fetchData('/data/playground-tropes.json').then(data => {
+    tropesData.value = data;
+  });
+  fetchData('/data/playground-awards.json').then(data => {
+    awardsData.value = data;
+  });
+  fetchData('/data/playground-countries.json').then(data => {
+    countriesData.value = data;
+  });
+  
+  
 });
 
 const initGraph = () => {
@@ -196,22 +211,30 @@ const updateGraph = () => {
   let selectedIds;
   switch (selectedCriteriaType.value) {
     case 'genre':
-      selectedIds = genresData.value[selectedCriteria.value];
+      selectedIds = genresData.value[selectedCriteria.value].ids;
+      olsCoefficient.value = genresData.value[selectedCriteria.value].ols_coefficient;
       break;
     case 'actor':
-      selectedIds = actorsData.value[selectedCriteria.value];
+      selectedIds = actorsData.value[selectedCriteria.value].ids;
+      olsCoefficient.value = actorsData.value[selectedCriteria.value].ols_coefficient;
       break;
     case 'year':
       selectedIds = yearsData.value[selectedCriteria.value];
+      olsCoefficient.value = null;
+      //olsCoefficient.value = yearsData.value[selectedCriteria.value].ols_coefficient;
+      yearRange.value = [...Object.keys(yearsData.value).map(year => parseInt(year))].sort((a, b) => a - b);
       break;
     case 'trope':
-      selectedIds = tropesData.value[selectedCriteria.value];
+      selectedIds = tropesData.value[selectedCriteria.value].ids;
+      olsCoefficient.value = tropesData.value[selectedCriteria.value].ols_coefficient;
       break;
     case 'award':
-      selectedIds = awardsData.value[selectedCriteria.value];
+      selectedIds = awardsData.value[selectedCriteria.value].ids;
+      olsCoefficient.value = awardsData.value[selectedCriteria.value].ols_coefficient;
       break;
     case 'country':
-      selectedIds = countriesData.value[selectedCriteria.value];
+      selectedIds = countriesData.value[selectedCriteria.value].ids;
+      olsCoefficient.value = countriesData.value[selectedCriteria.value].ols_coefficient;
       break;
   }
 
