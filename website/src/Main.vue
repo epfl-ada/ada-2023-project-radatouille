@@ -31,29 +31,40 @@
             class="flex col-span-5 px-10 lg:px-8 lg:col-span-3 lg:col-start-2 flex-col py-8 w-full mx-auto max-w-screen-lg">
             <section id="introduction" class="section">
                 <h2 class="text-4xl lg:text-5xl font-bold mt-5">Introduction</h2>
-
-                <div class="flex flex-col lg:flex-row">
-                    <div>
-                        <p class="text-justify mt-4 lg:max-w-screen-md">
-                            As aspiring chefs, we are eager to learn how to prepare the most exquisite movie
-                            possible. We are aware that Anton Ego, a renowned critic, will soon be evaluating our skills.
-                        </p>
-                        <p class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4 font-semibold">
-                            Can we find a
-                            movie
-                            that pleases everyone, from the average viewer to the most sophisticated cinephile?
-                        </p>
-                        <p>
-                            This is the challenge we
-                            aim
-                            to conquer. Our initial task is to ascertain whether their tastes differ significantly. Let's
-                            examine what
-                            needs
-                            to be done to achieve this.
-                        </p>
-                    </div>
+                <div>
+                    <p class="text-justify mt-4 lg:max-w-screen-md">
+                        As it's often said, “there is no accounting for taste”. But as flavor explorers and taste
+                        crafters, we do care about it. And as much as you're a fan of brussels sprout, everybody is not.
+                        Same goes for <b>movies</b>, and a finer palate might find delicacy in other dishes than your
+                        favorite
+                        pasta al pesto. World renowned <b>critics</b> might disagree with <b>you</b>. But why? Is this
+                        difference in
+                        taste real? Are the critics overly sophisticated, and like Anton Ego, do they like the
+                        simplicity of a simple well cooked dish in the end?
+                    </p>
+                    <p class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4 font-semibold">
+                        Do critics and users have different tastes, and if yes, can we explain it?
+                    </p>
+                    <p>
+                        Or is this discrepancy based on something more concrete? That's the question we want to address,
+                        using all the craftsmanship our kitchen brigade freshly learned. From the selection of our
+                        ingredients basket to the concoction of our dish, grab your chef's hat and embark with us in
+                        this flavorful journey.
+                    </p>
+                </div>
+                <h5 class="text-xl lg:text-2xl mt-4 font-semibold ml-1">The <span class="italic font-semibold">Brigade</span></h5>
+                <div class="grid gap-20 lg:gap-3 md:grid-cols-3 lg:grid-cols-6">
                     <img src="/remy.png" alt="remy"
-                        class="w-[180px] lg:w-[180px] mt-4 drop-shadow-xl lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300 mx-auto lg:ml-8" />
+                        class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300" />
+
+                    <div class="w-full flex flex-col h-full relative mt-10">
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-1/2 left-[5%] w-[60%] h-full object-contain lg:max-h-none z-[2]" />
+                        <img src="/enzo.jpeg" alt="enzo"
+                            class="flex w-full drop-shadow-xl object-contain  mb-2" />
+                            <h5 class="font-semibold text-center">Enzo Palmisano</h5>
+                            <h6 class="text-center italic">MA3 - Energy</h6>
+                    </div>
                 </div>
 
                 <section id="fridge" class="section text-justify">
@@ -64,7 +75,8 @@
                         Let's look at what is available to us.
                     </p>
                     <div class="flex flex-col lg:flex-row gap-5">
-                        <img src="/fridge.png" alt="fridge" class="max-w-[200px] mx-auto lg:max-w-[200px] object-contain mt-4 mb-auto drop-shadow-xl" />
+                        <img src="/fridge.png" alt="fridge"
+                            class="max-w-[200px] mx-auto lg:max-w-[200px] object-contain mt-4 mb-auto drop-shadow-xl hover:scale-105 hover:drop-shadow-none transition duration-300" />
                         <div class="mt-6">
                             <h6 class="text-lg font-bold">CMU Movies</h6>
                             <p class="mt-2">
@@ -118,11 +130,13 @@
                         <div class="flex flex-col order-2 lg:order-2">
                             <h4 class="text-xl font-bold">IMDb Users Ratings</h4>
                             <p class="mt-2">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium magni quam neque
-                                voluptatibus!
-                                Inventore, praesentium aliquid reiciendis necessitatibus quos iure maxime, unde deserunt hic
-                                doloribus
-                                vitae. Vitae aliquid culpa dolorum?
+                                The IMDb rating consists of a grade between 0 and 10. It is an average of the users's
+                                ratings, and as we can see, the average rating is around 6.5. The first quartile is at 6,
+                                which means that 75% of the ratings are over 6, so the users don't seem to rate badly
+                            </p>
+                            <p class="mt-2">
+                                For the sake of computing the rating difference, we will use a <b>scaled</b> version of
+                                the rating, so that the rating is between 0 and 100, like the Metascore.
                             </p>
                         </div>
                         <div class="flex flex-col order-1 lg:order-1 w-full">
@@ -137,11 +151,18 @@
                         <div class="flex flex-col order-2 lg:order-1">
                             <h4 class="text-xl font-bold">Metascore</h4>
                             <p class="mt-2">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti incidunt non, illo
-                                assumenda a illum,
-                                quasi similique nisi, error architecto maxime dolorem. Tempora qui nesciunt tenetur! Quasi
-                                esse distinctio
-                                eveniet.
+                                The Metascore is an aggregated score resuming the rating of multiple publishers. It consists
+                                of a normalized (so relative to the other performances), <b>weighted</b> (as each publisher
+                                rates
+                                differently) <b>average</b> of the scaled (as each critic rates with a different scale)
+                                ratings.
+                            </p>
+                            <p class="mt-2">
+                                After a statistical normality test, the distribution is <i>quasi-normal</i> (which sounds
+                                logical,
+                                because as said before, the scores are normalized, and we have a consequent subset of them),
+                                with an average of around 60, which means that the <b>critics on average are more difficult
+                                    than the users!</b>
                             </p>
                         </div>
                         <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -163,7 +184,6 @@
                     </p>
                     <div>
                         <TabGroup :selectedIndex="activeCookbookTabId">
-
                             <TabList class="bg-red-900 p-2 rounded-xl" v-show="false">
                                 <Tab as="button" :key="0"
                                     class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
@@ -196,240 +216,295 @@
                                     Variance Inflation Factor (VIF)
                                 </Tab>
                             </TabList>
-                            <div class="flex justify-between mt-6 max-w-md mx-auto">
+                            <div class="flex justify-between mt-6 w-full mx-auto">
                                 <button
                                     class="bg-slate-600 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-l-xl disabled:opacity-0"
                                     @click="activeCookbookTabId -= 1" :disabled="activeCookbookTabId === 0">
                                     &lt;
                                 </button>
-                                <TabPanels class="bg-slate-200 border-slate-600"
-                                    :class="activeCookbookTabId == 0 ? 'border-l-8' : activeCookbookTabId == 4 ? 'border-r-8' : null">
-                                    <TabPanel class="tab-panel">
+                                <TabPanels class="w-full h-full">
+                                    <TabPanel class="tab-panel h-full w-full">
                                         <TransitionRoot appear :show="activeCookbookTabId === 0" as="template">
                                             <TransitionChild as="template" enter="tab-enter" enter-to="tab-enter-to"
                                                 enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
                                                 leave-from="tab-leave-from">
-                                                <img src="/cookbookCover.png" alt="cookbookCover" class="w-full" />
+                                                <div
+                                                    class="flex w-full justify-between items-center bg-light h-full object-cover">
+                                                    <p class="text-lg italic text-end px-6 w-1/2 hidden lg:block">Turn the
+                                                        page...</p>
+                                                    <img src="/cookbookCover.png"
+                                                        class="flex object-cover w-full lg:w-1/2 border-slate-600 border-l-8" />
+                                                </div>
                                             </TransitionChild>
                                         </TransitionRoot>
                                     </TabPanel>
-                                    <TabPanel class="tab-panel">
+                                    <TabPanel class="tab-panel h-full bg-slate-200">
                                         <TransitionRoot appear :show="activeCookbookTabId == 1" as="template">
                                             <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
                                                 enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
                                                 leave-from="tab-leave-from" as="template">
-                                                <div class="p-5 bg-slate-200">
-                                                    <h4 class="text-xl font-bold">T-Test</h4>
-                                                    <p class="mt-2">
-                                                        Basic statistics are conducted using the <b>p-value threshold of
-                                                            0.05</b> to
-                                                        determine if the
-                                                        imdb users and
-                                                        metascore
-                                                        rating distribution have a significantly different mean.
-                                                    </p>
-                                                </div>
-                                            </TransitionChild>
-                                        </TransitionRoot>
-                                    </TabPanel>
-                                    <TabPanel class="tab-panel">
-                                        <TransitionRoot appear :show="activeCookbookTabId == 2" as="template">
-                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
-                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
-                                                leave-from="tab-leave-from" as="template">
-                                                <div class="p-5 bg-slate-200">
-                                                    <h4 class="text-xl font-bold">Pearson Correlation</h4>
-                                                    <p class="mt-2">
-                                                        The Pearson correlation will be used systematically on all the
-                                                        features,
-                                                        allowing us
-                                                        to extract
-                                                        a first
-                                                        glimpse of which of them is significant on the rating difference.
-                                                        The
-                                                        Pearson
-                                                        correlation
-                                                        measures the
-                                                        linear correlation between 2 sets of data, so by measuring the
-                                                        Pearson
-                                                        Correlation
-                                                        Coefficient
-                                                        (PCC) between
-                                                        one feature and the rating difference, we will extract the linear
-                                                        correlation
-                                                        between both.
-                                                        The significance threshold has been chosen at the <b>p-value of
-                                                            0.05</b>
-                                                        since
-                                                        it's
-                                                        the most
-                                                        commonly used
-                                                        value.
-                                                    </p>
-                                                    <p class="mt-2">
-                                                        In general, the plots will display up to the top and bottom 10
-                                                        significant
-                                                        features,
-                                                        based on
-                                                        the magnitude
-                                                        of the Pearson correlation.
-                                                    </p>
-                                                </div>
-                                            </TransitionChild>
-                                        </TransitionRoot>
-                                    </TabPanel>
-                                    <TabPanel class="tab-panel">
-                                        <TransitionRoot appear :show="activeCookbookTabId === 3" as="template">
-                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
-                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
-                                                leave-from="tab-leave-from" as="template">
-                                                <div class="p-5 bg-slate-200">
-                                                    <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
-                                                    <p class="mt-2">
-                                                        The main tool used throughout the project is the Ordinary Least
-                                                        Square
-                                                        (OLS)
-                                                        regression. The
-                                                        goal of that
-                                                        regression is to extract the relative impact of each feature on our
-                                                        variable
-                                                        of
-                                                        interest, the
-                                                        rating
-                                                        difference. When relevant, a naive OLS has been conducted and its
-                                                        metrics
-                                                        (F-Statistics,
-                                                        adjusted R&#178;,
-                                                        condition number, …) inspected to judge the relevancy of the model
-                                                        itself,
-                                                        and
-                                                        the
-                                                        results have
-                                                        been
-                                                        selected based on their p-value significance, using once more the
-                                                        common
-                                                        <b>p-value
-                                                            threshold of
-                                                            0.05</b>.
-                                                        Nevertheless, OLS regression is not perfect: one of the biggest
-                                                        challenges
-                                                        we
-                                                        faced
-                                                        was that it is <b>strongly sensitive to outliers</b> and
-                                                        <b>multicollinear
-                                                            features</b>.
-                                                    </p>
-                                                    <p class="mt-2">
-                                                        When the filtering
-                                                        was proved necessary, a second OLS was conducted on the filtered
-                                                        features
-                                                        before
-                                                        being reviewed
-                                                        again to
-                                                        assess the improvement.
-                                                    </p>
-                                                    <div
-                                                        class="my-4 bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
-                                                        <h4 class="text-xl italic font-semibold mb-1">For the gourmet</h4>
-                                                        <p>
-                                                            The finest chef amongst you may want to know a bit more about
-                                                            what
-                                                            exactly
-                                                            we've
-                                                            done to get
-                                                            an outcome of the OLS. Simply mixing all of the features often
-                                                            yields a
-                                                            bland
-                                                            soup. We thus
-                                                            refined the model using regularization. The OLS accepts Lasso
-                                                            (l1)
-                                                            and
-                                                            Ridge
-                                                            (l2)
-                                                            regularizations. By tuning a penalty term in the optimization
-                                                            problem,
-                                                            the
-                                                            outcomes can be
-                                                            cleaner and easier to interpret. In general, Lasso is
-                                                            particularly
-                                                            indicated
-                                                            when a subset
-                                                            of the features is expected to not be significant, performing a
-                                                            sort
-                                                            of
-                                                            feature
-                                                            selection.
-                                                            Ridge is more useful to deal with multicollinearity, and can
-                                                            help
-                                                            keep
-                                                            some
-                                                            outliers under
-                                                            control. Playing with those regularization penalties and tuning
-                                                            the
-                                                            hyperparameter
-                                                            <b>alpha</b>
-                                                            allows to produce a refined velouté.
+                                                <div class="flex flex-col lg:flex-row bg-slate-200 w-full h-full">
+                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:px-8 h-full py-6">
+                                                        <h4 class="text-xl font-bold">T-Test</h4>
+                                                        <p class="mt-2">
+                                                            Basic statistics are conducted using the <b>p-value threshold of
+                                                                0.05</b> to
+                                                            determine if the
+                                                            imdb users and
+                                                            metascore
+                                                            rating distribution have a significantly different mean.
                                                         </p>
+                                                    </div>
+                                                    <div class="flex w-full lg:w-1/2 bg-slate-200">
+                                                        <img src="/cookbookTtest.png" alt="ttest"
+                                                            class="flex w-full object-contain my-auto" />
                                                     </div>
                                                 </div>
                                             </TransitionChild>
                                         </TransitionRoot>
                                     </TabPanel>
-                                    <TabPanel class="tab-panel">
+                                    <TabPanel class="tab-panel h-full bg-slate-200">
+                                        <TransitionRoot appear :show="activeCookbookTabId == 2" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="flex flex-col lg:flex-row w-full h-full bg-slate-200">
+                                                    <div
+                                                        class="flex flex-col px-5 lg:px-8 py-6 bg-slate-200 w-full h-full lg:w-1/2">
+                                                        <h4 class="text-xl font-bold">Pearson Correlation</h4>
+                                                        <p class="mt-2">
+                                                            The Pearson correlation will be used systematically on all the
+                                                            features,
+                                                            allowing us
+                                                            to extract
+                                                            a first
+                                                            glimpse of which of them is significant on the rating
+                                                            difference.
+                                                            The
+                                                            Pearson
+                                                            correlation
+                                                            measures the
+                                                            linear correlation between 2 sets of data, so by measuring the
+                                                            Pearson
+                                                            Correlation
+                                                            Coefficient
+                                                            (PCC) between
+                                                            one feature and the rating difference, we will extract the
+                                                            linear
+                                                            correlation
+                                                            between both.
+                                                            The significance threshold has been chosen at the <b>p-value of
+                                                                0.05</b>
+                                                            since
+                                                            it's
+                                                            the most
+                                                            commonly used
+                                                            value.
+                                                        </p>
+                                                        <p class="mt-2">
+                                                            In general, the plots will display up to the top and bottom 10
+                                                            significant
+                                                            features,
+                                                            based on
+                                                            the magnitude
+                                                            of the Pearson correlation.
+                                                        </p>
+                                                    </div>
+                                                    <div class="flex w-full lg:w-1/2 bg-slate-200 p-6">
+                                                        <img src="/cookbookPearson.png" alt="pearson"
+                                                            class="flex w-full object-contain my-auto" />
+                                                    </div>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel bg-slate-200">
+                                        <TransitionRoot appear :show="activeCookbookTabId === 3" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="w-full flex flex-col lg:flex-row">
+                                                    <div class="px-5 lg:px-8 py-6 bg-slate-200 w-full lg:w-1/2">
+                                                        <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+                                                        <p class="mt-2">
+                                                            The main tool used throughout the project is the Ordinary Least
+                                                            Square
+                                                            (OLS)
+                                                            regression. The
+                                                            goal of that
+                                                            regression is to extract the relative impact of each feature on
+                                                            our
+                                                            variable
+                                                            of
+                                                            interest, the
+                                                            rating
+                                                            difference. When relevant, a naive OLS has been conducted and
+                                                            its
+                                                            metrics
+                                                            (F-Statistics,
+                                                            adjusted R&#178;,
+                                                            condition number, …) inspected to judge the relevancy of the
+                                                            model
+                                                            itself,
+                                                            and
+                                                            the
+                                                            results have
+                                                            been
+                                                            selected based on their p-value significance, using once more
+                                                            the
+                                                            common
+                                                            <b>p-value
+                                                                threshold of
+                                                                0.05</b>.
+                                                            Nevertheless, OLS regression is not perfect: one of the biggest
+                                                            challenges
+                                                            we
+                                                            faced
+                                                            was that it is <b>strongly sensitive to outliers</b> and
+                                                            <b>multicollinear
+                                                                features</b>.
+                                                        </p>
+                                                        <p class="mt-2">
+                                                            When the filtering
+                                                            was proved necessary, a second OLS was conducted on the filtered
+                                                            features
+                                                            before
+                                                            being reviewed
+                                                            again to
+                                                            assess the improvement.
+                                                        </p>
+                                                    </div>
+                                                    <div class="flex w-full lg:w-1/2  px-5 lg:pr-8 lg:pl-0 py-6">
+                                                        <div
+                                                            class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+                                                            <h4 class="text-xl italic font-semibold mb-1">For the gourmet
+                                                            </h4>
+                                                            <p>
+                                                                The finest chef amongst you may want to know a bit more
+                                                                about
+                                                                what
+                                                                exactly
+                                                                we've
+                                                                done to get
+                                                                an outcome of the OLS. Simply mixing all of the features
+                                                                often
+                                                                yields a
+                                                                bland
+                                                                soup. We thus
+                                                                refined the model using regularization. The OLS accepts
+                                                                Lasso
+                                                                (l1)
+                                                                and
+                                                                Ridge
+                                                                (l2)
+                                                                regularizations. By tuning a penalty term in the
+                                                                optimization
+                                                                problem,
+                                                                the
+                                                                outcomes can be
+                                                                cleaner and easier to interpret. In general, Lasso is
+                                                                particularly
+                                                                indicated
+                                                                when a subset
+                                                                of the features is expected to not be significant,
+                                                                performing a
+                                                                sort
+                                                                of
+                                                                feature
+                                                                selection.
+                                                                Ridge is more useful to deal with multicollinearity, and can
+                                                                help
+                                                                keep
+                                                                some
+                                                                outliers under
+                                                                control. Playing with those regularization penalties and
+                                                                tuning
+                                                                the
+                                                                hyperparameter
+                                                                <b>alpha</b>
+                                                                allows to produce a refined velouté.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel bg-slate-200 border-r-8 border-slate-600">
                                         <TransitionRoot appear :show="activeCookbookTabId === 4" as="template">
                                             <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
                                                 enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
                                                 leave-from="tab-leave-from" as="template">
-                                                <div class="p-5 bg-slate-200">
-                                                    <h4 class="text-xl font-bold">Variance Inflation Factor (VIF)</h4>
-                                                    <p class="mt-2">
-                                                        The VIF is a metric that measures the <b>multicollinearity</b> of a
-                                                        feature. It
-                                                        is
-                                                        calculated by
-                                                        regressing
-                                                        each feature against all the other features and then extracting the
-                                                        R&#178; of
-                                                        that
-                                                        regression.
-                                                        The VIF is
-                                                        then
-                                                        calculated as 1/(1-R&#178;). The higher the VIF, the higher the
-                                                        multicollinearity. A
-                                                        VIF of 1
-                                                        means that
-                                                        there
-                                                        is no multicollinearity, while a VIF of 5 or more means that there
-                                                        is a
-                                                        strong
-                                                        multicollinearity.
-                                                    </p>
-                                                    <p class="mt-2">
-                                                        In case of multicollinearity, we computed the VIF coefficients of
-                                                        the
-                                                        already
-                                                        pearson
-                                                        significant features
-                                                        and filtered out the ones with a VIF higher than 5.
-                                                    </p>
-                                                    <p
-                                                        class="my-4 bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
-                                                        <span class="font-bold">
-                                                            Grandma Hack:</span> To detect multicollinear features, one can
-                                                        look
-                                                        at the
-                                                        condition
-                                                        number. Following <a target="_blank"
-                                                            href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/regression/linear_model.py#L2843C1-L2844C1"
-                                                            class="text-red-900 underline hover:text-red-400">statsmodel's
-                                                            official implementation</a>, we can say that if the value is
-                                                        bigger
-                                                        than
-                                                        1000,
-                                                        there is a
-                                                        huge
-                                                        likelihood that a multicollinear feature problem is present!
-                                                    </p>
+                                                <div class="flex w-full flex-col lg:flex-row">
+                                                    <div class="px-5 lg:px-8 py-6 bg-slate-200 w-full lg:w-1/2">
+                                                        <h4 class="text-xl font-bold">Variance Inflation Factor (VIF)</h4>
+                                                        <p class="mt-2">
+                                                            The VIF is a metric that measures the <b>multicollinearity</b>
+                                                            of a
+                                                            feature. It
+                                                            is
+                                                            calculated by
+                                                            regressing
+                                                            each feature against all the other features and then extracting
+                                                            the
+                                                            R&#178; of
+                                                            that
+                                                            regression.
+                                                            The VIF is
+                                                            then
+                                                            calculated as 1/(1-R&#178;). The higher the VIF, the higher the
+                                                            multicollinearity. A
+                                                            VIF of 1
+                                                            means that
+                                                            there
+                                                            is no multicollinearity, while a VIF of 5 or more means that
+                                                            there
+                                                            is a
+                                                            strong
+                                                            multicollinearity.
+                                                        </p>
+                                                        <p class="mt-2">
+                                                            In case of multicollinearity, we computed the VIF coefficients
+                                                            of
+                                                            the
+                                                            already
+                                                            pearson
+                                                            significant features
+                                                            and filtered out the ones with a VIF higher than 5.
+                                                        </p>
+                                                    </div>
+                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-8 lg:pl-0 py-6">
+                                                        <div
+                                                            class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+
+                                                            <p>
+                                                                <span class="font-bold">
+                                                                    Grandma's Hack:</span> <br>To detect multicollinear
+                                                                features, one
+                                                                can
+                                                                look
+                                                                at the
+                                                                condition
+                                                                number. Following <a target="_blank"
+                                                                    href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/regression/linear_model.py#L2843C1-L2844C1"
+                                                                    class="text-red-900 underline hover:text-red-400">statsmodel's
+                                                                    official implementation</a>, we can say that if the
+                                                                value is
+                                                                bigger
+                                                                than
+                                                                1000,
+                                                                there is a
+                                                                huge
+                                                                likelihood that a multicollinear feature problem is present!
+                                                            </p>
+                                                            <img src="/cookbookAda.jpeg" alt="ada"
+                                                                class="flex w-1/2 mx-auto object-contain my-auto aspect-square rounded-full mb-2 mt-5" />
+                                                            <h6 class="italic text-center text-lg  font-semibold">Ada
+                                                                Lovelace</h6>
+                                                            <h6 class="font-light text-sm text-center mb-3">(our
+                                                                Grandma)</h6>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </TransitionChild>
                                         </TransitionRoot>
@@ -1138,7 +1213,7 @@
                     </div>
 
                     <div class="flex flex-col mt-8 w-full gap-5">
-                        <TabsSection :tabs="tropesTabs" :defaultIndex="4" />
+                        <TabsSection :tabs="tropesTabs" :defaultIndex="3" />
                     </div>
                 </section>
             </section>
@@ -1253,7 +1328,6 @@
     position: relative;
     overflow: hidden;
     backface-visibility: hidden;
-    min-height: 500px;
 }
 
 .tab-enter-active,
