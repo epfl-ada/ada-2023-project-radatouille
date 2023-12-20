@@ -65,8 +65,6 @@ export function transformDataForPlotly(data, x_column, y_column, text_function =
     // Normalize data to -1 to 1 scale
     let normalizedColors = data.map(item => item[x_column] / maxAbsValue);
 
-    console.log(normalizedColors)
-
     let trace = {
         x: data.map(item => item[x_column]),
         y: data.map(item => stringDivider(item[y_column], 20, "<br>")),
@@ -89,6 +87,12 @@ export function transformDataForPlotly(data, x_column, y_column, text_function =
             colorbar: {
                 tickvals: [-1, 0, 1],
                 ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                tickwidth: 0.5,
+                thickness: 15,
+                orientation: 'h',
+                yanchor: 'bottom',
+                y: 0,
+                yref: 'container',
             }
         }
     };
@@ -667,6 +671,12 @@ export function callbackAwards2(chartRef, fileUrl) {
                 colorbar: {
                     tickvals: [-1, 0, 1],
                     ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                    tickwidth: 0.5,
+                    thickness: 15,
+                    orientation: 'h',
+                    yanchor: 'bottom',
+                    y: 0,
+                    yref: 'container',
                 }
             },
             opacity: 1,
@@ -735,6 +745,12 @@ export function callbackAwards3(chartRef, fileUrl) {
                 colorbar: {
                     tickvals: [-1, 0, 1],
                     ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                    tickwidth: 0.5,
+                    thickness: 15,
+                    orientation: 'h',
+                    yanchor: 'bottom',
+                    y: 0,
+                    yref: 'container',
                 }
             },
             opacity: 1,
