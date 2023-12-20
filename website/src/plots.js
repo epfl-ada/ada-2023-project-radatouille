@@ -4,10 +4,10 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const flareColorScale = [
     [0, '#f6e8c3'],
-    [0.28, '#fddbc7'],
-    [0.42, '#f4a582'],
-    [0.56, '#d6604d'],
-    [0.70, '#b2182b'],
+    [0.2, '#fddbc7'],
+    [0.4, '#f4a582'],
+    [0.6, '#d6604d'],
+    [0.8, '#b2182b'],
     [1.0, '#67001f']
 ];
 
@@ -55,24 +55,44 @@ export function stringDivider(str, width, spaceReplacer) {
     return str;
 }
 
-export function transformDataForPlotly(data, x_column, y_column, error_x_column, text_function = null) {
-    let maxValue = data.length - 1;
+export function transformDataForPlotly(data, x_column, y_column, text_function = null) {
+    let maxAbsValue = Math.max(...data.map(item => Math.abs(item[x_column])));
+
+    const lower_ci = data.map(item => item['lower_ci'] ? item[x_column] - item['lower_ci'] : item['sem'] * 1.96)
+    const upper_ci = data.map(item => item['upper_ci'] ? item['upper_ci'] - item[x_column] : item['sem'] * 1.96)
+
+
+    // Normalize data to -1 to 1 scale
+    let normalizedColors = data.map(item => item[x_column] / maxAbsValue);
+
+    console.log(normalizedColors)
+
     let trace = {
         x: data.map(item => item[x_column]),
-        y: data.map(item => item[y_column]),
+        y: data.map(item => stringDivider(item[y_column], 20, "<br>")),
         hovertext: text_function ? data.map(item => text_function(item)) : null,
         error_x: {
             type: 'data',
-            array: data.map(item => item[error_x_column]),
+            symetric: false,
+            array: upper_ci,
+            arrayminus: lower_ci,
             visible: true
         },
         type: 'bar',
         orientation: 'h',
         marker: {
-            color: data.map((_, index) => index / maxValue), // Assign a normalized value based on index
-            colorscale: flareColorScale
-        },
+            color: normalizedColors,
+            colorscale: flareColorScale,
+            cmin: -1,
+            cmax: 1,
+            showscale: true,
+            colorbar: {
+                tickvals: [-1, 0, 1],
+                ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+            }
+        }
     };
+
     return [trace];
 }
 
@@ -358,7 +378,7 @@ export function callbackCountries1(chartRef, fileUrl) {
             return a.mean - b.mean;
         });
 
-        const trace = transformDataForPlotly(data, 'mean', 'countries', 'sem', function (item) {
+        const trace = transformDataForPlotly(data, 'mean', 'countries', function (item) {
             return `Number of movies: ${item.count.toFixed(0)}`;
         })
 
@@ -373,7 +393,10 @@ export function callbackCountries1(chartRef, fileUrl) {
                     text: 'Country',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -390,7 +413,7 @@ export function callbackCountries2(chartRef, fileUrl) {
             return a.correlation - b.correlation;
         });
 
-        const trace = transformDataForPlotly(data, 'correlation', 'Country', 'sem', function (item) {
+        const trace = transformDataForPlotly(data, 'correlation', 'Country', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -405,7 +428,10 @@ export function callbackCountries2(chartRef, fileUrl) {
                     text: 'Country',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -420,7 +446,7 @@ export function callbackCountries3(chartRef, fileUrl) {
             return a.coef - b.coef;
         });
 
-        const trace = transformDataForPlotly(data, 'coef', 'Country', 'sem', function (item) {
+        const trace = transformDataForPlotly(data, 'coef', 'Country', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -456,7 +482,7 @@ export function callbackGenres1(chartRef, fileUrl) {
         let top = data.slice(-10);
         let genres1_filtered = bottom.concat(top);
 
-        const trace = transformDataForPlotly(genres1_filtered, 'rating_difference', 'genres', 'sem', function (item) {
+        const trace = transformDataForPlotly(genres1_filtered, 'rating_difference', 'genres', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}`;
         })
 
@@ -471,7 +497,10 @@ export function callbackGenres1(chartRef, fileUrl) {
                     text: 'Genre',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -490,7 +519,7 @@ export function callbackGenres2(chartRef, fileUrl) {
         let bottom = data.slice(0, 10);
         let genres2_filtered = bottom.concat(top);
 
-        const trace = transformDataForPlotly(genres2_filtered, 'correlation', 'Genre', 'sem', function (item) {
+        const trace = transformDataForPlotly(genres2_filtered, 'correlation', 'Genre', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -505,7 +534,10 @@ export function callbackGenres2(chartRef, fileUrl) {
                     text: 'Genre',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -521,7 +553,7 @@ export function callbackGenres3(chartRef, fileUrl) {
             return a.coef - b.coef;
         });
 
-        const trace = transformDataForPlotly(data, 'coef', 'Genre', 'sem', function (item) {
+        const trace = transformDataForPlotly(data, 'coef', 'Genre', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -538,7 +570,10 @@ export function callbackGenres3(chartRef, fileUrl) {
                 },
                 automargin: true,
                 ticklen: 10,
-                tickcolor: 'white'
+                tickcolor: 'white',
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -567,7 +602,7 @@ export function callbackAwards1(chartRef, fileUrl) {
             marker: {
                 color: '#67001f'
             },
-            opacity: 0.75,
+            opacity: 1,
             orientation: 'h',
 
         }]
@@ -604,7 +639,12 @@ export function callbackAwards2(chartRef, fileUrl) {
             return a.correlation - b.correlation;
         });
 
-        const maxValue = data.length - 1;
+        const maxAbsValue = Math.max(...data.map(item => Math.abs(item.correlation)));
+
+        const lower_ci = data.map(item => item['lower_ci'] ? item['correlation'] - item['lower_ci'] : item['sem'] * 1.96)
+        const upper_ci = data.map(item => item['upper_ci'] ? item['upper_ci'] - item['correlation'] : item['sem'] * 1.96)
+
+        const normalizedColors = data.map(item => item.correlation / maxAbsValue);
 
         const trace = [{
             x: data.map(item => item.correlation),
@@ -613,14 +653,23 @@ export function callbackAwards2(chartRef, fileUrl) {
             hovertext: data.map(item => `P-value: ${item.p_value}`),
             error_x: {
                 type: 'data',
-                array: data.map(item => item['sem']),
+                symetric: false,
+                array: upper_ci,
+                arrayminus: lower_ci,
                 visible: true
             },
             marker: {
-                color: data.map((_, index) => index / maxValue), // Assign a normalized value based on index
-                colorscale: flareColorScale
+                color: normalizedColors,
+                colorscale: flareColorScale,
+                cmin: -1,
+                cmax: 1,
+                showscale: true,
+                colorbar: {
+                    tickvals: [-1, 0, 1],
+                    ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                }
             },
-            opacity: 0.75,
+            opacity: 1,
             orientation: 'h',
         }]
 
@@ -657,7 +706,13 @@ export function callbackAwards3(chartRef, fileUrl) {
             return a.coef - b.coef;
         });
 
-        const maxValue = data.length - 1;
+        const maxAbsValue = Math.max(...data.map(item => Math.abs(item.coef)));
+
+        // if lower_ci in item, then use it, otherwise use sem
+        const lower_ci = data.map(item => item['lower_ci'] ? item['coef'] - item['lower_ci'] : item['sem'] * 1.96)
+        const upper_ci = data.map(item => item['upper_ci'] ? item['upper_ci'] - item['coef'] : item['sem'] * 1.96)
+
+        const normalizedColors = data.map(item => item.coef / maxAbsValue);
 
         const trace = [{
             x: data.map(item => item.coef),
@@ -665,15 +720,24 @@ export function callbackAwards3(chartRef, fileUrl) {
             type: 'bar',
             error_x: {
                 type: 'data',
-                array: data.map(item => item['sem']),
+                symetric: false,
+                array: upper_ci,
+                arrayminus: lower_ci,
                 visible: true
             },
             hovertext: data.map(item => `P-value: ${item.p_value}`),
             marker: {
-                color: data.map((_, index) => index / maxValue), // Assign a normalized value based on index
-                colorscale: flareColorScale
+                color: normalizedColors,
+                colorscale: flareColorScale,
+                cmin: -1,
+                cmax: 1,
+                showscale: true,
+                colorbar: {
+                    tickvals: [-1, 0, 1],
+                    ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                }
             },
-            opacity: 0.75,
+            opacity: 1,
             orientation: 'h',
         }]
 
@@ -711,7 +775,7 @@ export function callbackActors1(chartRef, fileUrl) {
         let top = data.slice(-10);
         let actors1_filtered = bottom.concat(top);
 
-        const trace = transformDataForPlotly(actors1_filtered, 'correlation', 'actor_name', 'sem', function (item) {
+        const trace = transformDataForPlotly(actors1_filtered, 'correlation', 'actor_name', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -726,7 +790,10 @@ export function callbackActors1(chartRef, fileUrl) {
                     text: 'Actor',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -741,7 +808,7 @@ export function callbackActors2(chartRef, fileUrl) {
             return a.coef - b.coef;
         });
 
-        const trace = transformDataForPlotly(data, 'coef', 'actor_name', 'sem', function (item) {
+        const trace = transformDataForPlotly(data, 'coef', 'actor_name', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -756,7 +823,10 @@ export function callbackActors2(chartRef, fileUrl) {
                     text: 'Actor',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -776,7 +846,7 @@ export function callbackTropes1(chartRef, fileUrl) {
         let top = data.slice(-10);
         let tropes1_filtered = bottom.concat(top);
 
-        const trace = transformDataForPlotly(tropes1_filtered, 'correlation', 'Trope', 'sem', function (item) {
+        const trace = transformDataForPlotly(tropes1_filtered, 'correlation', 'Trope', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -791,7 +861,10 @@ export function callbackTropes1(chartRef, fileUrl) {
                     text: 'Trope',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -810,7 +883,7 @@ export function callbackTropes2(chartRef, fileUrl) {
         let bottom = data.slice(0, 10);
         let tropes2_filtered = bottom.concat(top);
 
-        const trace = transformDataForPlotly(tropes2_filtered, 'coef', 'Trope', 'sem', function (item) {
+        const trace = transformDataForPlotly(tropes2_filtered, 'coef', 'Trope', function (item) {
             return `Number of movies: ${item.number_of_movies.toFixed(0)}<br>P-value: ${item.p_value}`;
         })
 
@@ -825,7 +898,10 @@ export function callbackTropes2(chartRef, fileUrl) {
                     text: 'Trope',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -848,7 +924,7 @@ export function callbackGlobal1(chartRef, fileUrl) {
             global1_filtered = bottom.concat(top);
         }
 
-        const trace = transformDataForPlotly(global1_filtered, 'correlation', 'Feature', 'sem', function (item) {
+        const trace = transformDataForPlotly(global1_filtered, 'correlation', 'Feature', function (item) {
             return `P-value: ${item.p_value}`;
         })
 
@@ -863,7 +939,10 @@ export function callbackGlobal1(chartRef, fileUrl) {
                     text: 'Feature',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,
@@ -885,7 +964,7 @@ export function callbackGlobal2(chartRef, fileUrl) {
             global2_filtered = bottom.concat(top);
         }
 
-        const trace = transformDataForPlotly(global2_filtered, 'coef', 'Feature', 'sem', function (item) {
+        const trace = transformDataForPlotly(global2_filtered, 'coef', 'Feature', function (item) {
             return `P-value: ${item.p_value}`;
         })
 
@@ -900,7 +979,10 @@ export function callbackGlobal2(chartRef, fileUrl) {
                     text: 'Feature',
                     standoff: 0
                 },
-                automargin: true
+                automargin: true,
+                tickfont: {
+                    size: 10
+                }
             },
             autosize: true,
             responsive: true,

@@ -63,44 +63,50 @@
                     <p class="mt-4">
                         Let's look at what is available to us.
                     </p>
-                    <h6 class="text-lg font-bold mt-4">CMU Movies</h6>
-                    <p class="mt-2">
-                        The base of this analysis is the <a class="text-red-900 underline hover:text-red-400"
-                            href="http://www.cs.cmu.edu/~ark/personas/" target="_blank">CMU
-                            dataset</a>, in which the following ingredients are of
-                        interest:
-                    <ul class="list-disc list-inside ml-5 my-2 underline">
-                        <li><a href="#countries">Countries</a></li>
-                        <li><a href="#genres">Genres</a></li>
-                        <li><a href="#release-year">Release year</a></li>
-                        <li><a href="#actors">Actors</a></li>
-                    </ul>
-                    We also got the IMDb
-                    rating from the available dataset on <a class="text-red-900 underline hover:text-red-400"
-                        href="https://datasets.imdbws.com/">IMDb's
-                        website</a> and the Metascore from a scrapping of <a href="https://metacritic.com" target="_blank"
-                        class="text-red-900 underline hover:text-red-400">Metacric</a>.
-                    </p>
-                    <p class="mt-2">
-                        Our processed dataset contains <b>7'770 movies with both IMDb and Metascore ratings</b>.
-                    </p>
+                    <div class="flex flex-col lg:flex-row gap-5">
+                        <img src="/fridge.png" alt="fridge" class="max-w-[200px] mx-auto lg:max-w-[200px] object-contain mt-4 mb-auto drop-shadow-xl" />
+                        <div class="mt-6">
+                            <h6 class="text-lg font-bold">CMU Movies</h6>
+                            <p class="mt-2">
+                                The base of this analysis is the <a class="text-red-900 underline hover:text-red-400"
+                                    href="http://www.cs.cmu.edu/~ark/personas/" target="_blank">CMU
+                                    dataset</a>, in which the following ingredients are of
+                                interest:
+                            <ul class="list-disc list-inside ml-5 my-2 underline">
+                                <li><a href="#countries">Countries</a></li>
+                                <li><a href="#genres">Genres</a></li>
+                                <li><a href="#release-year">Release year</a></li>
+                                <li><a href="#actors">Actors</a></li>
+                            </ul>
+                            We also got the IMDb
+                            rating from the available dataset on <a class="text-red-900 underline hover:text-red-400"
+                                href="https://datasets.imdbws.com/">IMDb's
+                                website</a> and the Metascore from a scrapping of <a href="https://metacritic.com"
+                                target="_blank" class="text-red-900 underline hover:text-red-400">Metacric</a>.
+                            </p>
+                            <p class="mt-2">
+                                Our processed dataset contains <b>7'770 movies with both IMDb and Metascore ratings</b>.
+                            </p>
 
-                    <h6 class="text-lg font-bold mt-4">Awards</h6>
-                    <p class="mt-1">
-                        In addition to that, we also scrapped the awards nominations and wins from <a
-                            href="https://www.imdb.com/" target="_blank"
-                            class="text-red-900 underline hover:text-red-400">IMDb</a> for each movie, in order to
-                        create the <a href="#awards" class="underline">Awards</a> ingredient.
-                    </p>
+                            <h6 class="text-lg font-bold mt-4">Awards</h6>
+                            <p class="mt-1">
+                                In addition to that, we also scrapped the awards nominations and wins from <a
+                                    href="https://www.imdb.com/" target="_blank"
+                                    class="text-red-900 underline hover:text-red-400">IMDb</a> for each movie, in order to
+                                create the <a href="#awards" class="underline">Awards</a> ingredient.
+                            </p>
 
-                    <h6 class="text-lg font-bold mt-4">Tropes</h6>
-                    <p class="mt-1">
-                        And for our last ingredient, we also used <a href="https://github.com/dhruvilgala/tvtropes"
-                            target="_blank" class="text-red-900 underline hover:text-red-400">an external dataset</a>
-                        associating
-                        tropes to <b>2495 movies</b> out of our 7'770 movies, in order to create the <a href="#tropes"
-                            class="underline">Tropes</a> ingredient.
-                    </p>
+                            <h6 class="text-lg font-bold mt-4">Tropes</h6>
+                            <p class="mt-1">
+                                And for our last ingredient, we also used <a href="https://github.com/dhruvilgala/tvtropes"
+                                    target="_blank" class="text-red-900 underline hover:text-red-400">an external
+                                    dataset</a>
+                                associating
+                                tropes to <b>2495 movies</b> out of our 7'770 movies, in order to create the <a
+                                    href="#tropes" class="underline">Tropes</a> ingredient.
+                            </p>
+                        </div>
+                    </div>
 
 
                     <p class="mt-8">
@@ -156,98 +162,286 @@
                         to describe and justify them in the following section:
                     </p>
                     <div>
-                        <h4 class="text-xl font-bold mt-4">T-Test</h4>
-                        <p class="mt-2">
-                            Basic statistics are conducted using the <b>p-value threshold of 0.05</b> to determine if the
-                            imdb users and
-                            metascore
-                            rating distribution have a significantly different mean.
-                        </p>
-                        <h4 class="text-xl font-bold mt-6">Pearson Correlation</h4>
-                        <p class="mt-2">
-                            The Pearson correlation will be used systematically on all the features, allowing us to extract
-                            a first
-                            glimpse of which of them is significant on the rating difference. The Pearson correlation
-                            measures the
-                            linear correlation between 2 sets of data, so by measuring the Pearson Correlation Coefficient
-                            (PCC) between
-                            one feature and the rating difference, we will extract the linear correlation between both.
-                            The significance threshold has been chosen at the <b>p-value of 0.05</b> since it's the most
-                            commonly used
-                            value.
-                        </p>
-                        <p class="mt-2">
-                            In general, the plots will display up to the top and bottom 10 significant features, based on
-                            the magnitude
-                            of the Pearson correlation.
-                        </p>
-                        <h4 class="text-xl font-bold mt-6">Ordinary Least Squares (OLS)</h4>
-                        <p class="mt-2">
-                            The main tool used throughout the project is the Ordinary Least Square (OLS) regression. The
-                            goal of that
-                            regression is to extract the relative impact of each feature on our variable of interest, the
-                            rating
-                            difference. When relevant, a naive OLS has been conducted and its metrics (F-Statistics,
-                            adjusted R&#178;,
-                            condition number, …) inspected to judge the relevancy of the model itself, and the results have
-                            been
-                            selected based on their p-value significance, using once more the common <b>p-value threshold of
-                                0.05</b>.
-                            Nevertheless, OLS regression is not perfect: one of the biggest challenges we faced
-                            was that it is <b>strongly sensitive to outliers</b> and <b>multicollinear features</b>.
-                        </p>
-                        <p class="mt-2">
-                            When the filtering
-                            was proved necessary, a second OLS was conducted on the filtered features before being reviewed
-                            again to
-                            assess the improvement.
-                        </p>
-                        <div class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
-                            <h4 class="text-xl italic font-semibold mb-1">For the gourmet</h4>
-                            <p>
-                                The finest chef amongst you may want to know a bit more about what exactly we've done to get
-                                an outcome of the OLS. Simply mixing all of the features often yields a bland soup. We thus
-                                refined the model using regularization. The OLS accepts Lasso (l1) and Ridge (l2)
-                                regularizations. By tuning a penalty term in the optimization problem, the outcomes can be
-                                cleaner and easier to interpret. In general, Lasso is particularly indicated when a subset
-                                of the features is expected to not be significant, performing a sort of feature selection.
-                                Ridge is more useful to deal with multicollinearity, and can help keep some outliers under
-                                control. Playing with those regularization penalties and tuning the hyperparameter
-                                <b>alpha</b>
-                                allows to produce a refined velouté.
-                            </p>
-                        </div>
+                        <TabGroup :selectedIndex="activeCookbookTabId">
 
-
-                        <h4 class="text-xl font-bold mt-6">Variance Inflation Factor (VIF)</h4>
-                        <p class="mt-2">
-                            The VIF is a metric that measures the <b>multicollinearity</b> of a feature. It is calculated by
-                            regressing
-                            each feature against all the other features and then extracting the R&#178; of that regression.
-                            The VIF is
-                            then
-                            calculated as 1/(1-R&#178;). The higher the VIF, the higher the multicollinearity. A VIF of 1
-                            means that
-                            there
-                            is no multicollinearity, while a VIF of 5 or more means that there is a strong
-                            multicollinearity.
-                        </p>
-                        <p class="mt-2">
-                            In case of multicollinearity, we computed the VIF coefficients of the already pearson
-                            significant features
-                            and filtered out the ones with a VIF higher than 5.
-                        </p>
-                        <p class="my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
-                            <span class="font-bold">
-                                Grandma Hack:</span> To detect multicollinear features, one can look at the condition
-                            number. Following <a target="_blank"
-                                href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/regression/linear_model.py#L2843C1-L2844C1"
-                                class="text-red-900 underline hover:text-red-400">statsmodel's
-                                official implementation</a>, we can say that if the value is bigger than 1000, there is a
-                            huge
-                            likelihood that a multicollinear feature problem is present!
-                        </p>
-
+                            <TabList class="bg-red-900 p-2 rounded-xl" v-show="false">
+                                <Tab as="button" :key="0"
+                                    class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                                    :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': activeCookbookTabId === 0 }"
+                                    @click="() => { activeCookbookTabId = 1; }" :show="false">
+                                    Cover
+                                </Tab>
+                                <Tab as="button" :key="1"
+                                    class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                                    :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': activeCookbookTabId === 1 }"
+                                    @click="() => { activeCookbookTabId = 2; }" :show="false">
+                                    T-Test
+                                </Tab>
+                                <Tab as="button" :key="2"
+                                    class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                                    :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': activeCookbookTabId === 2 }"
+                                    @click="() => { activeCookbookTabId = 3; }" :show="false">
+                                    Pearson Correlation
+                                </Tab>
+                                <Tab as="button" :key="3"
+                                    class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                                    :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': activeCookbookTabId === 3 }"
+                                    @click="() => { activeCookbookTabId = 4; }" :show="false">
+                                    Ordinary Least Squares (OLS)
+                                </Tab>
+                                <Tab as="button" :key="4"
+                                    class="py-2.5 px-2 text-xs lg:text-sm leading-5 font-medium text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg focus:outline-none border-l-4 border-transparent ring-2 ring-offset-2 ring-offset-transparent focus:ring-offset-red-700 ring-transparent ring-opacity-60"
+                                    :class="{ 'bg-slate-200 border-l-4 !border-red-700 font-bold !text-black drop-shadow-lg': activeCookbookTabId === 4 }"
+                                    @click="() => { activeCookbookTabId = 5; }" v-show="false">
+                                    Variance Inflation Factor (VIF)
+                                </Tab>
+                            </TabList>
+                            <div class="flex justify-between mt-6 max-w-md mx-auto">
+                                <button
+                                    class="bg-slate-600 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-l-xl disabled:opacity-0"
+                                    @click="activeCookbookTabId -= 1" :disabled="activeCookbookTabId === 0">
+                                    &lt;
+                                </button>
+                                <TabPanels class="bg-slate-200 border-slate-600"
+                                    :class="activeCookbookTabId == 0 ? 'border-l-8' : activeCookbookTabId == 4 ? 'border-r-8' : null">
+                                    <TabPanel class="tab-panel">
+                                        <TransitionRoot appear :show="activeCookbookTabId === 0" as="template">
+                                            <TransitionChild as="template" enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from">
+                                                <img src="/cookbookCover.png" alt="cookbookCover" class="w-full" />
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel">
+                                        <TransitionRoot appear :show="activeCookbookTabId == 1" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="p-5 bg-slate-200">
+                                                    <h4 class="text-xl font-bold">T-Test</h4>
+                                                    <p class="mt-2">
+                                                        Basic statistics are conducted using the <b>p-value threshold of
+                                                            0.05</b> to
+                                                        determine if the
+                                                        imdb users and
+                                                        metascore
+                                                        rating distribution have a significantly different mean.
+                                                    </p>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel">
+                                        <TransitionRoot appear :show="activeCookbookTabId == 2" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="p-5 bg-slate-200">
+                                                    <h4 class="text-xl font-bold">Pearson Correlation</h4>
+                                                    <p class="mt-2">
+                                                        The Pearson correlation will be used systematically on all the
+                                                        features,
+                                                        allowing us
+                                                        to extract
+                                                        a first
+                                                        glimpse of which of them is significant on the rating difference.
+                                                        The
+                                                        Pearson
+                                                        correlation
+                                                        measures the
+                                                        linear correlation between 2 sets of data, so by measuring the
+                                                        Pearson
+                                                        Correlation
+                                                        Coefficient
+                                                        (PCC) between
+                                                        one feature and the rating difference, we will extract the linear
+                                                        correlation
+                                                        between both.
+                                                        The significance threshold has been chosen at the <b>p-value of
+                                                            0.05</b>
+                                                        since
+                                                        it's
+                                                        the most
+                                                        commonly used
+                                                        value.
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        In general, the plots will display up to the top and bottom 10
+                                                        significant
+                                                        features,
+                                                        based on
+                                                        the magnitude
+                                                        of the Pearson correlation.
+                                                    </p>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel">
+                                        <TransitionRoot appear :show="activeCookbookTabId === 3" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="p-5 bg-slate-200">
+                                                    <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
+                                                    <p class="mt-2">
+                                                        The main tool used throughout the project is the Ordinary Least
+                                                        Square
+                                                        (OLS)
+                                                        regression. The
+                                                        goal of that
+                                                        regression is to extract the relative impact of each feature on our
+                                                        variable
+                                                        of
+                                                        interest, the
+                                                        rating
+                                                        difference. When relevant, a naive OLS has been conducted and its
+                                                        metrics
+                                                        (F-Statistics,
+                                                        adjusted R&#178;,
+                                                        condition number, …) inspected to judge the relevancy of the model
+                                                        itself,
+                                                        and
+                                                        the
+                                                        results have
+                                                        been
+                                                        selected based on their p-value significance, using once more the
+                                                        common
+                                                        <b>p-value
+                                                            threshold of
+                                                            0.05</b>.
+                                                        Nevertheless, OLS regression is not perfect: one of the biggest
+                                                        challenges
+                                                        we
+                                                        faced
+                                                        was that it is <b>strongly sensitive to outliers</b> and
+                                                        <b>multicollinear
+                                                            features</b>.
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        When the filtering
+                                                        was proved necessary, a second OLS was conducted on the filtered
+                                                        features
+                                                        before
+                                                        being reviewed
+                                                        again to
+                                                        assess the improvement.
+                                                    </p>
+                                                    <div
+                                                        class="my-4 bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+                                                        <h4 class="text-xl italic font-semibold mb-1">For the gourmet</h4>
+                                                        <p>
+                                                            The finest chef amongst you may want to know a bit more about
+                                                            what
+                                                            exactly
+                                                            we've
+                                                            done to get
+                                                            an outcome of the OLS. Simply mixing all of the features often
+                                                            yields a
+                                                            bland
+                                                            soup. We thus
+                                                            refined the model using regularization. The OLS accepts Lasso
+                                                            (l1)
+                                                            and
+                                                            Ridge
+                                                            (l2)
+                                                            regularizations. By tuning a penalty term in the optimization
+                                                            problem,
+                                                            the
+                                                            outcomes can be
+                                                            cleaner and easier to interpret. In general, Lasso is
+                                                            particularly
+                                                            indicated
+                                                            when a subset
+                                                            of the features is expected to not be significant, performing a
+                                                            sort
+                                                            of
+                                                            feature
+                                                            selection.
+                                                            Ridge is more useful to deal with multicollinearity, and can
+                                                            help
+                                                            keep
+                                                            some
+                                                            outliers under
+                                                            control. Playing with those regularization penalties and tuning
+                                                            the
+                                                            hyperparameter
+                                                            <b>alpha</b>
+                                                            allows to produce a refined velouté.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                    <TabPanel class="tab-panel">
+                                        <TransitionRoot appear :show="activeCookbookTabId === 4" as="template">
+                                            <TransitionChild enter="tab-enter" enter-to="tab-enter-to"
+                                                enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
+                                                leave-from="tab-leave-from" as="template">
+                                                <div class="p-5 bg-slate-200">
+                                                    <h4 class="text-xl font-bold">Variance Inflation Factor (VIF)</h4>
+                                                    <p class="mt-2">
+                                                        The VIF is a metric that measures the <b>multicollinearity</b> of a
+                                                        feature. It
+                                                        is
+                                                        calculated by
+                                                        regressing
+                                                        each feature against all the other features and then extracting the
+                                                        R&#178; of
+                                                        that
+                                                        regression.
+                                                        The VIF is
+                                                        then
+                                                        calculated as 1/(1-R&#178;). The higher the VIF, the higher the
+                                                        multicollinearity. A
+                                                        VIF of 1
+                                                        means that
+                                                        there
+                                                        is no multicollinearity, while a VIF of 5 or more means that there
+                                                        is a
+                                                        strong
+                                                        multicollinearity.
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        In case of multicollinearity, we computed the VIF coefficients of
+                                                        the
+                                                        already
+                                                        pearson
+                                                        significant features
+                                                        and filtered out the ones with a VIF higher than 5.
+                                                    </p>
+                                                    <p
+                                                        class="my-4 bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+                                                        <span class="font-bold">
+                                                            Grandma Hack:</span> To detect multicollinear features, one can
+                                                        look
+                                                        at the
+                                                        condition
+                                                        number. Following <a target="_blank"
+                                                            href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/regression/linear_model.py#L2843C1-L2844C1"
+                                                            class="text-red-900 underline hover:text-red-400">statsmodel's
+                                                            official implementation</a>, we can say that if the value is
+                                                        bigger
+                                                        than
+                                                        1000,
+                                                        there is a
+                                                        huge
+                                                        likelihood that a multicollinear feature problem is present!
+                                                    </p>
+                                                </div>
+                                            </TransitionChild>
+                                        </TransitionRoot>
+                                    </TabPanel>
+                                </TabPanels>
+                                <button
+                                    class="carousel-btn next bg-slate-600 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-r-xl disabled:opacity-0"
+                                    @click="activeCookbookTabId += 1" :disabled="activeCookbookTabId === 4">
+                                    &gt;
+                                </button>
+                            </div>
+                        </TabGroup>
                     </div>
                 </section>
 
@@ -358,7 +552,7 @@
                         </div>
                         <div class="flex flex-col order-1 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
-                                <div ref="chartCountries1" class="h-full min-h-[600px] w-full"></div>
+                                <div ref="chartCountries1" class="h-full min-h-[700px] w-full"></div>
                             </div>
                         </div>
                     </div>
@@ -1047,35 +1241,40 @@
     margin-top: -50px;
 }
 
-.lamp-container {
-    position: relative;
-}
-
-
-.lamp {
-    width: 200px;
-    /* Adjust as per your image size */
-    display: block;
-    z-index: 2;
-    left: 0;
-    position: relative;
-    height: auto;
-}
-
 .feature {
     @apply text-red-800 font-semibold;
 }
 
-.light-aura {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* Start the aura right at the end of the lamp */
-    /* Extend to the rest of the viewport */
-    height: 300vh;
-    z-index: 1;
-    opacity: 0.5;
-    /* Ensures the light aura is behind the lamp */
+.tab-panel {
+    width: 100%;
+    /* Ensure the panel has a specific width */
+    transition: transform 0.6s, opacity 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+    backface-visibility: hidden;
+    min-height: 500px;
+}
+
+.tab-enter-active,
+.tab-leave-active {
+    transition: transform 1s, opacity .5s;
+}
+
+.tab-enter-from,
+.tab-leave-to {
+    transform: rotateY(180deg);
+    transform-origin: 0% 0%;
+    /* Rotate around the left edge */
+    opacity: 0;
+}
+
+.tab-leave-from,
+.tab-enter-to {
+    transform: rotateY(0deg);
+    transform-origin: 0% 0%;
+    /* Rotate around the left edge */
+    opacity: 1;
 }
 </style>
   
@@ -1084,11 +1283,14 @@
 <script setup>
 import { onMounted, ref, defineAsyncComponent } from 'vue';
 import { BookmarkIcon } from "@heroicons/vue/24/solid"
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { TabGroup, TabList, Tab, TabPanels, TabPanel, TransitionRoot, TransitionChild } from '@headlessui/vue'
 import * as plotFunctions from './plots.js'
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Playground = defineAsyncComponent(() => import('./Playground.vue'));
 const TabsSection = defineAsyncComponent(() => import('./TabsSection.vue'));
+
+const activeCookbookTabId = ref(0);
 
 const chartUsers = ref(null);
 const chartMetascore = ref(null);
