@@ -98,6 +98,17 @@ def process_countries(df):
     return df_countries
 
 def process_tropes(df, characters_data):
+    """
+    Function to process the tropes column of the dataset. The goal is to add the tropes to the dataset.
+    
+    Parameters:
+    df (DataFrame): The dataset to process
+    characters_data (DataFrame): The characters dataset
+    
+    Returns:
+    df_tropes (DataFrame): The processed dataset with the tropes column exploded
+    """
+
     def extract_character(character):
         """
         Extracts character information from a dictionary.
@@ -131,6 +142,19 @@ def process_tropes(df, characters_data):
 
 
 def hotencode(df, column, id_column, prefix='onehot'):
+    """
+    Function to one-hot encode a column of a dataset. The one-hot encoding allows to transform a categorical column into multiple binary columns.
+    It's useful to use a categorical column as a feature in a regression model.
+
+    Parameters:
+    df (DataFrame): The dataset to process
+    column (str): The column to one-hot encode
+    id_column (str): The column to use as index
+    prefix (str): The prefix to use for the new columns - by default 'onehot'
+
+    Returns:
+    one_hot_df (DataFrame): The one-hot encoded dataset
+    """
 
     df_filtered = df[[id_column, column]]
 
@@ -149,6 +173,20 @@ def hotencode(df, column, id_column, prefix='onehot'):
     return one_hot_df, one_hot_columns
 
 def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_results=True):
+    """
+    Function to perform an OLS (Ordinary Least Squares) regression model.
+
+    Parameters: 
+    df (DataFrame): The dataset to process
+    X_columns (list): The list of features to use
+    y_column (str): The target variable
+    regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
+    alpha (float): The regularization parameter
+    print_results (bool): Whether to print the results or not
+
+    Returns:
+    fitted_model (regression model): The fitted regression model
+    """
     x = df[X_columns]
     y = df[y_column]
 
@@ -196,6 +234,31 @@ def study_OLS(
     title=None,
     limit_tops=20
     ):
+    """
+    This function performs an OLS regression model on a dataset and returns the significant results. 
+    The function also plots the QQ plot and the barplot of the significant results with the confidence interval.
+
+    Parameters:
+    df (DataFrame): The dataset to process
+    X_columns (list): The list of features to use
+    y_column (str): The target variable
+    colname (str): The name of the column to use for the barplot
+    regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
+    alpha (float): The regularization parameter
+    threshold (float): The threshold to use for check if a feature is significant (t-test)
+    print_results (bool): Whether to print the results or not
+    plot_barplot (bool): Whether to plot the barplot or not
+    print_qq (bool): Whether to print the QQ plot or not
+    print_baseline (bool): Whether to print the baseline comparison or not
+    map_columns_name (function): A function to map the column names
+    title (str): The title of the barplot
+    limit_tops (int): The number of top and bottom features to display
+
+    Returns:
+    significant_results (DataFrame): The significant results
+    significant_columns (list): The list of significant columns
+    """
+
     model = perform_OLS(df, X_columns, y_column, regularization=regularization, alpha=alpha)
     summary = model.summary()
 
@@ -249,6 +312,26 @@ def study_pearson(
     map_columns_name=None,
     limit_tops=20
     ):
+    """
+    This function performs a Pearson correlation test on a dataset and returns the significant results.
+    The function also plots the barplot of the significant results with the confidence interval.
+
+    Parameters:
+    df (DataFrame): The dataset to process
+    X_columns (list): The list of features to use
+    y_column (str): The target variable
+    colname (str): The name of the column to use for the barplot
+    threshold (float): The threshold to use for check if a feature is significant (t-test)
+    print_results (bool): Whether to print the results or not
+    plot_barplot (bool): Whether to plot the barplot or not
+    title (str): The title of the barplot
+    map_columns_name (function): A function to map the column names
+    limit_tops (int): The number of top and bottom features to display
+
+    Returns:
+    significant_results (DataFrame): The significant results
+    significant_columns (list): The list of significant columns
+    """
     results = perform_pearsonr(df, X_columns, y_column, print_results=False)
 
     # Find results with p-values less than threshold
@@ -288,11 +371,15 @@ def study_pearson(
 def plot_qq(model, X, y):
     """
     Generate a QQ plot for the residuals of a regression model.
+    The QQ plot allows to check if the residuals are normally distributed.
 
     Parameters:
     model (regression model): The fitted regression model.
     X (DataFrame): The input features.
     y (Series): The target variable.
+
+    Returns:
+    None
     """
 
     X = sm.add_constant(X)
@@ -311,6 +398,17 @@ def plot_qq(model, X, y):
 
 
 def list_significant_values(model_summary, threshold=0.05, print_results=True):
+    """
+    Function to list the significant values of a regression model.
+
+    Parameters:
+    model_summary (regression model summary): The summary of the regression model.
+    threshold (float): The threshold to use for check if a feature is significant (t-test)
+    print_results (bool): Whether to print the results or not
+
+    Returns:
+    significant_values_df (DataFrame): The DataFrame containing the significant values
+    """
     significant_values = []
     for row in model_summary.tables[1].data[2:]:
         # convert p-value to float
@@ -332,6 +430,19 @@ def list_significant_values(model_summary, threshold=0.05, print_results=True):
     return significant_values_df
 
 def perform_pearsonr(df, columns, target_column, print_results=False):
+    """
+    Function to perform a Pearson correlation test on a dataset. 
+    The Pearson correlation test allows to check the correlation between two variables.
+
+    Parameters:
+    df (DataFrame): The dataset to process
+    columns (list): The list of features to use
+    target_column (str): The target variable
+    print_results (bool): Whether to print the results or not
+
+    Returns:
+    results_df (DataFrame): The DataFrame containing the correlation results
+    """
     correlation_results = {}
     for col in columns:
         res = pearsonr(df[col], df[target_column])
@@ -357,6 +468,18 @@ def perform_pearsonr(df, columns, target_column, print_results=False):
 
 # List movies of an actor
 def list_movies_of_actor(df_actors, df_movies, actor_id, limit=None):
+    """
+    Function to list the movies of an actor.
+
+    Parameters:
+    df_actors (DataFrame): The actors dataset
+    df_movies (DataFrame): The movies dataset
+    actor_id (str): The id of the actor
+    limit (int): The number of movies to return
+
+    Returns:
+    df_movies (DataFrame): The movies of the actor
+    """
     movies_ids = df_actors[df_actors['freebase_actor_id'] == actor_id]['wikipedia_id'].unique()
     display(df_actors[df_actors['freebase_actor_id'] == actor_id]['actor_name'].unique())
 
@@ -366,6 +489,20 @@ def list_movies_of_actor(df_actors, df_movies, actor_id, limit=None):
     return df_movies[df_movies['wikipedia_id'].isin(movies_ids)]
 
 def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
+    """
+    Function to plot the results of a regression model.
+    The plot can is a horizontal bar plot with the confidence interval.
+
+    Parameters:
+    df (DataFrame): The dataset where the results to plot are stored
+    y_column (str): The column to use for the y-axis
+    x_column (str): The column to use for the x-axis
+    title (str): The title of the plot
+    figsize (tuple): The size of the plot (width, height) - by default (10, 5)
+
+    Returns:
+    None
+    """
     results = df.copy()
 
     if (len(results) == 0):
@@ -396,7 +533,6 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
         plt.errorbar(x=results[x_column], y=adjusted_positions, 
                      xerr=[results['ci_error'], results['ci_error']], 
                      fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
-
     
     plt.ylabel(y_column)
     plt.xlabel(x_column)
@@ -407,11 +543,14 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
 
 def filter_VIF(df, X_columns, threshold=5):
     """
-    Function to filter the features based on the VIF score
+    Function to filter the features based on the VIF score. 
+    The VIF score is a measure of multicollinearity in a dataset. It is used to detect the correlation between features.
+
     Parameters:
-        df (DataFrame): The dataset to process
+        df (DataFrame): The dataset where the features are stored
         X_columns (list): The list of features to process
         threshold (float): The threshold to use for filtering
+
     Returns:
         X_columns (list): The filtered list of features
     """
@@ -432,154 +571,20 @@ def filter_VIF(df, X_columns, threshold=5):
 
     return vif_filtered['features'].tolist()
 
-def compute_interactions(df, columns):
-    interaction_df = df.copy()
-
-    pairs = itertools.combinations(df[columns].columns, 2)
-
-    for col1, col2 in pairs:
-        interaction_term = col1 + "_x_" + col2
-        interaction_df = pd.concat([interaction_df, pd.Series(df[col1] * df[col2], name=interaction_term)], axis=1)
-
-    return interaction_df
-
-
-
-def plot_graph(pairs_results, values_counts, title):
-
-    G = nx.Graph()
-
-
-    unique_values = set(pairs_results['col1']).union(set(pairs_results['col2']))
-
-    # Add nodes with sizes based on value counts
-    for value in unique_values:
-        node_size = values_counts.get(value, 0)
-        G.add_node(value, size=node_size)
-
-    # Add weighted edges based on coefficients
-    for _, row in pairs_results.iterrows():
-        col1, col2, weight = row['col1'], row['col2'], row['coef']
-        color = 'skyblue' if weight > 0 else 'tomato'
-        G.add_edge(col1, col2, weight=abs(weight), color=color)
-
-    # Extract edge weights and scale for visualization
-    edge_weights = [G[u][v]['weight'] for u, v in G.edges()]
-    # Extract node sizes and scale for visualization
-    node_sizes = [G.nodes[node]['size'] * 10 for node in G.nodes()]  # Scale as needed
-
-    # Extract edge colors
-    edge_colors = [G[u][v]['color'] for u, v in G.edges()]
-
-    # Draw the graph with a spring layout
-    plt.figure(figsize=(15, 15))
-
-    # Higher k values cause more spread.
-    pos = nx.spring_layout(G, k=10, iterations=100)  # Adjust k as needed
-
-    custom_labels = {node: '_'.join(node.split('_')[:1]) if len(node.split('_')) > 2 else node.split('_')[1] if len(node.split('_')) == 2 else node for node in G.nodes()}
-
-    nx.draw(G, pos, with_labels=True, node_size=node_sizes, width=edge_weights, edge_color=edge_colors, labels=custom_labels, node_color='lightgrey')
-
-    # Create custom lines for the legend
-    blue_line = mlines.Line2D([], [], color='skyblue', marker='_', markersize=15, label='Positive Coefficient (Critics > Audience)')
-    red_line = mlines.Line2D([], [], color='tomato', marker='_', markersize=15, label='Negative Coefficient (Critics < Audience)')
-
-    # Add the legend to the plot
-    plt.legend(handles=[blue_line, red_line])
-
-    plt.title(title)
-    plt.show()
-
-def compute_interactions(df, columns):
-    interaction_df = pd.DataFrame()
-
-    pairs = itertools.combinations(df[columns].columns, 2)
-
-    for col1, col2 in pairs:
-        interaction_term = col1 + "_x_" + col2
-        interaction_df = pd.concat([interaction_df, pd.Series(df[col1] * df[col2], name=interaction_term)], axis=1)
-
-    return interaction_df
-
-def full_study(df, column, id_column, threshold=0.005, title="OLS Coefficients for Significant Features"):
-    # Hot encode the column
-    one_hot, one_hot_columns = hotencode(df, column, id_column=id_column, prefix='onehot')
-    
-    # Add the rating_difference column
-    one_hot = one_hot.merge(df[['freebase_id', 'rating_difference']].drop_duplicates(), on='freebase_id')
-
-    # Set the index to freebase_id
-    one_hot = one_hot.set_index('freebase_id')
-
-    # Perform pearsonr
-    one_hot_pearsonr_results = perform_pearsonr(one_hot, one_hot_columns, 'rating_difference', print_results=True)
-
-    # Get the significant results
-    significant_columns = one_hot_pearsonr_results[one_hot_pearsonr_results['p_value'] < threshold].index.tolist()
-
-    print('\n\n--------------------------------------\n')
-    print(f"Significant results: {len(significant_columns)}/{len(one_hot_columns)}")
-
-    # Study the interactions
-    study_interactions(one_hot, significant_columns, threshold=threshold, title=title)
-
-
-def study_interactions(one_hot, significant_columns, threshold=0.005, title="OLS Coefficients for Significant Features"):
-
-    one_hot_columns = one_hot.drop(columns=['rating_difference']).columns
-    
-    # Compute interaction dataframe between the significant columns
-    interactions = compute_interactions(one_hot, significant_columns)
-    interactions_columns = interactions.columns
-
-    # Merge the interactions with the rating_difference column
-    interactions = interactions.merge(one_hot[['rating_difference']], right_index=True, left_index=True)
-
-    # Perform OLS on the interactions
-    interactions_ols_model = perform_OLS(interactions, interactions_columns, 'rating_difference')
-    interactions_ols_summary = interactions_ols_model.summary()
-
-    # Get the significant results
-    interactions_ols_significant_results = list_significant_values(interactions_ols_model.summary(), threshold=threshold, print_results=False)
-
-    interactions_ols_significant_results.sort_values(by='coef', ascending=False, inplace=True)
-
-    print('\n\n--------------------------------------\n')
-    print(f"Significant results: {len(interactions_ols_significant_results)}/{len(interactions_columns)}")
-
-
-    # Add the column names
-    interactions_ols_significant_results['col1'] = interactions_ols_significant_results['feature'].apply(lambda x: x.split('_x_')[0])
-    interactions_ols_significant_results['col2'] = interactions_ols_significant_results['feature'].apply(lambda x: x.split('_x_')[1])
-
-    if len(interactions_ols_significant_results) > 30:
-        print('\nTop 15:')
-        display(interactions_ols_significant_results.head(15))
-
-        print('\nBottom 15:')
-        display(interactions_ols_significant_results.tail(15))
-
-         # Plot the first 15 and last 15 tropes in the same plot
-        plot_results(pd.concat([interactions_ols_significant_results.head(15), interactions_ols_significant_results.tail(15)]), 'feature', 'coef', "OLS Coefficients for Significant Features", figsize=(20, 10))
-
-    else:
-        display(interactions_ols_significant_results)
-
-        plot_results(interactions_ols_significant_results, 'feature', 'coef', "OLS Coefficients for Significant Features", figsize=(20, 10))
-
-   
-
-    # Count the number of movies per value
-    values_count = one_hot[one_hot_columns].sum().to_dict()
-
-    # Plot the graph network
-    plot_graph(interactions_ols_significant_results, values_count, title)
-
-    return interactions_ols_significant_results
-
-
 def compare_baseline(model, df, X_columns, y_column, print_results=True):
+    """
+    Function to compare the baseline model (mean predictor) with the regression model.
+
+    Parameters:
+    model (regression model): The fitted regression model
+    df (DataFrame): The dataset where the features are stored
+    X_columns (list): The list of features to process
+    y_column (str): The target variable
+    print_results (bool): Whether to print the results or not
+
+    Returns:
+    None
+    """
     X = df[X_columns]
     y = df[y_column]
 
@@ -615,100 +620,37 @@ def compare_baseline(model, df, X_columns, y_column, print_results=True):
         display(results_df)
     else:
         return results_df
-    
-
-def compare_plot_results(df1, df2, y_column, x_column1, x_column2, title1, title2, figsize=(10, 5)):
-    results1 = df1.copy()
-    results2 = df2.copy()
-
-    # Calculate the lower and upper confidence interval for the coefficient
-    if 'upper_ci' in results1.columns:
-        results1['ci_error'] = results1['upper_ci'] - results1[x_column1]
-
-    if 'upper_ci' in results2.columns:
-        results2['ci_error'] = results2['upper_ci'] - results2[x_column2]
-
-    results1[y_column] = results1[y_column].astype(str)
-    results2[y_column] = results2[y_column].astype(str)
-
-    # Create the plot
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=figsize)
-
-    # Create horizontal bar plot
-    bar1 = sns.barplot(x=x_column1, y=y_column, data=results1, order=results1[y_column], ax=ax1)
-    bar2 = sns.barplot(x=x_column2, y=y_column, data=results2, order=results2[y_column], ax=ax2)
-
-    if 'ci_error' in results1.columns:
-        y_positions1 = bar1.get_yticks()
-        # Adjust positions based on the number of categories
-        adjusted_positions1 = y_positions1 + bar1.patches[0].get_height() / len(results1[y_column]) / 2
-
-        # Add error bars
-        ax1.errorbar(x=results1[x_column1], y=adjusted_positions1, 
-                     xerr=[results1['ci_error'], results1['ci_error']], 
-                     fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
-        
-    if 'ci_error' in results2.columns:
-        y_positions2 = bar2.get_yticks()
-        # Adjust positions based on the number of categories
-        adjusted_positions2 = y_positions2 + bar2.patches[0].get_height() / len(results2[y_column]) / 2
-
-        # Add error bars
-        ax2.errorbar(x=results2[x_column2], y=adjusted_positions2, 
-                     xerr=[results2['ci_error'], results2['ci_error']], 
-                     fmt='none', color='black', capsize=0, elinewidth=3, markeredgewidth=0)
-    ax1.set_ylabel(y_column)
-    ax1.set_xlabel(x_column1)
-    ax1.set_title(title1)
-    ax1.grid(True)
-
-    ax2.set_ylabel(y_column)
-    ax2.set_xlabel(x_column2)
-    ax2.set_title(title2)
-    ax2.grid(True)
-
-    plt.tight_layout()
-    plt.show()
-
-
-def venn_plot(vif_list, pearson_list, ols_list):
-    plt.figure(figsize=(5,5))
-    venn3([
-        set(pearson_list),
-        set(vif_list),
-        set(ols_list)
-        ], set_labels = ('Pearson', 'VIF', 'OLS'))
-        
-    plt.show()
-def compare_ols_pearson(ols_results, pearsonr_results, ols_significant, pearsonr_significant, vif_significant, global_columns, colname, venn=True):
-    print(f"Genres after Pearson filtering: {len(pearsonr_significant)}/{len(global_columns)}")
-    print(f"Genres after VIF filtering: {len(vif_significant)}/{len(pearsonr_significant)}")
-    print(f"Genres after OLS filtering: {len(ols_significant)}/{len(vif_significant)}")
-
-    if venn:
-        venn_plot(vif_significant, pearsonr_significant, ols_significant)
-
-    # Display results that are in ols but NOT in pearson
-    ols_not_pearson_significant = list(set(ols_significant).difference(set(pearsonr_significant)))
-    print("Features that are in OLS but not in Pearson:")
-    display(ols_results.loc[ols_results['feature'].isin(ols_not_pearson_significant)])
-
-    # Display results that are in pearson AND ols
-    ols_pearson_significant = list(set(pearsonr_significant).intersection(set(ols_significant)))
-    ols_pearson_coef = ols_results.merge(pearsonr_results[['col_id', 'correlation']], on='col_id')
-    print("Features that are in OLS and Pearson:")
-    display(ols_pearson_coef)
-    plot_results(ols_pearson_coef, colname, 'coef', title='OLS Coefficient for OLS and Pearson significant')
 
 def export_json(df, filename):
+    """
+    Function to export a DataFrame to a JSON file. 
+    This function is used to export data for the visualization on website. 
+
+    Parameters:
+    df (DataFrame): The dataset to export
+    filename (str): The name of the JSON file
+
+    Returns:
+    None
+    """
     if 'coef' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
         df['sem'] = df['upper_ci'] - df['coef'] 
     elif 'correlation' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
         df['sem'] = df['upper_ci'] - df['correlation']
     df.to_json(filename, orient='records')
 
-
 def plot_specific_scatter(df, column, value):
+    """
+    Function to plot a scatterplot and rating_difference distribution for a specific feature value.
+
+    Parameters:
+    df (DataFrame): The dataset to use
+    column (str): The column to use as specific feature (like genre, country, etc.)
+    value (str): The value to use for filtering the specific feature
+
+    Returns:
+    None
+    """
     df_value = df[df[column] == value]
     fig, ax = plt.subplots(1, 2, figsize=(10,5))
 
@@ -738,8 +680,6 @@ def plot_specific_scatter(df, column, value):
     ax[1].set_xlabel('Rating Difference')
     ax[1].set_ylabel('Count')
     
-
-
     blue_line = mlines.Line2D([], [], color='red', label='Specific Mean')
     red_line = mlines.Line2D([], [], color='black', label='Overall Mean')
     ax[1].legend(handles=[blue_line, red_line])
