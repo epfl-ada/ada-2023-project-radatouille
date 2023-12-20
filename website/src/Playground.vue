@@ -22,8 +22,10 @@
     </select>
 
     <span><span class="text-black font-semibold ml-1">Number of movies:</span> {{ nMoviesSelected }}</span>
-    <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected }}</span>
-    <span v-if="olsCoefficient"><span class="text-black font-semibold ml-1 mb-3">OLS coefficient:</span> {{ olsCoefficient }} ({{ olsCoefficient > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
+    <span><span class="text-black font-semibold ml-1 mb-3">Mean rating difference:</span> {{ meanRatingDiffSelected
+    }}</span>
+    <span v-if="olsCoefficient"><span class="text-black font-semibold ml-1 mb-3">OLS coefficient:</span> {{ olsCoefficient
+    }} ({{ olsCoefficient > 0 ? "Critics Oriented" : "Users Oriented" }})</span>
 
     <div ref="playgroundScatterPlot" class="aspect-square"></div>
     <div ref="playgroundHistogramPlot"></div>
@@ -138,8 +140,8 @@ onMounted(async () => {
   fetchData('/data/playground-countries.json').then(data => {
     countriesData.value = data;
   });
-  
-  
+
+
 });
 
 const initGraph = () => {
@@ -243,7 +245,7 @@ const updateGraph = () => {
   const notFilteredMovies = moviesData.value.filter(movie => !selectedIds.includes(movie.imdb_id));
 
   nMoviesSelected.value = selectedIds.length;
-  meanRatingDiffSelected.value = Math.round(filteredMovies.reduce((sum, movie) => sum + movie.rating_difference, 0) / filteredMovies.length *100, 4) / 100;
+  meanRatingDiffSelected.value = Math.round(filteredMovies.reduce((sum, movie) => sum + movie.rating_difference, 0) / filteredMovies.length * 100, 4) / 100;
 
   // Update graph
   const data = [{
@@ -352,7 +354,8 @@ const updateGraph = () => {
       dash: 'dot',
       width: 2,
       color: 'grey'
-    }
+    },
+    id: 'lineAtZero'
   }, {
     x: [global_mean_rating_difference, global_mean_rating_difference],
     y: [0, 'max'],
@@ -362,7 +365,8 @@ const updateGraph = () => {
       width: 2,
       color: 'blue'
     },
-    name: 'Global Mean'
+    name: 'Global Mean',
+    id: 'lineAtGlobalMean'
   }, {
     x: [selectedMeanRatingDiff, selectedMeanRatingDiff],
     y: [0, 'max'],
@@ -372,7 +376,8 @@ const updateGraph = () => {
       width: 2,
       color: '#d62728'
     },
-    name: 'Selected Mean'
+    name: 'Selected Mean',
+    id: 'lineAtSelectedMean'
   }];
 
   // Layout for histogram
@@ -380,9 +385,18 @@ const updateGraph = () => {
     title: 'Rating Difference Histogram',
     xaxis: { title: 'Rating Difference' },
     yaxis: { title: 'Count' },
+    legend: {
+      showlegend: true,
+      xanchor: "center",
+      yanchor: "top",
+      y: -0.3, // play with it
+      x: 0.5,
+      orientation: 'h'
+    },
     shapes: [
       // Line at x = 0
       {
+        id: 'lineAtZero',
         type: 'line',
         x0: 0,
         y0: 0,
@@ -398,6 +412,7 @@ const updateGraph = () => {
       },
       // Line for global mean
       {
+        id: 'lineAtGlobalMean',
         type: 'line',
         x0: global_mean_rating_difference,
         y0: 0,
@@ -412,6 +427,7 @@ const updateGraph = () => {
       },
       // Line for histogram mean
       {
+        id: 'lineAtSelectedMean',
         type: 'line',
         x0: selectedMeanRatingDiff,
         y0: 0,
