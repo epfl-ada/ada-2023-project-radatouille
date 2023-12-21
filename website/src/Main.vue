@@ -9,7 +9,7 @@
             movie
             taste differences between users and critics</h3>
         <div class="flex flex-col items-center mt-auto px-5 py-3">
-            <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3">A project served by the Team
+            <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3 text-center">A project served by the Team
                 rADAtouille</span>
             <div class="flex flex-wrap gap-1 items-center justify-center mt-2">
                 <span class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Antonin Faure</span>
@@ -53,17 +53,54 @@
                     </p>
                 </div>
                 <h5 class="text-xl lg:text-2xl mt-4 font-semibold ml-1">The <span class="italic font-semibold">Brigade</span></h5>
-                <div class="grid gap-20 lg:gap-3 md:grid-cols-3 lg:grid-cols-6">
+                <div class="grid gap-5 lg:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                    <div class="w-full flex flex-col h-full relative">
                     <img src="/remy.png" alt="remy"
-                        class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none hover:scale-105 hover:drop-shadow-none transition duration-300" />
-
+                        class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none" />
+                        <h5 class="font-semibold text-center">Remy</h5>
+                    </div>
                     <div class="w-full flex flex-col h-full relative mt-10">
+                        <!--
                         <img src="/toque.png" alt="toque"
-                            class="absolute -top-1/2 left-[5%] w-[60%] h-full object-contain lg:max-h-none z-[2]" />
+                            class="absolute -top-[48%] left-[35%] w-[50%] h-full object-contain lg:max-h-none z-[2] -scale-x-100" />
+                        <img src="/antonin2.jpg" alt="antonin"
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                        -->
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-[41%] left-[16%] rotate-[15deg] w-[51%] h-full object-contain lg:max-h-none z-[2] scale-x-100" />
+                        <img src="/antonin.jpg" alt="antonin"
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            <h5 class="font-semibold text-center">Antonin Faure</h5>
+                            <h6 class="text-center italic">MA3 - Data Science</h6>
+                    </div>
+
+                    <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
+                        <img src="/baptiste.jpg" alt="baptiste"
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
+                            <h6 class="text-center italic">MA3 - Data Science</h6>
+                    </div>
+                    <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/enzo.jpeg" alt="enzo"
-                            class="flex w-full drop-shadow-xl object-contain  mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                             <h5 class="font-semibold text-center">Enzo Palmisano</h5>
                             <h6 class="text-center italic">MA3 - Energy</h6>
+                    </div>
+                    <div class="w-full flex flex-col h-full relative md:mt-10">
+                        <img src="/remy.png" alt="jamil"
+                            class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
+                            <h5 class="font-semibold text-center">Jamil Maj</h5>
+                            <h6 class="text-center italic">MA3 - Energy</h6>
+                    </div>
+                    <div class="w-full flex flex-col h-full relative md:mt-10">
+                        <img src="/remy.png" alt="mariella"
+                            class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
+                            <h5 class="font-semibold text-center">Mariella Daghfal</h5>
+                            <h6 class="text-center italic">MA3 - Digital Humanities</h6>
                     </div>
                 </div>
 
@@ -244,7 +281,7 @@
                                                 enter-from="tab-enter-from" leave="tab-leave" leave-to="tab-leave-to"
                                                 leave-from="tab-leave-from" as="template">
                                                 <div class="flex flex-col lg:flex-row bg-slate-200 w-full h-full">
-                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:px-8 h-full py-6">
+                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:px-8 h-full py-6 ">
                                                         <h4 class="text-xl font-bold">T-Test</h4>
                                                         <p class="mt-2">
                                                             Basic statistics are conducted using the <b>p-value threshold of
@@ -255,9 +292,9 @@
                                                             rating distribution have a significantly different mean.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2 bg-slate-200">
+                                                    <div class="flex w-full lg:w-1/2 bg-slate-200  border-l-2 border-slate-600">
                                                         <img src="/cookbookTtest.png" alt="ttest"
-                                                            class="flex w-full object-contain my-auto" />
+                                                            class="flex w-full object-contain m-auto max-w-[400px]" />
                                                     </div>
                                                 </div>
                                             </TransitionChild>
@@ -310,9 +347,9 @@
                                                             of the Pearson correlation.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2 bg-slate-200 p-6">
+                                                    <div class="flex w-full lg:w-1/2 bg-slate-200 p-6 border-l-2 border-slate-600">
                                                         <img src="/cookbookPearson.png" alt="pearson"
-                                                            class="flex w-full object-contain my-auto" />
+                                                            class="flex w-full object-contain m-auto max-w-[300px]" />
                                                     </div>
                                                 </div>
                                             </TransitionChild>
@@ -374,7 +411,7 @@
                                                             assess the improvement.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2  px-5 lg:pr-8 lg:pl-0 py-6">
+                                                    <div class="flex w-full lg:w-1/2  px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
                                                             <h4 class="text-xl italic font-semibold mb-1">For the gourmet
@@ -473,7 +510,7 @@
                                                             and filtered out the ones with a VIF higher than 5.
                                                         </p>
                                                     </div>
-                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-8 lg:pl-0 py-6">
+                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
 
@@ -612,7 +649,7 @@
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Countries
                     </h3>
-                    <div class="grid lg:grid-cols-2 mt-6 w-full gap-5">
+                    <div class="grid lg:grid-cols-2 mt-3 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
@@ -735,7 +772,7 @@
                     </h5>
 
                     <!-- Basic Viz -->
-                    <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+                    <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-1">
                             <h4 class="text-xl font-bold">Vizual Appetizer</h4>
                             <p class="mt-2 text-justify">
@@ -873,7 +910,7 @@
                     </h3>
                     <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">The Michelin guide of movies</h5>
                     <!-- Basic Viz -->
-                    <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+                    <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
@@ -1000,7 +1037,7 @@
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Actors
                     </h3>
                     <!-- Pearson -->
-                    <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
+                    <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-2">
                             <div>
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
@@ -1220,7 +1257,7 @@
             </section>
 
             <section id="conclusion" class="section">
-                <h2 class="text-4xl lg:text-5xl font-bold mt-16 mb-6">Conclusion</h2>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-16 mb-4">Conclusion</h2>
                 <p class="mt-2 text-justify">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
                     consequat
