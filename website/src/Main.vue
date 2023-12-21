@@ -72,7 +72,7 @@
                         <img src="/antonin.jpg" alt="antonin"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Antonin Faure</h5>
-                        <h6 class="text-center italic">MA3 - Data Science</h6>
+                        <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
 
                     <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
@@ -81,7 +81,7 @@
                         <img src="/baptiste.jpg" alt="baptiste"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
-                        <h6 class="text-center italic">MA3 - Data Science</h6>
+                        <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
                         <img src="/toque.png" alt="toque"
@@ -89,19 +89,19 @@
                         <img src="/enzo.jpeg" alt="enzo"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Enzo Palmisano</h5>
-                        <h6 class="text-center italic">MA3 - Energy</h6>
+                        <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/remy.png" alt="jamil"
                             class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Jamil Maj</h5>
-                        <h6 class="text-center italic">MA3 - Energy</h6>
+                        <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/remy.png" alt="mariella"
                             class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
-                        <h6 class="text-center italic">MA3 - Digital Humanities</h6>
+                        <h6 class="text-center italic">Master in Digital Humanities</h6>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
                     </p>
 
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <h4 class="text-xl font-bold">IMDb Users Ratings</h4>
                             <p class="mt-2">
                                 The IMDb rating consists of a grade between 0 and 10. It is an average of the users's
@@ -177,7 +177,7 @@
                                 the rating, so that the rating is between 0 and 100, like the Metascore.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartUsers" class="aspect-square w-full"></div>
                             </div>
@@ -186,7 +186,7 @@
 
 
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Metascore</h4>
                             <p class="mt-2">
                                 The Metascore is an aggregated score resuming the rating of multiple publishers. It consists
@@ -197,14 +197,14 @@
                                 ratings.
                             </p>
                             <p class="mt-2">
-                                After a statistical normality test, the distribution is <i>quasi-normal</i> (which sounds
+                                The distribution looks <i>quasi-normal</i> (which sounds
                                 logical,
                                 because as said before, the scores are normalized, and we have a consequent subset of them),
                                 with an average of around 60, which means that the <b>critics on average are more difficult
                                     than the users!</b>
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartMetascore" class="aspect-square w-full"></div>
                             </div>
@@ -295,7 +295,7 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex w-full lg:w-1/2 bg-slate-200  border-l-2 border-slate-600">
+                                                        class="flex w-full lg:w-1/2 bg-slate-200 lg:border-l-2 border-slate-600">
                                                         <img src="/cookbookTtest.png" alt="ttest"
                                                             class="flex w-full object-contain m-auto max-w-[400px]" />
                                                     </div>
@@ -351,7 +351,7 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex w-full lg:w-1/2 bg-slate-200 p-6 border-l-2 border-slate-600">
+                                                        class="flex w-full lg:w-1/2 bg-slate-200 p-6 lg:border-l-2 border-slate-600">
                                                         <img src="/cookbookPearson.png" alt="pearson"
                                                             class="flex w-full object-contain m-auto max-w-[300px]" />
                                                     </div>
@@ -416,9 +416,9 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex w-full lg:w-1/2  px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
+                                                        class="flex w-full lg:w-1/2 px-0 lg:pr-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
-                                                            class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+                                                            class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
                                                             <h4 class="text-xl italic font-semibold mb-1">For the gourmet
                                                             </h4>
                                                             <p>
@@ -516,9 +516,9 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
+                                                        class="flex flex-col w-full lg:w-1/2 px-0 lg:pr-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
-                                                            class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
+                                                            class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
 
                                                             <p>
                                                                 <span class="font-bold">
@@ -568,8 +568,8 @@
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Instantaneous Noodles and T-Taste
                     </h3>
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
-                            <p class="">
+                        <div class="flex flex-col order-1 lg:order-1">
+                            <p>
                                 The first impression when using raw ingredients is that indeed, the users and critics are
                                 not exactly
                                 appreciating the same things. The following plot shows the distribution of the rating
@@ -594,7 +594,7 @@
                                 critics find the movies better than on average).
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartUsersCritics1" class="w-full aspect-square"></div>
                             </div>
@@ -603,7 +603,7 @@
 
 
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <h4 class="text-xl font-bold">Rating Difference</h4>
                             <p class="mt-2">
                                 Let's define what we're interested in: <b>the rating difference between the critics and the
@@ -618,7 +618,7 @@
                                 we end up with a negative mean).
                             </p>
                             <p class="mt-4">
-                                Running classic statistical tools allows us to affirm that those distributions are normal,
+                                Running a T-Test allows us to affirm that those distributions are normal,
                                 and more
                                 interestingly, the <u>rating difference is significant</u>. It's worth studying and
                                 analyzing it deeper.
@@ -635,7 +635,7 @@
                             </p>
 
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartUsersCritics2" class="w-full aspect-square"></div>
                             </div>
@@ -650,13 +650,14 @@
                 <h2 class="text-4xl lg:text-5xl font-bold mt-8">Time to cook</h2>
                 <h5 class="text-xl lg:text-2xl italic text-slate-600 mt-1 ml-1">Exploring the ingredients</h5>
 
-                <!-- === COUNTRIES === -->
+                <!-- ==== COUNTRIES ==== -->
                 <section id="countries" class="section">
-                    <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
+                    <h3 class="text-3xl lg:text-4xl font-bold mt-5 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Countries
                     </h3>
+                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">A taste of the world</h5>
                     <div class="grid lg:grid-cols-2 mt-3 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
                                 In the grand kitchen of our data-driven analysis, let's craft a narrative as we examine the
@@ -668,7 +669,7 @@
                                 storytelling flavors.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartCountries1" class="h-full min-h-[700px] w-full"></div>
                             </div>
@@ -676,7 +677,7 @@
                     </div>
 
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <h4 class="text-xl font-bold">Pearson Correlation</h4>
                             <p class="mt-2">
                                 The Pearson coefficient provides a more nuanced but raw flavor profile of each country's
@@ -706,7 +707,7 @@
                                 emphasizing the reliability of our findings.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartCountries2" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -715,7 +716,7 @@
 
 
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                             <p class="mt-2">
                                 Let's delve deeper into the gourmet guide of global cinema by closely examining the OLS
@@ -755,7 +756,7 @@
                                 critics.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartCountries3" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -769,17 +770,16 @@
                 </section>
 
 
-                <!-- === GENRES === -->
+                <!-- ==== GENRES ==== -->
                 <section id="genres" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Genres
                     </h3>
-                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Crafting the Narrative of Preference
-                    </h5>
+                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start"></h5>
 
                     <!-- Basic Viz -->
                     <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Vizual Appetizer</h4>
                             <p class="mt-2 text-justify">
                                 We can first try to plot our raw genres. This yields this very… flavorless plot. Indeed,
@@ -797,7 +797,7 @@
                                 subgenres. Sharpen your knives, we have some <i>Mise en place</i> to do.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartGenres1" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -806,7 +806,7 @@
 
                     <!-- Pearson -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2 text-justify">
+                        <div class="flex flex-col order-1 lg:order-2 text-justify">
                             <div>
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
                                 <p class="mt-2">
@@ -845,7 +845,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartGenres2" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -854,7 +854,7 @@
 
                     <!-- OLS -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1 text-justify">
+                        <div class="flex flex-col order-1 lg:order-1 text-justify">
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2">
@@ -896,7 +896,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartGenres3" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -909,15 +909,15 @@
                     </div>
                 </section>
 
-                <!-- === AWARDS === -->
+                <!-- ==== AWARDS ==== -->
                 <section id="awards" class="section text-justify">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2 mt-1" />Awards
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Awards
                     </h3>
                     <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">The Michelin guide of movies</h5>
                     <!-- Basic Viz -->
                     <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
                                 Another ingredient crucial to the success of our recipe is the awards a film receives. We
@@ -938,7 +938,7 @@
                                 Razzie's intention to highlight films that are generally considered bad.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartAwards1" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -947,7 +947,7 @@
 
                     <!-- Pearson -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <div>
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
                                 <p class="mt-2">
@@ -974,7 +974,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartAwards2" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -983,7 +983,7 @@
 
                     <!-- OLS -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2">
@@ -993,7 +993,8 @@
                                 <p class="mt-4">
                                     The OLS results filter down the awards from 8 to <u>5 significant awards</u>.
                                     While the regression model is statistically significant, indicating that there is an
-                                    association, it has limited predictive power because of the <b>low R-squared</b> value.
+                                    association, it has limited predictive power because of the <b>low R&#178;</b> value
+                                    (0.013).
                                     This
                                     means that movie awards are not strong predictors of the difference in ratings between
                                     critics and general audiences on their own: other factors also affect the rating
@@ -1014,7 +1015,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartAwards3" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -1071,29 +1072,74 @@
                     </div>
                 </section>
 
-                <!-- === RELEASE DATE === -->
+                <!-- ==== RELEASE DATE ==== -->
                 <section id="release-year" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Release Year
                     </h3>
-                    <p class="mt-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod,
-                        nisl eget
-                        consequat
-                        aliquam, nunc
-                        ipsum
-                        aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-                        ipsum
-                        aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>
+                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">The older, the better?</h5>
+                    <div class="flex flex-col w-full mt-5">
+                        <div ref="chartReleaseYear1" class="h-full min-h-[600px] w-full"></div>
+                    </div>
+
+                    <div class="flex flex-col w-full">
+                        <div ref="chartReleaseYear2" class="h-full min-h-[600px] w-full"></div>
+                    </div>
+
+                    <p class="mt-2 text-justify">
+                        The first set of plots shows that both the Metascore and IMDb ratings have a general downward
+                        trend
+                        over the years. This could suggest that movies in general are getting worse, or perhaps more
+                        likely,
+                        that scoring criteria have become stricter over time. We can also guess that the type of people
+                        who
+                        are rating old movies are probably old movie amateurs, and it is important to note that the
+                        rating
+                        doesn't reflect the popularity when the movie was released, but nowadays!
+                    </p>
+                    <p class="mt-4">
+                        The plot for rating differences over the years indicates that the gap between Metascore and IMDb
+                        ratings has generally been widening. We can note that the average metascore felt way more than
+                        the
+                        IMDb rating, as it went from more than 90 for the 1920 movies, to around 55 for the 2010 movies,
+                        meanwhile, the IMDb rating fell from 80 to around 65. Early in the data, Metascore ratings were
+                        higher than IMDb, and over time, this trend reversed.
+                    </p>
+
+                    <h4 class="text-xl font-bold mt-4">Pearson Correlation</h4>
+                    <p class="mt-2">
+                        Running Pearson correlation gives us some values. We especially find a negative correlation of
+                        <b>-0.201596</b>. It indicates that increasing the year will decrease the rating difference, which
+                        seems
+                        normal if we take a look at the trend explained before. The absolute value is nevertheless not
+                        big,
+                        so it is <b>not a super strong correlation</b>. The very small p-value indicates that the obtained
+                        value is
+                        <u>statistically significant</u>.
+                    </p>
+
+                    <h4 class="text-xl font-bold mt-4">Ordinary Least Squares (OLS)</h4>
+                    <p class="mt-2">
+                        Running the OLS also gives numbers, indicating big multicollinearity, which seems normal as
+                        years
+                        are strongly related. We also find a negative coefficient for years of <b>-0.1925</b>, indicating
+                        that
+                        with
+                        each passing year, the rating difference decreases by 0.1925 points. We also learned using the
+                        R&#178; value that the year explain
+                        about <b>4.1%</b> of the variance in rating difference, which is not a lot. It is <u>significant</u>
+                        but not <b>relevant</b>.
+                    </p>
                 </section>
 
-                <!-- === ACTORS === -->
+                <!-- ==== ACTORS ==== -->
                 <section id="actors" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Actors
                     </h3>
                     <!-- Pearson -->
                     <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <div>
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
                                 <p class="mt-2 text-justify">
@@ -1138,7 +1184,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartActors1" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -1147,7 +1193,7 @@
 
                     <!-- OLS -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1 text-justify">
+                        <div class="flex flex-col order-1 lg:order-1 text-justify">
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2 ">
@@ -1179,7 +1225,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartActors2" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -1192,12 +1238,11 @@
                     </div>
                 </section>
 
-                <!-- === TROPES === -->
+                <!-- ==== TROPES ==== -->
                 <section id="tropes" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start mb-4">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Tropes
                     </h3>
-
                     <p>
                         The last ingredient for our glorious meal are the tropes. As a friendly reminder, tropes are “a
                         significant
@@ -1209,6 +1254,8 @@
                         But since
                         it's born from human need for categorization, we do think it can be a very valuable source of
                         information.
+                    </p>
+                    <p class="mt-4">
                         Notice that, while the dataset merging in the previous steps didn't leave out a lot of movies, the
                         tropes
                         merging drastically reduced the number of datapoints, down to approximately 2495, as mentioned
@@ -1220,7 +1267,7 @@
 
                     <!-- Pearson -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-2">
+                        <div class="flex flex-col order-1 lg:order-2">
                             <h4 class="text-xl font-bold">Pearson Correlation</h4>
                             <p class="mt-2 text-justify">
                                 As expected, the Pearson correlation filtered out our movies down to around <u>300
@@ -1254,7 +1301,7 @@
                                 methods we used, we could expect high multicollinearity.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-1 w-full">
+                        <div class="flex flex-col order-2 lg:order-1 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartTropes1" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -1263,7 +1310,7 @@
 
                     <!-- OLS -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                        <div class="flex flex-col order-2 lg:order-1">
+                        <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                             <p class="mt-2 text-justify">
                                 By running our first OLS, we get as expected a high condition number implying a high
@@ -1298,7 +1345,7 @@
                                     class="text-red-900 underline hover:text-red-400">tvtropes.org</a>.
                             </p>
                         </div>
-                        <div class="flex flex-col order-1 lg:order-2 w-full">
+                        <div class="flex flex-col order-2 lg:order-2 w-full">
                             <div class="flex flex-col h-full w-full">
                                 <div ref="chartTropes2" class="h-full min-h-[600px] w-full"></div>
                             </div>
@@ -1311,36 +1358,93 @@
                 </section>
             </section>
 
-            <section id="conclusion" class="section">
-                <h2 class="text-4xl lg:text-5xl font-bold mt-16 mb-4">Conclusion</h2>
+            <section id="conclusion" class="section text-justify">
+                <h2 class="text-4xl lg:text-5xl font-bold mt-16">Conclusion</h2>
+                <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Mixing it all with a yummy conclusion</h5>
                 <p class="mt-2 text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget
-                    consequat
-                    aliquam, nunc
-                    ipsum
-                    aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl eget consequat aliquam, nunc
-                    ipsum
-                    aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+                    Now that all of our ingredients are selected and refined, we'd like to see if mixing them together can
+                    actually enhance the results we obtain. Let's first recall the results we obtained for the most
+                    important of our metric, the adjusted R&#178;:
+                </p>
+
+                <table class="w-full border-slate-600 drop-shadow-lg mt-4 rounded overflow-hidden">
+                    <thead>
+                        <tr class="border-slate-600 border-b-[1px] bg-slate-200">
+                            <th class="text-end pr-2">Feature</th>
+                            <td>Genre</td>
+                            <td>Actors</td>
+                            <td>Release date</td>
+                            <td>Country</td>
+                            <td>Awards</td>
+                            <td>Tropes</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="bg-slate-100">
+                            <th class="text-end pr-2">Adj. R&#178;</th>
+                            <td>13.5</td>
+                            <td>13.0</td>
+                            <td>4.1</td>
+                            <td>5.9</td>
+                            <td>1.3</td>
+                            <td>19.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4">
+                    The <b>tropes</b> were indeed the most performant indicator we prepared so far, but were also a bit
+                    obscure and
+                    hard to interpret. The <b>genres</b> and <b>actors</b> are very good indicators overall. The
+                    <b>awards</b> are quite
+                    interesting too, despite their low R&#178; since they were only 5 significant awards. The <b>release
+                        year</b> is a
+                    single continuous indicator with respectable results, and the <b>countries</b> might also be very good,
+                    accounting for almost 6% of variance explained. But these metrics account for each feature
+                    independently.
+                </p>
+                <p class="mt-4">
+                    Gathering all of the mise en place from before, we keep <u>88 significant features</u> that we
+                    want to use. We now want to perform a last blend, extracting the most out of it and hoping the results
+                    are even more interesting!
                 </p>
 
                 <!-- Pearson -->
                 <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                    <div class="flex flex-col order-2 lg:order-2">
+                    <div class="flex flex-col order-1 lg:order-2">
                         <h4 class="text-xl font-bold">Pearson Correlation</h4>
                         <p class="mt-2 text-justify">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo
-                            aliquid vitae
-                            cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt
-                            fugit
-                            repellendus laboriosam laudantium. Esse, facilis?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates
-                            iste
-                            eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam
-                            voluptate
-                            suscipit magnam?
+                            Looking at the type of the significant features kept by Pearson, we see that interestingly, the
+                            Award and Country indeed appear in the rating. We observe <u>65 features are considered
+                                significant</u> (out of 88) by the Pearson test. Let's look at the type of features : 10
+                            genres, 2 awards,
+                            4 tropes, 1 country and 1 actor, as well as the year appearing in the top 20. Let's break
+                            it down.</p>
+                        <p class="mt-4">
+                            The blockbuster weight of the <i class="feature">USA</i> can easily explain why they appear
+                            here. The genre
+                            seems to be a predominant indicator, as it could be expected from the specific analysis showing
+                            how polarizing they are. <i class="feature">Drama</i> and <i class="feature">Black & White</i>
+                            again take the lead on the critic side, and <i class="feature">Action</i> and
+                            <i class="feature">Slapstick</i> are again kicking in for users.
+                        </p>
+
+                        <p class="mt-4">
+                            The only actor appearing and worth mentioning is <i class="feature">Gerard
+                                Butler</i>, who was not even in the top 20 of the specific Actor analysis, but appears here.
+                            This can
+                            be explained maybe by his roles in a lot of films appreciated more by users, from very good ones
+                            (<i>How to Train your Dragon</i>), to mediocre ones (<i>Movie 43</i>). The only film he starred
+                            in who is
+                            favored by the critics is <i>Corialanus</i>, a movie adaptation of Shakespeare's piece.
+                        </p>
+                        <p class="mt-4">Other than
+                            that, not much is unexpected so far, and the overall robustness of the analysis is strengthened
+                            by the relatively constant confidence intervals, maybe a bit wide for our liking but overall in
+                            a manageable range.
                         </p>
                     </div>
-                    <div class="flex flex-col order-1 lg:order-1 w-full">
+                    <div class="flex flex-col order-2 lg:order-1 w-full">
                         <div class="flex flex-col h-full w-full">
                             <div ref="chartGlobal1" class="h-full min-h-[600px] w-full"></div>
                         </div>
@@ -1349,40 +1453,79 @@
 
                 <!-- OLS -->
                 <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
-                    <div class="flex flex-col order-2 lg:order-1">
+                    <div class="flex flex-col order-1 lg:order-1">
                         <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                         <p class="mt-2 text-justify">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo
-                            aliquid vitae
-                            cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem incidunt
-                            fugit
-                            repellendus laboriosam laudantium. Esse, facilis?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam voluptates
-                            iste
-                            eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus aperiam
-                            voluptate
-                            suscipit magnam?
+                            Sadly, some of our features were again seemingly multicollinear, and the VIF filtering brings
+                            them down to 81 significant ones to be fed to our OLS. Poor Gerard Butler didn't survive the
+                            filtering, as well as the United States. There are <u>14 significant features</u> according to
+                            the OLS are (out of 81), and in
+                            detail, we do see only Genre and Tropes type of features. While consistent with the specific
+                            analysis, i.e the orientation of their influence is the same, we feel like something is missing
+                            in that final result.
+                        </p>
+                        <p class="mt-4">
+                            Looking back at our summary table, Genres and Tropes are indeed the two
+                            highest adj. R&#178; scores, and it's thus no real surprise to see them dominate there. But it
+                            feels
+                            like we're losing a lot of precious information there, maybe because the Genres and Tropes are
+                            overwhelming the overall analysis. But looking at the statistical metrics, the results are
+                            nevertheless impressive: the adjusted R&#178; is now at <b>0.231</b>, which is a significant
+                            boost based on
+                            what we had before. Other model indicators tend to show that the results are better. In the end,
+                            it seems that using only a few tropes and a few genres could allow us to explain a significant
+                            part of the variance.
                         </p>
                     </div>
-                    <div class="flex flex-col order-1 lg:order-2 w-full">
+                    <div class="flex flex-col order-2 lg:order-2 w-full">
                         <div class="flex flex-col h-full w-full">
                             <div ref="chartGlobal2" class="h-full min-h-[600px] w-full"></div>
                         </div>
                     </div>
                 </div>
+                <p class="mt-4 my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4 ">
+                    This result of only <b>23% of explained variance</b> might seem low, but since this kind of modeling is really
+                    hard, involving features <b>highly correlated together</b>, a human dimension hard to grasp, and other
+                    facts that are simply not described by the features we had at our disposal, we can be pretty
+                    satisfied with the overall dish concocted there. What's great is that our careful methodology
+                    and feature selection indeed allowed us to improve the results of the model, showing both an
+                    insightful Pearson plot and an interesting OLS.
+                </p>
 
-                <div class="grid lg:grid-cols-3 mt-8 w-full gap-5">
-                    <div class="flex flex-col order-2 lg:order-1 col-span-2">
-                        <p class="mt-3">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus id, quod veritatis eos
-                            laboriosam omnis
-                            quas. Impedit aut, odit possimus iusto error mollitia voluptatem, esse numquam eveniet
-                            reprehenderit, veniam
-                            commodi.
+                <h3 class="text-3xl lg:text-4xl font-bold mt-5 items-center text-start">
+                    <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />What now?
+                </h3>
+                <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">After Eight</h5>
+
+                <div class="grid lg:grid-cols-3 mt-3 w-full gap-5">
+                    <div class="flex flex-col order-1 lg:order-1 col-span-2">
+                        <p>
+                            To go further, we'd be honored to let future
+                            chefs add their own spices to the meal. We thought about exploring those topics too:
+                        <ul class="list-disc list-inside pl-5">
+                            <li>Exploring the difference between the critics themselves, since they're not grading the same
+                                way,
+                                depending on the genre of movies for instance.
+                            </li>
+                            <li>
+                                Try to unveil the way the Metascore is weighted and computed, and why not, develop a metric
+                                to
+                                find a publisher to read based on your own taste.</li>
+                            <li>
+                                Find a way to cluster users based on the score they give, be it according to the genres or
+                                another type features</li>
+                            <li>
+                                Explore interaction terms between the features we extracted</li>
+                        </ul>
+                        </p>
+                        <p class="mt-4">
+                            We do hope that this dish could satisfy any Anton Ego, but in the case you have room for more,
+                            don't hesitate to taste other projects made by the ADA teams through the years.
+
                         </p>
                     </div>
                     <div
-                        class="flex flex-col col-span-3 order-1 lg:col-span-1 lg:order-2 w-full items-center justify-center">
+                        class="flex flex-col col-span-3 order-2 lg:col-span-1 lg:order-2 w-full items-center justify-center">
                         <div class="flex flex-col h-full w-full items-center justify-center">
                             <img src="/ego.png" alt="ego"
                                 class="lg:w-full mt-4 drop-shadow-xl max-h-[400px] lg:max-h-none hover:scale-y-105 hover:-scale-x-105 hover:drop-shadow-none transition duration-300 -scale-x-100" />
@@ -1395,6 +1538,7 @@
 
             <section id="playground" class="section">
                 <h2 class="text-4xl lg:text-5xl font-bold mt-8">The Kitchen</h2>
+                <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Play with our ingredients</h5>
                 <div>
                     <Playground />
                 </div>
@@ -1474,6 +1618,8 @@ const chartAwards2 = ref(null);
 const chartAwards3 = ref(null);
 const chartActors1 = ref(null);
 const chartActors2 = ref(null);
+const chartReleaseYear1 = ref(null);
+const chartReleaseYear2 = ref(null);
 const chartTropes1 = ref(null);
 const chartTropes2 = ref(null);
 const chartGlobal1 = ref(null)
@@ -1590,6 +1736,12 @@ onMounted(async () => {
     if (chartActors2) {
         plotFunctions.callbackActors2(chartActors2, "/data/actors-2.json")
     }
+
+    // Release Year
+    if (chartReleaseYear1) {
+        plotFunctions.callbackReleaseYear(chartReleaseYear1, chartReleaseYear2, "/data/releasedate.json")
+    }
+
 
     // Tropes 1
     if (chartTropes1) {

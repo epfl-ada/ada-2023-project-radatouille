@@ -1000,3 +1000,157 @@ export function callbackGlobal2(chartRef, fileUrl) {
         });
     })
 }
+
+export function callbackReleaseYear(chartRef1, chartRef2, fileUrl) {
+    fetchData(fileUrl).then(data => {
+
+        // Metascore and IMDb Rating on plot 1
+        const years = Object.keys(data);
+        const imdbRatings = years.map(year => data[year].imdb_rating_scaled_mean);
+        const imdbRatingCI = years.map(year => data[year].imdb_rating_scaled_sem * 1.96);
+        const metascores = years.map(year => data[year].metascore_mean);
+        const metascoreCI = years.map(year => data[year].metascore_sem * 1.96);
+
+
+        const traceIMDbMean = {
+            x: years,
+            y: imdbRatings,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'IMDb Rating',
+            line: { color: '#f4a582' },
+            legendgroup: 'IMDb Rating',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+        const traceMetascoreMean = {
+            x: years,
+            y: metascores,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Metascore',
+            line: { color: '#67001f' },
+            legendgroup: 'Metascore',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+
+        // Create traces for error regions (upper and lower bounds)
+        const traceIMDbErrorUpper = {
+            x: years,
+            y: imdbRatings.map((r, i) => r + imdbRatingCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            fill: 'tonexty',
+            fillcolor: 'rgba(244, 165, 130, 0.4)',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'IMDb Rating',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+        const traceIMDbErrorLower = {
+            x: years,
+            y: imdbRatings.map((r, i) => r - imdbRatingCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'IMDb Rating',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+        const traceMetascoreErrorUpper = {
+            x: years,
+            y: metascores.map((m, i) => m + metascoreCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            fill: 'tonexty',
+            fillcolor: 'rgba(103, 0, 31, 0.2)',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'Metascore',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+        const traceMetascoreErrorLower = {
+            x: years,
+            y: metascores.map((m, i) => m - metascoreCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'Metascore',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        };
+
+        const trace1 = [
+            traceIMDbErrorLower, traceIMDbErrorUpper, traceIMDbMean,
+            traceMetascoreErrorLower, traceMetascoreErrorUpper, traceMetascoreMean
+        ];
+
+        plotChart(chartRef1, trace1, {
+            title: 'Mean IMDb Rating and Metascore by Release Year',
+            xaxis: {
+                title: 'Release Year',
+                automargin: true
+            },
+            yaxis: {
+                title: 'Mean Rating',
+                automargin: true
+            },
+            autosize: true,
+            responsive: true,
+        });
+
+        // Rating difference on plot 2
+        const ratingDifference = years.map(year => data[year].rating_difference_mean);
+        const ratingDifferenceCI = years.map(year => data[year].rating_difference_sem * 1.96);
+
+        const trace2 = [{
+            x: years,
+            y: ratingDifference.map((r, i) => r - ratingDifferenceCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'Rating Difference',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+
+        }, {
+            x: years,
+            y: ratingDifference.map((r, i) => r + ratingDifferenceCI[i]),
+            type: 'scatter',
+            mode: 'lines',
+            fill: 'tonexty',
+            fillcolor: 'rgba(214, 96, 77, 0.2)',
+            line: { color: 'transparent' },
+            showlegend: false,
+            legendgroup: 'Rating Difference',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        }, {
+            x: years,
+            y: ratingDifference,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Rating Difference',
+            line: { color: '#d6604d' },
+            legendgroup: 'Rating Difference',
+            hovertext: years.map(year => `Number of movies: ${data[year].number_of_movies.toFixed(0)}`)
+        },]
+
+        plotChart(chartRef2, trace2, {
+            title: 'Mean Rating Difference by Release Year',
+            xaxis: {
+                title: 'Release Year',
+                automargin: true
+            },
+            yaxis: {
+                title: 'Mean Rating Difference',
+                automargin: true
+            },
+            autosize: true,
+            responsive: true,
+        })
+    })
+}
