@@ -1383,12 +1383,12 @@
                     <tbody>
                         <tr class="bg-slate-100">
                             <th class="text-end pr-2">Adj. R&#178;</th>
-                            <td>13.5</td>
-                            <td>13.0</td>
-                            <td>4.1</td>
-                            <td>5.9</td>
-                            <td>1.3</td>
-                            <td>19.8</td>
+                            <td>0.135</td>
+                            <td>0.130</td>
+                            <td>0.041</td>
+                            <td>0.059</td>
+                            <td>0.013</td>
+                            <td>0.198</td>
                         </tr>
                     </tbody>
                 </table>
