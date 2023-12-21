@@ -560,10 +560,10 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     # If there is no ci_error column, we don't plot the confidence interval
     if 'ci_error' not in results.columns:
         sorted_results  = results.groupby(y_column)[x_column].mean().sort_values(ascending=False)
-        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, palette='flare', legend=False)
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=sorted_results.index, hue=y_column, hue_order=sorted_results.index, palette='flare')
     # Otherwise we plot also the confidence interval
     else:
-        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], palette='flare', legend=False)
+        bar = sns.barplot(x=x_column, y=y_column, data=results, order=results[y_column], hue=y_column, hue_order=results[y_column], palette='flare')
 
         # Get the y positions of the bars
         y_positions = bar.get_yticks()
@@ -581,6 +581,9 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     plt.xlabel(x_column)
     plt.title(title)
     plt.grid(True)
+
+    #Remove the legend
+    plt.legend([],[], frameon=False)
 
     #Resize the plot and show it
     plt.tight_layout()
