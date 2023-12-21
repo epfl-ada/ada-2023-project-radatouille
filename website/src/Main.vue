@@ -9,7 +9,8 @@
             movie
             taste differences between users and critics</h3>
         <div class="flex flex-col items-center mt-auto px-5 py-3">
-            <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3 text-center">A project served by the Team
+            <span class="font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-3 text-center">A project served by the
+                Team
                 rADAtouille</span>
             <div class="flex flex-wrap gap-1 items-center justify-center mt-2">
                 <span class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Antonin Faure</span>
@@ -52,11 +53,11 @@
                         this flavorful journey.
                     </p>
                 </div>
-                <h5 class="text-xl lg:text-2xl mt-4 font-semibold ml-1">The <span class="italic font-semibold">Brigade</span></h5>
+                <h5 class="text-xl lg:text-2xl mt-4 font-semibold ml-1">The <span
+                        class="italic font-semibold">Brigade</span></h5>
                 <div class="grid gap-5 lg:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                     <div class="w-full flex flex-col h-full relative">
-                    <img src="/remy.png" alt="remy"
-                        class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none" />
+                        <img src="/remy.png" alt="remy" class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none" />
                         <h5 class="font-semibold text-center">Remy</h5>
                     </div>
                     <div class="w-full flex flex-col h-full relative mt-10">
@@ -70,8 +71,8 @@
                             class="absolute -top-[41%] left-[16%] rotate-[15deg] w-[51%] h-full object-contain lg:max-h-none z-[2] scale-x-100" />
                         <img src="/antonin.jpg" alt="antonin"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
-                            <h5 class="font-semibold text-center">Antonin Faure</h5>
-                            <h6 class="text-center italic">MA3 - Data Science</h6>
+                        <h5 class="font-semibold text-center">Antonin Faure</h5>
+                        <h6 class="text-center italic">MA3 - Data Science</h6>
                     </div>
 
                     <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
@@ -79,28 +80,28 @@
                             class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/baptiste.jpg" alt="baptiste"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
-                            <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
-                            <h6 class="text-center italic">MA3 - Data Science</h6>
+                        <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
+                        <h6 class="text-center italic">MA3 - Data Science</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/enzo.jpeg" alt="enzo"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
-                            <h5 class="font-semibold text-center">Enzo Palmisano</h5>
-                            <h6 class="text-center italic">MA3 - Energy</h6>
+                        <h5 class="font-semibold text-center">Enzo Palmisano</h5>
+                        <h6 class="text-center italic">MA3 - Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/remy.png" alt="jamil"
                             class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
-                            <h5 class="font-semibold text-center">Jamil Maj</h5>
-                            <h6 class="text-center italic">MA3 - Energy</h6>
+                        <h5 class="font-semibold text-center">Jamil Maj</h5>
+                        <h6 class="text-center italic">MA3 - Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/remy.png" alt="mariella"
                             class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
-                            <h5 class="font-semibold text-center">Mariella Daghfal</h5>
-                            <h6 class="text-center italic">MA3 - Digital Humanities</h6>
+                        <h5 class="font-semibold text-center">Mariella Daghfal</h5>
+                        <h6 class="text-center italic">MA3 - Digital Humanities</h6>
                     </div>
                 </div>
 
@@ -189,7 +190,8 @@
                             <h4 class="text-xl font-bold">Metascore</h4>
                             <p class="mt-2">
                                 The Metascore is an aggregated score resuming the rating of multiple publishers. It consists
-                                of a <b>normalized</b> (so relative to the other performances), <b>weighted</b> (as each publisher
+                                of a <b>normalized</b> (so relative to the other performances), <b>weighted</b> (as each
+                                publisher
                                 rates
                                 differently) <b>average</b> of the scaled (as each critic rates with a different scale)
                                 ratings.
@@ -292,7 +294,8 @@
                                                             rating distribution have a significantly different mean.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2 bg-slate-200  border-l-2 border-slate-600">
+                                                    <div
+                                                        class="flex w-full lg:w-1/2 bg-slate-200  border-l-2 border-slate-600">
                                                         <img src="/cookbookTtest.png" alt="ttest"
                                                             class="flex w-full object-contain m-auto max-w-[400px]" />
                                                     </div>
@@ -347,7 +350,8 @@
                                                             of the Pearson correlation.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2 bg-slate-200 p-6 border-l-2 border-slate-600">
+                                                    <div
+                                                        class="flex w-full lg:w-1/2 bg-slate-200 p-6 border-l-2 border-slate-600">
                                                         <img src="/cookbookPearson.png" alt="pearson"
                                                             class="flex w-full object-contain m-auto max-w-[300px]" />
                                                     </div>
@@ -411,7 +415,8 @@
                                                             assess the improvement.
                                                         </p>
                                                     </div>
-                                                    <div class="flex w-full lg:w-1/2  px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
+                                                    <div
+                                                        class="flex w-full lg:w-1/2  px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
                                                             <h4 class="text-xl italic font-semibold mb-1">For the gourmet
@@ -510,7 +515,8 @@
                                                             and filtered out the ones with a VIF higher than 5.
                                                         </p>
                                                     </div>
-                                                    <div class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
+                                                    <div
+                                                        class="flex flex-col w-full lg:w-1/2 px-5 lg:pr-6 py-6 border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4">
 
@@ -914,16 +920,22 @@
                         <div class="flex flex-col order-2 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quaerat debitis nemo
-                                aliquid vitae
-                                cum quos necessitatibus soluta reprehenderit officia, exercitationem inventore dolorem
-                                incidunt fugit
-                                repellendus laboriosam laudantium. Esse, facilis?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sit tempore quibusdam
-                                voluptates iste
-                                eligendi ipsam, natus molestiae aspernatur. Est porro doloremque sunt quam quae natus
-                                aperiam voluptate
-                                suscipit magnam?
+                                Another ingredient crucial to the success of our recipe is the awards a film receives. We
+                                would like to explore whether the awards the score gap between users and critics.
+                                A first sort could allow us to exhibit what type of awards display the biggest differences.
+                            </p>
+                            <p class="mt-4">
+                                This initial plot shows that there can be a divergence between critics' and audiences'
+                                perceptions of films. For movies with prestigious awards, like the <a
+                                    href="https://en.wikipedia.org/wiki/Golden_Globe_Awards" target="_blank"
+                                    class="feature">Golden Globes</a> or the <a
+                                    href="https://en.wikipedia.org/wiki/Academy_Awards" target="_blank"
+                                    class="feature">Oscars</a>, critics tend to rate
+                                them higher than the audience. Contrarily, critics rated movies that won the <a
+                                    href="https://en.wikipedia.org/wiki/Golden_Raspberry_Awards" target="_blank"
+                                    class="feature">Golden Raspberry
+                                    (Razzie)</a> award much lower than the general audience, which seems consistent with
+                                Razzie's intention to highlight films that are generally considered bad.
                             </p>
                         </div>
                         <div class="flex flex-col order-1 lg:order-2 w-full">
@@ -939,11 +951,26 @@
                             <div>
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
                                 <p class="mt-2">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi culpa, dignissimos
-                                    consequuntur deserunt
-                                    maiores voluptas reiciendis pariatur cum? Temporibus ipsum odit in corporis? Nostrum
-                                    voluptatem magni
-                                    quo nulla reprehenderit nemo?
+                                    By running a Pearson correlation on the data, we notice that the <a
+                                        href=”https://en.wikipedia.org/wiki/National_Board_of_Review” class="feature italic"
+                                        target="_blank"> National Board of
+                                        Review Award </a> shows the highest positive correlation among the awards, which
+                                    suggests that as the number of National Board of Review awards increases, the rating
+                                    difference between critics and audiences also tends to increase. The <i
+                                        class="feature">Oscar Award</i> also
+                                    has a positive correlation, indicating a similar trend as the National Board of Review,
+                                    albeit to a lesser extent.
+                                    The only one among the listed awards with a negative correlation is the <i
+                                        class="feature">Golden Raspberry
+                                        Award</i>, suggesting that critics rate these movies lower than audiences do.
+                                </p>
+                                <p class="mt-4">
+                                    So there is generally a positive correlation between the number of awards a movie
+                                    receives and the rating difference between critics and audiences, except for the <i
+                                        class="feature">Golden
+                                        Raspberry Awards</i>. However, the magnitude of these correlations is generally
+                                    small (all
+                                    below 0.15), indicating that while there is a tendency, it is not strong.
                                 </p>
                             </div>
                         </div>
@@ -960,11 +987,30 @@
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt saepe, recusandae culpa
-                                    nisi earum optio
-                                    laborum temporibus voluptatibus vel aliquid placeat quas non ab ullam deserunt rem
-                                    incidunt asperiores
-                                    veritatis!
+                                    The initial OLS results show a low condition number (12.7) indicating low
+                                    multicollinearity. It is thus not necessary to run VIF and another OLS after.
+                                </p>
+                                <p class="mt-4">
+                                    The OLS results filter down the awards from 8 to <u>5 significant awards</u>.
+                                    While the regression model is statistically significant, indicating that there is an
+                                    association, it has limited predictive power because of the <b>low R-squared</b> value.
+                                    This
+                                    means that movie awards are not strong predictors of the difference in ratings between
+                                    critics and general audiences on their own: other factors also affect the rating
+                                    difference.
+                                </p>
+                                <p class="mt-4">
+                                    The coefficients from the bar chart provide individual estimates of the impact of each
+                                    award on the rating difference, with the <i class="feature">National Board of Review
+                                        awards</i> showing the
+                                    strongest positive impact and the <i class="feature">Razzie awards</i> showing a
+                                    negative impact. In the
+                                    middle, the <i class="feature">European Film Award</i> shows a positive coefficient,
+                                    suggesting a smaller but
+                                    still positive effect on the rating difference. The <i class="feature">Oscar Award</i>
+                                    also has a positive
+                                    coefficient, indicating a positive effect on the rating difference.
+
                                 </p>
                             </div>
                         </div>
@@ -974,6 +1020,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <p class="mt-4">
+                        In summary, while the regression model is statistically significant, its predictive power is
+                        very limited, explaining only a small fraction of the variance in the rating differences.
+                        The residuals are not normally distributed, but there seems to be no serious issue with
+                        autocorrelation or multicollinearity. The improvement over the baseline is minimal,
+                        indicating that while some predictors are significant, their overall impact on the model's
+                        predictive accuracy is limited.
+                    </p>
 
                     <!-- Tabs -->
                     <div class="flex flex-col mt-8 w-full gap-5">
