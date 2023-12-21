@@ -119,14 +119,11 @@ export function callbackUser(data, chartRef) {
     const trace = [{
         x: Object.keys(imdb_ratings_counts),
         y: Object.values(imdb_ratings_counts),
+        width: Array(Object.values(imdb_ratings_counts).length).fill(0.5),
         name: 'Count',
         type: 'bar',
         marker: {
-            color: '#d6604d',
-            line: {
-                color: '#d6604d',
-                width: 10
-            }
+            color: '#d6604d'
         },
         opacity: 0.75
     }, {
@@ -179,14 +176,11 @@ export function callbackMetascore(data, chartRef) {
     const trace = [{
         x: Object.keys(metascore_counts),
         y: Object.values(metascore_counts),
+        width: Array(Object.values(metascore_counts).length).fill(5),
         name: 'Count',
         type: 'bar',
         marker: {
-            color: '#d6604d',
-            line: {
-                color: '#d6604d',
-                width: 10
-            }
+            color: '#d6604d'
         },
         opacity: 0.75
     }, {
@@ -241,7 +235,7 @@ export function callbackUsersCritics1(data, chartRef) {
         hovertext: data.map(movie => movie.name),
         marker: {
             color: '#67001f',
-            opacity: 0.2
+            opacity: 0.2,
         }
     }, {
         x: [0, 105],
@@ -262,9 +256,10 @@ export function callbackUsersCritics1(data, chartRef) {
         name: 'Mean',
         marker: {
             color: 'red',
+            size: 5,
             line: {
                 color: 'red',
-                width: 2
+                width: 5
             }
         }
     }, {
@@ -275,9 +270,10 @@ export function callbackUsersCritics1(data, chartRef) {
         name: 'Median',
         marker: {
             color: 'blue',
+            size: 5,
             line: {
                 color: 'blue',
-                width: 2
+                width: 5
             }
         },
         opacity: 1
@@ -316,19 +312,17 @@ export function callbackUsersCritics2(data, chartRef) {
     const trace = [{
         x: Object.keys(rating_difference_counts),
         y: Object.values(rating_difference_counts),
+        width: Array(Object.values(rating_difference_counts).length).fill(5),
         type: 'bar',
         name: 'Count',
         marker: {
             color: '#d6604d',
-            line: {
-                color: '#d6604d',
-                width: 5
-            }
         },
         opacity: 0.75
     }, {
         x: [data.map(item => item.rating_difference).reduce((a, b) => a + b, 0) / data.length],
         y: [Math.max(...Object.values(rating_difference_counts))],
+        width: 0.5,
         type: 'bar',
         name: 'Mean',
         marker: {
@@ -343,6 +337,7 @@ export function callbackUsersCritics2(data, chartRef) {
         y: [Math.max(...Object.values(rating_difference_counts))],
         type: 'bar',
         name: 'Median',
+        width: 0.5,
         marker: {
             color: 'blue',
             line: {
@@ -604,9 +599,9 @@ export function callbackAwards1(chartRef, fileUrl) {
             type: 'bar',
             hovertext: awards1_filtered.map(item => `Number of movies: ${item.number_of_movies.toFixed(0)}`),
             marker: {
-                color: '#67001f'
+                color: '#d6604d'
             },
-            opacity: 1,
+            opacity: 0.75,
             orientation: 'h',
 
         }]
