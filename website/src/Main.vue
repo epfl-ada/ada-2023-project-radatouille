@@ -152,7 +152,7 @@
                             <h4 class="text-xl font-bold">Metascore</h4>
                             <p class="mt-2">
                                 The Metascore is an aggregated score resuming the rating of multiple publishers. It consists
-                                of a normalized (so relative to the other performances), <b>weighted</b> (as each publisher
+                                of a <b>normalized</b> (so relative to the other performances), <b>weighted</b> (as each publisher
                                 rates
                                 differently) <b>average</b> of the scaled (as each critic rates with a different scale)
                                 ratings.
@@ -871,6 +871,7 @@
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 mt-1" />Awards
                     </h3>
+                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">The Michelin guide of movies</h5>
                     <!-- Basic Viz -->
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
                         <div class="flex flex-col order-2 lg:order-1">
