@@ -1362,9 +1362,9 @@
                 <h2 class="text-4xl lg:text-5xl font-bold mt-16">Conclusion</h2>
                 <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Mixing it all with a yummy conclusion</h5>
                 <p class="mt-2 text-justify">
-                    Now that all of our ingredients are selected and refined, we'd like to see if mixing them together can
-                    actually enhance the results we obtain. Let's first recall the results we obtained for the most
-                    important of our metric, the adjusted R&#178;:
+                    Now that all of our ingredients are selected and refined, we’d like to see if mixing them can enhance
+                    the results we obtain. Let’s first recall the results we obtained for the most important of our metrics, 
+                    the adjusted R&#178;:
                 </p>
 
                 <table class="w-full border-slate-600 drop-shadow-lg mt-4 rounded overflow-hidden">
@@ -1392,16 +1392,14 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="mt-4">
-                    The <b>tropes</b> were indeed the most performant indicator we prepared so far, but were also a bit
-                    obscure and
-                    hard to interpret. The <b>genres</b> and <b>actors</b> are very good indicators overall. The
-                    <b>awards</b> are quite
-                    interesting too, despite their low R&#178; since they were only 5 significant awards. The <b>release
-                        year</b> is a
-                    single continuous indicator with respectable results, and the <b>countries</b> might also be very good,
-                    accounting for almost 6% of variance explained. But these metrics account for each feature
-                    independently.
+                <p class="mt-4"> 
+                    The <b>tropes</b> were indeed the most performant indicator we prepared so far but were also a bit
+                    obscure and 
+                    hard to interpret. The <b>genres</b> and <b>actors</b> are very good indicators overall. The 
+                    awards are quite interesting too, despite their low R&#178;, since they were only 5 significant awards. The <b>release
+                        year</b> is a 
+                    single continuous indicator with respectable results, and the <b>countries</b> might also be very good, 
+                    accounting for almost 6% of the variance explained. However, these metrics account for each feature independently. 
                 </p>
                 <p class="mt-4">
                     Gathering all of the mise en place from before, we keep <u>88 significant features</u> that we
@@ -1414,16 +1412,16 @@
                     <div class="flex flex-col order-1 lg:order-2">
                         <h4 class="text-xl font-bold">Pearson Correlation</h4>
                         <p class="mt-2 text-justify">
-                            Looking at the type of the significant features kept by Pearson, we see that interestingly, the
-                            Award and Country indeed appear in the rating. We observe <u>65 features are considered
-                                significant</u> (out of 88) by the Pearson test. Let's look at the type of features : 10
+                            Looking at the type of significant features kept by Pearson, we see that interestingly, the
+                            Award and Country indeed appear in the rating. We observe that <u>65 features are considered
+                                significant</u> (out of 88) by the Pearson test. Let's look at the type of features: 10
                             genres, 2 awards,
-                            4 tropes, 1 country and 1 actor, as well as the year appearing in the top 20. Let's break
+                            4 tropes, 1 country, and 1 actor, as well as the year appearing in the top 20. Let's break
                             it down.</p>
                         <p class="mt-4">
                             The blockbuster weight of the <i class="feature">USA</i> can easily explain why they appear
                             here. The genre
-                            seems to be a predominant indicator, as it could be expected from the specific analysis showing
+                            seems to be a predominant indicator, as could be expected from the specific analysis showing
                             how polarizing they are. <i class="feature">Drama</i> and <i class="feature">Black & White</i>
                             again take the lead on the critic side, and <i class="feature">Action</i> and
                             <i class="feature">Slapstick</i> are again kicking in for users.
@@ -1434,9 +1432,9 @@
                                 Butler</i>, who was not even in the top 20 of the specific Actor analysis, but appears here.
                             This can
                             be explained maybe by his roles in a lot of films appreciated more by users, from very good ones
-                            (<i>How to Train your Dragon</i>), to mediocre ones (<i>Movie 43</i>). The only film he starred
-                            in who is
-                            favored by the critics is <i>Corialanus</i>, a movie adaptation of Shakespeare's piece.
+                            (<i>How to Train your Dragon</i>) to mediocre ones (<i>Movie 43</i>). The only film he starred
+                            in that is
+                            favored by the critics is <i>Coriolanus</i>, a movie adaptation of Shakespeare's piece.
                         </p>
                         <p class="mt-4">Other than
                             that, not much is unexpected so far, and the overall robustness of the analysis is strengthened
@@ -1460,8 +1458,8 @@
                             them down to 81 significant ones to be fed to our OLS. Poor Gerard Butler didn't survive the
                             filtering, as well as the United States. There are <u>14 significant features</u> according to
                             the OLS are (out of 81), and in
-                            detail, we do see only Genre and Tropes type of features. While consistent with the specific
-                            analysis, i.e the orientation of their influence is the same, we feel like something is missing
+                            detail, we do see only Genre, and Tropes type of features. While consistent with the specific
+                            analysis, i.e. the orientation of their influence is the same, we feel like something is missing
                             in that final result.
                         </p>
                         <p class="mt-4">
@@ -1501,7 +1499,7 @@
                     <div class="flex flex-col order-1 lg:order-1 col-span-2">
                         <p>
                             To go further, we'd be honored to let future
-                            chefs add their own spices to the meal. We thought about exploring those topics too:
+                            chefs add their spices to the meal. We thought about exploring those topics too:
                         <ul class="list-disc list-inside pl-5">
                             <li>Exploring the difference between the critics themselves, since they're not grading the same
                                 way,
@@ -1510,16 +1508,16 @@
                             <li>
                                 Try to unveil the way the Metascore is weighted and computed, and why not, develop a metric
                                 to
-                                find a publisher to read based on your own taste.</li>
+                                find a publisher to read based on your taste?</li>
                             <li>
                                 Find a way to cluster users based on the score they give, be it according to the genres or
-                                another type features</li>
+                                another type of features</li>
                             <li>
                                 Explore interaction terms between the features we extracted</li>
                         </ul>
                         </p>
                         <p class="mt-4">
-                            We do hope that this dish could satisfy any Anton Ego, but in the case you have room for more,
+                            We do hope that this dish could satisfy any Anton Ego, but in case you have room for more,
                             don't hesitate to taste other projects made by the ADA teams through the years.
 
                         </p>
