@@ -96,6 +96,37 @@ def process_countries(df):
 
     return df_countries
 
+def process_languages(df):
+    """
+    Function to process the languages column of the dataset. The goal is to extract the first language of each movie.
+
+    Parameters:
+    df (DataFrame): The dataset to process
+
+    Returns:
+    df_language (DataFrame): The processed dataset with the languages column exploded
+    """
+    df_language = df.copy()
+    # Function to convert string to dictionary
+    def string_to_dict(column_string):
+        try:
+            return literal_eval(column_string)
+        except ValueError:
+            return {}
+
+    # Function to get the first value from a dictionary
+    def get_first_value_from_dict(column_data):
+        if isinstance(column_data, dict) and len(column_data) > 0:
+            return next(iter(column_data.values()))
+        return None
+
+    # Convert string representations of dictionaries to actual dictionaries
+    df_language['languages'] = df_language['languages'].apply(string_to_dict)
+    # Extract the first value for language
+    df_language['languages'] = df_language['languages'].apply(get_first_value_from_dict)
+    
+    return df_language
+
 def process_tropes(df, characters_data):
     """
     Function to process the tropes column of the dataset. The goal is to add the tropes to the dataset.
