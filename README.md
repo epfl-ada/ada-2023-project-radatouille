@@ -68,7 +68,8 @@ But since our project's goal is to compare different metrics that we don't origi
 * Tropes:
     * Found on [Github](https://github.com/dhruvilgala/tvtropes), annotated by hand from a paper:
         * Gala, D., Khursheed, M. O., Lerner, H., O'Connor, B., & Iyyer, M. (2020). Analyzing Gender Bias within Narrative Tropes. Association for Computational Linguistics. You can find more information about the paper [here](https://www.aclweb.org/anthology/2020.nlpcss-1.23).
-* We decided to work only with movies with exploitable data, i.e. data that has a freebase ID, an IMDb ID, and a Metacritic ID. We ended up with around 8'000 movies.
+
+We decided to work only with movies with exploitable data, i.e. data that has a freebase ID, an IMDb ID, and a Metacritic ID. We ended up with around 8'000 movies.
 
 
 ## Structure
