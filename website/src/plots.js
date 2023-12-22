@@ -125,7 +125,8 @@ export function callbackUser(data, chartRef) {
         marker: {
             color: '#d6604d'
         },
-        opacity: 0.75
+        opacity: 0.75,
+        showlegend: false
     }, {
         x: [data.map(item => item.imdb_rating_scaled / 10).reduce((a, b) => a + b, 0) / data.length],
         y: [Math.max(...Object.values(imdb_ratings_counts))],
@@ -166,6 +167,13 @@ export function callbackUser(data, chartRef) {
         },
         autosize: true,
         responsive: true,
+        legend: {
+            xanchor: "center",
+            yanchor: "top",
+            y: -0.3,
+            x: 0.5,
+            orientation: 'v'
+        }
     });
 }
 
@@ -182,7 +190,8 @@ export function callbackMetascore(data, chartRef) {
         marker: {
             color: '#d6604d'
         },
-        opacity: 0.75
+        opacity: 0.75,
+        showlegend: false
     }, {
         x: [data.map(item => item.metascore).reduce((a, b) => a + b, 0) / data.length],
         y: [Math.max(...Object.values(metascore_counts))],
@@ -223,6 +232,13 @@ export function callbackMetascore(data, chartRef) {
         },
         autosize: true,
         responsive: true,
+        legend: {
+            xanchor: "center",
+            yanchor: "top",
+            y: -0.3,
+            x: 0.5,
+            orientation: 'v'
+        }
     });
 }
 
@@ -330,7 +346,7 @@ export function callbackUsersCritics1(data, chartRef) {
             yanchor: "top",
             y: -0.2,
             x: 0.5,
-            orientation: 'h'
+            orientation: 'v'
         }
     };
 
@@ -350,7 +366,8 @@ export function callbackUsersCritics2(data, chartRef) {
         marker: {
             color: '#d6604d',
         },
-        opacity: 0.75
+        opacity: 0.75,
+        showlegend: false
     }, {
         x: [data.map(item => item.rating_difference).reduce((a, b) => a + b, 0) / data.length],
         y: [Math.max(...Object.values(rating_difference_counts))],
@@ -397,6 +414,13 @@ export function callbackUsersCritics2(data, chartRef) {
         },
         autosize: true,
         responsive: true,
+        legend: {
+            xanchor: "center",
+            yanchor: "top",
+            y: -0.3,
+            x: 0.5,
+            orientation: 'v'
+        }
     });
 }
 

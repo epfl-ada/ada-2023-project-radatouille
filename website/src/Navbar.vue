@@ -1,8 +1,8 @@
 <template>
-    <nav class="max-h-[100px] lg:max-h-16 flex bg-dark text-light items-center justify-between sticky top-0 left-0 w-full z-10">
-        <img src="/remy_silhouette.png" alt="Remy's silhouette" class="w-12 h-12 ml-5" />
+    <nav class="max-h-[110px]  lg:max-h-16 flex bg-dark text-light items-center justify-between sticky top-0 left-0 w-full z-10">
+        <img src="/remy_silhouette.png" alt="Remy's silhouette" class="w-16 h-16 ml-3 lg:w-12 lg:h-12 lg:ml-5" />
         <div class="flex flex-col px-5 py-10 mx-auto text-center">
-            <h1 class="text-xl font-bold">Screen Tastes: The User-Critic Divide in Cinema</h1>
+            <h1 class="text-lg lg:text-xl font-bold">Screen Tastes: The User-Critic Divide in Cinema</h1>
             <h6 class="text-xs italic text-slate-300">Served by team rADAtouille</h6>
         </div>
         <button class="cursor-pointer w-14 h-14 flex items-center justify-center " title="Open menu"

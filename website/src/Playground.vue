@@ -343,7 +343,8 @@ const updateGraph = () => {
     marker: {
       color: '#d62728',
       opacity: 0.5
-    }
+    },
+    showlegend: false
   }, {
     x: [0, 0],
     y: [0, 'max'],

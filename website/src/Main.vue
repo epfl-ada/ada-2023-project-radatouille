@@ -617,7 +617,6 @@
                                 Let's define what we're interested in: <b>the rating difference between the critics and the
                                     users</b>.
                             </p>
-                            <MathJaxEquation :equation="`$$\\text{Rating Difference} = \\text{Metascore} - \\text{IMDb Rating}$$`" />
                             <p class="mt-4">We can see
                                 from the following plot that, while this distribution looks normal, it's shifted to the left
                                 (as we said
@@ -671,7 +670,7 @@
                             <p class="mt-2">
                                 In the grand kitchen of our data-driven analysis, let's craft a narrative as we examine the
                                 intricate
-                                relationship between a film's country of origin and its critical reception. To whet our
+                                relationship between a movie's country of origin and its critical reception. To whet our
                                 appetites for
                                 understanding, we must first visually savor the prepared plots—each a dish to be dissected
                                 for its unique
@@ -697,7 +696,7 @@
                                 and its rating
                                 difference. Notice the subtle hints of positive correlations for <i
                                     class="feature">France</i> and <i class="feature">Iran</i>,
-                                suggesting that films
+                                suggesting that movies
                                 from these regions carry a certain <i>je ne sais quoi</i> that resonates with critics. On
                                 the flip side,
                                 the
@@ -705,12 +704,12 @@
                                 correlations, implying a
                                 different critical
                                 reception, perhaps due
-                                to the commercial seasoning of their film industries. <i class="feature">French
+                                to the commercial seasoning of their movie industries. <i class="feature">French
                                     movies</i>, with a <b>correlation of 0.141</b> and a
                                 <b>p-value strikingly close to zero</b>, showcase a strong positive alignment with critic
                                 ratings. <i class="feature">Iran</i> follows
                                 suit but with a lesser <b>correlation of 0.065</b>, still significant enough to suggest that
-                                its films are
+                                its movies are
                                 savored by critics. The plot also reveals the statistical significance (p-value) of these
                                 relationships,
                                 emphasizing the reliability of our findings.
@@ -754,9 +753,9 @@
                                 highlighting how
                                 controlling for other variables can change the taste profile of our data dish. Despite
                                 slight differences,
-                                it appears that critics tend to favor films that offer a distinct cultural voice, complex
+                                it appears that critics tend to favor movies that offer a distinct cultural voice, complex
                                 narratives, and
-                                a strong artistic vision—qualities that are often highlighted in French and Iranian films.
+                                a strong artistic vision—qualities that are often highlighted in French and Iranian movies.
                                 Conversely,
                                 industries known for their box office prowess, such as Hollywood and Bollywood, might
                                 prioritize elements
@@ -793,7 +792,8 @@
                             <p class="mt-2 text-justify">
                                 We can first try to plot our raw genres. This yields this very… flavorless plot. Indeed,
                                 while we can see that factually, <i class="feature">live-actions</i> are rated very harshly
-                                by critics, we don't know how significant this is. Other weird things can be seen, such as the
+                                by critics, we don't know how significant this is. Other weird things can be seen, such as
+                                the
                                 <i class="feature">Horse racing</i> genre, having a huge confidence interval, as well as the
                                 <i class="feature">World History</i>
                                 genre, whose interval spans both sides of the difference.
@@ -833,7 +833,7 @@
                                         cinema</i> or <i class="feature">Art film</i>
                                     categories.
                                     On the other
-                                    end of the spectrum, <i class="feature">Action</i> films and <i
+                                    end of the spectrum, <i class="feature">Action</i> movies and <i
                                         class="feature">Comedy</i> have the support of a wider audience.
                                     Interestingly, we do
                                     see <i class="feature">Gross-out</i> and <i class="feature">Gross-out films</i> both
@@ -866,7 +866,8 @@
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2">
-                                    It occurred that the first OLS showed a very high condition number hinting at the presence
+                                    It occurred that the first OLS showed a very high condition number hinting at the
+                                    presence
                                     of
                                     a strong multicollinearity. This threatened the interpretation of the results and
                                     required some VIF
@@ -899,7 +900,7 @@
                                     shouldn't be judged
                                     so fast. This
                                     wide confidence interval can partially be explained by the relatively low number of
-                                    films in those
+                                    movies in those
                                     categories.
                                 </p>
                             </div>
@@ -928,13 +929,13 @@
                         <div class="flex flex-col order-1 lg:order-1">
                             <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2">
-                                Another ingredient crucial to the success of our recipe is the awards a film receives. We
+                                Another ingredient crucial to the success of our recipe is the awards a movie receives. We
                                 would like to explore whether the awards the score gap between users and critics.
                                 A first sort could allow us to exhibit what types of awards display the biggest differences.
                             </p>
                             <p class="mt-4">
                                 This initial plot shows that there can be a divergence between critics' and audiences'
-                                perceptions of films. For movies with prestigious awards, like the <a
+                                perceptions of moives. For movies with prestigious awards, like the <a
                                     href="https://en.wikipedia.org/wiki/Golden_Globe_Awards" target="_blank"
                                     class="feature">Golden Globes</a> or the <a
                                     href="https://en.wikipedia.org/wiki/Academy_Awards" target="_blank"
@@ -943,7 +944,7 @@
                                     href="https://en.wikipedia.org/wiki/Golden_Raspberry_Awards" target="_blank"
                                     class="feature">Golden Raspberry
                                     (Razzie)</a> award much lower than the general audience, which seems consistent with
-                                Razzie's intention to highlight films that are generally considered bad.
+                                Razzie's intention to highlight movies that are generally considered bad.
                             </p>
                         </div>
                         <div class="flex flex-col order-2 lg:order-2 w-full">
@@ -1055,13 +1056,14 @@
                         </h5>
                         <p>
                             That's a lot to digest so far, so let's have a little break to let it sink in and prepare a
-                            little <b>hors-d'oeuvre</b>. We'd like to go into a little bit of detail about our selected “recipes”
+                            little <b>hors-d'oeuvre</b>. We'd like to go into a little bit of detail about our selected
+                            “recipes”
                             and
                             discuss them a bit.
                         </p>
                         <p class="mt-4">
                             The <b>Pearson method</b> offers simplicity and a direct taste test of correlation, but it can't
-                            account for the complex mix of ingredients that go into film ratings. It's like tasting a sauce
+                            account for the complex mix of ingredients that go into movie ratings. It's like tasting a sauce
                             before it's been fully seasoned - useful, but not the complete flavor. Its advantages lie in its
                             straightforward interpretation, but it falls short by not considering other potentially
                             confounding spices.
@@ -1133,10 +1135,11 @@
                         are strongly related. We also find a negative coefficient for years of <b>-0.19</b>, indicating
                         that
                         with
-                        each passing year, the rating difference decreases by 0.19 points. We also learned using the
+                        each passing year, the rating difference decreases by 0.19 points, and thus by 1.9 points every
+                        decade. We also learned using the
                         R&#178; value that the year explains
-                        about <b>4.1%</b> of the variance in rating difference, which is not a lot. It is <u>significant</u>
-                        but not <b>relevant</b>.
+                        about <b>4.1%</b> of the variance in rating difference, which is not a lot but still
+                        <u>significant</u>.
                     </p>
                 </section>
 
@@ -1171,7 +1174,7 @@
                                     their less
                                     renowned movies or less-performing roles were simply filtered out due to the lack of
                                     data. Indeed, a
-                                    film
+                                    movie
                                     too old might not even be rated retrospectively by critics and users if it was a
                                     forgettable experience.
                                     This phenomenon could bias them toward higher scores. This is also to be mitigated by
@@ -1213,9 +1216,9 @@
                                     this plot.
                                 </p>
                                 <p class="mt-4">Once
-                                    again, the variances are quite big, probably due to the relatively low number of films
+                                    again, the variances are quite big, probably due to the relatively low number of movies
                                     each actor's been
-                                    in compared to the total number of films and actors. A final remark must be noted too:
+                                    in compared to the total number of movies and actors. A final remark must be noted too:
                                     we can't be sure
                                     that the genres and the actors are not entangled in a way. Some actors are probably
                                     performing well in
@@ -1283,17 +1286,19 @@
                                 is indeed enough to continue our analysis. Diving into the plot, we can see funny and
                                 odd tropes
                                 standing out. What is great is that the <i class="feature">Oscar Bait</i>
-                                type of film, with a <b>correlation of 0.1</b>, is taking the highest place of the plot, meaning that indeed, this trope is a
+                                type of movie, with a <b>correlation of 0.1</b>, is taking the highest place of the plot,
+                                meaning that indeed, this trope is a
                                 significant indicator
                                 for critical reception. On the other end, <i class="feature">Ms
-                                    Fanservice</i>, with a <b>correlation of 0.11</b>, indicates that... fans like it. So far so good. This is no real surprise since these qualifiers could have
+                                    Fanservice</i>, with a <b>correlation of 0.11</b>, indicates that... fans like it. So
+                                far so good. This is no real surprise since these qualifiers could have
                                 been attributed
                                 a posteriori. In general, we can suspect that these tropes are tightly related to all other
                                 features like
                                 <i class="feature">Deliberately Monochrome</i> is way more likely to
-                                qualify art films and is likely to be considered part of
-                                an Auteur license too. On the other hand, expected tropes binded with the genre, like <i
-                                    class="feature">Slasher</i> reappears,
+                                qualify as <i class="feature">Art Film</i> and is likely to be considered part of
+                                <i class="feature">Auteur license</i> too. On the other hand, expected tropes binded with
+                                the genre, like <i class="feature">Slasher</i> reappears,
                                 reinforcing the insights provided by the Genre analysis. In general, the confidence
                                 intervals are wide,
                                 but quite constant over the sample. However, the most precise tropes standing out might be a
@@ -1330,7 +1335,8 @@
                                 outcome is
                                 even harder to interpret. Based on the metrics evaluating the regression quality, the
                                 results are good,
-                                but here we're probably limited by our projections. These results could've been expected since most
+                                but here we're probably limited by our projections. These results could've been expected
+                                since most
                                 of them are heavily tailored and strongly related to the movie's target audience. However,
                                 we do observe
                                 wider confidence intervals, giving us an insight that maybe, the variance of these rating
@@ -1338,7 +1344,7 @@
                                 high. Let's still highlight the fact that <i class="feature">Roof
                                     hopping</i> performs
                                 well to impress critics, while strangely,
-                                films like Mary Poppins and The Matrix are both part of this category. If you're curious to
+                                movies like Mary Poppins and The Matrix are both part of this category. If you're curious to
                                 know what a
                                 trope means, play around our <a href="#playground" class="underline">playground</a>
                                 at the end,
@@ -1369,14 +1375,48 @@
                     the adjusted R&#178;:
                 </p>
 
-                <table class="w-full border-slate-600 drop-shadow-lg mt-4 rounded overflow-hidden">
+                <!-- Vertical Table -->
+                <div class="block lg:hidden mt-4">
+                    <div class="flex flex-col border-b drop-shadow-xl rounded overflow-hidden">
+                        <div class="flex justify-between px-3 py-2 bg-slate-600 font-bold text-white">
+                            <div>Feature</div>
+                            <div>Adj. R²</div>
+                        </div>
+                        <div class="flex justify-between px-3 py-2 bg-slate-100">
+                            <div>Genres</div>
+                            <div>0.135</div>
+                        </div>
+                        <div class="flex justify-between px-3 py-2 bg-slate-200">
+                            <div>Actors</div>
+                            <div>0.130</div>
+                        </div>
+                        <div class="flex justify-between px-3 py-2 bg-slate-100">
+                            <div>Release data</div>
+                            <div>0.041</div>
+                        </div>
+                        <div class="flex justify-between px-3 py-2 bg-slate-200">
+                            <div>Countries</div>
+                            <div>0.059</div>
+                        </div>
+                        <div class="flex justify-between px-3 py-2 bg-slate-100">
+                            <div>Awards</div>
+                            <div>0.013</div>
+                        </div>
+                        <div class="flex justify-between p-2 bg-slate-200">
+                            <div>Tropes</div>
+                            <div>0.198</div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="hidden lg:table w-full border-slate-600 drop-shadow-lg mt-4 rounded overflow-hidden">
                     <thead>
-                        <tr class="border-slate-600 border-b-[1px] bg-slate-200 text-center lg:text-start">
-                            <th class="text-end pr-2">Feature</th>
-                            <td>Genre</td>
+                        <tr class="border-slate-600 border-b-[1px] bg-slate-600 text-white text-center lg:text-start">
+                            <th class="text-end p-1 pr-2 ">Feature</th>
+                            <td>Genres</td>
                             <td>Actors</td>
                             <td>Release date</td>
-                            <td>Country</td>
+                            <td>Countries</td>
                             <td>Awards</td>
                             <td>Tropes</td>
                         </tr>
@@ -1384,7 +1424,7 @@
 
                     <tbody>
                         <tr class="bg-slate-100">
-                            <th class="text-end pr-2">Adj. R&#178;</th>
+                            <th class="text-end p-1 pr-2">Adj. R&#178;</th>
                             <td>0.135</td>
                             <td>0.130</td>
                             <td>0.041</td>
@@ -1435,8 +1475,9 @@
                             The only actor appearing and worth mentioning is <i class="feature">Gerard
                                 Butler</i>, who was not even in the top 20 of the specific Actor analysis but appears here.
                             This can
-                            be explained maybe by his roles in a lot of films appreciated more by users, from very good ones
-                            (<i>How to Train your Dragon</i>) to mediocre ones (<i>Movie 43</i>). The only film he starred
+                            be explained maybe by his roles in a lot of movies appreciated more by users, from very good
+                            ones
+                            (<i>How to Train your Dragon</i>) to mediocre ones (<i>Movie 43</i>). The only movie he starred
                             in that is
                             favored by the critics is <i>Coriolanus</i>, a movie adaptation of Shakespeare's piece.
                         </p>
@@ -1528,7 +1569,9 @@
                             </p>
                             <p class="mt-4">
                                 We do hope that this dish could satisfy any Anton Ego, but in case you have room for more,
-                                don't hesitate to taste other projects made by the ADA teams through the years.
+                                don't hesitate to taste <a target="_blank" class="underline"
+                                    href="https://github.com/orgs/epfl-ada/repositories">other projects</a> made by the ADA
+                                teams through the years.
 
                             </p>
                         </div>
