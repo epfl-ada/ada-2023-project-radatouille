@@ -122,6 +122,6 @@ Measurement of the multicollinearity of a feature. Has been used to get rid of t
 |Antonin | <ol><li>External dataset scrapping</li><li>External dataset research</li><li>Data exploration</li><li>Statistical interpretation for OLS & Pearson</li><li>Website</li></ol>|
 |Baptiste | <ol><li>External dataset scrapping</li><li>Basic data exploration</li><li>Specific feature analysis</li></ol>|
 |Enzo     | <ol><li>Data exploration</li><li>Specific feature anlysis</li><li>Notebook formatting</li><ol>|
-|Jamil     |<ol><li>TODO</li><li>TODO</li><li>TODO</li></ol>|
+|Jamil     |<ol><li>Statistical interpretation for OLS & Pearson</li><li>Basic data exploration</li><li>Data story</li></ol>|
 |Mariella | <ol><li>Data exploration</li><li>Specific feature anlysis</li><li>Statistical interpretation of results</li></ol>|
 
