@@ -11,7 +11,36 @@ In the age of abundant cinematic content, distinguishing exceptional movies beco
 
 ## Repository Structure
 
-<insérer le truc de chat GPT>
+- `README.md`: Main documentation file of the repository, providing an overview and general instructions.
+- `milestone_2.ipynb`: Main notebook for Milestone 2.
+- `milestone_3.ipynb`: Main notebook for Milestone 3.
+- `scrap.ipynb`: Notebook for scraping scripts.
+- `utils.py`: Utilities functions used in the notebooks.
+- 📁 `website`: all files for building the website
+   - 📁 `src`: source files
+   - 📁 `public`: assets and json data
+- :file_folder: `data`:
+  - :file_folder: `external`: external data sources
+    - `metacritic_reviews.csv`: Review data scraped from Metacritic.
+    - `title.ratings.tsv`: Title ratings information from IMDb.
+    - `wikidata_awards.csv`: Award-related data scraped from Wikidata.
+    - `imdb_awards.csv`: Award-related data scraped from IMDb.
+  - :file_folder: `preprocessed`: preprocessed data
+    - `character.metadata.preprocessed.tsv`: Character metadata in a preprocessed format.
+    - `movie.metadata.preprocessed.tsv`: Movie metadata, structured and cleaned.
+  - :file_folder: `processed`: processed data
+    - `cmu_movies.csv`: Comprehensive dataset of movies.
+    - `cmu_movies_augmented.csv`: Augmented movie dataset with additional metadata.
+    - `tropes.csv`: List of tropes for our processed movies.
+    - `wikidata_awards_count.csv`: Hotencoded awards for our movies.
+  - :file_folder: `raw`: raw data files, unprocessed and in original form.
+    - `character.metadata.tsv`: Original character metadata.
+    - `movie.metadata.tsv`: Initial movie metadata file.
+    - `name.clusters.txt`: Text file containing name clusters.
+    - `plot_summaries.txt`: Raw text files of movie plot summaries.
+    - `README.txt`: Descriptive file providing details about the CMU Dataset.
+    - `tvtropes.clusters.txt`: Cluster data related to TV tropes.
+
 
 
 ## Research Questions
