@@ -638,7 +638,7 @@ export function callbackAwards1(chartRef, fileUrl) {
 
         const trace = [{
             x: data.map(item => item.rating_difference),
-            y: data.map(item => stringDivider(item.awards_received, 20, "<br>")),
+            y: data.map(item => stringDivider(item['Award'], 20, "<br>")),
             type: 'bar',
             hovertext: data.map(item => `Number of movies: ${item.number_of_movies.toFixed(0)}`),
             error_x: {

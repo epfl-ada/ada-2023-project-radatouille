@@ -35,7 +35,7 @@
                 <div>
                     <p class="text-justify mt-4 lg:max-w-screen-md">
                         As it's often said, “there is no accounting for taste”. But as flavor explorers and taste
-                        crafters, we do care about it. And as much as you're a fan of brussels sprout, everybody is not.
+                        crafters, we do care about it. And as much as you're a fan of Brussels Sprouts, everybody is not.
                         Same goes for <b>movies</b>, and a finer palate might find delicacy in other dishes than your
                         favorite
                         pasta al pesto. World renowned <b>critics</b> might disagree with <b>you</b>. But why? Is this
@@ -50,7 +50,7 @@
                         Or is this discrepancy based on something more concrete? That's the question we want to address,
                         using all the craftsmanship our kitchen brigade freshly learned. From the selection of our
                         ingredients basket to the concoction of our dish, grab your chef's hat and embark with us in
-                        this flavorful journey.
+                        this flavorful journey!
                     </p>
                 </div>
                 <h5 class="text-xl lg:text-2xl mt-4 font-semibold ml-1">The <span
@@ -139,7 +139,7 @@
                             We also got the IMDb
                             rating from the available dataset on <a class="text-red-900 underline hover:text-red-400"
                                 href="https://datasets.imdbws.com/">IMDb's
-                                website</a> and the Metascore from a scrapping of <a href="https://metacritic.com"
+                                website</a> and the Metascore from scrapping <a href="https://metacritic.com"
                                 target="_blank" class="text-red-900 underline hover:text-red-400">Metacric</a>.
                             </p>
                             <p class="mt-2">
@@ -150,18 +150,18 @@
                             <p class="mt-1">
                                 In addition to that, we also scrapped the awards nominations and wins from <a
                                     href="https://www.imdb.com/" target="_blank"
-                                    class="text-red-900 underline hover:text-red-400">IMDb</a> for each movie, in order to
+                                    class="text-red-900 underline hover:text-red-400">IMDb</a> for each movie, to
                                 create the <a href="#awards" class="underline">Awards</a> ingredient.
                             </p>
 
                             <h6 class="text-lg font-bold mt-4">Tropes</h6>
                             <p class="mt-1">
-                                And for our last ingredient, we also used <a href="https://github.com/dhruvilgala/tvtropes"
+                                For our last ingredient, we also used <a href="https://github.com/dhruvilgala/tvtropes"
                                     target="_blank" class="text-red-900 underline hover:text-red-400">an external
                                     dataset</a>
                                 associating
-                                tropes to <b>2495 movies</b> out of our 7'770 movies, in order to create the <a
-                                    href="#tropes" class="underline">Tropes</a> ingredient.
+                                tropes to <b>2495 movies</b> out of our 7'770 movies, to create the <a href="#tropes"
+                                    class="underline">Tropes</a> ingredient.
                             </p>
                         </div>
                     </div>
@@ -292,13 +292,13 @@
                                                 leave-from="tab-leave-from" as="template">
                                                 <div class="flex flex-col lg:flex-row bg-slate-200 w-full h-full">
                                                     <div class="flex flex-col w-full lg:w-1/2 px-5 lg:px-8 h-full py-6 ">
-                                                        <h4 class="text-xl font-bold">T-Test</h4>
+                                                        <h4 class="text-xl font-bold">T-test</h4>
                                                         <p class="mt-2">
                                                             Basic statistics are conducted using the <b>p-value threshold of
                                                                 0.05</b> to
                                                             determine if the
-                                                            imdb users and
-                                                            metascore
+                                                            IMDb users and
+                                                            Metascore
                                                             rating distribution have a significantly different mean.
                                                         </p>
                                                     </div>
@@ -392,11 +392,10 @@
                                                             metrics
                                                             (F-Statistics,
                                                             adjusted R&#178;,
-                                                            condition number, …) inspected to judge the relevancy of the
+                                                            condition number, ...) inspected to judge the relevancy of the
                                                             model
-                                                            itself,
-                                                            and
-                                                            the
+                                                            itself.
+                                                            The
                                                             results have
                                                             been
                                                             selected based on their p-value significance, using once more
@@ -472,7 +471,7 @@
                                                                 the
                                                                 hyperparameter
                                                                 <b>alpha</b>
-                                                                allows to produce a refined velouté.
+                                                                allows us to produce a refined velouté.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -518,7 +517,7 @@
                                                             of
                                                             the
                                                             already
-                                                            pearson
+                                                            Pearson
                                                             significant features
                                                             and filtered out the ones with a VIF higher than 5.
                                                         </p>
@@ -527,7 +526,6 @@
                                                         class="flex flex-col w-full lg:w-1/2 px-0 lg:px-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
-
                                                             <p>
                                                                 <span class="font-bold">
                                                                     Grandma's Hack:</span> <br>To detect multicollinear
@@ -577,7 +575,7 @@
 
                 <section id="noodles" class="section  text-justify">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-8 items-center text-start">
-                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Instantaneous Noodles and T-Taste
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Instantaneous Noodles and T-taste
                     </h3>
                     <div class="grid lg:grid-cols-2 mt-8 w-full gap-5">
                         <div class="flex flex-col order-1 lg:order-1">
@@ -597,13 +595,9 @@
                                 user's ones
                                 are around 70% of the max score. We can see that there are some outliers of course, but also
                                 that
-                                sometimes, the critics and the users don't agree, for example, if we take a look at the top
-                                left quadrant
-                                (where users find the movies better than the average and the critics find the movies worse
-                                than the
-                                average) and at the bottom right quadrant (where the users find the movies worse than the
-                                average and the
-                                critics find the movies better than on average).
+                                sometimes, the critics and the users don't agree, for example, if we take a look at the part
+                                above the diagonal line (x=y), the user gave a better grade than the critics, and the
+                                opposite is true for the bottom part.
                             </p>
                         </div>
                         <div class="flex flex-col order-2 lg:order-2 w-full">
@@ -624,13 +618,13 @@
                             <p class="mt-4">We can see
                                 from the following plot that, while this distribution looks normal, it's shifted to the left
                                 (as we said
-                                before the
-                                user tends to slightly grade more generously than the critics, which means that when making
+                                before
+                                users tend to slightly grade more generously than critics, which means that when making
                                 the difference
                                 we end up with a negative mean).
                             </p>
                             <p class="mt-4">
-                                Running a T-Test allows us to affirm that those distributions are normal,
+                                Running a t-test allows us to affirm that those distributions are normal,
                                 and more
                                 interestingly, the <u>rating difference is significant</u>. It's worth studying and
                                 analyzing it deeper.
@@ -696,7 +690,7 @@
                                 cinematic output,
                                 taking into account only one variable at a time. Each bar, with its confidence interval
                                 whiskers,
-                                indicates the strength and direction of the relationship between a film's country of origin
+                                indicates the strength and direction of the relationship between a movie's country of origin
                                 and its rating
                                 difference. Notice the subtle hints of positive correlations for <i
                                     class="feature">France</i> and <i class="feature">Iran</i>,
@@ -735,21 +729,21 @@
                                 coefficients. This
                                 plot refines this relationship by controlling for multiple variables. Here, we see <i
                                     class="feature">Iran</i>'s <b>coefficient
-                                    soaring to 7.383</b>, a testament to its films' critical acclaim when other factors are
+                                    soaring to 7.383</b>, a testament to its movies' critical acclaim when other factors are
                                 constant. This
                                 is
                                 contrasted by the <i class="feature">United States</i>, which sees a
                                 <b>negative
                                     coefficient of -5.8119</b>, painting a picture of a
-                                cinematic giant whose films are, perhaps, too rich in mainstream appeal for the critic's
+                                cinematic giant whose movies are, perhaps, too rich in mainstream appeal for the critic's
                                 more selective
                                 taste.Iran's positive coefficient is robust, further validating the country's standing with
                                 critics. The
                                 negative coefficients for powerhouses like the <i class="feature">United
                                     States</i> and
-                                India are stark, reinforcing the
+                                <i class="feature">India</i> are stark, reinforcing the
                                 narrative that commercial success is not a guaranteed recipe for critical acclaim. Comparing
-                                the with the
+                                the OLS coefficient with the
                                 Pearson correlation, we note a shift in the order of countries and the magnitude of their
                                 influence. For
                                 example, while <i class="feature">France</i> tops the Pearson plot, <i
@@ -792,12 +786,11 @@
                     <!-- Basic Viz -->
                     <div class="grid lg:grid-cols-2 mt-5 w-full gap-5">
                         <div class="flex flex-col order-1 lg:order-1">
-                            <h4 class="text-xl font-bold">Vizual Appetizer</h4>
+                            <h4 class="text-xl font-bold">Visual Appetizer</h4>
                             <p class="mt-2 text-justify">
                                 We can first try to plot our raw genres. This yields this very… flavorless plot. Indeed,
                                 while we can see that factually, <i class="feature">live-actions</i> are rated very harshly
-                                by critics, we don't
-                                really know how significant this really is. Other weird things can be seen, such as the
+                                by critics, we don't know how significant this is. Other weird things can be seen, such as the
                                 <i class="feature">Horse racing</i> genre, having a huge confidence interval, as well as the
                                 <i class="feature">World History</i>
                                 genre, whose interval spans both sides of the difference.
@@ -870,7 +863,7 @@
                             <div>
                                 <h4 class="text-xl font-bold">Ordinary Least Squares (OLS)</h4>
                                 <p class="mt-2">
-                                    It occured that the first OLS's showed a very high condition number hinting the presence
+                                    It occurred that the first OLS showed a very high condition number hinting at the presence
                                     of
                                     a strong multicollinearity. This threatened the interpretation of the results and
                                     required some VIF
@@ -1611,11 +1604,12 @@
   
   
 <script setup>
-import { onMounted, ref, defineAsyncComponent } from 'vue';
+import { onMounted, ref, defineAsyncComponent, defineComponent } from 'vue';
 import { BookmarkIcon } from "@heroicons/vue/24/solid"
 import { TabGroup, TabList, Tab, TabPanels, TabPanel, TransitionRoot, TransitionChild } from '@headlessui/vue'
 import * as plotFunctions from './plots.js'
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 
 const Playground = defineAsyncComponent(() => import('./Playground.vue'));
 const TabsSection = defineAsyncComponent(() => import('./TabsSection.vue'));

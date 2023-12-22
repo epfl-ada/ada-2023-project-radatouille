@@ -2,12 +2,12 @@
   <div class="flex flex-col gap-2 pt-6">
     <select v-model="selectedCriteriaType" @change="updateCriteria"
       class="p-3 rounded-xl bg-slate-700 text-white font-semibold">
-      <option value="genre">Genre</option>
-      <option value="actor">Actor</option>
+      <option value="genre">Genres</option>
+      <option value="actor">Actors</option>
       <option value="trope">Tropes</option>
-      <option value="award">Award</option>
+      <option value="award">Awards</option>
       <option value="country">Countries</option>
-      <option value="year">Year</option>
+      <option value="year">Years</option>
     </select>
 
     <div class="flex gap-3">

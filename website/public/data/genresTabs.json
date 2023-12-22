@@ -43,7 +43,7 @@
         "id": 3,
         "name": "Drama",
         "title": "Drama",
-        "content": "Drama movies are known for their focus on character development and complex narratives, often featuring realistic characters and settings. These movies, like <a href=\"https://en.wikipedia.org/wiki/Titanic_(1997_film)\">Titanic</a> or <a href=\"https://en.wikipedia.org/wiki/The_Shawshank_Redemption\">The Shawshank Redemption</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy drama movies than users. The confidence interval is quite small since its the most represented genre in the dataset.",
+        "content": "Drama movies are known for their focus on character development and complex narratives, often featuring realistic characters and settings. These movies, like <a href=\"https://en.wikipedia.org/wiki/Titanic_(1997_film)\">Titanic</a> or <a href=\"https://en.wikipedia.org/wiki/The_Shawshank_Redemption\">The Shawshank Redemption</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy drama movies than users. The confidence interval is quite small since it is the most represented genre in the dataset.",
         "image": "https://wwwimage-us.pplusstatic.com/thumbnails/photos/w370-q80/movie_asset/62/86/86/titan_us_1997_sa_poster_1400x2100_nb.jpg",
         "image_aspect": "square",
         "image_position": "top",
@@ -64,7 +64,7 @@
         "id": 4,
         "name": "Action",
         "title": "Action",
-        "content": "Action movies are known for their fast-paced plots, often featuring high-stakes conflict and intense action sequences. These movies, like <a href=\"https://en.wikipedia.org/wiki/The_Dark_Knight_(film)\">The Dark Knight</a> or <a href=\"https://en.wikipedia.org/wiki/The_Matrix\">The Matrix</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy action movies than users. The confidence interval is quite small since its one of the most represented genre in the dataset.",
+        "content": "Action movies are known for their fast-paced plots, often featuring high-stakes conflict and intense action sequences. These movies, like <a href=\"https://en.wikipedia.org/wiki/The_Dark_Knight_(film)\">The Dark Knight</a> or <a href=\"https://en.wikipedia.org/wiki/The_Matrix\">The Matrix</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy action movies than users. The confidence interval is quite small since it is one of the most represented genres in the dataset.",
         "image": "https://cdn.athlonoutdoors.com/wp-content/uploads/sites/15/2020/10/80saction1.jpg",
         "image_aspect": "square",
         "movies": [
@@ -84,7 +84,7 @@
         "id": 5,
         "name": "Gross-out",
         "title": "Gross-out",
-        "content": "The gross-out movie genre is known for its crude and explicit humor, aiming to provoke strong reactions through shock or disgust. These movies, like <a href=\"https://en.wikipedia.org/wiki/American_Pie_(film)\">American Pie</a> or <a href=\"https://en.wikipedia.org/wiki/There%27s_Something_About_Mary\">There's Something About Mary</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy gross-out movies than users. The confidence interval is quite small since its one of the most represented genre in the dataset.",
+        "content": "The gross-out movie genre is known for its crude and explicit humor, aiming to provoke strong reactions through shock or disgust. These movies, like <a href=\"https://en.wikipedia.org/wiki/American_Pie_(film)\">American Pie</a> or <a href=\"https://en.wikipedia.org/wiki/There%27s_Something_About_Mary\">There's Something About Mary</a>, are often considered classics, with a focus on storytelling and character development. The OLS coefficient is quite high, meaning that critics are more likely to enjoy gross-out movies than users. The confidence interval is quite small since it is one of the most represented genres in the dataset.",
         "image": "https://media.services.cinergy.ch/media/box1600/8261f327a17d90a5acc9841077e96c23e83ee0d4.jpg",
         "image_aspect": "square",
         "movies": [
@@ -104,7 +104,7 @@
         "id": 6,
         "name": "Slapstick",
         "title": "Slapstick",
-        "content": "Slapstick movies are known for exaggerated physical comedy, visual gags, and absurd humor, often featuring pratfalls and slapstick violence. Classics like Charlie Chaplin's works or <a href=\"https://en.wikipedia.org/wiki/Home_Alone\">Home Alone</a> exemplify the genre's enduring appeal in providing lighthearted entertainment through playful and exaggerated humor. These two examples may also illustrate why this genre is slightly preferred by users. While that kind of humor might always work on users, critics often get bored when using the same pattern over and over, leading to good scores to first movies of the genre, and lower scores for more recent ones.",
+        "content": "Slapstick movies are known for exaggerated physical comedy, visual gags, and absurd humor, often featuring pratfalls and slapstick violence. Classics like Charlie Chaplin's works or <a href=\"https://en.wikipedia.org/wiki/Home_Alone\">Home Alone</a> exemplify the genre's enduring appeal in providing lighthearted entertainment through playful and exaggerated humor. These two examples may also illustrate why this genre is slightly preferred by users. While that kind of humor might always work on users, critics often get bored when using the same pattern over and over, leading to good scores for first movies of the genre, and lower scores for more recent ones.",
         "image": "https://lumiere-a.akamaihd.net/v1/images/image_ed8d7a4e.jpeg?region=0%2C0%2C800%2C1200",
         "image_aspect": "square",
         "movies": [
@@ -124,7 +124,7 @@
         "id": 7,
         "name": "Bollywood",
         "title": "Bollywood",
-        "content": "Bollywood genre movies offer a diverse mix of colorful musicals, intense action, and heartfelt dramas. It's possible to assimilate this genre to American superproduction, but may fail to encompass the richness of the genre. Logically more turned to mass consumption, the logical result is a negative coefficient, toward users, but the high variance could be explained by the culture of the IMDb user base, since most of them might simply not grasp the qualities of Bollywood movies, since they're not aimed to occidental public. This reminds us that this study is logically centered on western culture, from the origin of the data to the ratings themselves.",
+        "content": "Bollywood genre movies offer a diverse mix of colorful musicals, intense action, and heartfelt dramas. It's possible to assimilate this genre into American superproduction, but may fail to encompass the richness of the genre. Logically more turned to mass consumption, the logical result is a negative coefficient, toward users, but the high variance could be explained by the culture of the IMDb user base, since most of them might simply not grasp the qualities of Bollywood movies, since they're not aimed to occidental public. This reminds us that this study is logically centered on Western culture, from the origin of the data to the ratings themselves.",
         "image": "https://variety.com/wp-content/uploads/2023/09/Jawan1.jpg?w=1000",
         "image_aspect": "square",
         "movies": [
