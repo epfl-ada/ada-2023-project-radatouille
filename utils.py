@@ -101,10 +101,10 @@ def process_languages(df):
     Function to process the languages column of the dataset. The goal is to extract the first language of each movie.
 
     Parameters:
-    df (DataFrame): The dataset to process
+        df (DataFrame): The dataset to process
 
     Returns:
-    df_language (DataFrame): The processed dataset with the languages column exploded
+        df_language (DataFrame): The processed dataset with the languages column exploded
     """
     df_language = df.copy()
     # Function to convert string to dictionary
@@ -132,11 +132,11 @@ def process_tropes(df, characters_data):
     Function to process the tropes column of the dataset. The goal is to add the tropes to the dataset.
     
     Parameters:
-    df (DataFrame): The dataset to process
-    characters_data (DataFrame): The characters dataset
+        df (DataFrame): The dataset to process
+        characters_data (DataFrame): The characters dataset
     
     Returns:
-    df_tropes (DataFrame): The processed dataset with the tropes column exploded
+        df_tropes (DataFrame): The processed dataset with the tropes column exploded
     """
 
     def extract_character(character):
@@ -144,11 +144,12 @@ def process_tropes(df, characters_data):
         Extracts character information from a dictionary.
 
         Parameters:
-        character_dict (dict): A dictionary containing character details.
+            character_dict (dict): A dictionary containing character details.
 
         Returns:
-        tuple: A tuple with extracted character details.
+            tuple: A tuple with extracted character details.
         """
+
         character_dict = json.loads(character)
         character_name = character_dict.get("char", "Unknown")
         movie_title = character_dict.get("movie", "Unknown")
@@ -177,13 +178,13 @@ def hotencode(df, column, id_column, prefix='onehot'):
     It's useful to use a categorical column as a feature in a regression model.
 
     Parameters:
-    df (DataFrame): The dataset to process
-    column (str): The column to one-hot encode
-    id_column (str): The column to use as index
-    prefix (str): The prefix to use for the new columns - by default 'onehot'
+        df (DataFrame): The dataset to process
+        column (str): The column to one-hot encode
+        id_column (str): The column to use as index
+        prefix (str): The prefix to use for the new columns - by default 'onehot'
 
     Returns:
-    one_hot_df (DataFrame): The one-hot encoded dataset
+        one_hot_df (DataFrame): The one-hot encoded dataset
     """
 
     df_filtered = df[[id_column, column]]
@@ -203,16 +204,17 @@ def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_r
     Function to perform an OLS (Ordinary Least Squares) regression model.
 
     Parameters: 
-    df (DataFrame): The dataset to process
-    X_columns (list): The list of features to use
-    y_column (str): The target variable
-    regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
-    alpha (float): The regularization parameter
-    print_results (bool): Whether to print the results or not
+        df (DataFrame): The dataset to process
+        X_columns (list): The list of features to use
+        y_column (str): The target variable
+        regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
+        alpha (float): The regularization parameter
+        print_results (bool): Whether to print the results or not
 
     Returns:
-    fitted_model (regression model): The fitted regression model
+        fitted_model (regression model): The fitted regression model
     """
+    
     # Create the model
     x = df[X_columns]
     y = df[y_column]
@@ -226,14 +228,12 @@ def perform_OLS(df, X_columns, y_column, regularization=None, alpha=1.0, print_r
         pinv_wexog,_ = pinv_extended(model.wexog)
         normalized_cov_params = np.dot(pinv_wexog, np.transpose(pinv_wexog))
         fitted_model = sm.regression.linear_model.OLSResults(model, results_fr.params, normalized_cov_params)
-
     elif regularization == 'l2':
         # Ridge
         results_fr = model.fit_regularized(method='elastic_net', L1_wt=0, alpha=alpha)
         pinv_wexog,_ = pinv_extended(model.wexog)
         normalized_cov_params = np.dot(pinv_wexog, np.transpose(pinv_wexog))
         fitted_model = sm.regression.linear_model.OLSResults(model, results_fr.params, normalized_cov_params)
-
     else:
         # No regularization
         fitted_model = model.fit()
@@ -267,24 +267,24 @@ def study_OLS(
     The function also plots the QQ plot and the barplot of the significant results with the confidence interval.
 
     Parameters:
-    df (DataFrame): The dataset to process
-    X_columns (list): The list of features to use
-    y_column (str): The target variable
-    colname (str): The name of the column to use for the barplot
-    regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
-    alpha (float): The regularization parameter
-    threshold (float): The threshold to use for check if a feature is significant (t-test)
-    print_results (bool): Whether to print the results or not
-    plot_barplot (bool): Whether to plot the barplot or not
-    print_qq (bool): Whether to print the QQ plot or not
-    print_baseline (bool): Whether to print the baseline comparison or not
-    map_columns_name (function): A function to map the column names
-    title (str): The title of the barplot
-    limit_tops (int): The number of top and bottom features to display
+        df (DataFrame): The dataset to process
+        X_columns (list): The list of features to use
+        y_column (str): The target variable
+        colname (str): The name of the column to use for the barplot
+        regularization (str): The regularization method to use - either 'l1' (Lasso) or 'l2' (Ridge)
+        alpha (float): The regularization parameter
+        threshold (float): The threshold to use for check if a feature is significant (t-test)
+        print_results (bool): Whether to print the results or not
+        plot_barplot (bool): Whether to plot the barplot or not
+        print_qq (bool): Whether to print the QQ plot or not
+        print_baseline (bool): Whether to print the baseline comparison or not
+        map_columns_name (function): A function to map the column names
+        title (str): The title of the barplot
+        limit_tops (int): The number of top and bottom features to display
 
     Returns:
-    significant_results (DataFrame): The significant results
-    significant_columns (list): The list of significant columns
+        significant_results (DataFrame): The significant results
+        significant_columns (list): The list of significant columns
     """
 
     # Perform OLS
@@ -356,21 +356,22 @@ def study_pearson(
     The function also plots the barplot of the significant results with the confidence interval.
 
     Parameters:
-    df (DataFrame): The dataset to process
-    X_columns (list): The list of features to use
-    y_column (str): The target variable
-    colname (str): The name of the column to use for the barplot
-    threshold (float): The threshold to use for check if a feature is significant (t-test)
-    print_results (bool): Whether to print the results or not
-    plot_barplot (bool): Whether to plot the barplot or not
-    title (str): The title of the barplot
-    map_columns_name (function): A function to map the column names
-    limit_tops (int): The number of top and bottom features to display
+        df (DataFrame): The dataset to process
+        X_columns (list): The list of features to use
+        y_column (str): The target variable
+        colname (str): The name of the column to use for the barplot
+        threshold (float): The threshold to use for check if a feature is significant (t-test)
+        print_results (bool): Whether to print the results or not
+        plot_barplot (bool): Whether to plot the barplot or not
+        title (str): The title of the barplot
+        map_columns_name (function): A function to map the column names
+        limit_tops (int): The number of top and bottom features to display
 
     Returns:
-    significant_results (DataFrame): The significant results
-    significant_columns (list): The list of significant columns
+        significant_results (DataFrame): The significant results
+        significant_columns (list): The list of significant columns
     """
+    
     # Perform Pearson correlation test
     results = perform_pearsonr(df, X_columns, y_column, print_results=False)
 
@@ -424,12 +425,12 @@ def plot_qq(model, X, y):
     The QQ plot allows to check if the residuals are normally distributed.
 
     Parameters:
-    model (regression model): The fitted regression model.
-    X (DataFrame): The input features.
-    y (Series): The target variable.
+        model (regression model): The fitted regression model.
+        X (DataFrame): The input features.
+        y (Series): The target variable.
 
     Returns:
-    None
+        None
     """
 
     # Add constant to X
@@ -454,12 +455,12 @@ def list_significant_values(model_summary, threshold=0.05, print_results=True):
     Function to list the significant values of a regression model.
 
     Parameters:
-    model_summary (regression model summary): The summary of the regression model.
-    threshold (float): The threshold to use for check if a feature is significant (t-test)
-    print_results (bool): Whether to print the results or not
+        model_summary (regression model summary): The summary of the regression model.
+        threshold (float): The threshold to use for check if a feature is significant (t-test)
+        print_results (bool): Whether to print the results or not
 
     Returns:
-    significant_values_df (DataFrame): The DataFrame containing the significant values
+        significant_values_df (DataFrame): The DataFrame containing the significant values
     """
     # Create a DataFrame with the significant feature from the model summary
     significant_values = []
@@ -491,13 +492,13 @@ def perform_pearsonr(df, columns, target_column, print_results=False):
     The Pearson correlation test allows to check the correlation between two variables.
 
     Parameters:
-    df (DataFrame): The dataset to process
-    columns (list): The list of features to use
-    target_column (str): The target variable
-    print_results (bool): Whether to print the results or not
+        df (DataFrame): The dataset to process
+        columns (list): The list of features to use
+        target_column (str): The target variable
+        print_results (bool): Whether to print the results or not
 
     Returns:
-    results_df (DataFrame): The DataFrame containing the correlation results
+       results_df (DataFrame): The DataFrame containing the correlation results
     """
     # Create a dictionary to store the results
     correlation_results = {}
@@ -536,13 +537,13 @@ def list_movies_of_actor(df_actors, df_movies, actor_id, limit=None):
     Function to list the movies of an actor.
 
     Parameters:
-    df_actors (DataFrame): The actors dataset
-    df_movies (DataFrame): The movies dataset
-    actor_id (str): The id of the actor
-    limit (int): The number of movies to return
+        df_actors (DataFrame): The actors dataset
+        df_movies (DataFrame): The movies dataset
+        actor_id (str): The id of the actor
+        limit (int): The number of movies to return
 
     Returns:
-    df_movies (DataFrame): The movies of the actor
+        df_movies (DataFrame): The movies of the actor
     """
     # Get the movies ids of the actor
     movies_ids = df_actors[df_actors['freebase_actor_id'] == actor_id]['wikipedia_id'].unique()
@@ -561,14 +562,14 @@ def plot_results(df, y_column, x_column, title, figsize=(10, 5)):
     The plot can is a horizontal bar plot with the confidence interval.
 
     Parameters:
-    df (DataFrame): The dataset where the results to plot are stored
-    y_column (str): The column to use for the y-axis
-    x_column (str): The column to use for the x-axis
-    title (str): The title of the plot
-    figsize (tuple): The size of the plot (width, height) - by default (10, 5)
+        df (DataFrame): The dataset where the results to plot are stored
+        y_column (str): The column to use for the y-axis
+        x_column (str): The column to use for the x-axis
+        title (str): The title of the plot
+        figsize (tuple): The size of the plot (width, height) - by default (10, 5)
 
     Returns:
-    None
+        None
     """
     results = df.copy()
 
@@ -655,14 +656,14 @@ def compare_baseline(model, df, X_columns, y_column, print_results=True):
     Function to compare the baseline model (mean predictor) with the regression model.
 
     Parameters:
-    model (regression model): The fitted regression model
-    df (DataFrame): The dataset where the features are stored
-    X_columns (list): The list of features to process
-    y_column (str): The target variable
-    print_results (bool): Whether to print the results or not
+        model (regression model): The fitted regression model
+        df (DataFrame): The dataset where the features are stored
+        X_columns (list): The list of features to process
+        y_column (str): The target variable
+        print_results (bool): Whether to print the results or not
 
     Returns:
-    None
+        None
     """
     # Get the features and target variable
     X = df[X_columns]
@@ -710,12 +711,13 @@ def export_json(df, filename):
     This function is used to export data for the visualization on website. 
 
     Parameters:
-    df (DataFrame): The dataset to export
-    filename (str): The name of the JSON file
+        df (DataFrame): The dataset to export
+        filename (str): The name of the JSON file
 
     Returns:
-    None
+        None
     """
+    
     # Add the standard error column
     if 'coef' in df.columns and 'sem' not in df.columns and 'upper_ci' in df.columns:
         df['sem'] = df['upper_ci'] - df['coef'] 
@@ -730,13 +732,14 @@ def plot_specific_scatter(df, column, value):
     Function to plot a scatterplot and rating_difference distribution for a specific feature value.
 
     Parameters:
-    df (DataFrame): The dataset to use
-    column (str): The column to use as specific feature (like genre, country, etc.)
-    value (str): The value to use for filtering the specific feature
+        df (DataFrame): The dataset to use
+        column (str): The column to use as specific feature (like genre, country, etc.)
+        value (str): The value to use for filtering the specific feature
 
     Returns:
-    None
+        None
     """
+    
     # Filter the dataset
     df_value = df[df[column] == value]
     fig, ax = plt.subplots(1, 2, figsize=(12,5))
