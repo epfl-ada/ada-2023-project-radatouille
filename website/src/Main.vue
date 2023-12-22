@@ -61,52 +61,52 @@
                         <h5 class="font-semibold text-center">Remy</h5>
                     </div>
                     <div class="w-full flex flex-col h-full mt-10">
-                        <div class="w-full relative">
+                        <div class="w-full relative hover:rotate-[-5deg] transition duration-300 hover:scale-105">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[48%] left-[35%] w-[50%] h-full object-contain lg:max-h-none z-[2] -scale-x-100" />
                         <img src="/antonin2.jpg" alt="antonin"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                         </div>
                         <h5 class="font-semibold text-center">Antonin Faure</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
 
                     <div class="w-full flex flex-col h-full mt-6 md:mt-10">
-                        <div class="w-full relative">
+                        <div class="w-full relative hover:rotate-[5deg] transition duration-300 hover:scale-105">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/baptiste.jpg" alt="baptiste"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                             </div>
                         <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
                     <div class="w-full flex flex-col h-full mt-6 md:mt-10">
-                        <div class="w-full relative">
+                        <div class="w-full relative hover:rotate-[-5deg] transition duration-300 hover:scale-105">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/enzo.jpeg" alt="enzo"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                             </div>
                         <h5 class="font-semibold text-center">Enzo Palmisano</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full md:mt-10">
-                        <div class="w-full relative">
+                        <div class="w-full relative hover:rotate-[5deg] transition duration-300 hover:scale-105">
                             <img src="/toque.png" alt="toque"
                                 class="absolute -top-[25%] left-[18%] rotate-[8deg] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
                             <img src="/jamil.jpeg" alt="jamil"
-                                class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                                class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                         </div>
                         <h5 class="font-semibold text-center">Jamil Maj</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full md:mt-10">
-                        <div class="w-full relative">
+                        <div class="w-full relative hover:rotate-[-5deg] transition duration-300 hover:scale-105">
                             <img src="/toque.png" alt="toque"
                                 class="absolute -top-[34%] left-[23%] rotate-[-30deg] w-[50%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                             <img src="/mariella.jpeg" alt="mariella"
-                                class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                                class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                         </div>
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
                         <h6 class="text-center italic">Master in Digital Humanities</h6>
