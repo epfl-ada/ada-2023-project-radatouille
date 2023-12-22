@@ -626,21 +626,44 @@ export function callbackAwards1(chartRef, fileUrl) {
     fetchData(fileUrl).then(data => {
 
         data.sort((a, b) => {
-            return a.number_of_movies - b.number_of_movies;
+            return a.rating_difference - b.rating_difference;
         });
 
-        // keep the top 10 and bottom 10
-        let bottom = data.slice(0, 10);
-        let top = data.slice(-10);
-        let awards1_filtered = bottom.concat(top);
+        const maxAbsValue = Math.max(...data.map(item => Math.abs(item.rating_difference)));
+
+        const normalizedColors = data.map(item => item.rating_difference / maxAbsValue);
+
+        const lower_ci = data.map(item => item['lower_ci'] ? item['rating_difference'] - item['lower_ci'] : item['sem'] * 1.96)
+        const upper_ci = data.map(item => item['upper_ci'] ? item['upper_ci'] - item['rating_difference'] : item['sem'] * 1.96)
 
         const trace = [{
-            x: awards1_filtered.map(item => item.number_of_movies),
-            y: awards1_filtered.map(item => stringDivider(item.awards_received, 20, "<br>")),
+            x: data.map(item => item.rating_difference),
+            y: data.map(item => stringDivider(item.awards_received, 20, "<br>")),
             type: 'bar',
-            hovertext: awards1_filtered.map(item => `Number of movies: ${item.number_of_movies.toFixed(0)}`),
+            hovertext: data.map(item => `Number of movies: ${item.number_of_movies.toFixed(0)}`),
+            error_x: {
+                type: 'data',
+                symetric: false,
+                array: upper_ci,
+                arrayminus: lower_ci,
+                visible: true
+            },
             marker: {
-                color: '#d6604d'
+                color: normalizedColors,
+                colorscale: flareColorScale,
+                cmin: -1,
+                cmax: 1,
+                showscale: true,
+                colorbar: {
+                    tickvals: [-1, 0, 1],
+                    ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                    tickwidth: 0.5,
+                    thickness: 15,
+                    orientation: 'h',
+                    yanchor: 'bottom',
+                    y: 0,
+                    yref: 'container',
+                }
             },
             opacity: 0.75,
             orientation: 'h',
@@ -648,9 +671,9 @@ export function callbackAwards1(chartRef, fileUrl) {
         }]
 
         plotChart(chartRef, trace, {
-            title: 'Number of movies per Award',
+            title: 'Average rating diffence of Awards',
             xaxis: {
-                title: 'Number of movies',
+                title: 'Rating difference',
                 automargin: true
             },
             yaxis: {
@@ -663,6 +686,23 @@ export function callbackAwards1(chartRef, fileUrl) {
                 tickcolor: 'white',
                 tickfont: {
                     size: 11
+                }
+            },
+            marker: {
+                color: normalizedColors,
+                colorscale: flareColorScale,
+                cmin: -1,
+                cmax: 1,
+                showscale: true,
+                colorbar: {
+                    tickvals: [-1, 0, 1],
+                    ticktext: ['Users<br>Oriented', '', 'Critics<br>Oriented'],
+                    tickwidth: 0.5,
+                    thickness: 15,
+                    orientation: 'h',
+                    yanchor: 'bottom',
+                    y: 0,
+                    yref: 'container',
                 }
             },
             autosize: true,
