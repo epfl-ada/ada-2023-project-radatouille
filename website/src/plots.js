@@ -170,7 +170,8 @@ export function callbackUser(data, chartRef) {
         legend: {
             xanchor: "center",
             yanchor: "top",
-            y: -0.3,
+            yref: "container",
+            y: 0.15,
             x: 0.5,
             orientation: 'v'
         }
@@ -235,7 +236,8 @@ export function callbackMetascore(data, chartRef) {
         legend: {
             xanchor: "center",
             yanchor: "top",
-            y: -0.3,
+            yref: "container",
+            y: 0.15,
             x: 0.5,
             orientation: 'v'
         }
@@ -344,7 +346,8 @@ export function callbackUsersCritics1(data, chartRef) {
         legend: {
             xanchor: "center",
             yanchor: "top",
-            y: -0.2,
+            yref: "container",
+            y: 0.15,
             x: 0.5,
             orientation: 'v'
         }
@@ -417,7 +420,8 @@ export function callbackUsersCritics2(data, chartRef) {
         legend: {
             xanchor: "center",
             yanchor: "top",
-            y: -0.3,
+            yref: "container",
+            y: 0.15,
             x: 0.5,
             orientation: 'v'
         }
