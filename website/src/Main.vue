@@ -98,7 +98,7 @@
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
-                        <img src="/remy.png" alt="mariella"
+                        <img src="/mariella.jpeg" alt="mariella"
                             class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
                         <h6 class="text-center italic">Master in Digital Humanities</h6>
