@@ -927,7 +927,7 @@
                             <p class="mt-2">
                                 Another ingredient crucial to the success of our recipe is the awards a film receives. We
                                 would like to explore whether the awards the score gap between users and critics.
-                                A first sort could allow us to exhibit what type of awards display the biggest differences.
+                                A first sort could allow us to exhibit what types of awards display the biggest differences.
                             </p>
                             <p class="mt-4">
                                 This initial plot shows that there can be a divergence between critics' and audiences'
