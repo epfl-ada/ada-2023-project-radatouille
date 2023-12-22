@@ -125,3 +125,6 @@ Measurement of the multicollinearity of a feature. Has been used to get rid of t
 |Jamil     |<ol><li>Statistical interpretation for OLS & Pearson</li><li>Basic data exploration</li><li>Data story</li></ol>|
 |Mariella | <ol><li>Data exploration</li><li>Specific feature analysis</li><li>Statistical interpretation of results</li></ol>|
 
+## Requirements
+
+Just run the following line of command `pip install requirements.txt` in your shell!
