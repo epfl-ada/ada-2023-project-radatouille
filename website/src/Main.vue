@@ -92,14 +92,18 @@
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
-                        <img src="/remy.png" alt="jamil"
-                            class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-[34%] left-[8%] rotate-[0deg] w-[60%]  h-full object-contain lg:max-h-none z-[2]" />
+                        <img src="/jamil.jpeg" alt="jamil"
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Jamil Maj</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
+                        <img src="/toque.png" alt="toque"
+                            class="absolute -top-[36%] left-[26%] rotate-[-30deg] w-[43%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/mariella.jpeg" alt="mariella"
-                            class="flex w-full drop-shadow-xl object-contain  aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
                         <h6 class="text-center italic">Master in Digital Humanities</h6>
                     </div>
@@ -219,7 +223,7 @@
                     </h3>
                     <p class="mt-2">
                         We have a lot of tools and nice recipes to use with our ingredients, and we'll try
-                        to describe and justify them in the following section:
+                        to describe and justify them in the following cookbook:
                     </p>
                     <div>
                         <TabGroup :selectedIndex="activeCookbookTabId">
@@ -1369,7 +1373,7 @@
 
                 <table class="w-full border-slate-600 drop-shadow-lg mt-4 rounded overflow-hidden">
                     <thead>
-                        <tr class="border-slate-600 border-b-[1px] bg-slate-200">
+                        <tr class="border-slate-600 border-b-[1px] bg-slate-200 text-center lg:text-start">
                             <th class="text-end pr-2">Feature</th>
                             <td>Genre</td>
                             <td>Actors</td>

@@ -1090,11 +1090,19 @@ export function callbackReleaseYear(chartRef1, chartRef2, fileUrl) {
         ];
 
         plotChart(chartRef1, trace1, {
-            title: 'Mean IMDb Rating and Metascore by Release Year',
+            title: 'Mean IMDb Rating and Metascore<br>by Release Year',
             xaxis: {
                 title: 'Release Year',
                 automargin: true
             },
+            legend: {
+                showlegend: true,
+                xanchor: "center",
+                yanchor: "top",
+                y: -0.2,
+                x: 0.5,
+                orientation: 'h'
+              },
             yaxis: {
                 title: 'Mean Rating',
                 automargin: true
@@ -1140,7 +1148,7 @@ export function callbackReleaseYear(chartRef1, chartRef2, fileUrl) {
         },]
 
         plotChart(chartRef2, trace2, {
-            title: 'Mean Rating Difference by Release Year',
+            title: 'Mean Rating Difference<br>by Release Year',
             xaxis: {
                 title: 'Release Year',
                 automargin: true
@@ -1149,6 +1157,15 @@ export function callbackReleaseYear(chartRef1, chartRef2, fileUrl) {
                 title: 'Mean Rating Difference',
                 automargin: true
             },
+            legend: {
+                showlegend: true,
+                xanchor: "center",
+                yanchor: "top",
+                yref: "paper",
+                y: -0.2,
+                x: 0.5,
+                orientation: 'h'
+              },
             autosize: true,
             responsive: true,
         })
