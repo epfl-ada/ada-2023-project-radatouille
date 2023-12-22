@@ -1,4 +1,4 @@
-# Screen Tastes: The User-Critic Divide in Cinema
+# 🎥 Screen Tastes: The User-Critic Divide in Cinema
 
 by the *rADAtouille* team
 
