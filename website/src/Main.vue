@@ -60,50 +60,54 @@
                         <img src="/remy.png" alt="remy" class="w-full mt-4 drop-shadow-xl object-contain lg:max-h-none" />
                         <h5 class="font-semibold text-center">Remy</h5>
                     </div>
-                    <div class="w-full flex flex-col h-full relative mt-10">
-                        <!--
+                    <div class="w-full flex flex-col h-full mt-10">
+                        <div class="w-full relative">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[48%] left-[35%] w-[50%] h-full object-contain lg:max-h-none z-[2] -scale-x-100" />
                         <img src="/antonin2.jpg" alt="antonin"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
-                        -->
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[41%] left-[16%] rotate-[15deg] w-[51%] h-full object-contain lg:max-h-none z-[2] scale-x-100" />
-                        <img src="/antonin.jpg" alt="antonin"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                        </div>
                         <h5 class="font-semibold text-center">Antonin Faure</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
 
-                    <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
+                    <div class="w-full flex flex-col h-full mt-6 md:mt-10">
+                        <div class="w-full relative">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/baptiste.jpg" alt="baptiste"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            </div>
                         <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
-                    <div class="w-full flex flex-col h-full relative mt-6 md:mt-10">
+                    <div class="w-full flex flex-col h-full mt-6 md:mt-10">
+                        <div class="w-full relative">
                         <img src="/toque.png" alt="toque"
                             class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/enzo.jpeg" alt="enzo"
                             class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                            </div>
                         <h5 class="font-semibold text-center">Enzo Palmisano</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
-                    <div class="w-full flex flex-col h-full relative md:mt-10">
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[34%] left-[8%] rotate-[0deg] w-[60%]  h-full object-contain lg:max-h-none z-[2]" />
-                        <img src="/jamil.jpeg" alt="jamil"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                    <div class="w-full flex flex-col h-full md:mt-10">
+                        <div class="w-full relative">
+                            <img src="/toque.png" alt="toque"
+                                class="absolute -top-[25%] left-[18%] rotate-[8deg] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
+                            <img src="/jamil.jpeg" alt="jamil"
+                                class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                        </div>
                         <h5 class="font-semibold text-center">Jamil Maj</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
-                    <div class="w-full flex flex-col h-full relative md:mt-10">
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[36%] left-[26%] rotate-[-30deg] w-[43%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
-                        <img src="/mariella.jpeg" alt="mariella"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                    <div class="w-full flex flex-col h-full md:mt-10">
+                        <div class="w-full relative">
+                            <img src="/toque.png" alt="toque"
+                                class="absolute -top-[34%] left-[23%] rotate-[-30deg] w-[50%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
+                            <img src="/mariella.jpeg" alt="mariella"
+                                class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
+                        </div>
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
                         <h6 class="text-center italic">Master in Digital Humanities</h6>
                     </div>
@@ -1367,7 +1371,7 @@
                 <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Mixing it all with a yummy conclusion</h5>
                 <p class="mt-2 text-justify">
                     Now that all of our ingredients are selected and refined, we’d like to see if mixing them can enhance
-                    the results we obtain. Let’s first recall the results we obtained for the most important of our metrics, 
+                    the results we obtain. Let’s first recall the results we obtained for the most important of our metrics,
                     the adjusted R&#178;:
                 </p>
 
@@ -1396,14 +1400,16 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="mt-4"> 
+                <p class="mt-4">
                     The <b>tropes</b> were indeed the most performant indicator we prepared so far but were also a bit
-                    obscure and 
-                    hard to interpret. The <b>genres</b> and <b>actors</b> are very good indicators overall. The 
-                    awards are quite interesting too, despite their low R&#178;, since they were only 5 significant awards. The <b>release
-                        year</b> is a 
-                    single continuous indicator with respectable results, and the <b>countries</b> might also be very good, 
-                    accounting for almost 6% of the variance explained. However, these metrics account for each feature independently. 
+                    obscure and
+                    hard to interpret. The <b>genres</b> and <b>actors</b> are very good indicators overall. The
+                    awards are quite interesting too, despite their low R&#178;, since they were only 5 significant awards.
+                    The <b>release
+                        year</b> is a
+                    single continuous indicator with respectable results, and the <b>countries</b> might also be very good,
+                    accounting for almost 6% of the variance explained. However, these metrics account for each feature
+                    independently.
                 </p>
                 <p class="mt-4">
                     Gathering all of the mise en place from before, we keep <u>88 significant features</u> that we
@@ -1486,7 +1492,8 @@
                     </div>
                 </div>
                 <p class="mt-4 my-4 bg-slate-200 rounded-r-lg border-l-8 border-slate-600 pl-6 pr-8 py-4 ">
-                    This result of only <b>23% of explained variance</b> might seem low, but since this kind of modeling is really
+                    This result of only <b>23% of explained variance</b> might seem low, but since this kind of modeling is
+                    really
                     hard, involving features <b>highly correlated together</b>, a human dimension hard to grasp, and other
                     facts that are simply not described by the features we had at our disposal, we can be pretty
                     satisfied with the overall dish concocted there. What's great is that our careful methodology
