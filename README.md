@@ -52,17 +52,15 @@ We subdivide our project into different steps to answer the question. The number
 
 1. **Getting familiar with the data and exploring external dataset possibilities**: We explore the data we have and see what we can do with it, and what we cannot, and start to clean the dataset. We also explore the different external datasets we can use.
 2. **Data scrapping and pre-processing:** We scrap the data from IMDb,  Wikidata, and get the additional dataset from Github, and merge it with our data. Additionally, we pre-process the data to have an exploitable dataset and avoid having outliers.
-3. **Comparing different metrics and metadata:** After an initial analysis of the used metrics (User’s and critics’s score), we will create a new metric that reflects the difference between both metrics. 
+3. **Comparing different features with our metric:** After an initial analysis of the used metrics (User’s and critics’s score), we will create a new metric that reflects the difference between both metrics : the *rating difference*
 
-    We try to see if for the created metric there is a correlation between the different metadata and the metric. We will also try to discern some eventual biases in the different metrics.
+- We'll try to see if for our new metric has correlation with the different features. We'll also try to discern some eventual biases in the different features themselves.
+- The number of awards and nominations is considered as an additional feature as it's often considered as a good indicator of the quality of a movie.
 
-
-    The number of awards and nominations is considered as an additional metadata. It is a good indicator of the quality of a movie.
-
-4. Comparing different metrics between them: we try to see which features have the biggest effect on the rating difference.
-5. Datastory: Creating a data story
-6. Website: Creating a website
-7. Project logistics: Aggregate each step in a notebook, comment on the code, and adapt this README!
+4. **Features ranking:** We'll try to see which features have the biggest effect on the rating difference.
+5. **Datastory:** Creating a data story
+6. **Website:** Creating a website
+7. **Project logistics:** Aggregate each step in a notebook, comment on the code, and adapt this README!
 
 
 ## Methods
