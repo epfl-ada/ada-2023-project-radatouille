@@ -127,4 +127,4 @@ Measurement of the multicollinearity of a feature. Has been used to get rid of t
 
 ## Requirements
 
-Just run the following line of command `pip install requirements.txt` in your shell!
+Just run the following line of command `pip install -r requirements.txt` in your shell!
