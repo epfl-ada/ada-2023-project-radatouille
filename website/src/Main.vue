@@ -501,7 +501,9 @@
                                                             regression.
                                                             The VIF is
                                                             then
-                                                            calculated as 1/(1-R&#178;). The higher the VIF, the higher the
+                                                            calculated as :
+                                                            <MathJaxEquation :equation="`$$\\frac{1}{1-R^2}$$`" />
+                                                            The higher the VIF, the higher the
                                                             multicollinearity. A
                                                             VIF of 1
                                                             means that
@@ -525,7 +527,7 @@
                                                     <div
                                                         class="flex flex-col w-full lg:w-1/2 px-0 lg:px-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
-                                                            class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
+                                                            class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-5 lg:px-6 lg:pr-8 py-4">
                                                             <p>
                                                                 <span class="font-bold">
                                                                     Grandma's Hack:</span> <br>To detect multicollinear
@@ -546,7 +548,7 @@
                                                                 huge
                                                                 likelihood that a multicollinear feature problem is present!
                                                             </p>
-                                                            <div class="flex w-1/2 mb-2 mt-5 mx-auto relative">
+                                                            <div class="flex w-1/2 mb-2 mt-10 lg:mt-5 mx-auto relative">
                                                                 <img src="/toque.png" alt="toque"
                                                                     class="absolute -top-[40%] left-[32%] rotate-[0deg] w-[50%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                                                                 <img src="/cookbookAda.jpeg" alt="ada"
@@ -615,6 +617,7 @@
                                 Let's define what we're interested in: <b>the rating difference between the critics and the
                                     users</b>.
                             </p>
+                            <MathJaxEquation :equation="`$$\\text{Rating Difference} = \\text{Metascore} - \\text{IMDb Rating}$$`" />
                             <p class="mt-4">We can see
                                 from the following plot that, while this distribution looks normal, it's shifted to the left
                                 (as we said
@@ -1052,7 +1055,7 @@
                         </h5>
                         <p>
                             That's a lot to digest so far, so let's have a little break to let it sink in and prepare a
-                            little <b>hors-d'oeuvre</b>. We'd like to go a little bit in detail about our selected “recipes”
+                            little <b>hors-d'oeuvre</b>. We'd like to go into a little bit of detail about our selected “recipes”
                             and
                             discuss them a bit.
                         </p>
@@ -1077,7 +1080,7 @@
                     </div>
                 </section>
 
-                <!-- ==== RELEASE DATE ==== -->
+                <!-- ==== RELEASE YEAR ==== -->
                 <section id="release-year" class="section">
                     <h3 class="text-3xl lg:text-4xl font-bold mt-12 items-center text-start">
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Release Year
@@ -1127,11 +1130,11 @@
                     <p class="mt-2">
                         Running the OLS also gives numbers, indicating big multicollinearity, which seems normal as
                         years
-                        are strongly related. We also find a negative coefficient for years of <b>-0.1925</b>, indicating
+                        are strongly related. We also find a negative coefficient for years of <b>-0.19</b>, indicating
                         that
                         with
-                        each passing year, the rating difference decreases by 0.1925 points. We also learned using the
-                        R&#178; value that the year explain
+                        each passing year, the rating difference decreases by 0.19 points. We also learned using the
+                        R&#178; value that the year explains
                         about <b>4.1%</b> of the variance in rating difference, which is not a lot. It is <u>significant</u>
                         but not <b>relevant</b>.
                     </p>
@@ -1223,10 +1226,9 @@
                                     interconnected.
                                 </p>
                                 <p class="mt-4">
-                                    Comparing the result of the Pearson shows that the results seem comparable, with some
-                                    slight difference
-                                    in
-                                    the order. The type of the actors, however, seem quite consistent between the two.
+                                    Comparing the results of Pearson shows that the results seem comparable, with some
+                                    slight differences
+                                    in order. The type of the actors, however, seems quite consistent between the two.
                                 </p>
                             </div>
                         </div>
@@ -1249,21 +1251,21 @@
                         <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />Tropes
                     </h3>
                     <p>
-                        The last ingredient for our glorious meal are the tropes. As a friendly reminder, tropes are “a
+                        The last ingredient for our glorious meal is the tropes. As a friendly reminder, tropes are “a
                         significant
                         or recurrent theme; a motif”. Maybe this boring repetitive structure in this site was an artistic
                         choice from
-                        the beginning? Let's get back to the kitchen. Because tropes are categories that are human made and
+                        the beginning. Let's get back to the kitchen. Because tropes are categories that are human-made and
                         manually
                         assigned to each movie on the internet, the classification can be even messier than movie genres.
                         But since
-                        it's born from human need for categorization, we do think it can be a very valuable source of
+                        it is born from the human need for categorization, we do think it can be a very valuable source of
                         information.
                     </p>
                     <p class="mt-4">
                         Notice that, while the dataset merging in the previous steps didn't leave out a lot of movies, the
                         tropes
-                        merging drastically reduced the number of datapoints, down to approximately 2495, as mentioned
+                        merging drastically reduced the number of data points, down to approximately 2495, as mentioned
                         during our
                         fridge inspection. Still plenty of room to work with! We know you're already drooling, but hold on
                         through
@@ -1278,23 +1280,19 @@
                                 As expected, the Pearson correlation filtered out our movies down to around <u>300
                                     significant tropes</u>,
                                 which
-                                is indeed enough to continue our analysis. Diving into the plot, we can see really funny and
+                                is indeed enough to continue our analysis. Diving into the plot, we can see funny and
                                 odd tropes
-                                standing out. What is absolutely great is that the <i class="feature">Oscar Bait</i>
-                                type of film, with <b>correlation of 0.1</b>, is
-                                actually taking the highest place of the plot, meaning that indeed, this trope is a
+                                standing out. What is great is that the <i class="feature">Oscar Bait</i>
+                                type of film, with a <b>correlation of 0.1</b>, is taking the highest place of the plot, meaning that indeed, this trope is a
                                 significant indicator
                                 for critical reception. On the other end, <i class="feature">Ms
-                                    Fanservice</i>, with
-                                <b>correlation of 0.11</b> too, indicates that
-                                …fans like it. So far so good. This is no real surprise, since these qualifiers could have
+                                    Fanservice</i>, with a <b>correlation of 0.11</b>, indicates that... fans like it. So far so good. This is no real surprise since these qualifiers could have
                                 been attributed
                                 a posteriori. In general, we can suspect that these tropes are tightly related to all other
-                                features, like
+                                features like
                                 <i class="feature">Deliberately Monochrome</i> is way more likely to
-                                qualify art films,
-                                and are likely to be considered part of
-                                Auteur license too. On the other hand, expected tropes binded with genre, like <i
+                                qualify art films and is likely to be considered part of
+                                an Auteur license too. On the other hand, expected tropes binded with the genre, like <i
                                     class="feature">Slasher</i> reappears,
                                 reinforcing the insights provided by the Genre analysis. In general, the confidence
                                 intervals are wide,
@@ -1332,12 +1330,11 @@
                                 outcome is
                                 even harder to interpret. Based on the metrics evaluating the regression quality, the
                                 results are good,
-                                but here we're probably limited by our own projections. These results could've been
-                                expected, since most
+                                but here we're probably limited by our projections. These results could've been expected since most
                                 of them are heavily tailored and strongly related to the movie's target audience. However,
                                 we do observe
-                                wider confidence intervals, getting us an insight that maybe, the variance of these rating
-                                differences are
+                                wider confidence intervals, giving us an insight that maybe, the variance of these rating
+                                differences is
                                 high. Let's still highlight the fact that <i class="feature">Roof
                                     hopping</i> performs
                                 well to impress critics, while strangely,
@@ -1436,7 +1433,7 @@
 
                         <p class="mt-4">
                             The only actor appearing and worth mentioning is <i class="feature">Gerard
-                                Butler</i>, who was not even in the top 20 of the specific Actor analysis, but appears here.
+                                Butler</i>, who was not even in the top 20 of the specific Actor analysis but appears here.
                             This can
                             be explained maybe by his roles in a lot of films appreciated more by users, from very good ones
                             (<i>How to Train your Dragon</i>) to mediocre ones (<i>Movie 43</i>). The only film he starred
@@ -1464,7 +1461,7 @@
                             Sadly, some of our features were again seemingly multicollinear, and the VIF filtering brings
                             them down to 81 significant ones to be fed to our OLS. Poor Gerard Butler didn't survive the
                             filtering, as well as the United States. There are <u>14 significant features</u> according to
-                            the OLS are (out of 81), and in
+                            the OLS (out of 81), and in
                             detail, we do see only Genre, and Tropes type of features. While consistent with the specific
                             analysis, i.e. the orientation of their influence is the same, we feel like something is missing
                             in that final result.
@@ -1608,6 +1605,7 @@ import { onMounted, ref, defineAsyncComponent, defineComponent } from 'vue';
 import { BookmarkIcon } from "@heroicons/vue/24/solid"
 import { TabGroup, TabList, Tab, TabPanels, TabPanel, TransitionRoot, TransitionChild } from '@headlessui/vue'
 import * as plotFunctions from './plots.js'
+import MathJaxEquation from './MathJaxEquation.vue';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 

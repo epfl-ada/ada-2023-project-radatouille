@@ -414,7 +414,7 @@ export function callbackCountries1(chartRef, fileUrl) {
         }, false)
 
         plotChart(chartRef, trace, {
-            title: 'Mean Rating difference for Countries',
+            title: 'Mean Rating Difference for Countries',
             xaxis: {
                 title: 'Rating difference',
                 automargin: true
