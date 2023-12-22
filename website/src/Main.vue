@@ -62,10 +62,10 @@
                     </div>
                     <div class="w-full flex flex-col h-full mt-10">
                         <div class="w-full relative hover:rotate-[-5deg] transition duration-300 hover:scale-105">
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[48%] left-[35%] w-[50%] h-full object-contain lg:max-h-none z-[2] -scale-x-100" />
-                        <img src="/antonin2.jpg" alt="antonin"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
+                            <img src="/toque.png" alt="toque"
+                                class="absolute -top-[48%] left-[35%] w-[50%] h-full object-contain lg:max-h-none z-[2] -scale-x-100" />
+                            <img src="/antonin2.jpg" alt="antonin"
+                                class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                         </div>
                         <h5 class="font-semibold text-center">Antonin Faure</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
@@ -73,28 +73,28 @@
 
                     <div class="w-full flex flex-col h-full mt-6 md:mt-10">
                         <div class="w-full relative hover:rotate-[5deg] transition duration-300 hover:scale-105">
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
-                        <img src="/baptiste.jpg" alt="baptiste"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
-                            </div>
+                            <img src="/toque.png" alt="toque"
+                                class="absolute -top-[46%] rotate-[14deg] left-[44%] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
+                            <img src="/baptiste.jpg" alt="baptiste"
+                                class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
+                        </div>
                         <h5 class="font-semibold text-center">Baptiste Lecoeur</h5>
                         <h6 class="text-center italic">Master in Data Science</h6>
                     </div>
                     <div class="w-full flex flex-col h-full mt-6 md:mt-10">
                         <div class="w-full relative hover:rotate-[-5deg] transition duration-300 hover:scale-105">
-                        <img src="/toque.png" alt="toque"
-                            class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
-                        <img src="/enzo.jpeg" alt="enzo"
-                            class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
-                            </div>
+                            <img src="/toque.png" alt="toque"
+                                class="absolute -top-[48%] left-[14%] rotate-[-30deg] w-[65%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
+                            <img src="/enzo.jpeg" alt="enzo"
+                                class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
+                        </div>
                         <h5 class="font-semibold text-center">Enzo Palmisano</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full md:mt-10">
                         <div class="w-full relative hover:rotate-[5deg] transition duration-300 hover:scale-105">
                             <img src="/toque.png" alt="toque"
-                                class="absolute -top-[25%] left-[18%] rotate-[8deg] w-[50%] h-full object-contain lg:max-h-none z-[2]" />
+                                class="absolute -top-[37%] left-[18%] rotate-[8deg] w-[45%] h-full object-contain lg:max-h-none z-[2]" />
                             <img src="/jamil.jpeg" alt="jamil"
                                 class="flex w-full drop-shadow-xl object-contain aspect-square rounded-xl mb-2" />
                         </div>
@@ -265,7 +265,7 @@
                             </TabList>
                             <div class="flex justify-between mt-6 w-full mx-auto">
                                 <button
-                                    class="bg-slate-600 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-l-xl disabled:opacity-0"
+                                    class="bg-slate-600 hover:bg-slate-700 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-l-xl disabled:opacity-0"
                                     @click="activeCookbookTabId -= 1" :disabled="activeCookbookTabId === 0">
                                     &lt;
                                 </button>
@@ -424,7 +424,7 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex w-full lg:w-1/2 px-0 lg:pr-6 lg:py-6 lg:border-l-2 border-slate-600">
+                                                        class="flex w-full lg:w-1/2 px-0 lg:pr-6 lg:px-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
                                                             <h4 class="text-xl italic font-semibold mb-1">For the gourmet
@@ -524,7 +524,7 @@
                                                         </p>
                                                     </div>
                                                     <div
-                                                        class="flex flex-col w-full lg:w-1/2 px-0 lg:pr-6 lg:py-6 lg:border-l-2 border-slate-600">
+                                                        class="flex flex-col w-full lg:w-1/2 px-0 lg:px-6 lg:py-6 lg:border-l-2 border-slate-600">
                                                         <div
                                                             class="bg-white lg:rounded-r-lg lg:border-l-8 border-slate-600 px-6 lg:pr-8 py-4">
 
@@ -548,8 +548,12 @@
                                                                 huge
                                                                 likelihood that a multicollinear feature problem is present!
                                                             </p>
-                                                            <img src="/cookbookAda.jpeg" alt="ada"
-                                                                class="flex w-1/2 mx-auto object-contain my-auto aspect-square rounded-full mb-2 mt-5" />
+                                                            <div class="flex w-1/2 mb-2 mt-5 mx-auto relative">
+                                                                <img src="/toque.png" alt="toque"
+                                                                    class="absolute -top-[40%] left-[32%] rotate-[0deg] w-[50%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
+                                                                <img src="/cookbookAda.jpeg" alt="ada"
+                                                                    class="w-full mx-auto object-contain my-auto aspect-square rounded-full" />
+                                                            </div>
                                                             <h6 class="italic text-center text-lg  font-semibold">Ada
                                                                 Lovelace</h6>
                                                             <h6 class="font-light text-sm text-center mb-3">(our
@@ -562,7 +566,7 @@
                                     </TabPanel>
                                 </TabPanels>
                                 <button
-                                    class="carousel-btn next bg-slate-600 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-r-xl disabled:opacity-0"
+                                    class="carousel-btn next bg-slate-600 hover:bg-slate-700 text-white py-2 px-3 disabled:bg-slate-200 disabled:text-black rounded-r-xl disabled:opacity-0"
                                     @click="activeCookbookTabId += 1" :disabled="activeCookbookTabId === 4">
                                     &gt;
                                 </button>
@@ -1501,46 +1505,52 @@
                     insightful Pearson plot and an interesting OLS.
                 </p>
 
-                <h3 class="text-3xl lg:text-4xl font-bold mt-5 items-center text-start">
-                    <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />What now?
-                </h3>
-                <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">After Eight</h5>
+                <section id="next" class="section">
+                    <h3 class="text-3xl lg:text-4xl font-bold mt-5 items-center text-start">
+                        <BookmarkIcon class="w-9 h-9 float-left mr-2 pt-1" />What's next?
+                    </h3>
+                    <h5 class="text-lg lg:text-xl italic text-slate-600 text-start">Dessert is served, but we're still
+                        hungry</h5>
 
-                <div class="grid lg:grid-cols-3 mt-3 w-full gap-5">
-                    <div class="flex flex-col order-1 lg:order-1 col-span-2">
-                        <p>
-                            To go further, we'd be honored to let future
-                            chefs add their spices to the meal. We thought about exploring those topics too:
-                        <ul class="list-disc list-inside pl-5">
-                            <li>Exploring the difference between the critics themselves, since they're not grading the same
-                                way,
-                                depending on the genre of movies for instance.
-                            </li>
-                            <li>
-                                Try to unveil the way the Metascore is weighted and computed, and why not, develop a metric
-                                to
-                                find a publisher to read based on your taste?</li>
-                            <li>
-                                Find a way to cluster users based on the score they give, be it according to the genres or
-                                another type of features</li>
-                            <li>
-                                Explore interaction terms between the features we extracted</li>
-                        </ul>
-                        </p>
-                        <p class="mt-4">
-                            We do hope that this dish could satisfy any Anton Ego, but in case you have room for more,
-                            don't hesitate to taste other projects made by the ADA teams through the years.
+                    <div class="grid lg:grid-cols-3 mt-3 w-full gap-5">
+                        <div class="flex flex-col order-1 lg:order-1 col-span-2">
+                            <p>
+                                To go further, we'd be honored to let future
+                                chefs add their spices to the meal. We thought about exploring those topics too:
+                            <ul class="list-disc list-inside pl-5">
+                                <li>Exploring the difference between the critics themselves, since they're not grading the
+                                    same
+                                    way,
+                                    depending on the genre of movies for instance.
+                                </li>
+                                <li>
+                                    Try to unveil the way the Metascore is weighted and computed, and why not, develop a
+                                    metric
+                                    to
+                                    find a publisher to read based on your taste?</li>
+                                <li>
+                                    Find a way to cluster users based on the score they give, be it according to the genres
+                                    or
+                                    another type of features</li>
+                                <li>
+                                    Explore interaction terms between the features we extracted</li>
+                            </ul>
+                            </p>
+                            <p class="mt-4">
+                                We do hope that this dish could satisfy any Anton Ego, but in case you have room for more,
+                                don't hesitate to taste other projects made by the ADA teams through the years.
 
-                        </p>
-                    </div>
-                    <div
-                        class="flex flex-col col-span-3 order-2 lg:col-span-1 lg:order-2 w-full items-center justify-center">
-                        <div class="flex flex-col h-full w-full items-center justify-center">
-                            <img src="/ego.png" alt="ego"
-                                class="lg:w-full mt-4 drop-shadow-xl max-h-[400px] lg:max-h-none hover:scale-y-105 hover:-scale-x-105 hover:drop-shadow-none transition duration-300 -scale-x-100" />
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col col-span-3 order-2 lg:col-span-1 lg:order-2 w-full items-center justify-center">
+                            <div class="flex flex-col h-full w-full items-center justify-center">
+                                <img src="/ego.png" alt="ego"
+                                    class="lg:w-full mt-4 drop-shadow-xl max-h-[400px] lg:max-h-none hover:scale-y-105 hover:-scale-x-105 hover:drop-shadow-none transition duration-300 -scale-x-100" />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
             </section>

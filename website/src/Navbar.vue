@@ -132,7 +132,12 @@ const sections = [{
         title: 'Conclusion',
         link: '#conclusion'
     },
-    secondaryMenuLinks: []
+    secondaryMenuLinks: [
+        {
+            id: 1,
+            title: "What's next?",
+            link: '#next'
+        }]
 }, {
     id: 4,
     mainMenuLink: {

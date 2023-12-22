@@ -55,7 +55,7 @@ export function stringDivider(str, width, spaceReplacer) {
     return str;
 }
 
-export function transformDataForPlotly(data, x_column, y_column, text_function = null) {
+export function transformDataForPlotly(data, x_column, y_column, text_function = null, stringDivide=true) {
     let maxAbsValue = Math.max(...data.map(item => Math.abs(item[x_column])));
 
     const lower_ci = data.map(item => item['lower_ci'] ? item[x_column] - item['lower_ci'] : item['sem'] * 1.96)
@@ -67,7 +67,7 @@ export function transformDataForPlotly(data, x_column, y_column, text_function =
 
     let trace = {
         x: data.map(item => item[x_column]),
-        y: data.map(item => stringDivider(item[y_column], 20, "<br>")),
+        y: data.map(item => stringDivide ? stringDivider(item[y_column], 20, "<br>"): item[y_column]),
         hovertext: text_function ? data.map(item => text_function(item)) : null,
         error_x: {
             type: 'data',
@@ -236,7 +236,8 @@ export function callbackUsersCritics1(data, chartRef) {
         marker: {
             color: '#67001f',
             opacity: 0.2,
-        }
+        },
+        showlegend: false
     }, {
         x: [0, 105],
         y: [0, 105],
@@ -247,8 +248,33 @@ export function callbackUsersCritics1(data, chartRef) {
             dash: 'dot',
             width: 2,
             color: 'grey'
-        }
+        },
+        showlegend: false
     }, {
+        x: [0, 105],
+        y: [50, 50],
+        mode: 'lines',
+        type: 'scatter',
+        name: 'y=50',
+        line: {
+            dash: 'dot',
+            width: 2,
+            color: 'black'
+        },
+        showlegend: false
+    }, {
+        x: [50, 50],
+        y: [0, 105],
+        mode: 'lines',
+        type: 'scatter',
+        name: 'x=50',
+        line: {
+            dash: 'dot',
+            width: 2,
+            color: 'black'
+        },
+        showlegend: false
+    },  {
         x: [data.map(movie => movie.metascore).reduce((a, b) => a + b, 0) / data.length],
         y: [data.map(movie => movie.imdb_rating_scaled).reduce((a, b) => a + b, 0) / data.length],
         mode: 'markers',
@@ -299,7 +325,13 @@ export function callbackUsersCritics1(data, chartRef) {
             t: 50,
             pad: 4
         },
-        showlegend: false
+        legend: {
+            xanchor: "center",
+            yanchor: "top",
+            y: -0.2,
+            x: 0.5,
+            orientation: 'h'
+        }
     };
 
     plotChart(chartRef, trace, layout)
@@ -379,7 +411,7 @@ export function callbackCountries1(chartRef, fileUrl) {
 
         const trace = transformDataForPlotly(data, 'mean', 'countries', function (item) {
             return `Number of movies: ${item.count.toFixed(0)}`;
-        })
+        }, false)
 
         plotChart(chartRef, trace, {
             title: 'Mean Rating difference for Countries',
@@ -393,12 +425,18 @@ export function callbackCountries1(chartRef, fileUrl) {
                     standoff: 0
                 },
                 automargin: true,
+                ticklen: 5,
                 tickfont: {
                     size: 10
-                }
+                },
+                tickmode: "array",
+                nticks: data.length +1,
+                tickvals: data.map(item => item.countries),
+                ticktext: data.map(item => stringDivider(item.countries, 20, "<br>")),
             },
             autosize: true,
             responsive: true,
+            height: 1000,
         });
     });
 }
@@ -430,7 +468,8 @@ export function callbackCountries2(chartRef, fileUrl) {
                 automargin: true,
                 tickfont: {
                     size: 10
-                }
+                },
+                ticklen: 5
             },
             autosize: true,
             responsive: true,
@@ -499,7 +538,8 @@ export function callbackGenres1(chartRef, fileUrl) {
                 automargin: true,
                 tickfont: {
                     size: 10
-                }
+                },
+                ticklen: 5
             },
             autosize: true,
             responsive: true,
@@ -536,7 +576,8 @@ export function callbackGenres2(chartRef, fileUrl) {
                 automargin: true,
                 tickfont: {
                     size: 10
-                }
+                },
+                ticklen: 5
             },
             autosize: true,
             responsive: true,
@@ -607,9 +648,9 @@ export function callbackAwards1(chartRef, fileUrl) {
         }]
 
         plotChart(chartRef, trace, {
-            title: 'Mean rating difference for Awards',
+            title: 'Number of movies per Award',
             xaxis: {
-                title: 'Rating difference',
+                title: 'Number of movies',
                 automargin: true
             },
             yaxis: {
