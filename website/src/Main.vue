@@ -957,7 +957,7 @@
                                 <h4 class="text-xl font-bold">Pearson Correlation</h4>
                                 <p class="mt-2">
                                     By running a Pearson correlation on the data, we notice that the <a
-                                        href=”https://en.wikipedia.org/wiki/National_Board_of_Review” class="feature italic"
+                                        href="https://en.wikipedia.org/wiki/National_Board_of_Review" class="feature italic"
                                         target="_blank"> National Board of
                                         Review Award </a> shows the highest positive correlation among the awards, which
                                     suggests that as the number of National Board of Review awards increases, the rating
