@@ -93,17 +93,17 @@
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/toque.png" alt="toque"
-                            class="absolute -top-[37%] left-[10%] rotate-[0deg] w-[60%]  h-full object-contain lg:max-h-none z-[2]" />
+                            class="absolute -top-[34%] left-[8%] rotate-[0deg] w-[60%]  h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/jamil.jpeg" alt="jamil"
-                            class="flex w-full drop-shadow-xl object-cover object-[50%_30%]  aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Jamil Maj</h5>
                         <h6 class="text-center italic">Master in Energy</h6>
                     </div>
                     <div class="w-full flex flex-col h-full relative md:mt-10">
                         <img src="/toque.png" alt="toque"
-                            class="absolute -top-[40%] left-[26%] rotate-[-30deg] w-[43%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
+                            class="absolute -top-[36%] left-[26%] rotate-[-30deg] w-[43%] -scale-x-100 h-full object-contain lg:max-h-none z-[2]" />
                         <img src="/mariella.jpeg" alt="mariella"
-                            class="flex w-full drop-shadow-xl object-cover aspect-square mb-2" />
+                            class="flex w-full drop-shadow-xl object-contain aspect-square mb-2" />
                         <h5 class="font-semibold text-center">Mariella Daghfal</h5>
                         <h6 class="text-center italic">Master in Digital Humanities</h6>
                     </div>
