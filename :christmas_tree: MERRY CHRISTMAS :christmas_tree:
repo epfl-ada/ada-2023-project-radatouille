@@ -1,8 +1,8 @@
-# 🎥 Screen Tastes: The User-Critic Divide in Cinema
-
-by the *rADAtouille* team
+# 🎥 [Screen Tastes: The User-Critic Divide in Cinema](https://epfl-ada.github.io/ada-2023-project-radatouille/)
 
 [![Github Pages](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml/badge.svg)](https://github.com/epfl-ada/ada-2023-project-radatouille/actions/workflows/deploy.yml)
+
+[Datastory](https://epfl-ada.github.io/ada-2023-project-radatouille/) by the *rADAtouille* team
 
 ## Abstract
 
@@ -45,18 +45,16 @@ In the age of abundant cinematic content, distinguishing exceptional movies beco
 
 ## Research Questions
 
-
-
 * Do users and critics have different tastes?
 * If yes, how does each of these features impact the difference independently?
 * Finally, can we find global features explaining that discrepancy and how well?
 
 
-## Proposed additional datasets:
+## Datasets
 
-As our project's goal is to compare different metrics that we don't originally have, we will need to get data from different sources. We will use the following datasets:
+Our whole project is built around the [CMU Movie Corpus](https://www.cs.cmu.edu/~ark/personas/), created by David Bamman, Brendan O'Connor, and Noah Smith at the Language Technologies Institute and Machine Learning Department at Carnegie Mellon University.
 
-
+But since our project's goal is to compare different metrics that we don't originally have, we will need to get data from external sources. We will use the following additional datasets:
 
 * Average user's score:
     * Scrapped from IMDb
